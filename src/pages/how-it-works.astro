@@ -89,7 +89,7 @@ const versions = [
   <section id="program" class="scroll-mt-40" data-hero aria-labelledby="program-h">
     <div class="wrap grid items-center gap-12 pt-14 pb-20 lg:grid-cols-[1.1fr_1fr] lg:gap-20 lg:pt-20 lg:pb-28">
       <div>
-        <p class="eyebrow">The program</p>
+        <span class="chip">The program</span>
         <h1 id="program-h" class="display-xl mt-6 !text-[clamp(2.75rem,5.6vw,4.75rem)]">How the Lemon Detox Cleanse <em>works.</em></h1>
         <div class="my-8 flex items-center gap-0" aria-hidden="true"><span class="h-px w-14 bg-gradient-to-r from-transparent to-gold"></span><span class="h-2 w-2 rounded-full bg-gold"></span><span class="h-px w-14 bg-gradient-to-l from-transparent to-gold"></span></div>
         <div class="max-w-xl space-y-5 text-ink-soft">
@@ -101,7 +101,7 @@ const versions = [
       <div class="relative">
         <ImageSlot name="hiw-hero" alt="A glass jug of the Lemon Detox drink with fresh lemons" eager class="zoom-img breathe aspect-[4/5] rounded-card bg-paper" sizes="(min-width: 1024px) 520px, 100vw" />
         <div class="absolute -bottom-6 left-6 rounded-card bg-white px-6 py-4 shadow-[var(--shadow-soft)] sm:left-auto sm:-right-6">
-          <p class="font-serif text-2xl font-bold text-ink">7 to 14 days</p>
+          <p class="font-serif text-2xl text-ink">7 to 14 days</p>
           <p class="text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">One clear rhythm</p>
         </div>
       </div>
@@ -119,15 +119,16 @@ const versions = [
   <section id="pause" class="scroll-mt-36 bg-paper/70 py-16 lg:py-24" aria-labelledby="pause-h">
     <div class="wrap grid gap-10 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
       <div data-reveal>
-        <p class="eyebrow mb-5">The pause</p>
+        <span class="chip mb-6">The pause</span>
         <h2 id="pause-h" class="display-lg">Why choose the Lemon Detox <em>Cleanse.</em></h2>
+          <span class="rule" aria-hidden="true"></span>
       </div>
       <div class="space-y-5 text-ink-soft" data-reveal style="--d:100ms">
         <p>Modern life is fast, demanding, and often excessive. Convenience foods, constant snacking, and busy schedules can leave little space for awareness or balance.</p>
         <p>The body is designed to regulate and maintain itself. However, when routines become overloaded, many people feel out of rhythm — heavier, less focused, and lacking clarity.</p>
         <p>The Lemon Detox Cleanse provides a structured pause. By temporarily replacing solid food with a simple liquid routine, the program reduces digestive demand and creates space for recalibration.</p>
         <p>By simplifying intake and removing decision fatigue around food, many participants experience weight loss, improved awareness, and renewed control over their habits.</p>
-        <p class="border-l-2 border-gold pl-6 font-serif text-2xl leading-snug font-semibold text-ink italic">The value of the program lies not in extremes, but in structure, consistency, and intention.</p>
+        <p class="border-l-2 border-gold pl-6 font-serif text-2xl leading-snug text-ink italic">The value of the program lies not in extremes, but in structure, consistency, and intention.</p>
       </div>
     </div>
   </section>
@@ -136,8 +137,9 @@ const versions = [
   <section id="rhythm" class="scroll-mt-36 py-16 lg:py-24" aria-labelledby="rhythm-h">
     <div class="wrap">
       <div class="max-w-3xl" data-reveal>
-        <p class="eyebrow mb-5">Daily rhythm</p>
+        <span class="chip mb-6">Daily rhythm</span>
         <h2 id="rhythm-h" class="display-lg">A typical day on the Lemon Detox <em>Cleanse.</em></h2>
+          <span class="rule" aria-hidden="true"></span>
         <p class="mt-6 text-ink-soft">The program follows a simple daily rhythm designed to support detoxification, elimination, and the required energy throughout the cleanse.</p>
       </div>
       <div class="mt-16 space-y-12 sm:space-y-16">
@@ -164,8 +166,9 @@ const versions = [
     <div class="wrap">
       <div class="grid gap-8 lg:grid-cols-[1fr_1.25fr] lg:gap-20" data-reveal>
         <div>
-          <p class="eyebrow mb-5">The formula</p>
+          <span class="chip mb-6">The formula</span>
           <h2 id="formula-h" class="display-lg">What is the Lemon Detox <em>drink?</em></h2>
+          <span class="rule" aria-hidden="true"></span>
         </div>
         <div class="space-y-5 text-ink-soft">
           <p>The Lemon Detox program centres around a simple drink made from the <strong class="text-ink">Madal Bal® Natural Tree Syrup</strong>, fresh lemon juice, cayenne pepper and pure water.</p>
@@ -194,8 +197,9 @@ const versions = [
     <div class="wrap">
       <div class="grid items-end gap-6 lg:grid-cols-[1fr_1.1fr] lg:gap-20" data-reveal>
         <div>
-          <p class="eyebrow mb-5">Lemon Detox drink</p>
+          <span class="chip mb-6">Lemon Detox drink</span>
           <h2 id="mix-h" class="display-lg">Daily mixing <em>instructions.</em></h2>
+          <span class="rule" aria-hidden="true"></span>
         </div>
         <p class="text-ink-soft lg:pb-2">The Lemon Detox drink is simple, natural and easy to prepare. Fresh ingredients give the best flavour and the most effective cleanse experience.</p>
       </div>
@@ -211,7 +215,7 @@ const versions = [
             </div>
             <p class="mt-1 text-sm text-muted">{m.sub}</p>
             <ol class="mt-6 divide-y divide-black/[0.07]">
-              {m.items.map((it, j) => <li class="flex gap-5 py-3.5"><span class="font-serif text-xl font-bold text-gold-deep">{String(j + 1).padStart(2, '0')}</span><span>{it}</span></li>)}
+              {m.items.map((it, j) => <li class="flex gap-5 py-3.5"><span class="font-serif text-xl text-gold-deep">{String(j + 1).padStart(2, '0')}</span><span>{it}</span></li>)}
             </ol>
           </div>
         ))}
@@ -227,8 +231,9 @@ const versions = [
     <div class="wrap">
       <div class="grid gap-8 lg:grid-cols-[1fr_1.25fr] lg:gap-20" data-reveal>
         <div>
-          <p class="eyebrow mb-5">Elimination</p>
+          <span class="chip mb-6">Elimination</span>
           <h2 id="elim-h" class="display-lg">The key to a successful <em>program.</em></h2>
+          <span class="rule" aria-hidden="true"></span>
         </div>
         <div class="space-y-5 text-ink-soft">
           <p><strong class="text-ink">Effective elimination</strong> is the key to a successful Lemon Detox program, helping the body remove waste products released during the cleanse.</p>
@@ -264,8 +269,9 @@ const versions = [
   <section id="versions" class="scroll-mt-36 py-16 lg:py-24" aria-labelledby="ver-h">
     <div class="wrap">
       <div class="max-w-3xl" data-reveal>
-        <p class="eyebrow mb-5">Versions</p>
+        <span class="chip mb-6">Versions</span>
         <h2 id="ver-h" class="display-lg">Choose the cleanse that <em>suits you.</em></h2>
+          <span class="rule" aria-hidden="true"></span>
         <p class="mt-5 text-ink-soft">Choose the version that best suits your lifestyle and experience level.</p>
       </div>
       <div class="mt-10 grid gap-6 lg:grid-cols-3">
@@ -295,8 +301,9 @@ const versions = [
   <section id="depth" class="scroll-mt-36 bg-paper/70 py-16 lg:py-24" aria-labelledby="depth-h">
     <div class="wrap grid gap-10 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
       <div data-reveal>
-        <p class="eyebrow mb-5">Depth</p>
+        <span class="chip mb-6">Depth</span>
         <h2 id="depth-h" class="display-lg">Why the Full Body Cleanse provides the deepest <em>cleanse.</em></h2>
+          <span class="rule" aria-hidden="true"></span>
       </div>
       <div class="space-y-5 text-ink-soft" data-reveal style="--d:100ms">
         <p>The most important part of any detox program is giving the digestive system a break from solid food.</p>
@@ -313,8 +320,9 @@ const versions = [
     <div class="wrap">
       <div class="grid items-end gap-10 lg:grid-cols-[1.6fr_1fr]">
       <div class="max-w-3xl" data-reveal>
-        <p class="eyebrow mb-5">What to expect</p>
+        <span class="chip mb-6">What to expect</span>
         <h2 id="expect-h" class="display-lg">What to expect during the <em>cleanse.</em></h2>
+          <span class="rule" aria-hidden="true"></span>
         <p class="mt-5 text-ink-soft">Each person’s experience of the Lemon Detox Cleanse is unique, however many participants notice a similar pattern as their body adjusts to the program.</p>
       </div>
       <ImageSlot name="expect-side" alt="A woman walking through a garden carrying a yoga mat and a water bottle" class="zoom-img hidden aspect-[4/5] max-h-[26rem] rounded-card bg-paper lg:block" sizes="360px" data-unveil />
@@ -326,7 +334,7 @@ const versions = [
           ['The Clarity Phase', 'By the later stages of the cleanse, many people describe feeling lighter, more mentally clear and more aware of their eating habits and lifestyle choices — an opportunity to pause from everyday habits and reconnect with a healthier, more balanced way of living.'],
         ].map(([t, b], i) => (
           <li class="card p-7" data-reveal style={`--d:${i * 90}ms`}>
-            <span class="grid h-10 w-10 place-items-center rounded-full bg-lemon font-serif text-lg font-bold text-ink">{i + 1}</span>
+            <span class="grid h-10 w-10 place-items-center rounded-full bg-lemon font-serif text-lg text-ink">{i + 1}</span>
             <h3 class="mt-5 text-[1.8rem]">{t}</h3>
             <p class="mt-3 text-[0.95rem] text-ink-soft">{b}</p>
           </li>
@@ -340,8 +348,9 @@ const versions = [
   <section id="who-it-isnt-for" class="scroll-mt-36 pb-24 sm:pb-28" aria-labelledby="who-h">
     <div class="wrap">
       <div class="card p-8 sm:p-12" data-reveal>
-        <p class="eyebrow mb-5">Before you start</p>
+        <span class="chip mb-6">Before you start</span>
         <h2 id="who-h" class="display-md">Who the cleanse <em>isn't for.</em></h2>
+          <span class="rule" aria-hidden="true"></span>
         <p class="mt-6 font-semibold text-ink">The Lemon Detox Cleanse is not suitable if you are:</p>
         <ul class="dot-list mt-4 grid gap-x-10 gap-y-3 text-ink-soft md:grid-cols-2">
           <li>pregnant or breastfeeding</li>

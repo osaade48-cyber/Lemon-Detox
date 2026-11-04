@@ -2,14 +2,11 @@
 import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
-import TrustRow from '../components/TrustRow.astro';
 import GuideRequest from '../components/GuideRequest.astro';
 import CTA from '../components/CTA.astro';
-import Marquee from '../components/Marquee.astro';
 import ImageSlot from '../components/ImageSlot.astro';
 import { products } from '../data/products';
-import { homeCards, photoFor, testimonials } from '../data/testimonials';
-import { site } from '../config/site';
+import { homeCards, photoFor } from '../data/testimonials';
 
 const supports = [
   'Weight loss, with 3–6kg in 10 days commonly reported',
@@ -22,190 +19,115 @@ const supports = [
   'Renewed vitality',
 ];
 
-const card = (n: string) => homeCards.find((c) => c.name === n)!;
-const [nick, claudia, kerryn, kate] = ['Nick Bilbija', 'Claudia Tcaciuc', 'Kerryn Bracken', 'Kate Winton'].map(card);
-const nickImg = photoFor('nick-bilbija-large.jpg');
-const kateImg = photoFor('kate-winton-large.jpg');
-const storyCount = testimonials.length;
-
-const ritual = [
-  { when: 'Morning', line: 'Begin with the elimination routine, then mix the day’s drink.', img: ['hiw-morning'], alt: 'A sunny terrace table set with the Lemon Detox drink, lemons and the Madal Bal tin' },
-  { when: 'Through the day', line: 'Sip the Lemon Detox drink whenever you feel hungry.', img: ['hiw-day'], alt: 'A woman smiling with a glass of the Lemon Detox drink beside a jug and fresh lemons' },
-  { when: 'Evening', line: 'A cup of senna tea, then a good night’s rest.', img: ['evening-calm', 'senna-tea'], alt: 'A glass cup of senna tea by candlelight' },
-];
+const voices = homeCards.map((c) => ({ ...c, img: photoFor(c.photo.replace('.jpeg', '-large.jpg')) ?? photoFor(c.photo) }));
 ---
 <Base
   title="Lemon Detox Cleanse — 7 & 14 Day Reset Box"
   description="A structured 7 or 14 day lemon cleanse built around one simple drink. Free tracked shipping Australia-wide."
 >
-  <!-- ── Hero: full-bleed banner with the headline on top of the photo ───────── -->
-  <section class="relative isolate overflow-hidden bg-[#f8f1e4]" data-hero>
-    <div class="relative lg:h-[min(calc(100svh-4.75rem),56.25vw)] lg:min-h-[640px]">
-      <!-- Headline: on top of the photo (phones: over the soft top of the photo; desktop: on the bright wall) -->
-      <div class="hero-in relative z-10 px-5 pt-10 text-center sm:pt-14 lg:absolute lg:top-0 lg:left-[56%] lg:w-[38rem] lg:-translate-x-1/2 lg:px-0 lg:pt-[3.2%]">
-        <p class="eyebrow !text-[0.8rem] !tracking-[0.35em]">Lemon Detox Cleanse</p>
-        <h1 class="hero-title display-xl mt-3 !text-[clamp(3.3rem,13vw,5.4rem)] !leading-[0.95] lg:!text-[clamp(3.6rem,5.3vw,5.9rem)]">Reset. Reduce.<br /><em>Restore.</em></h1>
-        <p class="mx-auto mt-4 max-w-md text-[1.15rem] font-medium text-ink lg:text-[1.25rem]">A structured lemon cleanse program — one simple drink, 7 or 14 days.</p>
-        <div class="mt-6 flex flex-wrap justify-center gap-3">
-          <a href="/#programs" class="btn btn-primary btn-caps btn-sm !px-6 sm:!min-h-[3rem]">Start your reset</a>
-          <a href="/how-it-works" class="btn btn-secondary btn-caps btn-sm !bg-white/70 !px-6 backdrop-blur sm:!min-h-[3rem]">How it works</a>
+  <!-- Hero (Manus layout): full-bleed photo, white fade from the left, headline left -->
+  <section class="relative isolate overflow-hidden bg-white" data-hero>
+    <div class="absolute inset-0 -z-20"><ImageSlot name="hero-banner" alt="A woman at a sunlit marble bench with Lemon Detox Cleanse Reset Boxes, the Madal Bal Natural Tree Syrup tin, a jug of the Lemon Detox drink and fresh lemons" eager class="breathe h-full w-full" imgClass="h-full w-full object-cover object-[72%_60%] lg:object-[50%_55%]" sizes="100vw" /></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/85 to-white/0 lg:bg-gradient-to-r lg:from-white/95 lg:via-white/70 lg:via-35% lg:to-white/0 lg:to-60%"></div>
+    <div class="wrap !max-w-[1320px] flex min-h-[640px] flex-col justify-start pt-12 pb-[62vw] sm:pb-[44vw] lg:h-[min(calc(100svh-5.5rem),52vw)] lg:min-h-[600px] lg:justify-center lg:pt-0 lg:pb-0">
+      <div class="hero-in max-w-[40rem]">
+        <h1 class="display-xl !text-[clamp(3.2rem,6.6vw,6.4rem)] !leading-[1.04]">Reset. Reduce.<br /><em>Restore.</em></h1>
+        <p class="eyebrow mt-5 !text-[0.75rem] !tracking-[0.42em] lg:mt-8 lg:!text-[0.85rem]">Lemon Detox Cleanse</p>
+        <div class="mt-8 flex flex-wrap gap-3 lg:mt-10 lg:gap-4">
+          <a href="/#programs" class="btn btn-primary btn-caps !min-h-[3.25rem] !px-6 lg:!min-h-[4rem] lg:!px-9 shadow-[0_18px_30px_-16px_rgba(26,26,26,0.5)]">Shop Reset Boxes <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/how-it-works" class="btn btn-secondary btn-caps !min-h-[3.25rem] !border-ink/50 !bg-white/60 !px-6 lg:!min-h-[4rem] lg:!px-9 backdrop-blur-sm">How it works</a>
         </div>
       </div>
-
-      <div class="relative -mt-16 sm:-mt-24 lg:absolute lg:inset-0 lg:mt-0">
-        <ImageSlot name="hero-banner" alt="A woman at a sunlit marble bench with Lemon Detox Cleanse Reset Boxes, the Madal Bal Natural Tree Syrup tin, a jug of the Lemon Detox drink and fresh lemons" eager class="breathe aspect-[4/3] w-full sm:aspect-[16/10] lg:aspect-auto lg:h-full" imgClass="h-full w-full object-cover object-[74%_62%] sm:object-[62%_60%] lg:object-[50%_50%]" sizes="100vw" />
-        <!-- soft light so the words read over the photo -->
-        <div class="pointer-events-none absolute inset-x-0 top-0 h-[50%] bg-gradient-to-b from-[#f8f1e4] via-[#f8f1e4]/80 to-transparent lg:hidden"></div>
-        <div class="pointer-events-none absolute top-[-6%] left-[56%] hidden h-[66%] w-[52%] -translate-x-1/2 bg-[radial-gradient(closest-side,rgba(252,248,240,0.97),rgba(252,248,240,0.75)_55%,rgba(252,248,240,0))] lg:block"></div>
-      </div>
-
-      <a href="#why" class="scroll-cue absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-[0.62rem] font-semibold tracking-[0.3em] text-ink/70 uppercase lg:flex" aria-label="Scroll to learn more">
-        Scroll<span class="block h-10 w-px overflow-hidden bg-ink/15"><span class="block h-4 w-px bg-gold-deep"></span></span>
-      </a>
     </div>
-    <Marquee items={['Free tracked shipping Australia-wide', '7 or 14 day programs', 'Four natural ingredients', '14-day returns on unopened boxes', 'Reset · Reduce · Restore']} />
   </section>
 
-  <!-- ── Why: structure & simplicity ────────────────────────────────────────── -->
-  <section id="why" class="scroll-mt-20 py-16 lg:py-24" aria-labelledby="reset-h">
-    <div class="wrap grid items-center gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-24">
-      <ImageSlot name="home-reset" alt="A woman stretching outdoors in the morning sun with a glass of the Lemon Detox drink" class="zoom-img aspect-[4/5] rounded-[24px] bg-paper" sizes="(min-width: 1024px) 540px, 100vw" data-unveil />
+  <!-- Reset behaviour (white) -->
+  <section class="py-20 lg:py-32" aria-labelledby="reset-h">
+    <div class="wrap !max-w-[1320px] grid items-center gap-14 lg:grid-cols-[0.8fr_1fr] lg:gap-24">
+      <ImageSlot name="home-reset" alt="A woman stretching outdoors in the morning sun with a glass of the Lemon Detox drink" class="zoom-img aspect-[4/5] rounded-[28px] bg-paper shadow-[0_40px_60px_-40px_rgba(26,26,26,0.35)]" sizes="(min-width: 1024px) 560px, 100vw" data-unveil />
       <div data-reveal>
-        <p class="eyebrow">Reset behaviour</p>
-        <h2 id="reset-h" class="display-lg mt-5">In a world of constant consumption, take a <em>defined pause.</em></h2>
-        <p class="mt-8 text-lg font-semibold text-ink">The Lemon Detox Cleanse is built on structure and simplicity.</p>
-        <p class="mt-4 text-ink-soft">The Lemon Detox Cleanse provides a defined timeframe, a clear routine, and a temporary step away from solid food. Most diets focus on restriction. This program focuses on resetting behaviour.</p>
-        <p class="mt-8 border-l-2 border-gold pl-5 font-serif text-2xl leading-snug font-semibold text-ink">No confusion. No complicated rules.<br />Just clarity and simplicity.</p>
+        <span class="chip">Reset behaviour</span>
+        <h2 id="reset-h" class="display-lg mt-7 !text-[clamp(2.4rem,4.6vw,4.4rem)]">In a world of <em>constant consumption</em>.</h2>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="mt-8 text-[1.2rem] leading-[1.85] text-ink-soft">The Lemon Detox Cleanse provides a defined timeframe, a clear routine, and a temporary step away from solid food. Most diets focus on restriction. This program focuses on resetting behaviour.</p>
+        <p class="mt-6 text-[1.2rem] leading-[1.85] text-ink-soft">No confusion. No complicated rules.<br />Just clarity and simplicity.</p>
       </div>
     </div>
   </section>
 
-  <!-- ── Benefits ───────────────────────────────────────────────────────────── -->
-  <section class="bg-paper/70 py-16 lg:py-24" aria-labelledby="system-h">
-    <div class="wrap">
-      <div class="mx-auto max-w-3xl text-center" data-reveal>
-        <h2 id="system-h" class="display-lg">Every system benefits from <span class="text-gold-deep italic">a reset.</span></h2>
-        <p class="mt-6 text-lg font-semibold text-ink">Our bodies are no exception.</p>
-        <p class="mt-4 text-ink-soft">For many participants, weight loss occurs as a natural outcome of temporarily removing solid food and simplifying intake. The Lemon Detox Cleanse is designed to create that defined pause — supporting recalibration and renewed awareness.</p>
-        <p class="mt-4 text-ink-soft">More importantly, this structured reset often helps re-establish healthier habits — creating a strong foundation for maintaining results when continued with balanced, mindful choices.</p>
+  <!-- What changes (off-white) -->
+  <section class="bg-paper py-20 lg:py-32" aria-labelledby="system-h">
+    <div class="wrap !max-w-[1320px]">
+      <div data-reveal>
+        <span class="chip">What changes</span>
+        <h2 id="system-h" class="display-lg mt-7 !text-[clamp(2.4rem,4.6vw,4.4rem)]">Every system benefits from <em>a reset</em>.</h2>
+        <span class="rule" aria-hidden="true"></span>
       </div>
-      <div class="card mx-auto mt-10 max-w-4xl p-8 sm:p-12" data-reveal>
-        <h3 class="text-center font-sans text-xs font-bold tracking-[0.25em] text-gold-deep uppercase">In addition, the program supports:</h3>
-        <ul class="mt-8 grid gap-x-12 gap-y-5 sm:grid-cols-2">
-          {supports.map((s, i) => (
-            <li class="flex items-start gap-4 text-[1.02rem] text-ink" data-reveal style={`--d:${i * 60}ms`}>
-              <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-lemon/25 text-gold-deep" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2.5 6.2 5 8.6l4.6-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
-              {s}
-            </li>
-          ))}
-        </ul>
-        <p class="mt-8 text-center text-xs text-muted">Individual results vary.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── A day on the cleanse ───────────────────────────────────────────────── -->
-  <section class="py-16 lg:py-24" aria-labelledby="ritual-h">
-    <div class="wrap">
-      <div class="flex flex-wrap items-end justify-between gap-6" data-reveal>
-        <div>
-          <p class="eyebrow">One clear rhythm</p>
-          <h2 id="ritual-h" class="display-lg mt-5">A day on the <em>cleanse.</em></h2>
+      <div class="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-24">
+        <div class="space-y-7 text-[1.2rem] leading-[1.85] text-ink-soft" data-reveal>
+          <p>Our bodies are no exception. For many participants, weight loss occurs as a natural outcome of temporarily removing solid food and simplifying intake. The Lemon Detox Cleanse is designed to create that defined pause — supporting recalibration and renewed awareness.</p>
+          <p>More importantly, this structured reset often helps re-establish healthier habits — creating a strong foundation for maintaining results when continued with balanced, mindful choices.</p>
         </div>
-        <a href="/how-it-works#rhythm" class="link-arrow">See the full routine <span aria-hidden="true">→</span></a>
+        <div data-reveal style="--d:120ms">
+          <h3 class="font-sans text-[0.85rem] font-semibold tracking-[0.28em] text-gold-deep uppercase">In addition, the program supports:</h3>
+          <ul class="mt-7 space-y-4 text-[1.15rem] text-ink-soft">
+            {supports.map((s) => <li class="flex items-start gap-5"><span class="mt-[0.7em] h-2 w-2 shrink-0 rounded-full bg-gold" aria-hidden="true"></span>{s}</li>)}
+          </ul>
+          <p class="mt-7 text-xs text-muted">Individual results vary.</p>
+        </div>
       </div>
-      <ol class="mt-10 grid gap-8 md:grid-cols-3">
-        {ritual.map((r, i) => (
-          <li data-reveal style={`--d:${i * 120}ms`}>
-            <a href="/how-it-works#rhythm" class="group block">
-              <ImageSlot name={r.img} alt={r.alt} class="zoom-img aspect-[4/5] rounded-[24px] bg-paper" sizes="(min-width: 768px) 380px, 100vw" />
-              <p class="mt-6 text-[0.72rem] font-bold tracking-[0.25em] text-gold-deep uppercase">{String(i + 1).padStart(2, '0')} · {r.when}</p>
-              <p class="mt-2 text-lg text-ink">{r.line}</p>
-            </a>
-          </li>
-        ))}
-      </ol>
     </div>
   </section>
 
-  <!-- ── Programs ───────────────────────────────────────────────────────────── -->
-  <section id="programs" class="scroll-mt-20 bg-paper/70 py-16 lg:py-24" aria-labelledby="programs-h">
-    <div class="wrap">
-      <div class="text-center" data-reveal>
-        <p class="eyebrow">The Reset Box</p>
-        <h2 id="programs-h" class="display-lg mt-5">Select your <em>program.</em></h2>
-        <a href={site.guidePdf} target="_blank" rel="noopener" class="link-arrow mt-6 text-sm">Learn how it works <span aria-hidden="true">→</span></a>
+  <!-- Programs (white) -->
+  <section id="programs" class="scroll-mt-24 py-20 lg:py-28" aria-labelledby="programs-h">
+    <div class="wrap !max-w-[1320px]">
+      <div data-reveal>
+        <p class="eyebrow">Select your program</p>
+        <h2 id="programs-h" class="display-lg mt-3 !text-[clamp(2.4rem,4.4vw,4rem)]">Choose your <em>cleanse</em>.</h2>
       </div>
-      <div class="mx-auto mt-10 grid max-w-4xl gap-8 md:grid-cols-2">
+      <div class="mx-auto mt-14 grid max-w-[1160px] gap-8 md:grid-cols-2">
         {products.map((p, i) => <ProductCard product={p} delay={i * 120} />)}
       </div>
-      <TrustRow class="mt-12" center />
+      <p class="mt-10 text-center text-sm text-muted">Free tracked shipping Australia-wide · Secure checkout · 14-day returns on unopened boxes</p>
     </div>
   </section>
 
-  <!-- ── Testimonials: mixed layout — large photo cards, quote cards, story-count card ── -->
-  <section class="py-16 lg:py-24" aria-labelledby="voices-h">
-    <div class="wrap">
+  <GuideRequest />
+
+  <!-- Voices from the cleanse (off-white) -->
+  <section class="bg-paper py-20 lg:py-28" aria-labelledby="voices-h">
+    <div class="wrap !max-w-[1320px]">
       <div class="text-center" data-reveal>
-        <p class="font-serif text-2xl font-semibold text-gold-deep italic">Trusted for decades.</p>
-        <h2 id="voices-h" class="display-lg mt-2">Everyday People. Real Stories.</h2>
+        <p class="eyebrow">Trusted for decades.</p>
+        <h2 id="voices-h" class="display-lg mt-4 !text-[clamp(2.4rem,4.4vw,4rem)]">Everyday People. <em>Real Stories.</em></h2>
+        <span class="rule" aria-hidden="true"></span>
       </div>
-
-      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-[auto_auto]">
-        {/* Large photo card — Nick */}
-        <figure class="card lift group overflow-hidden lg:row-span-2" data-reveal>
-          <div class="overflow-hidden bg-white">
-            {nickImg && <Picture src={nickImg} alt="Portrait of Nick Bilbija" formats={['avif', 'webp']} widths={[380]} sizes="(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw" class="h-72 w-full object-cover object-top transition duration-700 group-hover:scale-[1.03] lg:h-80" />}
-          </div>
-          <div class="p-7">
-            <blockquote class="font-serif text-[1.45rem] leading-snug font-semibold text-ink">“{nick.quote}”</blockquote>
-            <figcaption class="mt-5 text-sm"><span class="font-semibold text-ink">{nick.name}</span><span class="text-muted"> · Personal Trainer, {nick.location}</span></figcaption>
-          </div>
-        </figure>
-
-        {/* Wide quote card — Claudia */}
-        <figure class="card lift relative flex flex-col justify-between p-8 sm:col-span-2 lg:p-10" data-reveal style="--d:90ms">
-          <svg width="44" height="34" viewBox="0 0 28 22" aria-hidden="true" class="text-gold"><path d="M0 22V12.7C0 5.4 4.2 1.2 11 0l1.2 2.6C8 4 6 6.6 5.8 10H11v12H0zm16 0V12.7C16 5.4 20.2 1.2 27 0l1 2.6C24 4 22 6.6 21.8 10H27v12H16z" fill="currentColor"/></svg>
-          <blockquote class="mt-6 font-serif text-[1.75rem] leading-[1.2] font-semibold text-ink lg:text-[2.1rem]">“{claudia.quote}”</blockquote>
-          <figcaption class="mt-6 flex items-center gap-3 text-sm">
-            <span class="grid h-10 w-10 place-items-center rounded-full bg-lemon/25 font-serif text-base font-bold text-gold-deep" aria-hidden="true">CT</span>
-            <span><span class="block font-semibold text-ink">{claudia.name}</span><span class="text-muted">{claudia.role} · {claudia.location}</span></span>
-          </figcaption>
-        </figure>
-
-        {/* Large photo card — Kate */}
-        <figure class="card lift group overflow-hidden lg:row-span-2" data-reveal style="--d:180ms">
-          <div class="overflow-hidden bg-white">
-            {kateImg && <Picture src={kateImg} alt="Portrait of Kate Winton" formats={['avif', 'webp']} widths={[380]} sizes="(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw" class="h-72 w-full object-cover object-top transition duration-700 group-hover:scale-[1.03] lg:h-80" />}
-          </div>
-          <div class="p-7">
-            <blockquote class="font-serif text-[1.45rem] leading-snug font-semibold text-ink">“{kate.quote}”</blockquote>
-            <figcaption class="mt-5 text-sm"><span class="font-semibold text-ink">{kate.name}</span><span class="text-muted"> · {kate.location}</span></figcaption>
-          </div>
-        </figure>
-
-        {/* Small icon card — Kerryn */}
-        <figure class="lift flex flex-col justify-between rounded-[20px] bg-lemon/15 p-7 ring-1 ring-gold/25" data-reveal style="--d:120ms">
-          <span class="grid h-11 w-11 place-items-center rounded-full bg-white text-gold-deep shadow-sm" aria-hidden="true"><svg width="20" height="16" viewBox="0 0 28 22"><path d="M0 22V12.7C0 5.4 4.2 1.2 11 0l1.2 2.6C8 4 6 6.6 5.8 10H11v12H0zm16 0V12.7C16 5.4 20.2 1.2 27 0l1 2.6C24 4 22 6.6 21.8 10H27v12H16z" fill="currentColor"/></svg></span>
-          <blockquote class="mt-5 font-serif text-[1.5rem] leading-snug font-semibold text-ink">“{kerryn.quote}”</blockquote>
-          <figcaption class="mt-4 text-sm"><span class="font-semibold text-ink">{kerryn.name}</span><span class="text-muted"> · {kerryn.location}</span></figcaption>
-        </figure>
-
-        {/* Story count card */}
-        <a href="/testimonials" class="lift group flex flex-col justify-between rounded-[20px] bg-ink p-7 text-white" data-reveal style="--d:200ms">
-          <span class="font-serif text-6xl font-bold text-honey">{storyCount}</span>
-          <span>
-            <span class="block font-serif text-2xl font-semibold leading-snug">real stories, in their own words.</span>
-            <span class="mt-4 inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-honey uppercase">Read testimonials <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" class="transition group-hover:translate-x-1"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          </span>
-        </a>
+      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {voices.map((c, i) => (
+          <figure class="lift flex flex-col overflow-hidden rounded-[22px] bg-white text-center shadow-[0_2px_6px_rgba(26,26,26,0.04),0_20px_40px_-28px_rgba(26,26,26,0.3)]" data-reveal style={`--d:${i * 90}ms`}>
+            <div class="h-64 overflow-hidden bg-white">
+              {c.img && <Picture src={c.img} alt={`Portrait of ${c.name}`} formats={['avif', 'webp']} widths={[380]} sizes="(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw" class="h-full w-full object-contain object-bottom" />}
+            </div>
+            <div class="relative flex flex-1 flex-col px-6 pt-10 pb-8">
+              <svg class="absolute inset-x-0 -top-px w-full text-black/[0.08]" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M0 16 Q150 -12 300 16" fill="none" stroke="currentColor" stroke-width="1.2" /></svg>
+              <span class="absolute top-0 left-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-gold shadow-[0_0_0_1px_rgba(26,26,26,0.07)]" aria-hidden="true"><svg width="18" height="14" viewBox="0 0 28 22"><path d="M0 22V12.7C0 5.4 4.2 1.2 11 0l1.2 2.6C8 4 6 6.6 5.8 10H11v12H0zm16 0V12.7C16 5.4 20.2 1.2 27 0l1 2.6C24 4 22 6.6 21.8 10H27v12H16z" fill="currentColor"/></svg></span>
+              <blockquote class="flex-1 font-serif text-[1.2rem] leading-[1.5] text-ink">“{c.quote}”</blockquote>
+              <figcaption class="mt-6">
+                <span class="block font-serif text-[1.15rem] text-ink">{c.name}</span>
+                {c.role && <span class="mt-1 block text-[0.68rem] tracking-[0.22em] text-muted uppercase">{c.role}</span>}
+                <span class="mt-1 block text-[0.68rem] tracking-[0.22em] text-muted uppercase">{c.location}</span>
+              </figcaption>
+            </div>
+          </figure>
+        ))}
       </div>
-      <p class="mt-6 text-center text-xs text-muted">Individual results vary.</p>
+      <div class="mt-12 text-center">
+        <a href="/testimonials" class="btn btn-secondary btn-caps !min-h-[3.5rem] !px-9">Read more testimonials</a>
+        <p class="mt-5 text-xs text-muted">Individual results vary.</p>
+      </div>
     </div>
   </section>
-
-  <div class="bg-paper/70 pt-16 lg:pt-24"><GuideRequest /></div>
 
   <CTA />
-
 </Base>

@@ -6,8 +6,9 @@ const { title, description, h1, eyebrow = 'Help', updated } = Astro.props;
 <Base title={title} description={description}>
   <section class="border-b hairline" data-hero>
     <div class="wrap pt-16 pb-12 sm:pt-24 sm:pb-16">
-      <p class="eyebrow">{eyebrow}</p>
+      <span class="chip">{eyebrow}</span>
       <h1 class="display-lg mt-5" set:html={h1} />
+      <span class="rule" aria-hidden="true"></span>
       {updated && <p class="mt-5 text-sm text-muted">Last updated {updated}</p>}
     </div>
   </section>

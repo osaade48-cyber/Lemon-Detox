@@ -1,22 +1,24 @@
 ---
 import BuyButton from './BuyButton.astro';
-import Marquee from './Marquee.astro';
 import { products } from '../data/products';
 interface Props { tone?: 'white' | 'paper'; title?: string; body?: string; buy?: boolean; primary?: { label: string; href: string }; secondary?: { label: string; href: string } | null }
-const { tone = 'white', title = 'Begin your <em>reset.</em>', body, buy = true, primary, secondary = null } = Astro.props;
+const { tone = 'white', title = 'Begin your <em>reset</em>.', body, buy = true, primary, secondary = null } = Astro.props;
 ---
 <section class:list={[tone === 'paper' ? 'bg-paper/70' : 'border-t hairline']}>
   <div class="relative overflow-hidden">
   <div class="wrap relative py-16 text-center sm:py-24" data-reveal>
-    <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" class="mx-auto text-gold"><path d="M12 2c.6 4.4 2.6 6.4 7 7-4.4.6-6.4 2.6-7 7-.6-4.4-2.6-6.4-7-7 4.4-.6 6.4-2.6 7-7zM19 15c.3 1.9 1.1 2.7 3 3-1.9.3-2.7 1.1-3 3-.3-1.9-1.1-2.7-3-3 1.9-.3 2.7-1.1 3-3z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
-    <h2 class="display-lg mx-auto mt-6 max-w-3xl" set:html={title} />
+    <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" class="mx-auto hidden text-gold"><path d="M12 2c.6 4.4 2.6 6.4 7 7-4.4.6-6.4 2.6-7 7-.6-4.4-2.6-6.4-7-7 4.4-.6 6.4-2.6 7-7zM19 15c.3 1.9 1.1 2.7 3 3-1.9.3-2.7 1.1-3 3-.3-1.9-1.1-2.7-3-3 1.9-.3 2.7-1.1 3-3z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+    <h2 class="display-lg mx-auto max-w-3xl !text-[clamp(2.4rem,4.4vw,4rem)]" set:html={title} />
+    <span class="rule mx-auto" aria-hidden="true"></span>
     {body && <p class="lead mx-auto mt-6 max-w-xl text-muted">{body}</p>}
     <div class="mt-10 flex flex-wrap justify-center gap-4">
-      {buy && products.map((p) => <BuyButton href={p.checkoutUrl} product={p.name} label={`Start ${p.short}`} fallbackHref={`/products/${p.slug}`} />)}
+      {buy && products.map((p) => <BuyButton href={p.checkoutUrl} product={p.name} label={`Start ${p.short}`} class="!min-h-[3.75rem] !px-9" fallbackHref={`/products/${p.slug}`} />)}
       {primary && <a href={primary.href} class="btn btn-primary btn-caps">{primary.label}</a>}
       {secondary && <a href={secondary.href} class="btn btn-secondary btn-caps">{secondary.label}</a>}
     </div>
   </div>
   </div>
-  <Marquee />
+  <div class="bg-lemon">
+    <p class="wrap py-4 text-center text-[0.75rem] font-semibold tracking-[0.45em] text-ink uppercase">Reset · Reduce · Restore</p>
+  </div>
 </section>

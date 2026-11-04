@@ -5,7 +5,7 @@ const year = 2026;
 const cols = [
   { h: 'Shop', links: [['14 Day Cleanse', '/products/14-day-extended-cleanse'], ['7 Day Cleanse', '/products/7-day-focused-cleanse'], ['Stockists', '/stockists']] },
   { h: 'Learn', links: [['How It Works', '/how-it-works'], ['Testimonials', '/testimonials'], ['FAQs', '/faqs'], ['Program Guide (PDF)', site.guidePdf]] },
-  { h: 'Help', links: [['Contact', '/contact'], ['Shipping', '/shipping'], ['Returns & Refunds', '/returns'], ['Privacy', '/privacy'], ['Terms', '/terms']] },
+  { h: 'Help', links: [['Contact Us', '/contact'], ['Shipping', '/shipping'], ['Returns & Refunds', '/returns'], ['Privacy', '/privacy'], ['Terms', '/terms']] },
 ];
 const social = Object.entries(site.social).filter(([, v]) => v);
 const contact = [site.email && { label: site.email, href: `mailto:${site.email}` }, site.phone && { label: site.phone, href: `tel:${site.phone.replace(/\s/g, '')}` }].filter(Boolean) as { label: string; href: string }[];
@@ -14,7 +14,7 @@ const contact = [site.email && { label: site.email, href: `mailto:${site.email}`
   <div class="wrap grid gap-12 py-20 md:grid-cols-[1.4fr_repeat(3,1fr)]">
     <div>
       <Logo light class="h-9 w-auto" />
-      <p class="mt-6 max-w-xs font-serif text-2xl font-semibold leading-snug text-white">A structured 7- or 14-day cleanse built around one simple drink.</p>
+      <p class="mt-6 max-w-xs font-serif text-2xl leading-snug text-white">A structured 7- or 14-day cleanse built around one simple drink.</p>
       {contact.length > 0 && (
         <ul class="mt-6 space-y-1 text-sm">{contact.map((c) => <li><a href={c.href} class="hover:text-cream">{c.label}</a></li>)}</ul>
       )}

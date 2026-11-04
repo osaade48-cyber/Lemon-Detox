@@ -66,6 +66,7 @@ const jsonLd = [{
     <div class="lg:pt-6">
       <p class="eyebrow">{p.eyebrow}</p>
       <h1 class="display-lg mt-4">{p.name}</h1>
+      <span class="rule" aria-hidden="true"></span>
       <p class="mt-2 text-xl font-semibold text-ink-soft">{p.subtitle}</p>
       <div class="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <span class="font-serif text-5xl text-ink">${p.price}</span>
@@ -112,8 +113,9 @@ const jsonLd = [{
   <section class="bg-paper/70 py-16 lg:py-24" aria-labelledby="why-h">
     <div class="wrap grid gap-12 lg:grid-cols-2 lg:gap-24">
       <div data-reveal>
-        <p class="eyebrow mb-5">{p.eyebrow}</p>
+        <span class="chip mb-6">{p.eyebrow}</span>
         <h2 id="why-h" class="display-lg">{p.whyTitle.replace(/ days$/, '')} <em>days.</em></h2>
+          <span class="rule" aria-hidden="true"></span>
         {p.body2 && <p class="lead mt-8">{p.body2}</p>}
       </div>
       <ol class="border-t hairline" data-reveal style="--d:100ms">
@@ -132,8 +134,9 @@ const jsonLd = [{
     <div class="wrap">
       <div class="flex flex-wrap items-end justify-between gap-6" data-reveal>
         <div>
-          <p class="eyebrow mb-5">Three ways to follow it</p>
+          <span class="chip mb-6">Three ways to follow it</span>
           <h2 id="ways-h" class="display-lg">How long your box <em>lasts.</em></h2>
+          <span class="rule" aria-hidden="true"></span>
         </div>
         <a href="/how-it-works#three-ways" class="link-arrow">Compare the three ways</a>
       </div>
@@ -159,7 +162,8 @@ const jsonLd = [{
     <section class="bg-paper/70 py-16 lg:py-24" aria-labelledby="st-h">
       <div class="wrap">
         <div class="flex flex-wrap items-end justify-between gap-6" data-reveal>
-          <div><p class="eyebrow mb-5">Testimonials</p><h2 id="st-h" class="display-lg">Everyday People. <em>Real Stories.</em></h2></div>
+          <div><span class="chip mb-6">Testimonials</span><h2 id="st-h" class="display-lg">Everyday People. <em>Real Stories.</em></h2>
+          <span class="rule" aria-hidden="true"></span></div>
           <a href="/testimonials" class="btn btn-secondary btn-caps">Read more testimonials</a>
         </div>
         <div class="mt-12 grid items-start gap-5 lg:grid-cols-3">{stories.map((t) => <StoryCard t={t} class="!mb-0" />)}</div>

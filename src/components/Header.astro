@@ -8,46 +8,40 @@ const nav = [
   { label: 'Testimonials', href: '/testimonials' },
   { label: 'FAQs', href: '/faqs' },
   { label: 'Stockists', href: '/stockists' },
-  { label: 'Contact', href: '/contact' },
 ];
 const isActive = (href: string) => href !== '/#programs' && path.startsWith(href);
 const cart = site.checkout.CART_URL;
 ---
-<header id="site-header" class="sticky top-0 z-40 border-b border-transparent bg-white/90 backdrop-blur-md transition-colors duration-300 data-[scrolled]:border-black/[0.06]">
-  <div class="wrap grid h-[4.75rem] grid-cols-[auto_1fr_auto] items-center gap-6">
-    <a href="/" class="shrink-0" aria-label="Lemon Detox Cleanse — home"><Logo eager class="h-10 w-auto sm:h-11" /></a>
-
-    <nav aria-label="Main" class="hidden justify-self-center lg:block">
-      <ul class="flex items-center gap-8 text-[0.72rem] font-semibold tracking-[0.16em] uppercase">
+<header id="site-header" class="sticky top-0 z-40 border-b border-black/[0.06] bg-paper/95 backdrop-blur-md">
+  <div class="wrap flex h-[5.5rem] items-center justify-between gap-6 !max-w-[1320px]">
+    <nav aria-label="Main" class="hidden lg:block">
+      <ul class="flex items-center gap-11 text-[0.8rem] font-normal tracking-[0.22em] uppercase">
         {nav.map((n) => (
-          <li><a href={n.href} class:list={['relative py-2 text-ink-soft transition hover:text-gold-deep', isActive(n.href) && 'text-ink after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:bg-gold']} aria-current={isActive(n.href) ? 'page' : undefined}>{n.label}</a></li>
+          <li><a href={n.href} class:list={['relative py-2 text-ink-soft transition hover:text-ink', isActive(n.href) && 'text-ink after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:bg-gold']} aria-current={isActive(n.href) ? 'page' : undefined}>{n.label}</a></li>
         ))}
-        {cart && <li><a href={cart} class="py-2 text-ink-soft hover:text-gold-deep">Cart</a></li>}
       </ul>
     </nav>
-
-    <div class="col-start-3 flex items-center gap-2">
-      <a href="/#programs" class="btn btn-primary btn-sm btn-caps hidden sm:inline-flex">Shop now</a>
-      {cart && <a href={cart} class="grid h-11 w-11 place-items-center rounded-full lg:hidden" aria-label="Cart"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></a>}
-      <button id="menu-btn" type="button" class="grid h-11 w-11 place-items-center rounded-full lg:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
-        <span class="relative block h-3 w-5" aria-hidden="true">
-          <span class="menu-line absolute left-0 top-0 h-[1.5px] w-5 bg-ink transition"></span>
-          <span class="menu-line absolute left-0 bottom-0 h-[1.5px] w-5 bg-ink transition"></span>
-        </span>
-      </button>
+    <button id="menu-btn" type="button" class="grid h-11 w-11 place-items-center rounded-full lg:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+      <span class="relative block h-3 w-5" aria-hidden="true">
+        <span class="menu-line absolute left-0 top-0 h-[1.5px] w-5 bg-ink transition"></span>
+        <span class="menu-line absolute left-0 bottom-0 h-[1.5px] w-5 bg-ink transition"></span>
+      </span>
+    </button>
+    <div class="flex items-center gap-6 lg:gap-14">
+      <a href={cart || '/#programs'} class="grid h-11 w-11 place-items-center text-ink hover:text-gold-deep" aria-label={cart ? 'Cart' : 'Shop the Reset Boxes'}><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l-1.2 13H6.2zM9 10V6a3 3 0 0 1 6 0v4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9.5 14.5a2.7 2.7 0 0 0 5 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+      <a href="/" class="shrink-0" aria-label="Lemon Detox Cleanse — home"><Logo eager class="h-11 w-auto sm:h-14" /></a>
     </div>
   </div>
-
   <span id="progress" class="absolute inset-x-0 -bottom-px h-[2px] bg-gold" aria-hidden="true"></span>
-  <div id="mobile-menu" class="hidden border-t hairline bg-white lg:hidden">
+  <div id="mobile-menu" class="hidden border-t hairline bg-paper lg:hidden">
     <nav aria-label="Mobile" class="wrap py-6">
       <ul class="divide-y divide-black/[0.07]">
         {nav.map((n) => (
-          <li><a href={n.href} class="flex items-center justify-between py-4 font-serif text-3xl font-bold text-ink" aria-current={isActive(n.href) ? 'page' : undefined}>{n.label}<span class="text-gold" aria-hidden="true">→</span></a></li>
+          <li><a href={n.href} class="flex items-center justify-between py-4 font-serif text-3xl text-ink" aria-current={isActive(n.href) ? 'page' : undefined}>{n.label}<span class="text-gold" aria-hidden="true">→</span></a></li>
         ))}
-        {cart && <li><a href={cart} class="flex py-4 font-serif text-3xl font-bold text-ink">Cart</a></li>}
+        {cart && <li><a href={cart} class="flex py-4 font-serif text-3xl text-ink">Cart</a></li>}
       </ul>
-      <a href="/#programs" class="btn btn-primary btn-caps mt-6 w-full">Shop now</a>
+      <a href="/#programs" class="btn btn-primary btn-caps mt-6 w-full">Shop Reset Boxes</a>
     </nav>
   </div>
 </header>

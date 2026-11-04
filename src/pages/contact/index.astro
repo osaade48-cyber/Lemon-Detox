@@ -11,8 +11,9 @@ const contact = [site.email && ['Email', site.email, `mailto:${site.email}`], si
   <section class="relative overflow-hidden" data-hero>
     <div class="wrap relative grid gap-14 pt-16 pb-28 sm:pt-24 lg:grid-cols-[1fr_1.15fr] lg:gap-24">
       <div>
-        <p class="eyebrow">Contact</p>
+        <span class="chip">Contact</span>
         <h1 class="display-xl mt-6 !text-[clamp(3rem,7vw,6rem)]">We're here to <em>help.</em></h1>
+      <span class="rule" aria-hidden="true"></span>
         <p class="lead mt-8 max-w-md">Questions about the program or your order? Send us a message and we'll reply within one business day.</p>
         {contact.length > 0 && (
           <dl class="mt-10 space-y-4">{contact.map(([k, v, h]) => <div><dt class="eyebrow">{k}</dt><dd class="mt-1"><a href={h} class="text-lg text-ink hover:text-gold-deep">{v}</a></dd></div>)}</dl>

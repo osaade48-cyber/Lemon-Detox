@@ -12,7 +12,7 @@ const long = words > 110;
   <div class="flex items-center gap-4">
     {img
       ? <Picture src={img} alt={`Portrait of ${t.name}`} formats={['avif', 'webp']} widths={[72, 144]} sizes="72px" loading="lazy" class="h-16 w-16 shrink-0 rounded-full object-cover object-top" />
-      : <span class="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-lemon-pale font-serif text-xl font-bold text-gold-deep" aria-hidden="true">{initials}</span>}
+      : <span class="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-lemon-pale font-serif text-xl text-gold-deep" aria-hidden="true">{initials}</span>}
     <figcaption class="min-w-0 leading-snug">
       <span class="block font-semibold text-ink">{t.name}</span>
       {t.role && <span class="block text-sm text-ink-soft">{t.role}</span>}
