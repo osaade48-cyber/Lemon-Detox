@@ -15,7 +15,7 @@ const featured = !!p.badge;
 >
   {p.badge && <span class="absolute top-5 left-5 z-10 rounded-full bg-ink px-3.5 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white">{p.badge}</span>}
   <a href={`/products/${p.slug}`} class="block" tabindex="-1" aria-hidden="true">
-    <ImageSlot name={`product-${p.days}day`} alt="" class:list={['aspect-[16/11]', featured ? 'bg-honey/35' : 'bg-paper']} sizes="(min-width: 768px) 520px, 100vw">
+    <ImageSlot name={`product-${p.days}day`} alt={`The ${p.name} Reset Box`} class="zoom-img aspect-[16/10] bg-[#f8f8f8]" imgClass="h-full w-full object-cover scale-[1.12]" sizes="(min-width: 768px) 520px, 100vw">
       <LemonSlice class="absolute -right-14 -bottom-14 h-48 w-48 opacity-50" />
       <ResetBox days={p.days} label={p.subtitle.replace('Reset', 'Cleanse')} class="relative mx-auto h-full w-auto py-6 transition duration-700 group-hover:scale-[1.03]" />
     </ImageSlot>

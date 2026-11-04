@@ -1,17 +1,25 @@
 # Photos
 
-Drop photos in this folder using these exact base names (any of .avif .webp .png .jpg).
-They're picked up automatically at build time, converted to AVIF + WebP at responsive
-sizes, and replace the illustrated placeholder in that spot. Remove a file to go back
-to the illustration.
+Drop photos here using these base names (any of .avif .webp .png .jpg). They're converted to
+AVIF + WebP at responsive sizes at build time. Spots marked "waiting" currently fall back to
+another photo and switch automatically as soon as the file exists.
 
-| File name          | Where it appears                                 | Ideal shape |
-|--------------------|--------------------------------------------------|-------------|
-| `hero`             | Home page hero (shown in a circle)               | square, 1600px+ |
-| `product-7day`     | 7-Day card on home + 7-Day product page          | square / 5:4 |
-| `product-14day`    | 14-Day card on home + 14-Day product page        | square / 5:4 |
-| `lifestyle-1`      | Home "After Day 7" section                       | portrait 4:5 |
-| `ing-syrup`        | How It Works → ingredient card                   | 16:9 |
-| `ing-lemon`        | How It Works → ingredient card                   | 16:9 |
-| `ing-cayenne`      | How It Works → ingredient card                   | 16:9 |
-| `ing-water`        | How It Works → ingredient card                   | 16:9 |
+| File name        | Where it appears                                              | Status |
+|------------------|---------------------------------------------------------------|--------|
+| `home-hero`      | Home hero (big portrait photo)                                | waiting – falls back to `hiw-day` |
+| `product-14day`  | 14 Day card, hero floating card, 14 Day product page          | ✓ (made from the 7 Day box shot — replace with a real photo) |
+| `product-7day`   | 7 Day card and product page                                   | ✓ |
+| `home-reset`     | Home "In a world of constant consumption"                     | ✓ |
+| `after-reset`    | Home full-width quote band                                    | waiting – falls back to `hiw-evening` |
+| `evening-calm`   | Home "A day on the cleanse" → Evening                         | waiting – falls back to `senna-tea` |
+| `hiw-hero`       | How It Works top (jug)                                        | ✓ |
+| `hiw-morning`    | Morning rhythm + home day strip                               | ✓ |
+| `hiw-day`        | Through the day rhythm + home day strip                       | ✓ |
+| `hiw-evening`    | Evening rhythm                                                | ✓ |
+| `ing-syrup`      | Madal Bal ingredient card (syrup pour)                        | ✓ |
+| `ing-lemon`      | Fresh lemon ingredient card                                   | low-res cut-out — replace with the lemon-squeeze photo |
+| `ing-cayenne`    | Cayenne ingredient card                                       | low-res cut-out — replace with the chilli photo |
+| `ing-water`      | Pure water ingredient card                                    | ✓ |
+| `sea-salt`       | Elimination → Morning card                                    | waiting – falls back to `hiw-morning` |
+| `senna-tea`      | Elimination → Evening card                                    | ✓ |
+| `way-full` / `way-relaxed` / `way-5050` | Version cards                          | ✓ |

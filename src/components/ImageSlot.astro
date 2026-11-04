@@ -8,20 +8,24 @@ import { Picture } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
 interface Props {
-  name: string;
+  /** One name, or a list: the first photo that exists is used (lets a pending photo fall back to another). */
+  name: string | string[];
   alt: string;
   class?: string;
   imgClass?: string;
   sizes?: string;
   eager?: boolean;
+  [key: `data-${string}`]: unknown;
 }
-const { name, alt, class: cls = '', imgClass = 'h-full w-full object-cover', sizes = '(min-width: 1024px) 50vw, 100vw', eager = false } = Astro.props;
+const { name, alt, class: cls = '', imgClass = 'h-full w-full object-cover', sizes = '(min-width: 1024px) 50vw, 100vw', eager = false, ...rest } = Astro.props;
 
 const files = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{avif,webp,png,jpg,jpeg}', { eager: true });
-const match = Object.entries(files).find(([p]) => p.split('/').pop()!.replace(/\.[^.]+$/, '') === name);
+const names = Array.isArray(name) ? name : [name];
+const base = (p: string) => p.split('/').pop()!.replace(/\.[^.]+$/, '');
+const match = names.map((n) => Object.entries(files).find(([p]) => base(p) === n)).find(Boolean);
 const img = match?.[1].default;
 ---
-<div class:list={['relative overflow-hidden', cls]}>
+<div class:list={['relative overflow-hidden', cls]} {...rest}>
   {img ? (
     <Picture
       src={img}

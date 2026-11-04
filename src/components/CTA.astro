@@ -1,11 +1,16 @@
 ---
 import BuyButton from './BuyButton.astro';
+import Marquee from './Marquee.astro';
+import LemonSlice from './LemonSlice.astro';
 import { products } from '../data/products';
 interface Props { tone?: 'white' | 'paper'; title?: string; body?: string; buy?: boolean; primary?: { label: string; href: string }; secondary?: { label: string; href: string } | null }
 const { tone = 'white', title = 'Begin your <em>reset.</em>', body, buy = true, primary, secondary = null } = Astro.props;
 ---
 <section class:list={[tone === 'paper' ? 'bg-paper' : 'bg-white border-t hairline']}>
-  <div class="wrap py-24 text-center sm:py-32" data-reveal>
+  <div class="relative overflow-hidden">
+  <LemonSlice class="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 opacity-[0.14]" spin />
+  <LemonSlice class="pointer-events-none absolute -top-28 -right-24 h-72 w-72 opacity-[0.12]" />
+  <div class="wrap relative py-24 text-center sm:py-32" data-reveal>
     <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" class="mx-auto text-gold"><path d="M12 2c.6 4.4 2.6 6.4 7 7-4.4.6-6.4 2.6-7 7-.6-4.4-2.6-6.4-7-7 4.4-.6 6.4-2.6 7-7zM19 15c.3 1.9 1.1 2.7 3 3-1.9.3-2.7 1.1-3 3-.3-1.9-1.1-2.7-3-3 1.9-.3 2.7-1.1 3-3z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
     <h2 class="display-lg mx-auto mt-6 max-w-3xl" set:html={title} />
     {body && <p class="lead mx-auto mt-6 max-w-xl text-muted">{body}</p>}
@@ -15,7 +20,6 @@ const { tone = 'white', title = 'Begin your <em>reset.</em>', body, buy = true, 
       {secondary && <a href={secondary.href} class="btn btn-secondary btn-caps">{secondary.label}</a>}
     </div>
   </div>
-  <div class="bg-lemon">
-    <p class="wrap py-3.5 text-center text-[0.72rem] font-bold uppercase tracking-[0.4em] text-ink">Reset · Reduce · Restore</p>
   </div>
+  <Marquee />
 </section>

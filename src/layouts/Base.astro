@@ -76,7 +76,7 @@ const plausible = site.analytics.PLAUSIBLE_DOMAIN;
     {shopBar !== false && <ShopBar {...shopBar} />}
 
     <script>
-      const els = document.querySelectorAll<HTMLElement>('[data-reveal]');
+      const els = document.querySelectorAll<HTMLElement>('[data-reveal], [data-unveil]');
       if ('IntersectionObserver' in window) {
         const io = new IntersectionObserver((entries) => {
           entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
@@ -84,6 +84,11 @@ const plausible = site.analytics.PLAUSIBLE_DOMAIN;
         els.forEach((el) => io.observe(el));
       } else {
         els.forEach((el) => el.classList.add('is-in'));
+      }
+      const bar = document.getElementById('progress');
+      if (bar) {
+        const upd = () => { const h = document.documentElement; bar.style.setProperty('--p', String(h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight))); };
+        upd(); window.addEventListener('scroll', upd, { passive: true });
       }
     </script>
   </body>

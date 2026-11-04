@@ -5,8 +5,8 @@ import ProductCard from '../components/ProductCard.astro';
 import TrustRow from '../components/TrustRow.astro';
 import GuideRequest from '../components/GuideRequest.astro';
 import CTA from '../components/CTA.astro';
+import Marquee from '../components/Marquee.astro';
 import LemonSlice from '../components/LemonSlice.astro';
-import ResetBox from '../components/ResetBox.astro';
 import ImageSlot from '../components/ImageSlot.astro';
 import { products } from '../data/products';
 import { homeCards, photoFor } from '../data/testimonials';
@@ -22,41 +22,46 @@ const supports = [
   'A greater sense of wellbeing',
   'Renewed vitality',
 ];
+
+const ritual = [
+  { when: 'Morning', line: 'Begin with the elimination routine, then mix the day’s drink.', img: ['hiw-morning'], alt: 'A sunny terrace table set with the Lemon Detox drink, lemons and the Madal Bal tin' },
+  { when: 'Through the day', line: 'Sip the Lemon Detox drink whenever you feel hungry.', img: ['hiw-day'], alt: 'A woman smiling with a glass of the Lemon Detox drink beside a jug and fresh lemons' },
+  { when: 'Evening', line: 'A cup of senna tea, then a good night’s rest.', img: ['evening-calm', 'senna-tea'], alt: 'A glass cup of senna tea by candlelight' },
+];
 ---
 <Base
   title="Lemon Detox Cleanse — 7 & 14 Day Reset Box"
   description="A structured 7 or 14 day lemon cleanse built around one simple drink. Free tracked shipping Australia-wide."
 >
-  <!-- Hero: full-width banner. Drop the new banner in src/assets/images/hero-banner.(jpg|png|webp) and it replaces the illustration. -->
-  <section class="relative overflow-hidden" data-hero>
-    <ImageSlot name="hero-banner" alt="Lemon Detox Cleanse — Reset. Reduce. Restore." eager class="w-full" imgClass="h-auto w-full" sizes="100vw">
-      <div class="wrap grid items-center gap-10 pt-12 pb-16 sm:pt-16 lg:min-h-[calc(100svh-4.75rem-2.75rem)] lg:grid-cols-[1.05fr_1fr] lg:gap-6 lg:py-14">
-        <div class="relative z-10">
-          <p class="eyebrow">Lemon Detox Cleanse</p>
-          <h1 class="display-xl mt-6">Reset.<br />Reduce.<br /><em>Restore.</em></h1>
-          <p class="lead mt-7 max-w-[32rem]">A structured lemon cleanse program.</p>
-          <div class="mt-9 flex flex-wrap gap-4">
-            <a href="/#programs" class="btn btn-primary btn-caps">Start your reset</a>
-            <a href="/how-it-works" class="btn btn-secondary btn-caps">How it works</a>
-          </div>
+  <!-- Hero -->
+  <section class="sun-glow relative overflow-hidden" data-hero>
+    <LemonSlice class="pointer-events-none absolute -top-24 -left-24 hidden h-72 w-72 opacity-[0.18] lg:block" spin />
+    <div class="wrap grid items-center gap-12 pt-10 pb-16 sm:pt-14 lg:min-h-[calc(100svh-4.75rem-2.75rem)] lg:grid-cols-[1fr_1.05fr] lg:gap-14 lg:py-12">
+      <div class="relative z-10" data-reveal>
+        <p class="eyebrow">Lemon Detox Cleanse</p>
+        <h1 class="display-xl mt-6">Reset.<br />Reduce.<br /><em>Restore.</em></h1>
+        <p class="lead mt-7 max-w-[30rem]">A structured lemon cleanse program — one simple drink, one clear routine, 7 or 14 days.</p>
+        <div class="mt-9 flex flex-wrap gap-4">
+          <a href="/#programs" class="btn btn-primary btn-caps">Start your reset</a>
+          <a href="/how-it-works" class="btn btn-secondary btn-caps">How it works</a>
         </div>
-        <div class="relative aspect-square w-full max-w-[34rem] justify-self-center lg:justify-self-end" aria-hidden="true">
-          <div class="absolute inset-0 rounded-full bg-honey/30"></div>
-          <LemonSlice class="absolute -top-[6%] -right-[18%] h-[76%] w-[76%]" spin />
-          <LemonSlice class="absolute bottom-[4%] -left-[4%] h-[28%] w-[28%] rotate-12" />
-          <ResetBox days={14} label="Extended Cleanse" class="absolute inset-x-0 bottom-[6%] mx-auto h-[70%] w-auto drop-shadow-[0_30px_40px_rgba(138,100,24,0.22)]" />
-        </div>
+        <TrustRow class="mt-10" items={['4 simple ingredients', '7 or 14 days', 'Free tracked shipping']} icons={['leaf', 'calendar', 'truck']} />
       </div>
-    </ImageSlot>
-    <div class="bg-lemon">
-      <p class="wrap py-3.5 text-center text-[0.72rem] font-bold uppercase tracking-[0.4em] text-ink">Reset · Reduce · Restore</p>
+      <div class="relative">
+        <ImageSlot name={['home-hero', 'hiw-day']} alt="A woman enjoying a glass of the Lemon Detox drink in the morning sun" eager class="breathe aspect-[4/5] w-full rounded-[28px] bg-paper shadow-[0_40px_80px_-40px_rgba(138,100,24,0.45)] lg:ml-auto lg:max-w-[34rem]" sizes="(min-width: 1024px) 560px, 92vw" />
+        <a href="/products/14-day-extended-cleanse" class="bob absolute -bottom-8 -left-2 w-[58%] max-w-[17rem] overflow-hidden rounded-card border border-white/80 bg-white shadow-[0_24px_50px_-20px_rgba(26,26,26,0.35)] sm:-left-6 lg:-left-10" aria-label="The 14 Day Cleanse Reset Box">
+          <ImageSlot name="product-14day" alt="" class="aspect-[16/10] bg-white" imgClass="h-full w-full object-cover scale-[1.18]" sizes="280px" eager />
+          <span class="flex items-center justify-between gap-2 px-4 py-3 text-xs font-semibold"><span class="text-ink">The Reset Box</span><span class="text-gold-deep">from ${products[1].price}</span></span>
+        </a>
+      </div>
     </div>
+    <Marquee />
   </section>
 
-  <!-- Section 2: structure & simplicity (white) -->
+  <!-- Structure & simplicity (white) -->
   <section class="py-24 sm:py-32" aria-labelledby="reset-h">
     <div class="wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-      <ImageSlot name="home-reset" alt="A woman stretching outdoors in the morning sun with a glass of the Lemon Detox drink" class="zoom-img aspect-[4/5] rounded-card bg-paper" sizes="(min-width: 1024px) 560px, 100vw" />
+      <ImageSlot name="home-reset" alt="A woman stretching outdoors in the morning sun with a glass of the Lemon Detox drink" class="zoom-img aspect-[4/5] rounded-card bg-paper" sizes="(min-width: 1024px) 560px, 100vw" data-unveil />
       <div data-reveal>
         <p class="eyebrow mb-5">Reset behaviour</p>
         <h2 id="reset-h" class="display-lg">In a world of constant consumption, take a <em>defined pause.</em></h2>
@@ -69,8 +74,9 @@ const supports = [
     </div>
   </section>
 
-  <!-- Section 3: Every system benefits from a reset (#faf9f6) -->
-  <section class="bg-paper py-24 sm:py-32" aria-labelledby="system-h">
+  <!-- Every system benefits from a reset (#faf9f6) -->
+  <section class="texture overflow-hidden bg-paper py-24 sm:py-32" aria-labelledby="system-h">
+    <LemonSlice class="pointer-events-none absolute -right-32 -bottom-32 h-96 w-96 opacity-[0.12]" />
     <div class="wrap grid gap-14 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
       <div data-reveal>
         <h2 id="system-h" class="display-lg">Every system benefits from <span class="text-gold-deep italic">a reset.</span></h2>
@@ -80,17 +86,58 @@ const supports = [
           <p>More importantly, this structured reset often helps re-establish healthier habits — creating a strong foundation for maintaining results when continued with balanced, mindful choices.</p>
         </div>
       </div>
-      <div class="rounded-card border hairline bg-white p-8 sm:p-10" data-reveal style="--d:120ms">
+      <div class="rounded-card border hairline bg-white/90 p-8 backdrop-blur sm:p-10" data-reveal style="--d:120ms">
         <h3 class="font-sans text-sm font-bold uppercase tracking-[0.22em] text-gold-deep">In addition, the program supports:</h3>
         <ul class="dot-list-lg mt-7 space-y-4 text-[1.05rem] text-ink">
-          {supports.map((s) => <li>{s}</li>)}
+          {supports.map((s, i) => <li data-reveal style={`--d:${200 + i * 60}ms`}>{s}</li>)}
         </ul>
         <p class="mt-7 text-xs text-muted">Individual results vary.</p>
       </div>
     </div>
   </section>
 
-  <!-- Section 4: Programs (white) -->
+  <!-- A day on the cleanse (white) -->
+  <section class="py-24 sm:py-32" aria-labelledby="ritual-h">
+    <div class="wrap">
+      <div class="flex flex-wrap items-end justify-between gap-6" data-reveal>
+        <div>
+          <p class="eyebrow mb-5">One clear rhythm</p>
+          <h2 id="ritual-h" class="display-lg">A day on the <em>cleanse.</em></h2>
+        </div>
+        <a href="/how-it-works#rhythm" class="link-arrow">See the full routine <span aria-hidden="true">→</span></a>
+      </div>
+      <ol class="mt-14 grid gap-6 md:grid-cols-3">
+        {ritual.map((r, i) => (
+          <li class="group" data-reveal style={`--d:${i * 120}ms`}>
+            <a href="/how-it-works#rhythm" class="block">
+              <ImageSlot name={r.img} alt={r.alt} class="zoom-img aspect-[4/5] rounded-card bg-paper" sizes="(min-width: 768px) 380px, 100vw" />
+              <div class="mt-5 flex items-baseline gap-4">
+                <span class="font-serif text-3xl font-bold text-gold-deep">{String(i + 1).padStart(2, '0')}</span>
+                <div>
+                  <p class="text-[0.78rem] font-semibold uppercase tracking-[0.2em] text-gold-deep">{r.when}</p>
+                  <p class="mt-1 text-ink-soft">{r.line}</p>
+                </div>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Quote interlude (full-bleed photo) -->
+  <section class="relative isolate overflow-hidden" aria-label="Our philosophy">
+    <div class="absolute inset-0 -z-10"><ImageSlot name={['after-reset', 'ritual-terrace', 'hiw-evening']} alt="" class="breathe h-full w-full" imgClass="h-full w-full object-cover object-[70%_40%]" sizes="100vw" /></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-ink/75 via-ink/45 to-ink/10"></div>
+    <div class="wrap py-32 sm:py-44">
+      <blockquote class="max-w-2xl" data-reveal>
+        <p class="font-serif text-[clamp(2rem,4.2vw,3.4rem)] leading-[1.12] font-semibold text-white italic">“The value of the program lies not in extremes, but in structure, consistency, and intention.”</p>
+        <footer class="mt-8 text-xs font-semibold tracking-[0.3em] text-honey uppercase">The Lemon Detox Cleanse</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Programs (white) -->
   <section id="programs" class="pt-24 pb-16 sm:pt-32" aria-labelledby="programs-h">
     <div class="wrap">
       <div class="text-center" data-reveal>
@@ -106,19 +153,19 @@ const supports = [
 
   <GuideRequest />
 
-  <!-- Section 5: Testimonials (#faf9f6) -->
-  <section class="bg-paper py-24 sm:py-32" aria-labelledby="voices-h">
+  <!-- Testimonials (#faf9f6) -->
+  <section class="texture bg-paper py-24 sm:py-32" aria-labelledby="voices-h">
     <div class="wrap">
       <div class="text-center" data-reveal>
         <p class="font-serif text-2xl font-semibold text-gold-deep italic">Trusted for decades.</p>
         <h2 id="voices-h" class="display-lg mt-2">Everyday People. Real Stories.</h2>
       </div>
       <div id="voices" class="-mx-5 mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0" aria-label="Customer quotes" tabindex="0" role="region">
-        {homeCards.map((c) => {
+        {homeCards.map((c, i) => {
           const img = photoFor(c.photo);
           return (
-            <figure class="lift flex w-[80%] shrink-0 snap-center flex-col items-center rounded-card border hairline bg-white px-6 pt-8 pb-7 text-center sm:w-[46%] lg:w-auto">
-              {img ? <Picture src={img} alt={`Portrait of ${c.name}`} formats={['avif', 'webp']} widths={[120, 240]} sizes="120px" class="h-28 w-28 rounded-full object-cover object-top" /> : <span class="grid h-28 w-28 place-items-center rounded-full bg-lemon-pale font-serif text-3xl text-gold-deep">{c.name[0]}</span>}
+            <figure class="lift flex w-[80%] shrink-0 snap-center flex-col items-center rounded-card border hairline bg-white px-6 pt-8 pb-7 text-center sm:w-[46%] lg:w-auto" data-reveal style={`--d:${i * 90}ms`}>
+              {img ? <Picture src={img} alt={`Portrait of ${c.name}`} formats={['avif', 'webp']} widths={[120, 240]} sizes="120px" class="h-28 w-28 rounded-full object-cover object-top ring-4 ring-lemon-pale" /> : <span class="grid h-28 w-28 place-items-center rounded-full bg-lemon-pale font-serif text-3xl text-gold-deep">{c.name[0]}</span>}
               <span class="-mt-4 grid h-8 w-8 place-items-center rounded-full border hairline bg-white font-serif text-xl leading-none text-gold" aria-hidden="true">“</span>
               <blockquote class="mt-4 flex-1 font-serif text-[1.3rem] leading-snug font-medium text-ink">“{c.quote}”</blockquote>
               <figcaption class="mt-6">

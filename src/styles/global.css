@@ -159,3 +159,34 @@ details.acc[open] .acc-icon { transform: rotate(45deg); }
 /* Long testimonials: clamp until "Read full story" */
 .story-body.is-clamped { max-height: 15.5rem; overflow: hidden; }
 .story-body.is-clamped::after { content: ''; position: absolute; inset: auto 0 0 0; height: 4.5rem; background: linear-gradient(to bottom, rgb(255 255 255 / 0), #fff); }
+
+/* ── Mood layer ───────────────────────────────────────────────────────── */
+/* Warm paper grain on off-white sections */
+.texture { position: relative; isolation: isolate; }
+.texture::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .42 0 0 0 0 .2 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* Soft sun glow */
+.sun-glow { background: radial-gradient(60% 60% at 70% 40%, rgb(244 210 122 / 0.35), transparent 70%); }
+
+/* Slowly scrolling tagline band */
+.marquee { display: flex; width: max-content; animation: marquee 60s linear infinite; }
+.marquee-wrap:hover .marquee { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero photo breathes very slowly */
+  .breathe img { animation: breathe 22s ease-in-out infinite alternate; transform-origin: 60% 40%; }
+  @keyframes breathe { from { transform: scale(1); } to { transform: scale(1.06); } }
+  /* Floating product card */
+  .bob { animation: bob 7s ease-in-out infinite; }
+  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  /* Images unveil softly as they scroll in */
+  .js [data-unveil] { clip-path: inset(12% 0 0 0 round 14px); opacity: 0; transform: translateY(24px);
+    transition: clip-path 1.4s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 1.1s ease, transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .js [data-unveil].is-in { clip-path: inset(0 0 0 0 round 14px); opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .marquee { animation: none; } }
+
+/* Reading progress line under the header */
+#progress { transform-origin: 0 50%; transform: scaleX(var(--p, 0)); }

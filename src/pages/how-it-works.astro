@@ -54,7 +54,7 @@ const day = [
 ] as const;
 
 const ingredients = [
-  { img: 'ing-syrup', alt: 'The Madal Bal Natural Tree Syrup tin', name: 'Madal Bal® Natural Tree Syrup', body: 'The key ingredient, a balanced blend of Canadian Grade C maple syrup and the purest Palm syrups providing energy in the form of easily digestible carbohydrates and a high level of potassium.', fit: 'contain' },
+  { img: 'ing-syrup', alt: 'Natural tree syrup being poured into a small glass', name: 'Madal Bal® Natural Tree Syrup', body: 'The key ingredient, a balanced blend of Canadian Grade C maple syrup and the purest Palm syrups providing energy in the form of easily digestible carbohydrates and a high level of potassium.', fit: 'cover' },
   { img: 'ing-lemon', alt: 'Fresh lemons', name: 'Fresh Lemon Juice', body: 'Freshly squeezed lemons provide vitamin C and citrus polyphenols. Traditionally valued for their cleansing properties, a refreshing flavour while supporting the body’s own detoxification pathways.', fit: 'contain' },
   { img: 'ing-cayenne', alt: 'Cayenne pepper and fresh chillies', name: 'Cayenne Pepper', body: 'Helps stimulate circulation and support metabolism during the cleanse, while also adding a pleasant warmth to the drink.', fit: 'contain' },
   { img: 'ing-water', alt: 'Pure water being poured into a glass', name: 'Pure Water', body: 'Clean, pure water helps carry the formula through the body while maintaining hydration during the cleanse and supporting the body’s natural cleansing processes.', fit: 'cover', icon: true },
@@ -99,7 +99,7 @@ const versions = [
         <p class="mt-8 text-sm text-muted">Prefer to start now? <a href="/#programs" class="link-arrow ml-1">View Programs <span aria-hidden="true">→</span></a></p>
       </div>
       <div class="relative">
-        <ImageSlot name="hiw-hero" alt="A glass jug of the Lemon Detox drink with fresh lemons" eager class="zoom-img aspect-[4/5] rounded-card bg-paper" sizes="(min-width: 1024px) 520px, 100vw" />
+        <ImageSlot name="hiw-hero" alt="A glass jug of the Lemon Detox drink with fresh lemons" eager class="zoom-img breathe aspect-[4/5] rounded-card bg-paper" sizes="(min-width: 1024px) 520px, 100vw" />
         <div class="absolute -bottom-6 left-6 rounded-card bg-white px-6 py-4 shadow-[var(--shadow-soft)] sm:left-auto sm:-right-6">
           <p class="font-serif text-2xl font-bold text-ink">7 to 14 days</p>
           <p class="text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">One clear rhythm</p>
@@ -116,7 +116,7 @@ const versions = [
   </nav>
 
   <!-- Section 2: The Pause (off-white) -->
-  <section id="pause" class="scroll-mt-36 bg-paper py-24 sm:py-28" aria-labelledby="pause-h">
+  <section id="pause" class="texture scroll-mt-36 bg-paper py-24 sm:py-28" aria-labelledby="pause-h">
     <div class="wrap grid gap-10 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
       <div data-reveal>
         <p class="eyebrow mb-5">The pause</p>
@@ -143,7 +143,7 @@ const versions = [
       <div class="mt-16 space-y-20 sm:space-y-24">
         {day.map((d, i) => (
           <article class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16" data-reveal>
-            <ImageSlot name={d.img} alt={d.alt} class:list={['zoom-img aspect-[4/3] rounded-card bg-paper', i % 2 === 1 && 'lg:order-2']} sizes="(min-width: 1024px) 560px, 100vw" />
+            <ImageSlot name={d.img} alt={d.alt} class:list={['zoom-img aspect-[4/3] rounded-card bg-paper', i % 2 === 1 && 'lg:order-2']} sizes="(min-width: 1024px) 560px, 100vw" data-unveil />
             <div>
               <div class="flex items-center gap-4">
                 <span class="grid h-14 w-14 place-items-center rounded-full bg-lemon-pale text-gold-deep"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d={icons[d.key]} fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
@@ -160,7 +160,7 @@ const versions = [
   </section>
 
   <!-- Section 4: The Formula (off-white) -->
-  <section id="formula" class="scroll-mt-36 bg-paper py-24 sm:py-28" aria-labelledby="formula-h">
+  <section id="formula" class="texture scroll-mt-36 bg-paper py-24 sm:py-28" aria-labelledby="formula-h">
     <div class="wrap">
       <div class="grid gap-8 lg:grid-cols-[1fr_1.25fr] lg:gap-20" data-reveal>
         <div>
@@ -223,7 +223,7 @@ const versions = [
   </section>
 
   <!-- Section 6: Elimination (off-white) -->
-  <section id="elimination" class="scroll-mt-36 bg-paper py-24 sm:py-28" aria-labelledby="elim-h">
+  <section id="elimination" class="texture scroll-mt-36 bg-paper py-24 sm:py-28" aria-labelledby="elim-h">
     <div class="wrap">
       <div class="grid gap-8 lg:grid-cols-[1fr_1.25fr] lg:gap-20" data-reveal>
         <div>
@@ -237,6 +237,7 @@ const versions = [
       </div>
       <div class="mt-14 grid gap-6 md:grid-cols-2">
         <article class="lift overflow-hidden rounded-card border hairline bg-white" data-reveal>
+          <ImageSlot name={['sea-salt', 'hiw-morning']} alt="Morning light on a terrace table with the Lemon Detox drink and sea salt" class="zoom-img aspect-[16/8] bg-paper" sizes="(min-width: 768px) 580px, 100vw" />
           <div class="flex items-center gap-5 border-b hairline bg-lemon-pale/45 px-7 py-6">
             <span class="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-white text-gold-deep"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d={icons.morning} fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
             <h3 class="font-sans text-lg font-bold uppercase tracking-[0.14em] text-ink">Morning – Sea Salt Water</h3>
@@ -244,6 +245,7 @@ const versions = [
           <p class="p-7 text-ink-soft">The sea salt water drink is prepared by dissolving <strong class="text-ink">two teaspoons of natural, uniodised sea salt</strong> in <strong class="text-ink">one litre of warm purified water</strong> and drinking it <strong class="text-ink">on an empty stomach</strong>.</p>
         </article>
         <article class="lift overflow-hidden rounded-card border hairline bg-white" data-reveal style="--d:90ms">
+          <ImageSlot name="senna-tea" alt="A glass cup of senna tea by candlelight with loose senna leaves" class="zoom-img aspect-[16/8] bg-paper" sizes="(min-width: 768px) 580px, 100vw" />
           <div class="flex items-center gap-5 border-b border-ink bg-ink px-7 py-6">
             <span class="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-white/10 text-honey"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d={icons.evening} fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
             <h3 class="font-sans text-lg font-bold uppercase tracking-[0.14em] text-white">Evening – Herbal Senna Tea</h3>
@@ -290,7 +292,7 @@ const versions = [
   </section>
 
   <!-- Section 8: Depth (off-white) -->
-  <section id="depth" class="scroll-mt-36 bg-paper py-24 sm:py-28" aria-labelledby="depth-h">
+  <section id="depth" class="texture scroll-mt-36 bg-paper py-24 sm:py-28" aria-labelledby="depth-h">
     <div class="wrap grid gap-10 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
       <div data-reveal>
         <p class="eyebrow mb-5">Depth</p>
