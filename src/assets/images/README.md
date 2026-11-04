@@ -6,7 +6,7 @@ another photo and switch automatically as soon as the file exists.
 
 | File name        | Where it appears                                              | Status |
 |------------------|---------------------------------------------------------------|--------|
-| `home-hero`      | Home hero (big portrait photo)                                | waiting – falls back to `hiw-day` |
+| `hero-banner`    | Home hero — full-width banner (woman, Reset Boxes, tin, jug)  | ✓ |
 | `product-14day`  | 14 Day card, hero floating card, 14 Day product page          | ✓ (made from the 7 Day box shot — replace with a real photo) |
 | `product-7day`   | 7 Day card and product page                                   | ✓ |
 | `home-reset`     | Home "In a world of constant consumption"                     | ✓ |
@@ -17,8 +17,9 @@ another photo and switch automatically as soon as the file exists.
 | `hiw-day`        | Through the day rhythm + home day strip                       | ✓ |
 | `hiw-evening`    | Evening rhythm                                                | ✓ |
 | `ing-syrup`      | Madal Bal ingredient card (syrup pour)                        | ✓ |
-| `ing-lemon`      | Fresh lemon ingredient card                                   | low-res cut-out — replace with the lemon-squeeze photo |
-| `ing-cayenne`    | Cayenne ingredient card                                       | low-res cut-out — replace with the chilli photo |
+| `ing-lemon`      | Fresh lemon ingredient card (woman squeezing a lemon)         | ✓ — `ing-lemon-squeeze` overrides it when added |
+| `ing-cayenne`    | Cayenne ingredient card                                       | low-res cut-out — add `ing-cayenne-photo` (spoon + dried chillies) |
+| `testimonials-side` / `faq-side` / `expect-side` | Page-heading photos on Testimonials, FAQs and What to Expect | ✓ |
 | `ing-water`      | Pure water ingredient card                                    | ✓ |
 | `sea-salt`       | Elimination → Morning card                                    | waiting – falls back to `hiw-morning` |
 | `senna-tea`      | Elimination → Evening card                                    | ✓ |

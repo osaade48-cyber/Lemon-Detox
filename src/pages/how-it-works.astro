@@ -55,8 +55,8 @@ const day = [
 
 const ingredients = [
   { img: 'ing-syrup', alt: 'Natural tree syrup being poured into a small glass', name: 'Madal Bal® Natural Tree Syrup', body: 'The key ingredient, a balanced blend of Canadian Grade C maple syrup and the purest Palm syrups providing energy in the form of easily digestible carbohydrates and a high level of potassium.', fit: 'cover' },
-  { img: 'ing-lemon', alt: 'Fresh lemons', name: 'Fresh Lemon Juice', body: 'Freshly squeezed lemons provide vitamin C and citrus polyphenols. Traditionally valued for their cleansing properties, a refreshing flavour while supporting the body’s own detoxification pathways.', fit: 'contain' },
-  { img: 'ing-cayenne', alt: 'Cayenne pepper and fresh chillies', name: 'Cayenne Pepper', body: 'Helps stimulate circulation and support metabolism during the cleanse, while also adding a pleasant warmth to the drink.', fit: 'contain' },
+  { img: ['ing-lemon-squeeze', 'ing-lemon'], alt: 'Fresh lemon being squeezed into a glass', name: 'Fresh Lemon Juice', body: 'Freshly squeezed lemons provide vitamin C and citrus polyphenols. Traditionally valued for their cleansing properties, a refreshing flavour while supporting the body’s own detoxification pathways.', fit: 'cover' },
+  { img: ['ing-cayenne-photo', 'ing-cayenne'], alt: 'Cayenne pepper and dried chillies', name: 'Cayenne Pepper', body: 'Helps stimulate circulation and support metabolism during the cleanse, while also adding a pleasant warmth to the drink.', fit: 'contain' },
   { img: 'ing-water', alt: 'Pure water being poured into a glass', name: 'Pure Water', body: 'Clean, pure water helps carry the formula through the body while maintaining hydration during the cleanse and supporting the body’s natural cleansing processes.', fit: 'cover', icon: true },
 ];
 
@@ -311,10 +311,13 @@ const versions = [
   <!-- What to expect (white) -->
   <section id="expect" class="scroll-mt-36 py-24 sm:py-28" aria-labelledby="expect-h">
     <div class="wrap">
+      <div class="grid items-end gap-10 lg:grid-cols-[1.6fr_1fr]">
       <div class="max-w-3xl" data-reveal>
         <p class="eyebrow mb-5">What to expect</p>
         <h2 id="expect-h" class="display-lg">What to expect during the <em>cleanse.</em></h2>
         <p class="mt-5 text-ink-soft">Each person’s experience of the Lemon Detox Cleanse is unique, however many participants notice a similar pattern as their body adjusts to the program.</p>
+      </div>
+      <ImageSlot name="expect-side" alt="A woman walking through a garden carrying a yoga mat and a water bottle" class="zoom-img hidden aspect-[4/5] max-h-[26rem] rounded-card bg-paper lg:block" sizes="360px" data-unveil />
       </div>
       <ol class="mt-12 grid gap-6 md:grid-cols-3">
         {[

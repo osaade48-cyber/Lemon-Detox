@@ -33,26 +33,30 @@ const ritual = [
   title="Lemon Detox Cleanse — 7 & 14 Day Reset Box"
   description="A structured 7 or 14 day lemon cleanse built around one simple drink. Free tracked shipping Australia-wide."
 >
-  <!-- Hero -->
-  <section class="sun-glow relative overflow-hidden" data-hero>
-    <LemonSlice class="pointer-events-none absolute -top-24 -left-24 hidden h-72 w-72 opacity-[0.18] lg:block" spin />
-    <div class="wrap grid items-center gap-12 pt-10 pb-16 sm:pt-14 lg:min-h-[calc(100svh-4.75rem-2.75rem)] lg:grid-cols-[1fr_1.05fr] lg:gap-14 lg:py-12">
-      <div class="relative z-10" data-reveal>
-        <p class="eyebrow">Lemon Detox Cleanse</p>
-        <h1 class="display-xl mt-6">Reset.<br />Reduce.<br /><em>Restore.</em></h1>
-        <p class="lead mt-7 max-w-[30rem]">A structured lemon cleanse program — one simple drink, one clear routine, 7 or 14 days.</p>
-        <div class="mt-9 flex flex-wrap gap-4">
-          <a href="/#programs" class="btn btn-primary btn-caps">Start your reset</a>
-          <a href="/how-it-works" class="btn btn-secondary btn-caps">How it works</a>
-        </div>
-        <TrustRow class="mt-10" items={['4 simple ingredients', '7 or 14 days', 'Free tracked shipping']} icons={['leaf', 'calendar', 'truck']} />
+  <!-- Hero banner: full width. Headline sits on the bright wall in the photo on wide screens, above it on smaller screens. -->
+  <section class="relative overflow-hidden bg-[#f6efe2]" data-hero>
+    <div class="wrap pt-10 pb-8 text-center sm:pt-14 xl:hidden" data-reveal>
+      <p class="eyebrow">Lemon Detox Cleanse</p>
+      <h1 class="display-xl mt-5 !text-[clamp(2.9rem,9vw,4.75rem)]">Reset. Reduce. <em>Restore.</em></h1>
+      <p class="lead mx-auto mt-5 max-w-md">A structured lemon cleanse program.</p>
+      <div class="mt-7 flex flex-wrap justify-center gap-3">
+        <a href="/#programs" class="btn btn-primary btn-caps">Start your reset</a>
+        <a href="/how-it-works" class="btn btn-secondary btn-caps">How it works</a>
       </div>
-      <div class="relative">
-        <ImageSlot name={['home-hero', 'hiw-day']} alt="A woman enjoying a glass of the Lemon Detox drink in the morning sun" eager class="breathe aspect-[4/5] w-full rounded-[28px] bg-paper shadow-[0_40px_80px_-40px_rgba(138,100,24,0.45)] lg:ml-auto lg:max-w-[34rem]" sizes="(min-width: 1024px) 560px, 92vw" />
-        <a href="/products/14-day-extended-cleanse" class="bob absolute -bottom-8 -left-2 w-[58%] max-w-[17rem] overflow-hidden rounded-card border border-white/80 bg-white shadow-[0_24px_50px_-20px_rgba(26,26,26,0.35)] sm:-left-6 lg:-left-10" aria-label="The 14 Day Cleanse Reset Box">
-          <ImageSlot name="product-14day" alt="" class="aspect-[16/10] bg-white" imgClass="h-full w-full object-cover scale-[1.18]" sizes="280px" eager />
-          <span class="flex items-center justify-between gap-2 px-4 py-3 text-xs font-semibold"><span class="text-ink">The Reset Box</span><span class="text-gold-deep">from ${products[1].price}</span></span>
-        </a>
+    </div>
+    <div class="relative">
+      <ImageSlot name="hero-banner" alt="A woman at a sunlit marble bench with Lemon Detox Cleanse Reset Boxes, the Madal Bal Natural Tree Syrup tin, a jug of the Lemon Detox drink and fresh lemons" eager class="breathe aspect-[16/10] w-full sm:aspect-[16/9]" imgClass="h-full w-full object-cover object-[60%_50%]" sizes="100vw" />
+      <div class="pointer-events-none absolute inset-y-0 left-[39.5%] hidden w-[29%] items-start pt-[3.2%] xl:flex">
+        <div class="pointer-events-auto relative" data-reveal>
+          <div class="absolute -inset-10 -z-10 rounded-full bg-[radial-gradient(closest-side,rgba(255,250,240,0.85),rgba(255,250,240,0))]"></div>
+          <p class="eyebrow">Lemon Detox Cleanse</p>
+          <h1 class="display-xl mt-3 !text-[clamp(2.8rem,3.9vw,4.1rem)] !leading-[0.98]">Reset.<br />Reduce.<br /><em>Restore.</em></h1>
+          <p class="mt-4 text-ink-soft">A structured lemon cleanse program.</p>
+          <div class="mt-5 flex flex-nowrap gap-3">
+            <a href="/#programs" class="btn btn-primary btn-sm btn-caps min-[1440px]:min-h-[3.25rem] min-[1440px]:px-7">Start your reset</a>
+            <a href="/how-it-works" class="btn btn-secondary btn-sm btn-caps !bg-white/60 backdrop-blur min-[1440px]:min-h-[3.25rem] min-[1440px]:px-7">How it works</a>
+          </div>
+        </div>
       </div>
     </div>
     <Marquee />

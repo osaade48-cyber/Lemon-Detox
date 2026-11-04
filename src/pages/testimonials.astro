@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import StoryCard from '../components/StoryCard.astro';
 import CTA from '../components/CTA.astro';
+import ImageSlot from '../components/ImageSlot.astro';
 import { categories, testimonials, disclaimer } from '../data/testimonials';
 
 const PAGE = 8;
@@ -9,7 +10,8 @@ const tabs = [{ id: 'all', label: 'All', blurb: '' }, ...categories];
 ---
 <Base title="Testimonials — Lemon Detox Cleanse" description="Genuine experiences shared by people who have completed the Lemon Detox Cleanse.">
   <section class="texture bg-paper" data-hero>
-    <div class="wrap pt-16 pb-14 sm:pt-24 sm:pb-16">
+    <div class="wrap grid items-center gap-12 pt-16 pb-14 sm:pt-20 sm:pb-16 lg:grid-cols-[1.5fr_1fr]">
+      <div>
       <p class="eyebrow">Testimonials</p>
       <h1 class="display-xl mt-6 max-w-4xl !text-[clamp(2.75rem,6vw,5rem)]">Real experiences with Lemon Detox <em>Cleanse.</em></h1>
       <div class="mt-8 grid max-w-4xl gap-5 text-ink-soft md:grid-cols-2">
@@ -17,6 +19,8 @@ const tabs = [{ id: 'all', label: 'All', blurb: '' }, ...categories];
         <p>While each person’s experience is different, many people report feeling lighter, clearer, and more aware of their habits after completing the program.</p>
       </div>
       <p class="mt-6 text-sm text-muted">Below are genuine testimonials shared by participants who have followed the Lemon Detox program. Results and experiences vary from person to person.</p>
+      </div>
+      <ImageSlot name="testimonials-side" alt="A smiling woman enjoying the morning sun outdoors" eager class="breathe hidden aspect-[4/5] rounded-[28px] bg-white lg:block" sizes="420px" />
     </div>
   </section>
 

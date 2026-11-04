@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Accordion from '../components/Accordion.astro';
 import { site } from '../config/site';
+import ImageSlot from '../components/ImageSlot.astro';
 
 type QA = { q: string; a: string[] | string };
 const groups: { id: string; title: string; items: QA[] }[] = [
@@ -73,9 +74,13 @@ const jsonLd = [{
 ---
 <Base title="FAQs — Lemon Detox Cleanse" description="Frequently asked questions about the Lemon Detox Cleanse — preparation, exercise, results, safety and orders." jsonLd={jsonLd}>
   <section class="texture bg-paper" data-hero>
-    <div class="wrap pt-16 pb-14 sm:pt-24 sm:pb-16">
-      <p class="eyebrow">FAQs</p>
-      <h1 class="display-xl mt-6 max-w-4xl !text-[clamp(2.75rem,6.5vw,5.5rem)]">Frequently asked <em>questions.</em></h1>
+    <div class="wrap grid items-center gap-12 pt-16 pb-14 sm:pt-20 sm:pb-16 lg:grid-cols-[1.5fr_1fr]">
+      <div>
+        <p class="eyebrow">FAQs</p>
+        <h1 class="display-xl mt-6 max-w-4xl !text-[clamp(2.75rem,6.5vw,5.5rem)]">Frequently asked <em>questions.</em></h1>
+        <p class="lead mt-6 max-w-lg text-muted">Straight answers on preparing for, following and finishing the Lemon Detox Cleanse.</p>
+      </div>
+      <ImageSlot name="faq-side" alt="A woman sitting on a mat outdoors with a bottle of lemon water" eager class="breathe hidden aspect-[4/5] rounded-[28px] bg-white lg:block" sizes="420px" />
     </div>
   </section>
 
