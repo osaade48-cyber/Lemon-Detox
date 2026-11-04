@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-cream: #fbf8ef;
+  --color-cream: #ffffff;
   --color-paper: #faf9f6;
   --color-ink: #1a1a1a;
   --color-ink-soft: #2b2e2f;
@@ -10,7 +10,8 @@
   --color-gold-deep: #8a6418;
   --color-gold-soft: #e8d8a5;
   --color-honey: #f4d27a;
-  --color-lemon: #f2d64b;
+  --color-lemon: #f4c400;
+  --color-lemon-soft: #f2d64b;
   --color-lemon-pale: #fbefa8;
 
   --font-serif: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
@@ -40,14 +41,14 @@
   }
   h1, h2, h3 {
     @apply font-serif text-ink;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    line-height: 1.08;
     text-wrap: balance;
   }
   h1 em, h2 em, h3 em, .display em {
     @apply text-gold-deep italic;
-    font-weight: 400;
+    font-weight: 600;
   }
   p { text-wrap: pretty; }
   ::selection { background: var(--color-honey); color: var(--color-ink); }
@@ -69,9 +70,9 @@
     letter-spacing: 0.3em;
     line-height: 1.4;
   }
-  .display-xl { font-size: clamp(4rem, 9vw, 7.5rem); line-height: 0.95; font-weight: 300; }
-  .display-lg { font-size: clamp(2.5rem, 5.6vw, 4.5rem); line-height: 1.02; font-weight: 300; }
-  .display-md { font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.06; font-weight: 400; }
+  .display-xl { font-size: clamp(3.25rem, 7.5vw, 6.25rem); line-height: 1; font-weight: 700; }
+  .display-lg { font-size: clamp(2.25rem, 4.6vw, 3.75rem); line-height: 1.06; font-weight: 700; }
+  .display-md { font-size: clamp(1.9rem, 3.4vw, 2.75rem); line-height: 1.1; font-weight: 700; }
   .lead { @apply text-ink-soft; font-size: clamp(1.125rem, 1.6vw, 1.3rem); line-height: 1.6; }
 
   .btn {
@@ -80,9 +81,10 @@
     font-size: 0.95rem;
     letter-spacing: 0.01em;
   }
-  .btn-primary { @apply bg-ink text-cream hover:bg-ink-soft; }
+  .btn-primary { @apply bg-ink text-white hover:bg-gold-deep; }
   .btn-primary:hover { box-shadow: var(--shadow-soft); transform: translateY(-1px); }
-  .btn-secondary { @apply border border-ink text-ink hover:bg-ink hover:text-cream; }
+  .btn-caps { @apply uppercase; letter-spacing: 0.18em; font-size: 0.78rem; }
+  .btn-secondary { @apply border border-ink text-ink hover:bg-ink hover:text-white; }
   .btn-light { @apply bg-cream text-ink hover:bg-white; }
   .btn-sm { min-height: 2.6rem; @apply px-5 text-sm; }
   .btn[aria-disabled='true'] { @apply cursor-not-allowed bg-gold-soft/60 text-muted shadow-none; transform: none; }
@@ -109,6 +111,15 @@
     content: '';
     @apply absolute top-[0.7em] left-0 h-1.5 w-1.5 rounded-full bg-gold;
   }
+  .dot-list-lg li { @apply relative pl-8; }
+  .dot-list-lg li::before {
+    content: '';
+    @apply absolute top-[0.55em] left-0 h-2.5 w-2.5 rounded-full bg-gold;
+  }
+  .zoom-img img, .zoom-img svg { transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .zoom-img:hover img { transform: scale(1.05); }
+  .lift { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+  .lift:hover { transform: translateY(-6px); box-shadow: var(--shadow-soft); }
 
   .check-list li { @apply relative pl-8; }
   .check-list li::before {
@@ -144,3 +155,7 @@ details.acc[open] .acc-icon { transform: rotate(45deg); }
   html { scroll-behavior: auto; }
   .animate-marquee { animation: none; }
 }
+
+/* Long testimonials: clamp until "Read full story" */
+.story-body.is-clamped { max-height: 15.5rem; overflow: hidden; }
+.story-body.is-clamped::after { content: ''; position: absolute; inset: auto 0 0 0; height: 4.5rem; background: linear-gradient(to bottom, rgb(255 255 255 / 0), #fff); }

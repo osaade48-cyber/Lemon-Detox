@@ -1,9 +1,0 @@
----
-interface Props { eyebrow?: string; center?: boolean; class?: string; id?: string }
-const { eyebrow, center = false, class: cls = '', id } = Astro.props;
----
-<div class:list={['max-w-3xl', center && 'mx-auto text-center', cls]} data-reveal>
-  {eyebrow && <p class="eyebrow mb-5">{eyebrow}</p>}
-  <h2 class="display-lg" id={id}><slot /></h2>
-  {Astro.slots.has('sub') && <div class:list={['lead mt-6 text-muted', center && 'mx-auto max-w-2xl']}><slot name="sub" /></div>}
-</div>

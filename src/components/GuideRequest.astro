@@ -1,0 +1,80 @@
+---
+/**
+ * "Want to know more before you start?" — email in, guide opens on the page.
+ * The email is stored by Netlify Forms (form name "guide-request"), or posted to
+ * FORMSPREE_ENDPOINT if that's set in site.ts. Either way the guide is then shown,
+ * so nobody is blocked if the network hiccups.
+ */
+import BuyButton from './BuyButton.astro';
+import { site } from '../config/site';
+import { products } from '../data/products';
+const formspree = site.forms.FORMSPREE_ENDPOINT;
+---
+<section id="guide" class="pb-24 sm:pb-28" aria-labelledby="guide-h">
+  <div class="wrap">
+    <div class="mx-auto max-w-3xl border-t hairline pt-16 text-center" data-reveal>
+      <p class="font-serif text-2xl font-semibold text-ink-soft italic">Want to know more before you start?</p>
+      <h2 id="guide-h" class="mt-3 text-3xl sm:text-4xl">Download the program guide</h2>
+      <p class="mx-auto mt-4 max-w-lg text-muted">Prefer to review the full program first? Receive the overview guide.</p>
+
+      <form id="guide-form" name="guide-request" method="POST" action={formspree || '/'} {...(!formspree ? { 'data-netlify': 'true', 'netlify-honeypot': 'company' } : {})} class="mx-auto mt-8 max-w-lg text-left">
+        <input type="hidden" name="form-name" value="guide-request" />
+        <p class="hidden" aria-hidden="true"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></p>
+        <label for="guide-email" class="sr-only">Email address</label>
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <input id="guide-email" name="email" type="email" required autocomplete="email" placeholder="Enter email" class="min-h-[3.25rem] flex-1 rounded-full border border-gold-soft bg-white px-5 text-ink placeholder:text-muted focus:border-ink focus:outline-none focus:ring-2 focus:ring-honey/60" />
+          <button type="submit" class="btn btn-primary btn-caps">Get the guide</button>
+        </div>
+        <label class="mt-4 flex items-start gap-3 text-sm text-muted">
+          <input id="guide-optin" type="checkbox" name="marketing_opt_in" value="yes" class="mt-1 h-4 w-4 accent-gold-deep" />
+          <span>Yes, send me occasional tips and offers. Unsubscribe any time.</span>
+        </label>
+      </form>
+    </div>
+
+    <div id="guide-viewer" class="mx-auto mt-14 hidden max-w-5xl" tabindex="-1">
+      <p class="text-center font-serif text-3xl font-bold text-ink" role="status">Your guide is ready below.</p>
+      <div class="relative mt-8 overflow-hidden rounded-card border hairline bg-paper shadow-[var(--shadow-soft)]">
+        <a href={site.guidePdf} download class="btn btn-primary btn-sm btn-caps absolute top-4 right-4 z-10 !min-h-[2.3rem] !px-4 !text-[0.68rem]">
+          <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7l4 4 4-4M2.5 14h11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download PDF
+        </a>
+        <iframe data-src={`${site.guidePdf}#view=FitH`} title="Lemon Detox Program Guide (PDF)" class="block h-[80vh] min-h-[520px] w-full"></iframe>
+      </div>
+      <p class="mt-4 text-center text-sm text-muted">Trouble viewing? <a href={site.guidePdf} target="_blank" rel="noopener" class="underline decoration-gold underline-offset-4">Open the guide in a new tab</a>.</p>
+
+      <div class="mt-16 text-center">
+        <h3 class="display-md">Begin your <em>reset.</em></h3>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          {products.map((p) => <BuyButton href={p.checkoutUrl} product={p.name} label={`Start ${p.short}`} fallbackHref={`/products/${p.slug}`} />)}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('guide-form') as HTMLFormElement;
+  const viewer = document.getElementById('guide-viewer')!;
+  const frame = viewer.querySelector('iframe')!;
+  const reveal = () => {
+    if (!frame.src) frame.src = frame.dataset.src!;
+    viewer.classList.remove('hidden');
+    viewer.focus({ preventScroll: true });
+    viewer.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  };
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const isFormspree = form.action.includes('formspree');
+    try {
+      await fetch(isFormspree ? form.action : '/', {
+        method: 'POST',
+        headers: isFormspree ? { Accept: 'application/json' } : { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: isFormspree ? data : new URLSearchParams(data as unknown as Record<string, string>).toString(),
+      });
+    } catch { /* still show the guide */ }
+    form.querySelector('button')!.textContent = 'Sent ✓';
+    reveal();
+  });
+</script>

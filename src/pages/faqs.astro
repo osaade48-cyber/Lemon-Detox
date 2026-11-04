@@ -1,71 +1,95 @@
 ---
 import Base from '../layouts/Base.astro';
 import Accordion from '../components/Accordion.astro';
-import LemonSlice from '../components/LemonSlice.astro';
 import { site } from '../config/site';
 
-const metro = site.shipping.metro;
-type QA = { q: string; a: string };
+type QA = { q: string; a: string[] | string };
 const groups: { id: string; title: string; items: QA[] }[] = [
-  { id: 'getting-started', title: 'Getting started', items: [
-    { q: 'How long should I do the cleanse for?', a: "Most people do 7 to 14 days. We don't recommend fewer than five days — it usually takes the first two or three days to settle into the routine. The 7-Day Focused Cleanse suits first-timers; the 14-Day Extended Cleanse is for a deeper reset." },
-    { q: 'Which way should I follow it — Full Cleanse, Relaxed or 50/50?', a: 'Full Cleanse gives the deepest reset. Relaxed keeps one light meal a day and suits busy weeks. 50/50 eases you in and out. See <a href="/how-it-works#three-ways"><em>How It Works</em></a> for the details.' },
-    { q: 'What do I need to buy as well as the Reset Box?', a: 'Fresh lemons (about 25 for 7 days), cayenne pepper and water. Everything else is in the box.' },
-    { q: 'How do I prepare the drink?', a: `Full measures for a daily 2-litre batch and a single glass are on the <a href="/how-it-works#mixing"><em>How It Works</em></a> page and in the <a href="${site.guidePdf}" download>Program Guide</a>.` },
+  { id: 'program', title: 'The program', items: [
+    { q: 'Can you detox for less than three days?', a: [
+      'Detoxing the body in less than three days is highly unlikely. It generally takes two to three days for toxins to begin moving from the tissues into the bloodstream so they can be eliminated.',
+      'For this reason we do not recommend performing the cleanse for less than five to seven days, and many people choose to continue the program for longer.',
+      'Programs that promise detoxification in 24–48 hours are unrealistic and may result in toxins simply being reabsorbed back into the body.',
+    ]},
+    { q: 'How do I prepare the Lemon Detox drink?', a: 'Please refer to the <a href="/how-it-works#mixing">How It Works</a> page on this website for the full preparation instructions.' },
+    { q: 'Can I drink anything besides the Lemon Detox drink?', a: [
+      'If you feel the need for variety, you may occasionally drink herbal teas such as peppermint, chamomile or rosehip, or freshly squeezed citrus juice.',
+      'If sweetening is desired, use Madal Bal Natural Tree Syrup only. Avoid adding dairy products.',
+    ]},
+    { q: 'Do I have to drink the sea salt water?', a: [
+      'The sea salt water drink is commonly used to support elimination during the cleanse.',
+      'If you find the taste uncomfortable, you may substitute it with a cup of herbal laxative tea, although the effect may be milder.',
+    ]},
+    { q: 'Is lemon juice too acidic on an empty stomach?', a: 'Although lemons taste acidic, they are generally considered alkalising once metabolised in the body. For this reason, most people do not experience stomach acidity during the cleanse.' },
+    { q: 'Can I exercise during the cleanse?', a: [
+      'Light exercise is generally beneficial during the Lemon Detox Cleanse. Walking, stretching or gentle movement can complement the program well.',
+      'However, strenuous exercise is not recommended. Intense physical activity requires additional energy and may place extra demands on the body during the cleanse.',
+      'Athletes or people in training may wish to reduce their normal training intensity by approximately 60–70% during the cleanse. Most people return to their usual activity levels afterwards feeling refreshed and energised.',
+    ]},
+    { q: 'How do I know when the cleanse is complete?', a: [
+      'One traditional way of observing progress during the cleanse is by looking at the tongue.',
+      'During cleansing the tongue often develops a white coating. As the body settles and the tongue gradually returns to its normal pink colour, many people consider the cleansing process to be nearing completion.',
+    ]},
   ]},
-  { id: 'during', title: 'During the cleanse', items: [
-    { q: 'Will I be hungry?', a: 'Some hunger on Days 1–2 is normal. Have a glass of the drink whenever you feel hungry — most people have six to nine glasses a day. Many say hunger eases noticeably by Day 3.' },
-    { q: 'Do I have to do the salt-water flush?', a: "No. If you don't like it — or if you have high blood pressure, heart or kidney conditions — use a cup of senna herbal tea in the morning instead." },
-    { q: 'Can I drink anything else?', a: 'Plain water (1–2 litres a day), and herbal teas such as peppermint, chamomile or rosehip. If you want sweetness, use a little tree syrup only. Avoid dairy, alcohol and soft drinks.' },
-    { q: 'What about coffee?', a: 'We recommend cutting back gradually in the week before you start, as headaches on Days 1–2 are common for regular coffee drinkers.' },
-    { q: 'Can I exercise?', a: 'Yes — gently. Walking, stretching and light yoga are fine. Avoid intense or long training sessions during the cleanse and return to your usual routine afterwards.' },
-    { q: 'Is lemon juice too acidic on an empty stomach?', a: 'The drink is diluted, and most people find it comfortable. If you have reflux or a sensitive stomach, check with your doctor before starting.' },
+  { id: 'results', title: 'Results', items: [
+    { q: 'Will the weight lost during the cleanse come back?', a: [
+      'Many people find that a large portion of the weight lost during the cleanse stays off, particularly when they return to healthier eating habits afterwards.',
+      'The cleanse often helps people break patterns of unhealthy eating. As the body resets and cravings for processed foods reduce, many participants naturally move toward a more balanced diet and lifestyle.',
+    ]},
+    { q: 'How often can I repeat the program?', a: [
+      'Many people choose to perform the Lemon Detox Cleanse twice per year.',
+      'It is generally recommended to allow three to four weeks between major cleanses. Some people also incorporate shorter versions of the program periodically as a way to reset their eating habits.',
+    ]},
   ]},
-  { id: 'afterwards', title: 'Afterwards', items: [
-    { q: 'How do I come off the cleanse?', a: 'Ease back in over two or three days: juices and vegetable soup first, then fruit, salads and vegetables, then lean protein and whole grains.' },
-    { q: 'Will the weight come back?', a: 'That depends on what you do next. Many people find the cleanse breaks old eating patterns and makes it easier to keep up healthier habits afterwards. If you go straight back to your old routine, expect some weight to return.' },
-    { q: 'How often can I repeat it?', a: 'Many people do the cleanse once or twice a year. Leave at least 4 weeks between full programs.' },
-  ]},
-  { id: 'safety', title: 'Safety', items: [
-    { q: "Who shouldn't do the cleanse?", a: "Anyone pregnant or breastfeeding, under 18, living with diabetes, heart, kidney or liver disease, high or low blood pressure, with a history of eating disorders, recovering from surgery or illness, or taking prescription medication without their doctor's approval." },
-    { q: 'I take medication. Can I do it?', a: 'Please speak with your doctor before starting. A big change in food intake can affect how some medications work.' },
-    { q: 'What if I feel unwell?', a: 'Mild headaches and tiredness early on are common. If you feel faint, dizzy, or have palpitations or anything that worries you, stop the cleanse, eat normally and seek medical advice.' },
+  { id: 'health', title: 'Health & safety', items: [
+    { q: 'Should I continue taking my medication during the cleanse?', a: [
+      'If you are currently taking prescribed medication, you should consult your doctor or medical practitioner before starting the program.',
+      'Your doctor will be able to advise you on how the program may affect your medication.',
+    ]},
+    { q: 'Can I do the cleanse while breastfeeding?', a: [
+      'No. Major detox programs are not recommended during breastfeeding.',
+      'Toxins leaving the body may pass into breast milk and be transferred to the baby during feeding. It is best to wait until breastfeeding has finished before undertaking the cleanse.',
+    ]},
+    { q: 'I have low blood pressure. Is the program safe for me?', a: [
+      'Blood pressure may drop during the cleanse because solid foods are not being consumed. If you are being treated for low blood pressure, the program may not be suitable.',
+      'If you have mild low blood pressure, start the programme by having a cup of unsweetened black coffee in the morning. This will act as a natural stimulant. Ensure you have adequate rest and hydration and consult your medical practitioner if you have concerns.',
+    ]},
+    { q: 'Who shouldn’t do the cleanse?', a: 'The Lemon Detox Cleanse is not suitable if you are pregnant or breastfeeding, under 18, living with diabetes, heart, kidney or liver disease, or high or low blood pressure, recovering from surgery or illness, living with or have a history of an eating disorder, or taking prescription medication without your doctor’s approval. <a href="/how-it-works#who-it-isnt-for">Read more</a>' },
   ]},
   { id: 'orders', title: 'Orders', items: [
-    { q: 'How long does shipping take?', a: metro
-      ? `See <a href="/shipping"><em>Shipping</em></a> — ${metro} business days for most of Australia, free tracked shipping on every order.`
-      : 'See <a href="/shipping"><em>Shipping</em></a> — free tracked shipping on every order.' },
-    { q: 'Can I return my Reset Box?', a: 'Unopened boxes can be returned within 14 days. See <a href="/returns"><em>Returns &amp; Refunds</em></a>.' },
+    { q: 'How long does shipping take?', a: site.shipping.metro
+      ? `Free tracked shipping on every order — ${site.shipping.metro} business days for most of Australia. See <a href="/shipping">Shipping</a>.`
+      : 'Free tracked shipping on every order within Australia. See <a href="/shipping">Shipping</a>.' },
+    { q: 'Can I return my Reset Box?', a: 'Unopened boxes can be returned within 14 days. See <a href="/returns">Returns &amp; Refunds</a>.' },
   ]},
 ];
+const paras = (a: string[] | string) => (Array.isArray(a) ? a : [a]);
 
 const jsonLd = [{
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: groups.flatMap((g) => g.items).map((i) => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: i.a.replace(/<[^>]+>/g, '') } })),
+  mainEntity: groups.flatMap((g) => g.items).map((i) => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: paras(i.a).join(' ').replace(/<[^>]+>/g, '') } })),
 }];
 ---
-<Base title="FAQs — Lemon Detox Cleanse" description="Answers on hunger, coffee, exercise, safety, shipping and more." jsonLd={jsonLd}>
-  <section class="relative overflow-hidden" data-hero>
-    <LemonSlice class="pointer-events-none absolute -top-32 -right-32 h-[28rem] w-[28rem] opacity-80" spin />
-    <div class="wrap relative pt-16 pb-16 sm:pt-24 sm:pb-20">
+<Base title="FAQs — Lemon Detox Cleanse" description="Frequently asked questions about the Lemon Detox Cleanse — preparation, exercise, results, safety and orders." jsonLd={jsonLd}>
+  <section class="bg-paper" data-hero>
+    <div class="wrap pt-16 pb-14 sm:pt-24 sm:pb-16">
       <p class="eyebrow">FAQs</p>
-      <h1 class="display-xl mt-6 max-w-4xl !text-[clamp(3rem,7vw,6rem)]">Everything you've wondered about the <em>cleanse.</em></h1>
-      <p class="lead mt-8 max-w-xl">Straight answers to the questions we're asked most.</p>
+      <h1 class="display-xl mt-6 max-w-4xl !text-[clamp(2.75rem,6.5vw,5.5rem)]">Frequently asked <em>questions.</em></h1>
     </div>
   </section>
 
-  <div class="wrap grid gap-12 pb-24 lg:grid-cols-[220px_1fr] lg:gap-20">
+  <div class="wrap grid gap-12 py-16 lg:grid-cols-[220px_1fr] lg:gap-20 lg:py-20">
     <nav aria-label="FAQ topics" class="lg:sticky lg:top-32 lg:self-start">
       <ul class="flex flex-wrap gap-2 lg:flex-col lg:gap-1">
         {groups.map((g) => <li><a href={`#${g.id}`} class="block rounded-full border hairline px-4 py-2 text-sm text-ink-soft hover:border-ink hover:text-ink lg:rounded-none lg:border-0 lg:border-l lg:px-5">{g.title}</a></li>)}
       </ul>
     </nav>
-    <div class="space-y-20">
+    <div class="space-y-16">
       {groups.map((g) => (
         <section id={g.id} aria-labelledby={`${g.id}-h`} class="scroll-mt-32">
           <h2 id={`${g.id}-h`} class="eyebrow border-b hairline pb-4">{g.title}</h2>
-          {g.items.map((i) => <Accordion q={i.q}><p set:html={i.a} /></Accordion>)}
+          {g.items.map((i) => <Accordion q={i.q}><div class="space-y-3">{paras(i.a).map((p) => <p set:html={p} />)}</div></Accordion>)}
         </section>
       ))}
     </div>
@@ -73,14 +97,14 @@ const jsonLd = [{
 
   <section class="pb-28">
     <div class="wrap">
-      <div class="flex flex-col items-start justify-between gap-8 rounded-[22px] bg-lemon p-10 sm:p-14 md:flex-row md:items-center">
+      <div class="flex flex-col items-start justify-between gap-8 rounded-card bg-paper p-10 sm:p-14 md:flex-row md:items-center">
         <div>
           <h2 class="display-md">Still have a <em>question?</em></h2>
           <p class="mt-3 text-ink-soft">Our team usually replies within one business day.</p>
         </div>
         <div class="flex flex-wrap gap-4">
-          <a href="/contact" class="btn btn-primary">Contact us</a>
-          <a href="/how-it-works" class="btn btn-secondary">How it works</a>
+          <a href="/contact" class="btn btn-primary btn-caps">Contact us</a>
+          <a href="/how-it-works" class="btn btn-secondary btn-caps">How it works</a>
         </div>
       </div>
     </div>

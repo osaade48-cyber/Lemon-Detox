@@ -19,7 +19,7 @@ export function getStaticPaths() {
 const { product: p } = Astro.props as { product: Product };
 const other = products.find((x) => x.slug !== p.slug)!;
 const stories = byName(p.days === 7 ? ['A. Drake', 'Barb Evans', 'Leanne Pizzi'] : ['Ganna Sikalo', 'Daniel Martez', 'Hava Huner']);
-const label = p.name.replace(/^\d+-Day /, '');
+const label = p.subtitle.replace('Reset', 'Cleanse');
 const s = site.shipping;
 
 const jsonLd = [{
@@ -69,15 +69,15 @@ const jsonLd = [{
     <div class="lg:pt-6">
       <p class="eyebrow">{p.eyebrow}</p>
       <h1 class="display-lg mt-4">{p.name}</h1>
+      <p class="mt-2 text-xl font-semibold text-ink-soft">{p.subtitle}</p>
       <div class="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <span class="font-serif text-5xl text-ink">${p.price}</span>
-        <span class="font-semibold text-muted">AUD</span>
-        <span class="text-muted">· Free tracked shipping</span>
+                <span class="text-muted">· Free tracked shipping</span>
       </div>
       <p class="lead mt-6">{p.body}</p>
 
       <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-        <BuyButton href={p.checkoutUrl} product={p.name} class="min-w-[14rem]" />
+        <BuyButton href={p.checkoutUrl} product={p.name} class="min-w-[12rem]" />
         <a href="/how-it-works" class="link-arrow text-sm">How it works</a>
       </div>
       <PriceNote class="mt-4" />
@@ -162,10 +162,10 @@ const jsonLd = [{
     <section class="bg-paper py-24 sm:py-32" aria-labelledby="st-h">
       <div class="wrap">
         <div class="flex flex-wrap items-end justify-between gap-6" data-reveal>
-          <div><p class="eyebrow mb-5">Stories from the cleanse</p><h2 id="st-h" class="display-lg">Real people. <em>Real resets.</em></h2></div>
-          <a href="/stories" class="btn btn-secondary">Read all stories</a>
+          <div><p class="eyebrow mb-5">Testimonials</p><h2 id="st-h" class="display-lg">Everyday People. <em>Real Stories.</em></h2></div>
+          <a href="/testimonials" class="btn btn-secondary btn-caps">Read more testimonials</a>
         </div>
-        <div class="mt-12 grid gap-5 lg:grid-cols-3">{stories.map((t, i) => <StoryCard t={t} full delay={i * 90} />)}</div>
+        <div class="mt-12 grid items-start gap-5 lg:grid-cols-3">{stories.map((t) => <StoryCard t={t} class="!mb-0" />)}</div>
         <p class="mt-8 text-sm text-muted">Individual results vary.</p>
       </div>
     </section>
@@ -185,5 +185,5 @@ const jsonLd = [{
     </div>
   </section>
 
-  <CTA title="Begin your <em>reset.</em>" body="A simple, structured plan that resets your relationship with food." />
+  <CTA />
 </Base>

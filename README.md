@@ -4,8 +4,8 @@ The new **lemondetox.com.au**: a fast, static site built with [Astro](https://as
 Owned by you, no subscription, deployable to Netlify or Vercel for free.
 
 **Pages:** `/` · `/how-it-works` · `/products/7-day-focused-cleanse` · `/products/14-day-extended-cleanse` ·
-`/stories` · `/faqs` · `/contact` · `/shipping` · `/returns` · `/privacy` · `/terms` · custom `404`.
-Old Manus URLs (`/why-it-works`, `/stockists`, `/testimonials`, `/products/7-day-focused`,
+`/testimonials` · `/faqs` · `/stockists` · `/contact` · `/shipping` · `/returns` · `/privacy` · `/terms` · custom `404`.
+Old URLs (`/why-it-works`, `/the-science`, `/stories`, `/products/7-day-focused`,
 `/products/14-day-extended`, `/checkout`) redirect to their new homes.
 
 Quality checks at the time of build: Lighthouse **100 / 100 / 100 / 100** (mobile — performance,
@@ -32,10 +32,11 @@ npm run preview    # serve ./dist locally
 | **Every business detail** (email, phone, ABN, shipping times, checkout links, analytics…) | `src/config/site.ts` |
 | Products, prices, "in the box", "why 7/14 days" | `src/data/products.ts` |
 | Customer stories (never edit the `story` text) | `src/data/testimonials.json` |
-| Page copy | `src/pages/*.astro` (source of truth: `docs/brief/content.md`) |
+| Page copy | `src/pages/*.astro` (round-2 source documents: `docs/brief/round-2/`) |
+| Stockists | `src/data/stockists.ts` — a state only appears once it has a store |
 | Colours, fonts, buttons | `src/styles/global.css` |
 | Photos | `src/assets/images/` — see the README in that folder |
-| Program Guide PDF | `public/downloads/Lemon-Detox-Cleanse-Program-Guide.pdf` (regenerate from `docs/brief/program-guide/`) |
+| Program Guide PDF | `public/downloads/Lemon-Detox-Program-Guide.pdf` |
 | Social share image | `public/og.png` (regenerate: `node scripts/og.cjs`) |
 
 Any value left empty in `site.ts` renders **nothing** — no placeholder text, no fake details.
@@ -85,10 +86,11 @@ Buy buttons link to a hosted checkout. Until a link is set, the button shows **"
 Then rebuild/redeploy. The product JSON-LD automatically switches from *PreOrder* to *InStock*.
 
 ## Program Guide & email sign-up
-By default the guide is a direct PDF download (no fake email gate). If you connect an email platform
-(Mailchimp, Klaviyo, ConvertKit…), paste its form action URL into `forms.EMAIL_PLATFORM_FORM_URL`
-(and `EMAIL_FIELD_NAME` if it expects something other than `email`). The guide block then shows a real
-email field with an **unticked** marketing opt-in.
+On the home page, visitors enter their email and the guide opens on the same page in an embedded
+viewer ("Your guide is ready below.") with a Download PDF button. Emails are stored by **Netlify Forms**
+under the form name `guide-request` (or sent to `FORMSPREE_ENDPOINT` if set). The marketing opt-in
+box is unticked by default — only email people who ticked it. To push sign-ups into Mailchimp/Klaviyo,
+connect Netlify Forms to it with a Zapier/Make integration, or export the CSV from Netlify.
 
 ## Analytics
 Set `analytics.PLAUSIBLE_DOMAIN` to `lemondetox.com.au` to enable [Plausible](https://plausible.io)
@@ -128,6 +130,13 @@ hidden on the live site until you fill it in.
 - [ ] `data.overseasCountries` — where your providers store data (e.g. "the United States")
 - [ ] `privacyLastUpdated` — e.g. "4 November 2026"
 - [ ] Have the Privacy Policy and Terms reviewed — they follow the brief's required structure but aren't legal advice
+
+**Content still needed (round 2)**
+- [ ] **New home page hero banner** — save it as `src/assets/images/hero-banner.jpg` (full width, about 2400px wide). It replaces the current illustration automatically
+- [ ] **Reset Box product photos** for the 14 Day and 7 Day cards — `product-14day.jpg`, `product-7day.jpg`
+- [ ] **Higher-resolution ingredient photos** — the Madal Bal tin, lemon and cayenne cut-outs supplied are only 122×200px
+- [ ] **Stockist list** — store name, suburb and phone for each state in `src/data/stockists.ts`
+- [ ] **Claims review** — see "Wording to check" in the hand-over notes; several health statements from the round-2 documents are now on the site
 
 **Photos** — none of the original images could be downloaded during the build (the Manus storage and
 CloudFront hosts were unreachable from the build environment). Every spot currently shows a designed

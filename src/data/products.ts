@@ -3,6 +3,7 @@ import { site } from '../config/site';
 export type Product = {
   slug: string;
   name: string;
+  subtitle: string;
   short: string;
   days: number;
   price: number;
@@ -24,40 +25,10 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    slug: '7-day-focused-cleanse',
-    name: '7-Day Focused Cleanse',
-    short: '7-Day',
-    days: 7,
-    price: 95,
-    eyebrow: '7-day program',
-    cardLine: 'For first-timers or a quick reset.',
-    cardIncludes: 'Includes enough tree syrup for 7 Full Cleanse days (or 9 days on 50/50).',
-    body:
-      "Seven structured days for a fast, focused reset. Ideal if it's your first cleanse, or if you want a defined week to step away from snacking and overeating and start again with clear habits.",
-    // [[confirm size / quantity]] — sizes are left off until confirmed.
-    inTheBox: [
-      'Madal Bal® Natural Tree Syrup',
-      'Senna herbal tea',
-      'Natural sea salt for the morning flush',
-      'Printed program guide',
-    ],
-    whyTitle: 'Why 7 days',
-    why: [
-      'A clear, achievable timeframe',
-      'Enough time to break the snacking cycle',
-      'Most people feel the routine settle by Day 3 or 4',
-      'The ideal introduction to cleansing',
-    ],
-    lemons: 25,
-    checkoutUrl: site.checkout.CHECKOUT_URL_7DAY,
-    seoTitle: '7-Day Focused Cleanse — Lemon Detox Cleanse',
-    seoDescription: 'Seven structured days for a focused reset. $95 with free tracked shipping.',
-    boxLasts: { full: '7 days', relaxed: 'about 10 days', fiftyFifty: '9 days' },
-  },
-  {
     slug: '14-day-extended-cleanse',
-    name: '14-Day Extended Cleanse',
-    short: '14-Day',
+    name: '14 Day Cleanse',
+    subtitle: 'Extended Reset',
+    short: '14 Day',
     days: 14,
     price: 159,
     eyebrow: '14-day program',
@@ -83,10 +54,42 @@ export const products: Product[] = [
     ],
     lemons: 50,
     checkoutUrl: site.checkout.CHECKOUT_URL_14DAY,
-    seoTitle: '14-Day Extended Cleanse — Lemon Detox Cleanse',
+    seoTitle: '14 Day Cleanse — Lemon Detox Cleanse',
     seoDescription: 'Our most complete program. $159 with free tracked shipping.',
     boxLasts: { full: '14 days', relaxed: 'about 20 days', fiftyFifty: '18 days (6 · 6 · 6)' },
   },
+  {
+    slug: '7-day-focused-cleanse',
+    name: '7 Day Cleanse',
+    subtitle: 'Focused Reset',
+    short: '7 Day',
+    days: 7,
+    price: 95,
+    eyebrow: '7-day program',
+    cardLine: 'For first-timers or a quick reset.',
+    cardIncludes: 'Includes enough tree syrup for 7 Full Cleanse days (or 9 days on 50/50).',
+    body:
+      "Seven structured days for a fast, focused reset. Ideal if it's your first cleanse, or if you want a defined week to step away from snacking and overeating and start again with clear habits.",
+    // [[confirm size / quantity]] — sizes are left off until confirmed.
+    inTheBox: [
+      'Madal Bal® Natural Tree Syrup',
+      'Senna herbal tea',
+      'Natural sea salt for the morning flush',
+      'Printed program guide',
+    ],
+    whyTitle: 'Why 7 days',
+    why: [
+      'A clear, achievable timeframe',
+      'Enough time to break the snacking cycle',
+      'Most people feel the routine settle by Day 3 or 4',
+      'The ideal introduction to cleansing',
+    ],
+    lemons: 25,
+    checkoutUrl: site.checkout.CHECKOUT_URL_7DAY,
+    seoTitle: '7 Day Cleanse — Lemon Detox Cleanse',
+    seoDescription: 'Seven structured days for a focused reset. $95 with free tracked shipping.',
+    boxLasts: { full: '7 days', relaxed: 'about 10 days', fiftyFifty: '9 days' },
+  }
 ];
 
 export const getProduct = (slug: string) => products.find((p) => p.slug === slug)!;

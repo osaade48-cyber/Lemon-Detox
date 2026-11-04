@@ -1,13 +1,18 @@
 ---
-import { site } from '../config/site';
-interface Props { href: string; label?: string; product: string; class?: string; size?: 'sm' | 'md'; light?: boolean }
-const { href, label = 'Add to cart', product, class: cls = '', size = 'md', light = false } = Astro.props;
-const base = ['btn', size === 'sm' && 'btn-sm', light ? 'btn-light' : 'btn-primary', cls];
+/**
+ * Links to the external checkout when its URL is set in site.ts.
+ * Until then: if `fallbackHref` is given (cards, CTAs) it links there (the product page);
+ * otherwise (the product page itself) it shows a disabled "Coming soon".
+ */
+interface Props { href: string; label?: string; product: string; class?: string; size?: 'sm' | 'md'; light?: boolean; fallbackHref?: string }
+const { href, label = 'Buy now', product, class: cls = '', size = 'md', light = false, fallbackHref } = Astro.props;
+const base = ['btn btn-caps', size === 'sm' && 'btn-sm', light ? 'btn-light' : 'btn-primary', cls];
+const target = href || fallbackHref;
 ---
-{href ? (
-  <a href={href} class:list={base} rel="noopener" data-checkout={product}>
+{target ? (
+  <a href={target} class:list={base} rel={href ? 'noopener' : undefined} data-checkout={href ? product : undefined}>
     {label}
-    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </a>
 ) : (
   <span class:list={base} role="link" aria-disabled="true" title={`Online checkout for the ${product} opens soon`}>Coming soon</span>

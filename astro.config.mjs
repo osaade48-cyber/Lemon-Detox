@@ -12,8 +12,8 @@ export default defineConfig({
   // Old Manus URLs -> new pages (also mirrored in netlify.toml / vercel.json for real 301s)
   redirects: {
     '/why-it-works': '/how-it-works',
-    '/stockists': '/',
-    '/testimonials': '/stories',
+    '/stories': '/testimonials',
+    '/the-science': '/how-it-works',
     '/products/7-day-focused': '/products/7-day-focused-cleanse',
     '/products/14-day-extended': '/products/14-day-extended-cleanse',
     '/checkout': '/#programs',

@@ -3,8 +3,8 @@ import Logo from './Logo.astro';
 import { site } from '../config/site';
 const year = 2026;
 const cols = [
-  { h: 'Shop', links: [['7-Day Focused Cleanse', '/products/7-day-focused-cleanse'], ['14-Day Extended Cleanse', '/products/14-day-extended-cleanse']] },
-  { h: 'Learn', links: [['How It Works', '/how-it-works'], ['Stories', '/stories'], ['FAQs', '/faqs'], ['Program Guide (PDF)', site.guidePdf]] },
+  { h: 'Shop', links: [['14 Day Cleanse', '/products/14-day-extended-cleanse'], ['7 Day Cleanse', '/products/7-day-focused-cleanse'], ['Stockists', '/stockists']] },
+  { h: 'Learn', links: [['How It Works', '/how-it-works'], ['Testimonials', '/testimonials'], ['FAQs', '/faqs'], ['Program Guide (PDF)', site.guidePdf]] },
   { h: 'Help', links: [['Contact', '/contact'], ['Shipping', '/shipping'], ['Returns & Refunds', '/returns'], ['Privacy', '/privacy'], ['Terms', '/terms']] },
 ];
 const social = Object.entries(site.social).filter(([, v]) => v);
@@ -13,8 +13,8 @@ const contact = [site.email && { label: site.email, href: `mailto:${site.email}`
 <footer class="bg-ink text-cream/80">
   <div class="wrap grid gap-12 py-20 md:grid-cols-[1.4fr_repeat(3,1fr)]">
     <div>
-      <Logo light />
-      <p class="mt-6 max-w-xs font-serif text-2xl leading-snug text-cream">A structured 7- or 14-day cleanse built around one simple drink.</p>
+      <Logo light class="h-9 w-auto" />
+      <p class="mt-6 max-w-xs font-serif text-2xl font-semibold leading-snug text-white">A structured 7- or 14-day cleanse built around one simple drink.</p>
       {contact.length > 0 && (
         <ul class="mt-6 space-y-1 text-sm">{contact.map((c) => <li><a href={c.href} class="hover:text-cream">{c.label}</a></li>)}</ul>
       )}
@@ -36,6 +36,7 @@ const contact = [site.email && { label: site.email, href: `mailto:${site.email}`
     <p class="max-w-4xl">
       The Lemon Detox Cleanse is a short-term dietary program. It is not intended to diagnose, treat, cure or prevent any disease and is not a substitute for medical advice. It is not suitable for everyone — please read <a href="/how-it-works#who-it-isnt-for" class="font-semibold text-cream/85 underline underline-offset-4">Who it isn't for</a> and speak with your doctor before starting, especially if you are pregnant, breastfeeding, under 18, take medication or have a medical condition. Individual results vary.
     </p>
+    <p class="mt-3 font-semibold tracking-[0.3em] text-honey uppercase">Reset · Reduce · Restore</p>
     <p class="mt-5">© {year} Lemon Detox Cleanse · Madal Bal® is a registered trademark of its owner.{site.abn && ` · ABN ${site.abn}`}</p>
   </div>
 </footer>

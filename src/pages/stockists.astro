@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import BuyButton from '../components/BuyButton.astro';
+import { stockists } from '../data/stockists';
+import { products } from '../data/products';
+const states = stockists.filter((s) => s.stores.length > 0);
+const half = Math.ceil(states.length / 2);
+const cols = [states.slice(0, half), states.slice(half)];
+---
+<Base title="Stockists — Lemon Detox Cleanse" description="Find Lemon Detox Cleanse in trusted retail locations across Australia, or order online with free tracked shipping.">
+  <section data-hero>
+    <div class="wrap pt-16 pb-10 sm:pt-24">
+      <p class="eyebrow">Stockists</p>
+      <h1 class="display-xl mt-6 !text-[clamp(2.75rem,6vw,5rem)]">Find Lemon Detox Cleanse <em>near you.</em></h1>
+      <p class="lead mt-6 max-w-xl text-muted">Stocked in trusted retail locations across Australia.</p>
+      <hr class="mt-12 hairline" />
+    </div>
+  </section>
+
+  <section class="pb-20">
+    <div class="wrap">
+      {states.length > 0 ? (
+        <div class="grid gap-x-20 gap-y-12 md:grid-cols-2">
+          {cols.map((col) => (
+            <div class="space-y-12">
+              {col.map((s) => (
+                <div>
+                  <h2 class="font-sans text-sm font-bold uppercase tracking-[0.22em] text-gold-deep">{s.state}</h2>
+                  <ul class="mt-4 divide-y divide-gold-soft border-y hairline">
+                    {s.stores.map((st) => (
+                      <li class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4">
+                        <span><span class="font-semibold text-ink">{st.name}</span> <span class="text-ink-soft">· {st.suburb}</span></span>
+                        {st.phone && <a href={`tel:${st.phone.replace(/\s/g, '')}`} class="text-sm text-muted hover:text-ink">{st.phone}</a>}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p class="rounded-card border hairline bg-paper p-8 text-ink-soft">Our stockist list is being updated. In the meantime you can order online with free tracked shipping Australia-wide.</p>
+      )}
+
+      <hr class="mt-16 hairline" />
+      <div class="mt-12 grid gap-10 md:grid-cols-2">
+        <div>
+          <h2 class="text-3xl">Interested in becoming a stockist?</h2>
+          <a href="/contact?topic=stockist" class="link-arrow mt-4">Contact us <span aria-hidden="true">→</span></a>
+        </div>
+        <div>
+          <p class="text-muted">Prefer to order online?</p>
+          <div class="mt-4 flex flex-wrap gap-4">
+            {products.map((p) => <BuyButton href={p.checkoutUrl} product={p.name} label={`Start ${p.short}`} size="sm" fallbackHref={`/products/${p.slug}`} />)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

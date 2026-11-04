@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import StoryCard from '../components/StoryCard.astro';
+import CTA from '../components/CTA.astro';
+import { categories, testimonials, disclaimer } from '../data/testimonials';
+
+const PAGE = 8;
+const tabs = [{ id: 'all', label: 'All', blurb: '' }, ...categories];
+---
+<Base title="Testimonials — Lemon Detox Cleanse" description="Genuine experiences shared by people who have completed the Lemon Detox Cleanse.">
+  <section class="bg-paper" data-hero>
+    <div class="wrap pt-16 pb-14 sm:pt-24 sm:pb-16">
+      <p class="eyebrow">Testimonials</p>
+      <h1 class="display-xl mt-6 max-w-4xl !text-[clamp(2.75rem,6vw,5rem)]">Real experiences with Lemon Detox <em>Cleanse.</em></h1>
+      <div class="mt-8 grid max-w-4xl gap-5 text-ink-soft md:grid-cols-2">
+        <p>The experiences of those who have completed the Lemon Detox program provide valuable insight into how the program is perceived by participants.</p>
+        <p>While each person’s experience is different, many people report feeling lighter, clearer, and more aware of their habits after completing the program.</p>
+      </div>
+      <p class="mt-6 text-sm text-muted">Below are genuine testimonials shared by participants who have followed the Lemon Detox program. Results and experiences vary from person to person.</p>
+    </div>
+  </section>
+
+  <section class="py-14 sm:py-16" aria-label="Testimonials">
+    <div class="wrap">
+      <h2 class="eyebrow">Browse testimonials by category</h2>
+      <div class="sticky top-[4.75rem] z-20 -mx-5 mt-4 border-y hairline bg-white/95 px-5 py-3 backdrop-blur sm:mx-0 sm:rounded-full sm:border sm:px-2 sm:py-2">
+        <div role="tablist" aria-label="Filter testimonials by category" class="flex gap-2 overflow-x-auto [scrollbar-width:none]">
+          {tabs.map((t, i) => (
+            <button type="button" role="tab" id={`tab-${t.id}`} data-filter={t.id} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} aria-controls="story-grid"
+              class="shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-ink-soft transition hover:text-ink aria-selected:bg-ink aria-selected:text-white">
+              {t.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <p id="story-blurb" class="mt-8 min-h-[1.7em] text-muted" aria-live="polite"></p>
+
+      <div id="story-grid" role="tabpanel" aria-labelledby="tab-all" class="mt-4 columns-1 gap-6 md:columns-2 xl:columns-3">
+        {testimonials.map((t, i) => <StoryCard t={t} hidden={i >= PAGE} />)}
+      </div>
+
+      <div class="mt-6 text-center">
+        <button id="view-more" type="button" class="btn btn-secondary btn-caps">View more</button>
+        <p id="story-count" class="mt-4 text-sm text-muted" aria-live="polite"></p>
+      </div>
+
+      <p class="mx-auto mt-12 max-w-3xl text-center text-sm text-muted">{disclaimer}</p>
+      <p class="mt-6 text-center text-ink-soft">Finished your cleanse? We’d love to hear how it went — <a href="/contact?topic=story" class="link-arrow">Share your story</a></p>
+    </div>
+  </section>
+
+  <CTA title="Your reset story is <em>next.</em>" />
+
+  <script define:vars={{ blurbs: Object.fromEntries(categories.map((c) => [c.id, c.blurb])), PAGE }}>
+    const tabs = [...document.querySelectorAll('[data-filter]')];
+    const cards = [...document.querySelectorAll('#story-grid .story')];
+    const grid = document.getElementById('story-grid');
+    const blurb = document.getElementById('story-blurb');
+    const more = document.getElementById('view-more');
+    const count = document.getElementById('story-count');
+    let filter = 'all', shown = PAGE;
+    const render = () => {
+      const matching = cards.filter((c) => filter === 'all' || c.dataset.category === filter);
+      cards.forEach((c) => (c.hidden = true));
+      matching.slice(0, shown).forEach((c) => (c.hidden = false));
+      more.hidden = shown >= matching.length;
+      count.textContent = `Showing ${Math.min(shown, matching.length)} of ${matching.length} testimonials`;
+    };
+    const select = (tab, focus) => {
+      tabs.forEach((t) => { const on = t === tab; t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1; });
+      filter = tab.dataset.filter; shown = PAGE;
+      grid.setAttribute('aria-labelledby', tab.id);
+      blurb.textContent = blurbs[filter] || '';
+      render();
+      if (focus) tab.focus();
+    };
+    more.addEventListener('click', () => { shown += PAGE; render(); });
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(t));
+      t.addEventListener('keydown', (e) => {
+        const n = { ArrowRight: tabs[(i + 1) % tabs.length], ArrowLeft: tabs[(i - 1 + tabs.length) % tabs.length], Home: tabs[0], End: tabs[tabs.length - 1] }[e.key];
+        if (n) { e.preventDefault(); select(n, true); }
+      });
+    });
+    document.querySelectorAll('.story-more').forEach((b) => b.addEventListener('click', () => {
+      const body = b.previousElementSibling;
+      const open = body.classList.toggle('is-clamped') === false;
+      b.setAttribute('aria-expanded', String(open));
+      b.textContent = open ? 'Show less' : 'Read full story';
+    }));
+    render();
+  </script>
+</Base>

@@ -7,7 +7,7 @@
  */
 export const site = {
   name: 'Lemon Detox Cleanse',
-  tagline: 'Reset. Refine. Restore.',
+  tagline: 'Reset. Reduce. Restore.',
   url: 'https://lemondetox.com.au',
   description:
     'A structured 7- or 14-day cleanse built around one simple drink.',
@@ -68,7 +68,7 @@ export const site = {
     tiktok: '',
   },
 
-  guidePdf: '/downloads/Lemon-Detox-Cleanse-Program-Guide.pdf',
+  guidePdf: '/downloads/Lemon-Detox-Program-Guide.pdf',
 };
 
 export type Site = typeof site;

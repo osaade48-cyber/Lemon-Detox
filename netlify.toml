@@ -10,12 +10,12 @@
   to = "/how-it-works"
   status = 301
 [[redirects]]
-  from = "/stockists"
-  to = "/"
+  from = "/stories"
+  to = "/testimonials"
   status = 301
 [[redirects]]
-  from = "/testimonials"
-  to = "/stories"
+  from = "/the-science"
+  to = "/how-it-works"
   status = 301
 [[redirects]]
   from = "/products/7-day-focused"
