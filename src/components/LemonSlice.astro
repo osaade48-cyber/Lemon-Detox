@@ -1,0 +1,15 @@
+---
+/** Decorative lemon slice, echoing the program guide cover. */
+interface Props { class?: string; segments?: number; spin?: boolean }
+const { class: cls = '', segments = 12, spin = false } = Astro.props;
+const lines = Array.from({ length: segments / 2 }, (_, i) => (i * 180) / (segments / 2));
+---
+<svg viewBox="0 0 200 200" class:list={[cls, spin && 'spin-slow']} aria-hidden="true" focusable="false">
+  <circle cx="100" cy="100" r="100" fill="#F2D64B" />
+  <circle cx="100" cy="100" r="88" fill="#FBEFA8" />
+  <circle cx="100" cy="100" r="81" fill="#F5DE6E" />
+  <g stroke="#FBEFA8" stroke-width="5" stroke-linecap="round">
+    {lines.map((deg) => <line x1="100" y1="21" x2="100" y2="179" transform={`rotate(${deg} 100 100)`} />)}
+  </g>
+  <circle cx="100" cy="100" r="9" fill="#FBEFA8" />
+</svg>

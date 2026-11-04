@@ -1,0 +1,17 @@
+---
+import Base from './Base.astro';
+interface Props { title: string; description: string; h1: string; eyebrow?: string; updated?: string }
+const { title, description, h1, eyebrow = 'Help', updated } = Astro.props;
+---
+<Base title={title} description={description}>
+  <section class="border-b hairline" data-hero>
+    <div class="wrap pt-16 pb-12 sm:pt-24 sm:pb-16">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1 class="display-lg mt-5" set:html={h1} />
+      {updated && <p class="mt-5 text-sm text-muted">Last updated {updated}</p>}
+    </div>
+  </section>
+  <div class="wrap py-16 sm:py-20">
+    <article class="prose-legal"><slot /></article>
+  </div>
+</Base>

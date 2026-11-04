@@ -1,0 +1,450 @@
+{
+  "categories": [
+    {
+      "id": "weight",
+      "label": "Weight & shape",
+      "blurb": "Customers who wanted to feel lighter and more comfortable in their clothes."
+    },
+    {
+      "id": "energy",
+      "label": "Energy & clarity",
+      "blurb": "From foggy afternoons to focused days — the word that comes up most is clarity."
+    },
+    {
+      "id": "lighter",
+      "label": "Lighter & less bloated",
+      "blurb": "A break from heavy meals and constant snacking."
+    },
+    {
+      "id": "skin",
+      "label": "Skin & glow",
+      "blurb": "What customers noticed when they looked in the mirror."
+    },
+    {
+      "id": "lifestyle",
+      "label": "Lifestyle",
+      "blurb": "Couples, busy parents and professionals who use the program as a regular reset."
+    }
+  ],
+  "disclaimer": "These are individual experiences shared by customers. Results vary from person to person and depend on how the program is followed and what you eat afterwards. The Lemon Detox Cleanse is not intended to diagnose, treat, cure or prevent any disease.",
+  "testimonials": [
+    {
+      "category": "weight",
+      "name": "Sara Figueroa",
+      "role": null,
+      "location": "Sydney",
+      "pullQuote": "this was the first time I experienced real, lasting results.",
+      "story": "I started at 67kg and followed the program for 6 days. Within a few days I had already lost 4kg, which I found incredible. A few weeks later I am sitting at 56kg, with significantly more energy and better sleep. I had previously tried countless weight loss products and fat burners without success — this was the first time I experienced real, lasting results.",
+      "result": "67 kg → 56 kg",
+      "featured": false
+    },
+    {
+      "category": "weight",
+      "name": "A. Drake",
+      "role": null,
+      "location": "Sydney",
+      "pullQuote": "I never felt hungry, which was something I had struggled with on other diets.",
+      "story": "I never felt hungry, which was something I had struggled with on other diets. By the end of the week I had lost 6kg with very little exercise, while also noticing a significant increase in energy and focus. Even as a smoker, my gym performance improved noticeably during the detox.",
+      "result": "−6 kg in 7 days",
+      "featured": false
+    },
+    {
+      "category": "weight",
+      "name": "Ganna Sikalo",
+      "role": null,
+      "location": "NSW",
+      "pullQuote": "Simple, enjoyable and easy to follow.",
+      "story": "The Lemon Detox is the most effective detox and weight loss program I have ever tried. I lost 9kg in two weeks and felt incredible throughout. Simple, enjoyable and easy to follow. I now repeat the detox every six months to maintain my results and overall wellbeing.",
+      "result": "−9 kg in 14 days",
+      "featured": false
+    },
+    {
+      "category": "weight",
+      "name": "Daniel Martez",
+      "role": null,
+      "location": "Melbourne",
+      "pullQuote": "the detox gave me the kickstart and motivation I needed.",
+      "story": "I weighed 93.5kg before starting and now weigh a healthy 80kg — a total loss of 13.5kg in 14 days, maintained for over two months. With a healthy diet and daily exercise, the detox gave me the kickstart and motivation I needed to completely change my body. My skin is glowing, I feel significantly better overall, and I've now referred over 15 people who are currently doing the program.",
+      "result": "−13.5 kg in 14 days",
+      "featured": false
+    },
+    {
+      "category": "weight",
+      "name": "Kate Winton",
+      "role": "Model",
+      "location": "South Australia",
+      "pullQuote": "The physical and mental clarity I experienced was incredible.",
+      "story": "Not being an overweight individual, it was always difficult for me to lean out without bulking up. By the third day I was waking up before my alarm with a completely new level of energy and motivation. After just five days I lost 3kg, my skin was glowing, and I felt so good that I didn't want to return to normal eating. The physical and mental clarity I experienced was incredible.",
+      "result": "−3 kg in 5 days",
+      "featured": true
+    },
+    {
+      "category": "weight",
+      "name": "Nick Bilbija",
+      "role": "Personal Trainer · 18 years' experience",
+      "location": "Sydney",
+      "pullQuote": "This is one of the very few programs I've come across that genuinely delivers results.",
+      "story": "I had several clients attempt the Lemon Detox program, but what really stood out was when a family I trained all completed it together. Their combined weight loss was over 23kg in just 7 days, and they looked and felt incredible. That's when I decided to try it myself — I lost 3.5kg in 5 days without ever feeling hungry. This is one of the very few programs I've come across that genuinely delivers results.",
+      "result": "−3.5 kg in 5 days",
+      "featured": true
+    },
+    {
+      "category": "weight",
+      "name": "Barb Evans",
+      "role": null,
+      "location": "NSW",
+      "pullQuote": "It was exactly the reset I needed.",
+      "story": "After hitting a plateau on my previous diet, I decided to try the Lemon Detox program. The results spoke for themselves — I lost 6kg in 7 days. People around me noticed improvements in my appearance, mood, and energy. It was exactly the reset I needed.",
+      "result": "−6 kg in 7 days",
+      "featured": false
+    },
+    {
+      "category": "weight",
+      "name": "Cassandra Batsas",
+      "role": null,
+      "location": "Victoria",
+      "pullQuote": "it gave me a renewed sense of confidence in myself.",
+      "story": "I experienced noticeable weight loss, glowing skin, and a huge increase in energy. Most importantly, it gave me a renewed sense of confidence in myself. I now use the detox regularly to maintain my shape and wellbeing.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "weight",
+      "name": "Rosemary, age 49",
+      "role": null,
+      "location": "Sydney",
+      "pullQuote": "I planned to do 5 days, extended to 10, and ultimately completed 18 because I felt so good.",
+      "story": "I have always struggled with a slow metabolism. I planned to do 5 days, extended to 10, and ultimately completed 18 because I felt so good. Even after travelling and eating freely the weight did not immediately return, which amazed me. Better sleep, improved energy, noticeable weight loss — confirmed by others. My husband, who was sceptical, has now started the program too.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "weight",
+      "name": "Eva Burke",
+      "role": null,
+      "location": "Donvale, VIC",
+      "pullQuote": "It felt like the program had kickstarted my system.",
+      "story": "After the first week I had only lost 2kg and felt slightly disappointed. However, over the following weeks the weight continued to drop — reaching a total of 6kg in 4 weeks, which I have not put back on. It felt like the program had kickstarted my system.",
+      "result": "−6 kg in 4 weeks",
+      "featured": false
+    },
+    {
+      "category": "weight",
+      "name": "John Bruce",
+      "role": null,
+      "location": "Western Australia",
+      "pullQuote": "What started as a simple detox has completely transformed my lifestyle.",
+      "story": "I have been an advocate of the Lemon Detox for over two years now, completing it every 4–6 months. I used to weigh 100kg, and for the first time in over 7 years I have maintained a weight under 85kg for the past two years. What started as a simple detox has completely transformed my lifestyle. I cannot praise this program enough.",
+      "result": "100 kg → under 85 kg",
+      "featured": false
+    },
+    {
+      "category": "energy",
+      "name": "Trevor Smith",
+      "role": null,
+      "location": "Western Australia",
+      "pullQuote": "I feel clear-headed, focused and more in control than I have in a long time.",
+      "story": "I work overnight packing orders and noticed my concentration slipping. I tried the 7-day program — not for weight loss, just a reset. Since completing it I feel clear-headed, focused and more in control than I have in a long time. My mistakes at work have disappeared. I no longer feel exhausted after work. It's hard to believe such a noticeable change came from such a simple program.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "energy",
+      "name": "Belinda",
+      "role": null,
+      "location": "Sydney",
+      "pullQuote": "The most important outcome for me was the clarity of thought.",
+      "story": "I felt genuinely rejuvenated, with a noticeable increase in energy and mental clarity. Not only did I lose excess weight, I also broke my habit of wasting money on food and alcohol. The most important outcome for me was the clarity of thought, which has helped guide me toward a healthier, more intentional lifestyle.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "energy",
+      "name": "Fiona Stanbury",
+      "role": null,
+      "location": "NSW",
+      "pullQuote": "The first few days required adjustment, but after that it became effortless.",
+      "story": "The first few days required adjustment, but after that it became effortless. I lost 2.9kg in the first week, but more importantly I experienced a massive increase in energy and productivity at work. It completely changed my perception of detox programs.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "energy",
+      "name": "Ashley Day",
+      "role": null,
+      "location": "Sydney",
+      "pullQuote": "I felt energised, clear-headed and better than I had in years.",
+      "story": "I felt energised, clear-headed and better than I had in years. Even after four weeks I still feel the same benefits. I lost 4kg, particularly around my waist, and developed a real desire to eat healthier and exercise more. I no longer drink coffee or tea and have no desire to return to it.",
+      "result": null,
+      "featured": true
+    },
+    {
+      "category": "energy",
+      "name": "Lynda",
+      "role": null,
+      "location": "Central Coast, NSW",
+      "pullQuote": "felt stronger, had more energy, and three months later I've kept the weight off.",
+      "story": "I still experienced a mild headache, but nothing major. I lost 5kg in 5 days, felt stronger, had more energy, and three months later I've kept the weight off.",
+      "result": "−5 kg in 5 days",
+      "featured": false
+    },
+    {
+      "category": "energy",
+      "name": "Kate Vanson",
+      "role": null,
+      "location": "Melbourne",
+      "pullQuote": "By day four my energy levels were significantly higher.",
+      "story": "The first day I felt a little lethargic, but by day two I felt better and more determined. By day four my energy levels were significantly higher. Friends and colleagues began commenting on how radiant I looked. Six days, 5 kilos.",
+      "result": "−5 kg in 6 days",
+      "featured": false
+    },
+    {
+      "category": "energy",
+      "name": "Patricia",
+      "role": null,
+      "location": "Victoria",
+      "pullQuote": "I have more energy throughout the whole day.",
+      "story": "Not only do I have more energy throughout the whole day, but my complexion and hair look great. Added to that, I lost a total of 8kg in 10 days. Highly recommended.",
+      "result": "−8 kg in 10 days",
+      "featured": false
+    },
+    {
+      "category": "energy",
+      "name": "Laura N",
+      "role": null,
+      "location": "NSW",
+      "pullQuote": "The program felt like a physical and mental cleanse, not just weight loss.",
+      "story": "I personally lost 5kg, but more importantly I experienced a huge increase in energy, productivity and mental clarity. I found myself waking earlier, getting more done and feeling sharper overall. The program felt like a physical and mental cleanse, not just weight loss.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "energy",
+      "name": "Jennifer Beer",
+      "role": null,
+      "location": "Victoria",
+      "pullQuote": "loved how I felt after just five days.",
+      "story": "I started using the program about 8 months ago and loved how I felt after just five days. I lost 3kg, reduced bloating and had much more energy. My partner also tried it and loved it — we now both use the program regularly.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "lighter",
+      "name": "Geri Graham",
+      "role": null,
+      "location": "Point Cook, VIC",
+      "pullQuote": "By days 3–5 I began to feel refreshed, less sluggish and more positive overall.",
+      "story": "I have completed the Lemon Detox on three separate occasions, ranging from 5 to 7 days. By day two I felt less hungry and noticed I was drinking more water. By days 3–5 I began to feel refreshed, less sluggish and more positive overall. I also noticed my usual bloating had reduced. I now incorporate the program into my routine every few months.",
+      "result": null,
+      "featured": true
+    },
+    {
+      "category": "lighter",
+      "name": "Shirley Mulcahy",
+      "role": null,
+      "location": "Brisbane",
+      "pullQuote": "the biggest benefit was the overall feeling of wellbeing.",
+      "story": "I lost 4kg in 5 days, but the biggest benefit was the overall feeling of wellbeing. It completely resolved my bloating and digestive discomfort, and I now use the program regularly every 8 weeks.",
+      "result": "−4 kg in 5 days",
+      "featured": false
+    },
+    {
+      "category": "lighter",
+      "name": "Michelle Fraser",
+      "role": null,
+      "location": "Queensland",
+      "pullQuote": "Even after just five days I felt significantly better.",
+      "story": "I found the Lemon Detox very easy to follow and more enjoyable than other detox programs I've tried. My skin cleared, bloating disappeared and I slept better. Even after just five days I felt significantly better and plan to do a longer program next time.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "lighter",
+      "name": "Brooke Thatcher",
+      "role": null,
+      "location": "NSW",
+      "pullQuote": "we started wanting fresh fruit and vegetables instead of junk food.",
+      "story": "My husband and I decided to do the Lemon Detox together after I was experiencing food sensitivity and digestion issues. We both lost around 5–6kg and felt significantly better. What stood out was how our cravings changed — we started wanting fresh fruit and vegetables instead of junk food. Being able to enjoy food again without discomfort was life-changing.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "skin",
+      "name": "Lynelle Leighton",
+      "role": "Managing Director, ABBALIVE",
+      "location": null,
+      "pullQuote": "by day four everything shifted.",
+      "story": "After Christmas I felt sluggish and out of balance. The third day was the hardest, but by day four everything shifted. I lost 6kg in 11 days, but what stood out most was the visible change. My skin became clearer, my eyes brighter, and people started commenting that I looked years younger.",
+      "result": "−6 kg in 11 days",
+      "featured": false
+    },
+    {
+      "category": "skin",
+      "name": "Hava Huner",
+      "role": "Massage Therapist",
+      "location": "Melbourne",
+      "pullQuote": "After 14 days I lost 7.5kg and feel absolutely fabulous.",
+      "story": "After 14 days I lost 7.5kg and feel absolutely fabulous. My skin is glowing, I feel energised, and being a vegetarian this is very rare for me. Friends and clients keep asking me if I am pregnant because I have a glow to me.",
+      "result": "−7.5 kg in 14 days",
+      "featured": false
+    },
+    {
+      "category": "skin",
+      "name": "Brooke Bentley",
+      "role": null,
+      "location": "Sydney",
+      "pullQuote": "felt lighter and more energised than I have in a long time.",
+      "story": "I lost 4kg, reached my goal weight, and felt lighter and more energised than I have in a long time. My skin looked noticeably smoother and brighter, and overall I felt amazing.",
+      "result": "−4 kg",
+      "featured": false
+    },
+    {
+      "category": "skin",
+      "name": "Lisa B.",
+      "role": null,
+      "location": "Blue Mountains, NSW",
+      "pullQuote": "By Wednesday I was feeling 10 years younger.",
+      "story": "I started on Sunday. By Wednesday I was feeling 10 years younger, 2.7 kilos lighter, my pores had visibly reduced and my skin was brighter overall. People were already commenting on my appearance.",
+      "result": "−2.7 kg in 4 days",
+      "featured": false
+    },
+    {
+      "category": "skin",
+      "name": "Maria",
+      "role": null,
+      "location": "Sydney",
+      "pullQuote": "my skin and hair look and feel great.",
+      "story": "I have been using the program for some time now, mainly to give my body a deep cleanse once a month. Since doing this, my skin and hair look and feel great. I've recommended it to many friends, and those who have tried it agree with me 100%.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "lifestyle",
+      "name": "Donna & David Smith",
+      "role": null,
+      "location": "Sydney",
+      "pullQuote": "We both experienced more energy and a greater sense of wellbeing.",
+      "story": "My wife and I both used the Lemon Detox and were extremely impressed. She lost 4kg in one week, improved her metabolism and no longer felt bloated. We both experienced more energy and a greater sense of wellbeing. We now incorporate the detox regularly as part of our routine.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "lifestyle",
+      "name": "Mr & Mrs D",
+      "role": null,
+      "location": "Geelong, VIC",
+      "pullQuote": "After completing the program we no longer craved sweets or takeaway.",
+      "story": "The first day was the hardest, but by day three we felt like we could keep going indefinitely. We were amazed at how quickly the body adapts. After completing the program we no longer craved sweets or takeaway. We both lost 5kg initially, and after another 5-day round the following month, lost an additional 2kg each. The most important part — the weight has stayed off.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "lifestyle",
+      "name": "Darrell Barnett CMM",
+      "role": null,
+      "location": "NSW",
+      "pullQuote": "I had no trouble sticking to it and found the flavour easy to drink.",
+      "story": "I have been using the program 3 days on, 3 days off — and I feel fantastic. I have lost 12kg, bringing me to 79kg. I had no trouble sticking to it and found the flavour easy to drink. As someone with a busy lifestyle who used to eat out almost every night, this program has not only improved my health but saved me a significant amount of money.",
+      "result": "−12 kg",
+      "featured": false
+    },
+    {
+      "category": "lifestyle",
+      "name": "Fiona Del Vecchio",
+      "role": "Director of Education, Queensland Hair Academy",
+      "location": null,
+      "pullQuote": "It provided the perfect kickstart.",
+      "story": "I'm a full-time working mum and was looking to lose a few kilos. It provided the perfect kickstart, and alongside regular exercise I began seeing results quickly. What stood out most was the increase in energy and motivation I felt. Six weeks later I've kept the weight off and still feel fantastic.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "lifestyle",
+      "name": "Janine Telford",
+      "role": null,
+      "location": "Queensland",
+      "pullQuote": "by Day 4 I felt fantastic.",
+      "story": "I had tried nearly every diet and weight loss program without success. I planned my detox during a two-week break. Day 1 was manageable, Day 2 difficult due to caffeine withdrawal, but by Day 4 I felt fantastic. I completed 10 days, returning to work 7kg lighter. Months later I've maintained most of the weight loss. I've now completely stopped drinking coffee and have changed my habits long-term.",
+      "result": "−7 kg in 10 days",
+      "featured": false
+    },
+    {
+      "category": "lifestyle",
+      "name": "G V D Poll",
+      "role": null,
+      "location": "Queensland",
+      "pullQuote": "I found myself craving fruits and vegetables instead of chocolate.",
+      "story": "I lost approximately 1kg per day during the program, and the results have been long-lasting. The biggest surprise was how it helped eliminate my coffee habit, and even a month later I remain coffee-free. After completing the program I found myself craving fruits and vegetables instead of chocolate.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "lifestyle",
+      "name": "Leanne Pizzi",
+      "role": null,
+      "location": "Perth, WA",
+      "pullQuote": "I detoxed for 7 days, lost 5kg, and had never felt so good.",
+      "story": "I detoxed for 7 days, lost 5kg, and had never felt so good. My husband could clearly see the difference and kept saying whatever I was taking, I shouldn't stop. That alone reassured me that the results were not just how I felt, but also how I looked.",
+      "result": "−5 kg in 7 days",
+      "featured": false
+    },
+    {
+      "category": "lifestyle",
+      "name": "Rebecca Stokes",
+      "role": null,
+      "location": "Perth, WA",
+      "pullQuote": "it kickstarted a much healthier approach to eating and exercise.",
+      "story": "I didn't crave food at all. I wasn't hungry, and I still had plenty of energy — even enough to continue light exercise. I felt better than I had in a long time. I've since completed the detox again and experienced the same results. Not only did I lose weight both times, I kept it off, and it kickstarted a much healthier approach to eating and exercise.",
+      "result": null,
+      "featured": false
+    },
+    {
+      "category": "lifestyle",
+      "name": "Mark",
+      "role": null,
+      "location": "Sydney",
+      "pullQuote": "The detox gave us a strong kickstart into a healthier lifestyle.",
+      "story": "My fiancée and I started the program together. At first it felt unusual not eating, but we stayed committed and supported each other. As the days went on we both experienced a huge boost in energy. The detox gave us a strong kickstart into a healthier lifestyle.",
+      "result": null,
+      "featured": false
+    }
+  ],
+  "_removed_do_not_publish": [
+    {
+      "name": "Josephine Schneider",
+      "reason": "Describes a medical condition (constipation) — therapeutic claim."
+    },
+    {
+      "name": "Kiro",
+      "reason": "Claims indigestion and heartburn disappeared — therapeutic claim."
+    },
+    {
+      "name": "Joseph Bechara",
+      "reason": "Claims reduced reliance on medication — therapeutic claim and safety risk."
+    },
+    {
+      "name": "Julia",
+      "reason": "Claims improved immune system — therapeutic claim."
+    },
+    {
+      "name": "Sally Banyai",
+      "reason": "Claims healing of dry, bleeding skin — therapeutic claim."
+    },
+    {
+      "name": "Ti Ti",
+      "reason": "Claims it cleared pimples/acne — therapeutic claim."
+    },
+    {
+      "name": "Shelley De Courcy",
+      "reason": "Claims it cleared scarring and spots — therapeutic claim."
+    },
+    {
+      "name": "Claudia Tcaciuc (home page only)",
+      "reason": "Quote only appeared on the home page with no full story — publish only if you have the customer's original words and permission."
+    },
+    {
+      "name": "Kerryn Bracken (home page only)",
+      "reason": "Same as above."
+    }
+  ]
+}

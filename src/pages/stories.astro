@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import StoryCard from '../components/StoryCard.astro';
+import CTA from '../components/CTA.astro';
+import LemonSlice from '../components/LemonSlice.astro';
+import { categories, testimonials, disclaimer } from '../data/testimonials';
+
+const tabs = [{ id: 'all', label: 'All', blurb: '' }, ...categories];
+const stats = [
+  ['4', 'simple ingredients'],
+  ['7–14', 'days, your choice'],
+  ['Free', 'tracked shipping Australia-wide'],
+];
+---
+<Base title="Customer Stories — Lemon Detox Cleanse" description="Lemon Detox Cleanse customers share their experiences in their own words.">
+  <section class="relative overflow-hidden" data-hero>
+    <LemonSlice class="pointer-events-none absolute -top-32 -right-32 h-[30rem] w-[30rem] opacity-80" spin />
+    <div class="wrap relative pt-16 pb-14 sm:pt-24">
+      <p class="eyebrow">Stories from the cleanse</p>
+      <h1 class="display-xl mt-6 !text-[clamp(3rem,8vw,6.5rem)]">Real people.<br /><em>Real resets.</em></h1>
+      <p class="lead mt-8 max-w-2xl">Stories from Lemon Detox Cleanse customers, shared in their own words and grouped by what they came for.</p>
+    </div>
+  </section>
+
+  <section class="pb-24" aria-label="Customer stories">
+    <div class="wrap">
+      <div class="sticky top-[4.5rem] z-20 -mx-5 border-y hairline bg-cream/95 px-5 py-3 backdrop-blur sm:mx-0 sm:rounded-full sm:border sm:px-2 sm:py-2">
+        <div role="tablist" aria-label="Filter stories by theme" class="flex gap-2 overflow-x-auto [scrollbar-width:none]">
+          {tabs.map((t, i) => (
+            <button type="button" role="tab" id={`tab-${t.id}`} data-filter={t.id} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} aria-controls="story-grid"
+              class="shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-ink-soft transition hover:text-ink aria-selected:bg-ink aria-selected:text-cream">
+              {t.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <p id="story-blurb" class="mt-8 min-h-[1.7em] text-muted" aria-live="polite"></p>
+
+      <div id="story-grid" role="tabpanel" aria-labelledby="tab-all" class="mt-4 columns-1 gap-5 md:columns-2 xl:columns-3">
+        {testimonials.map((t) => <StoryCard t={t} full class="mb-5 break-inside-avoid" />)}
+      </div>
+
+      <p class="mt-10 max-w-3xl text-sm text-muted">{disclaimer}</p>
+    </div>
+  </section>
+
+  <section class="border-y hairline bg-paper py-16" aria-label="At a glance">
+    <dl class="wrap grid gap-10 text-center sm:grid-cols-3">
+      {stats.map(([n, l]) => <div><dt class="sr-only">{l}</dt><dd><span class="block font-serif text-6xl text-ink">{n}</span><span class="mt-2 block text-sm tracking-wide text-muted">{l}</span></dd></div>)}
+    </dl>
+  </section>
+
+  <section class="py-16 text-center">
+    <p class="wrap text-ink-soft">Finished your cleanse? We'd love to hear how it went — <a href="/contact?topic=story" class="link-arrow">Share your story</a></p>
+  </section>
+
+  <CTA title="Your reset story is <em>next.</em>" />
+
+  <script define:vars={{ blurbs: Object.fromEntries(categories.map((c) => [c.id, c.blurb])) }}>
+    const tabs = [...document.querySelectorAll('[data-filter]')];
+    const cards = document.querySelectorAll('#story-grid [data-category]');
+    const grid = document.getElementById('story-grid');
+    const blurb = document.getElementById('story-blurb');
+    const select = (tab, focus) => {
+      tabs.forEach((t) => { const on = t === tab; t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1; });
+      const f = tab.dataset.filter;
+      cards.forEach((c) => { c.hidden = f !== 'all' && c.dataset.category !== f; c.classList.add('is-in'); });
+      grid.setAttribute('aria-labelledby', tab.id);
+      blurb.textContent = blurbs[f] || '';
+      if (focus) tab.focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(t));
+      t.addEventListener('keydown', (e) => {
+        const k = e.key;
+        let n = null;
+        if (k === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+        if (k === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+        if (k === 'Home') n = tabs[0];
+        if (k === 'End') n = tabs[tabs.length - 1];
+        if (n) { e.preventDefault(); select(n, true); }
+      });
+    });
+  </script>
+</Base>

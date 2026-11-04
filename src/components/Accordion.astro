@@ -1,0 +1,13 @@
+---
+interface Props { q: string; open?: boolean; class?: string }
+const { q, open = false, class: cls = '' } = Astro.props;
+---
+<details class:list={['acc group border-b hairline', cls]} open={open}>
+  <summary class="flex items-start justify-between gap-6 py-6 text-left">
+    <span class="font-serif text-[1.45rem] leading-snug text-ink sm:text-[1.6rem]">{q}</span>
+    <span class="acc-icon mt-1.5 grid h-8 w-8 shrink-0 place-items-center rounded-full border border-gold-soft text-gold-deep" aria-hidden="true">
+      <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </span>
+  </summary>
+  <div class="max-w-[62ch] pb-7 text-ink-soft [&_a]:underline [&_a]:decoration-gold [&_a]:underline-offset-4"><slot /></div>
+</details>

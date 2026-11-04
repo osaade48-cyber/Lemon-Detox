@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Lemon Detox Cleanse — Program Guide</title>
+<style>
+  /* Brand fonts are Cormorant Garamond + Plus Jakarta Sans. The stacks fall back to close
+     system equivalents so this file renders anywhere. */
+  :root{
+    --cream:#FBF8EF; --paper:#FAF9F6; --ink:#1A1A1A; --ink-soft:#2B2E2F; --muted:#6B6863;
+    --gold:#C9A24A; --gold-deep:#8A6418; --gold-soft:#E8D8A5; --honey:#F4D27A; --lemon:#F2D64B;
+    --serif:"Cormorant Garamond","TeX Gyre Pagella","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:"Plus Jakarta Sans",Inter,"Helvetica Neue",Arial,sans-serif;
+    --logo:"TeX Gyre Adventor","Avant Garde","Century Gothic",Futura,sans-serif;
+  }
+  @page{size:A4;margin:0}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#fff}
+  body{font-family:var(--sans);color:var(--ink-soft);font-size:11pt;line-height:1.6;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{width:210mm;height:297mm;position:relative;overflow:hidden;background:var(--paper);padding:22mm 20mm 20mm;page-break-after:always;break-after:page}
+  .page:last-child{page-break-after:auto;break-after:auto}
+  .run{position:absolute;top:10mm;left:20mm;right:20mm;display:flex;justify-content:space-between;font-size:6.6pt;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+  .foot{position:absolute;bottom:10mm;left:20mm;right:20mm;display:flex;justify-content:space-between;font-size:6.6pt;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);border-top:.5pt solid var(--gold-soft);padding-top:3mm}
+  .eyebrow{font-size:7.6pt;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+  .num{font-family:var(--serif);font-size:64pt;line-height:1;color:var(--gold-soft);position:absolute;right:20mm;top:20mm}
+  h1,h2{font-family:var(--serif);font-weight:400;color:var(--ink);letter-spacing:-.01em}
+  h2{font-size:38pt;line-height:1.06;margin:3mm 0 7mm}
+  h2 em{font-style:italic;color:var(--gold-deep)}
+  h3{font-family:var(--sans);font-size:12pt;font-weight:600;color:var(--ink);margin-bottom:1.2mm}
+  p+p{margin-top:3mm}
+  .lead{font-size:13pt;line-height:1.5;color:var(--ink);max-width:150mm}
+  .rule{width:18mm;height:1.2pt;background:var(--gold);margin:6mm 0}
+  .callout{border-left:2pt solid var(--gold);padding:3mm 0 3mm 6mm;font-family:var(--serif);font-size:16pt;line-height:1.4;color:var(--ink);font-style:italic;margin-top:7mm}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4mm}
+  .grid3 .card{padding:6mm 5mm}
+  .card{background:#fff;border:.6pt solid var(--gold-soft);border-radius:3mm;padding:7mm}
+  .card.tint{background:var(--cream)}
+  .card .k{font-size:7.2pt;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:2mm}
+  .card .tag{display:inline-block;font-size:6.4pt;letter-spacing:.2em;text-transform:uppercase;background:var(--honey);color:var(--ink);padding:.8mm 2.4mm;border-radius:2mm;font-weight:600;margin-bottom:2.5mm}
+  ol.steps{list-style:none;counter-reset:s}
+  ol.steps li{counter-increment:s;display:flex;gap:3.5mm;padding:2.8mm 0;border-bottom:.5pt solid #eee6cf}
+  ol.steps li:last-child{border-bottom:0}
+  ol.steps li::before{content:"0" counter(s);font-family:var(--serif);color:var(--gold-deep);font-size:11pt;width:7mm;flex:none;line-height:1.3}
+  ul.dots{list-style:none}
+  ul.dots li{padding-left:5mm;position:relative;margin:1.8mm 0}
+  ul.dots li::before{content:"";position:absolute;left:0;top:2.4mm;width:1.6mm;height:1.6mm;border-radius:50%;background:var(--gold)}
+  .small{font-size:9pt;color:var(--muted);line-height:1.55}
+  table{width:100%;border-collapse:collapse;font-size:10pt}
+  th,td{text-align:left;padding:2.4mm 2.5mm;border-bottom:.5pt solid var(--gold-soft);vertical-align:top}
+  th{font-size:6.6pt;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+  td:first-child{font-weight:600;color:var(--ink)}
+  .warn{background:#fff;border:.8pt solid var(--gold);border-radius:3mm;padding:5mm 6mm}
+  .warn h3{color:var(--gold-deep)}
+
+  /* Logo: "det" + lemon + "x" */
+  .logo{font-family:var(--logo);font-weight:700;color:var(--ink);display:inline-flex;align-items:center;letter-spacing:-.02em;line-height:1}
+  .logo svg{display:block}
+
+  /* Cover */
+  .cover{background:var(--cream);padding:0}
+  .cover .inner{position:absolute;inset:0;padding:24mm 22mm}
+  .cover .band{position:absolute;left:0;right:0;bottom:56mm;height:13mm;background:var(--lemon);display:flex;align-items:center;justify-content:space-around;font-family:var(--logo);font-weight:700;font-size:10pt;letter-spacing:.28em;color:var(--ink)}
+  .cover h1{font-size:58pt;line-height:.98;margin-top:22mm}
+  .cover h1 em{color:var(--gold-deep)}
+  .cover .big-lemon{position:absolute;right:-38mm;top:44mm;opacity:.95}
+  .toc li{display:grid;grid-template-columns:12mm 1fr 14mm;align-items:baseline;padding:3.6mm 0;border-bottom:.5pt solid var(--gold-soft)}
+  .toc .n{font-family:var(--serif);font-size:15pt;color:var(--gold-deep)}
+  .toc .t{font-family:var(--serif);font-size:17pt;color:var(--ink)}
+  .toc .d{display:block;font-family:var(--sans);font-size:9.4pt;color:var(--muted);margin-top:.6mm}
+  .toc .p{text-align:right;font-size:7pt;letter-spacing:.24em;color:var(--muted)}
+  .dark{background:var(--ink);color:#e9e4d6}
+  .dark h2{color:#fff}
+  .dark .eyebrow{color:var(--honey)}
+  .dark .foot{color:#9b968b;border-color:#3a3a36}
+  .dark .card{background:#232322;border-color:#3a3a36;color:#d9d3c4}
+  .dark .card h3{color:#fff}
+  .check li{list-style:none;padding:2mm 0 2mm 8mm;position:relative;border-bottom:.5pt solid #3a3a36}
+  .check li::before{content:"";position:absolute;left:0;top:2.9mm;width:3.2mm;height:3.2mm;border:.8pt solid var(--honey);border-radius:.6mm}
+</style>
+</head>
+<body>
+
+<!-- Inline lemon symbol reused across pages -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="lemon" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="49" fill="#F2D64B"/>
+      <circle cx="50" cy="50" r="43" fill="#FBEFA6"/>
+      <g fill="#F6DC5C">
+        <path d="M50 50 L50 11 A39 39 0 0 1 77.6 22.4 Z"/>
+        <path d="M50 50 L77.6 22.4 A39 39 0 0 1 89 50 Z" transform="rotate(5 50 50)"/>
+        <path d="M50 50 L89 50 A39 39 0 0 1 77.6 77.6 Z" transform="rotate(10 50 50)"/>
+        <path d="M50 50 L77.6 77.6 A39 39 0 0 1 50 89 Z" transform="rotate(15 50 50)"/>
+        <path d="M50 50 L50 89 A39 39 0 0 1 22.4 77.6 Z" transform="rotate(20 50 50)"/>
+        <path d="M50 50 L22.4 77.6 A39 39 0 0 1 11 50 Z" transform="rotate(25 50 50)"/>
+        <path d="M50 50 L11 50 A39 39 0 0 1 22.4 22.4 Z" transform="rotate(30 50 50)"/>
+        <path d="M50 50 L22.4 22.4 A39 39 0 0 1 50 11 Z" transform="rotate(35 50 50)"/>
+      </g>
+      <g stroke="#FBEFA6" stroke-width="2.2">
+        <line x1="50" y1="50" x2="50" y2="8"/><line x1="50" y1="50" x2="80" y2="20"/>
+        <line x1="50" y1="50" x2="92" y2="50"/><line x1="50" y1="50" x2="80" y2="80"/>
+        <line x1="50" y1="50" x2="50" y2="92"/><line x1="50" y1="50" x2="20" y2="80"/>
+        <line x1="50" y1="50" x2="8" y2="50"/><line x1="50" y1="50" x2="20" y2="20"/>
+      </g>
+      <circle cx="50" cy="50" r="4" fill="#FBEFA6"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- 1 · COVER -->
+<section class="page cover">
+  <svg class="big-lemon" width="150mm" height="150mm"><use href="#lemon"/></svg>
+  <div class="inner">
+    <div class="logo" style="font-size:34pt">det<svg width="31pt" height="31pt" style="margin:0 .5pt;transform:translateY(2pt)"><use href="#lemon"/></svg>x</div>
+    <div class="eyebrow" style="margin-top:5mm;color:var(--ink);letter-spacing:.42em">Lemon Detox Cleanse</div>
+    <h1>Reset.<br>Refine.<br><em>Restore.</em></h1>
+    <p class="lead" style="margin-top:9mm;max-width:95mm">The complete program guide to the 7-Day Focused Cleanse and the 14-Day Extended Cleanse.</p>
+    <div style="position:absolute;left:22mm;bottom:24mm" class="eyebrow">Program guide · 2026</div>
+  </div>
+  <div class="band"><span>Reset</span><span style="font-size:12pt">Refine</span><span>Restore</span></div>
+</section>
+
+<!-- 2 · CONTENTS -->
+<section class="page">
+  <div class="run"><span>Lemon Detox Cleanse · Program guide</span><span>02</span></div>
+  <div class="eyebrow">Contents</div>
+  <h2>Inside this <em>guide.</em></h2>
+  <p class="lead">Everything you need to prepare for, follow and finish the Lemon Detox Cleanse — and to make the reset last.</p>
+  <ol class="toc" style="list-style:none;margin-top:9mm">
+    <li><span class="n">01</span><span class="t">Why people choose a reset<span class="d">Modern habits, overconsumption and the value of structure.</span></span><span class="p">03</span></li>
+    <li><span class="n">02</span><span class="t">What participants report<span class="d">The six outcomes people mention most.</span></span><span class="p">04</span></li>
+    <li><span class="n">03</span><span class="t">What the program is<span class="d">The two programs and what's in your Reset Box.</span></span><span class="p">05</span></li>
+    <li><span class="n">04</span><span class="t">The Lemon Detox drink<span class="d">Four ingredients and the role of each.</span></span><span class="p">06</span></li>
+    <li><span class="n">05</span><span class="t">How to make the drink<span class="d">Daily batch and single-glass measures, plus your shopping list.</span></span><span class="p">07</span></li>
+    <li><span class="n">06</span><span class="t">The daily routine<span class="d">Morning flush, the drink through the day, evening tea.</span></span><span class="p">08</span></li>
+    <li><span class="n">07</span><span class="t">Three ways to follow it<span class="d">Full Cleanse, Relaxed and 50/50.</span></span><span class="p">09</span></li>
+    <li><span class="n">08</span><span class="t">Before you start<span class="d">Who it isn't for, how to prepare and what to expect.</span></span><span class="p">10</span></li>
+    <li><span class="n">09</span><span class="t">Coming off the cleanse<span class="d">Easing back into food and keeping your results.</span></span><span class="p">11</span></li>
+  </ol>
+  <div class="foot"><span>Reset · Refine · Restore</span><span>02</span></div>
+</section>
+
+<!-- 3 · WHY -->
+<section class="page">
+  <div class="run"><span>01 · Why people choose a reset</span><span>03</span></div>
+  <div class="num">01</div>
+  <div class="eyebrow">Chapter one</div>
+  <h2>Why people choose<br>a <em>reset.</em></h2>
+  <p class="lead">Life is fast, demanding and often excessive. Over time, constant pressure and constant eating can leave us feeling heavy, sluggish and out of balance.</p>
+  <div class="rule"></div>
+  <div style="max-width:150mm">
+    <p>Processed food, oversized portions, alcohol, caffeine, late nights, stress and irregular routines all add up. Many people notice it as low energy, weight gain, bloating, cravings, restless sleep — or simply feeling out of rhythm with themselves.</p>
+    <p>The Lemon Detox Cleanse is a structured pause from regular eating and daily excess. For a defined period, solid food is replaced with the Lemon Detox drink. You follow one simple routine instead of making hundreds of food decisions a day.</p>
+    <p>That pause is the point. It interrupts automatic habits — the snacking, the grazing, the eating out of boredom — and gives you a clear line to start again from.</p>
+  </div>
+  <div class="callout" style="max-width:150mm">For many people, this is the opportunity to reset — physically, mentally and emotionally — and to come away with renewed discipline, clearer focus and a stronger sense of control around food.</div>
+  <div class="foot"><span>Reset · Refine · Restore</span><span>03</span></div>
+</section>
+
+<!-- 4 · WHAT PARTICIPANTS REPORT -->
+<section class="page">
+  <div class="run"><span>02 · What participants report</span><span>04</span></div>
+  <div class="num">02</div>
+  <div class="eyebrow">Chapter two</div>
+  <h2>Every routine benefits<br>from a <em>reset.</em></h2>
+  <p class="lead">People choose the Lemon Detox Cleanse for different reasons, but most are looking for the same thing: to feel lighter, more energised and back in control.</p>
+  <div class="grid2" style="margin-top:9mm">
+    <div class="card"><div class="k">01</div><h3>Weight loss</h3><p>The most common reason people start. With solid food set aside for a short time, most people lose weight during the cleanse.</p></div>
+    <div class="card"><div class="k">02</div><h3>Steadier energy</h3><p>Many people report feeling more energised once they settle into the routine, usually after the first two or three days.</p></div>
+    <div class="card"><div class="k">03</div><h3>Feeling lighter and less bloated</h3><p>A break from heavy meals, constant snacking and daily excess.</p></div>
+    <div class="card"><div class="k">04</div><h3>Clearer focus</h3><p>One simple routine removes the constant distraction of food decisions.</p></div>
+    <div class="card"><div class="k">05</div><h3>Fewer cravings, more control</h3><p>The pause helps interrupt old habits and reset your relationship with food.</p></div>
+    <div class="card"><div class="k">06</div><h3>Renewed confidence</h3><p>Finishing the program is an achievement — and it makes better choices afterwards feel easier.</p></div>
+  </div>
+  <p class="small" style="margin-top:6mm">Outcomes described here are what participants commonly report. Individual results vary and depend on how the program is followed and what you eat afterwards.</p>
+  <div class="foot"><span>Reset · Refine · Restore</span><span>04</span></div>
+</section>
+
+<!-- 5 · WHAT THE PROGRAM IS -->
+<section class="page">
+  <div class="run"><span>03 · What the program is</span><span>05</span></div>
+  <div class="num">03</div>
+  <div class="eyebrow">Chapter three</div>
+  <h2>A short, structured<br><em>cleanse.</em></h2>
+  <p class="lead">The Lemon Detox Cleanse replaces regular meals with the Lemon Detox drink for a defined period — 7 to 14 days — supported by a simple morning and evening routine.</p>
+  <div class="rule"></div>
+  <p style="max-width:150mm">It isn't a long-term eating plan, and it isn't a water fast. The drink provides natural sugars and hydration so you can keep up your normal day. What it asks for is preparation, consistency and a few days of discipline.</p>
+  <div class="grid2" style="margin-top:8mm">
+    <div class="card">
+      <div class="k">7-day program</div>
+      <h3 style="font-family:var(--serif);font-weight:400;font-size:17pt">7-Day Focused Cleanse</h3>
+      <p>Seven structured days for a fast, focused reset. Ideal for first-timers.</p>
+    </div>
+    <div class="card tint">
+      <span class="tag">Most popular</span>
+      <h3 style="font-family:var(--serif);font-weight:400;font-size:17pt">14-Day Extended Cleanse</h3>
+      <p>Two weeks for a deeper reset and longer-lasting habits. Ideal for returning cleansers.</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:5mm">
+    <div class="k">In your Reset Box</div>
+    <ul class="dots" style="columns:2;column-gap:8mm">
+      <li>Madal Bal® Natural Tree Syrup</li>
+      <li>Senna herbal tea for the evening</li>
+      <li>Natural sea salt for the morning flush</li>
+      <li>This program guide</li>
+    </ul>
+    <p class="small" style="margin-top:3mm">You'll also need fresh lemons, cayenne pepper and water — see the shopping list on page 07.</p>
+  </div>
+  <div class="foot"><span>Reset · Refine · Restore</span><span>05</span></div>
+</section>
+
+<!-- 6 · THE DRINK -->
+<section class="page">
+  <div class="run"><span>04 · The Lemon Detox drink</span><span>06</span></div>
+  <div class="num">04</div>
+  <div class="eyebrow">Chapter four</div>
+  <h2>The Lemon Detox <em>drink.</em></h2>
+  <p class="lead">The foundation of the program — four simple ingredients that keep you going while you take a break from solid food.</p>
+  <div class="grid2" style="margin-top:9mm">
+    <div class="card"><div class="k">Ingredient 01</div><h3>Madal Bal® Natural Tree Syrup</h3><p>A blend of maple and palm syrups — the energy source of the drink, providing natural sugars through the day. Included in your Reset Box.</p></div>
+    <div class="card"><div class="k">Ingredient 02</div><h3>Fresh lemon juice</h3><p>Always freshly squeezed, never bottled. Adds vitamin C and the drink's bright, clean taste.</p></div>
+    <div class="card"><div class="k">Ingredient 03</div><h3>Cayenne pepper</h3><p>Just a pinch — enough for gentle warmth without heat.</p></div>
+    <div class="card"><div class="k">Ingredient 04</div><h3>Water</h3><p>Fresh or filtered water brings the syrup, lemon and cayenne together into a drink you can sip all day.</p></div>
+  </div>
+  <div class="card tint" style="margin-top:6mm">
+    <div class="k">Also part of the routine</div>
+    <p><b style="color:var(--ink)">Senna herbal tea</b> in the evening and the <b style="color:var(--ink)">salt-water flush</b> in the morning are not part of the drink. They support the daily routine and are explained on page 08.</p>
+  </div>
+  <div class="foot"><span>Reset · Refine · Restore</span><span>06</span></div>
+</section>
+
+<!-- 7 · HOW TO MAKE -->
+<section class="page">
+  <div class="run"><span>05 · How to make the drink</span><span>07</span></div>
+  <div class="num">05</div>
+  <div class="eyebrow">Chapter five</div>
+  <h2>How to make<br>the <em>drink.</em></h2>
+  <p class="lead">Make the full day's batch each morning — or the night before — so it's ready wherever you are.</p>
+  <div class="grid2" style="margin-top:8mm">
+    <div class="card tint">
+      <span class="tag">Recommended</span>
+      <h3 style="font-family:var(--serif);font-weight:400;font-size:16pt">Daily batch · about 2 litres</h3>
+      <ol class="steps" style="margin-top:2mm">
+        <li><span>140 ml Madal Bal® Natural Tree Syrup</span></li>
+        <li><span>140 ml freshly squeezed lemon juice (about 3½ lemons)</span></li>
+        <li><span>2–3 pinches cayenne pepper</span></li>
+        <li><span>Water to make up to 2 litres (about 1.7 litres)</span></li>
+      </ol>
+    </div>
+    <div class="card">
+      <div class="k" style="margin-top:1mm">Single glass</div>
+      <h3 style="font-family:var(--serif);font-weight:400;font-size:16pt">One glass</h3>
+      <ol class="steps" style="margin-top:2mm">
+        <li><span>20 ml Madal Bal® Natural Tree Syrup (1 Australian tablespoon)</span></li>
+        <li><span>20 ml freshly squeezed lemon juice (about ½ lemon)</span></li>
+        <li><span>A small pinch of cayenne pepper</span></li>
+        <li><span>At least 250 ml water</span></li>
+      </ol>
+    </div>
+  </div>
+  <div class="grid2" style="margin-top:5mm">
+    <div class="card">
+      <div class="k">Preparation notes</div>
+      <ul class="dots">
+        <li>Use fresh lemons — never bottled juice.</li>
+        <li>Stir or shake before each glass; the ingredients settle.</li>
+        <li>Enjoy cold, at room temperature or warm — never boiled.</li>
+        <li>Once opened, keep the tree syrup in the fridge.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="k">Shopping list · Full Cleanse</div>
+      <table>
+        <tr><th></th><th>7 days</th><th>14 days</th></tr>
+        <tr><td>Fresh lemons</td><td>about 25</td><td>about 50</td></tr>
+        <tr><td>Cayenne pepper</td><td>1 small jar</td><td>1 small jar</td></tr>
+        <tr><td>Water</td><td colspan="2">2 L a day for the drink + 1–2 L to drink</td></tr>
+      </table>
+      
+    </div>
+  </div>
+  <div class="foot"><span>Reset · Refine · Restore</span><span>07</span></div>
+</section>
+
+<!-- 8 · DAILY ROUTINE -->
+<section class="page">
+  <div class="run"><span>06 · The daily routine</span><span>08</span></div>
+  <div class="num">06</div>
+  <div class="eyebrow">Chapter six</div>
+  <h2>The daily <em>routine.</em></h2>
+  <p class="lead">Three simple steps, the same every day. Within a day or two it becomes second nature.</p>
+  <div style="margin-top:8mm;display:grid;gap:4mm">
+    <div class="card"><div class="k">I · Morning</div><h3>Salt-water flush (or senna tea)</h3>
+      <p>On an empty stomach, dissolve 2 level teaspoons of natural, uniodised sea salt in 1 litre of warm water and drink it. Prefer not to, or have high blood pressure, a heart or kidney condition? Have a cup of senna herbal tea instead. Then mix the day's Lemon Detox drink.</p></div>
+    <div class="card"><div class="k">II · Through the day</div><h3>Sip the drink steadily</h3>
+      <p>Have a glass whenever you feel hungry — usually six to nine glasses a day. The full daily batch travels easily to work.</p></div>
+    <div class="card"><div class="k">Hydration</div><h3>Plain water in between</h3>
+      <p>On top of the drink, have 1–2 litres of plain water through the day. Herbal teas such as peppermint, chamomile or rosehip are fine too.</p></div>
+    <div class="card"><div class="k">III · Evening</div><h3>Senna herbal tea, then rest</h3>
+      <p>Once the day's drink is finished, have a cup of senna herbal tea before bed. Use as directed on the packet and only for the duration of the cleanse. Aim for a full night's sleep.</p></div>
+  </div>
+  <p class="small" style="margin-top:5mm">Gentle walking and stretching are a good complement. Save intense training for after the cleanse.</p>
+  <div class="foot"><span>Reset · Refine · Restore</span><span>08</span></div>
+</section>
+
+<!-- 9 · THREE WAYS -->
+<section class="page">
+  <div class="run"><span>07 · Three ways to follow it</span><span>09</span></div>
+  <div class="num">07</div>
+  <div class="eyebrow">Chapter seven</div>
+  <h2>Which way<br>suits <em>you?</em></h2>
+  <p class="lead">Both programs can be followed three ways. The routine is the same — the difference is how many meals you replace.</p>
+  <div class="grid3" style="margin-top:8mm">
+    <div class="card tint"><span class="tag">Deepest reset</span><h3 style="font-family:var(--serif);font-weight:400;font-size:17pt">Full Cleanse</h3>
+      <p>Every meal is replaced with the drink.</p>
+      <ul class="dots" style="margin-top:2mm"><li>Breakfast: 2–3 glasses</li><li>Lunch: 2–3 glasses</li><li>Dinner: 2–3 glasses</li></ul></div>
+    <div class="card"><span class="tag" style="background:var(--gold-soft)">Most flexible</span><h3 style="font-family:var(--serif);font-weight:400;font-size:17pt">Relaxed</h3>
+      <p>Breakfast and dinner are replaced; lunch is a light, healthy meal.</p>
+      <ul class="dots" style="margin-top:2mm"><li>Breakfast: 2–3 glasses</li><li>Lunch: light meal</li><li>Dinner: 2–3 glasses</li></ul></div>
+    <div class="card"><span class="tag" style="background:var(--gold-soft)">Ease in, ease out</span><h3 style="font-family:var(--serif);font-weight:400;font-size:17pt">50/50</h3>
+      <p>Relaxed, then Full Cleanse, then Relaxed again.</p>
+      <ul class="dots" style="margin-top:2mm"><li>Days 1–3: Relaxed</li><li>Days 4–6: Full</li><li>Days 7–9: Relaxed</li></ul></div>
+  </div>
+  <table style="margin-top:7mm">
+    <tr><th>How long your box lasts</th><th>Full Cleanse</th><th>Relaxed</th><th>50/50</th></tr>
+    <tr><td>7-Day Focused Cleanse</td><td>7 days</td><td>about 10 days</td><td>9 days</td></tr>
+    <tr><td>14-Day Extended Cleanse</td><td>14 days</td><td>about 20 days</td><td>18 days (6 · 6 · 6)</td></tr>
+  </table>
+  <div class="card tint" style="margin-top:6mm">
+    <div class="k">The light meal on Relaxed days</div>
+    <p>Keep it simple and fresh: vegetables, salad, soup or a small serve of lean protein. Avoid processed food, sugar, alcohol and heavy sauces.</p>
+  </div>
+  <p class="small" style="margin-top:4mm">The Full Cleanse gives the most complete break from old eating patterns. Relaxed and 50/50 are excellent, gentler options — especially for first-timers.</p>
+  <div class="foot"><span>Reset · Refine · Restore</span><span>09</span></div>
+</section>
+
+<!-- 10 · BEFORE YOU START -->
+<section class="page">
+  <div class="run"><span>08 · Before you start</span><span>10</span></div>
+  <div class="num">08</div>
+  <div class="eyebrow">Chapter eight</div>
+  <h2>Before you <em>start.</em></h2>
+  <div class="warn" style="margin-top:2mm">
+    <h3>Who the cleanse isn't for</h3>
+    <p>Please don't do the Lemon Detox Cleanse if you are pregnant or breastfeeding; under 18; living with diabetes, heart, kidney or liver disease, or high or low blood pressure; recovering from surgery or illness; or living with, or have a history of, an eating disorder. If you take prescription medication, speak with your doctor first.</p>
+    <p>If at any point you feel faint, dizzy, unwell or notice heart palpitations, stop the cleanse, eat normally and seek medical advice if symptoms continue.</p>
+  </div>
+  <div class="grid2" style="margin-top:6mm">
+    <div class="card">
+      <div class="k">The week before</div>
+      <ul class="dots">
+        <li>Pick a start date in a calm week — avoid big events.</li>
+        <li>Cut back on coffee, alcohol and processed food gradually.</li>
+        <li>Eat lighter meals for the last two days.</li>
+        <li>Buy your lemons and cayenne pepper.</li>
+        <li>Tell the people you live with — support helps.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="k">What to expect</div>
+      <table>
+        <tr><td style="width:22mm">Days 1–2</td><td style="font-weight:400">Adjusting. Hunger and mild headaches are common, especially for coffee drinkers.</td></tr>
+        <tr><td>Days 3–4</td><td style="font-weight:400">Settling. Most people find the routine gets easier.</td></tr>
+        <tr><td>Days 5–7</td><td style="font-weight:400">In rhythm. Many feel lighter, clearer and more in control.</td></tr>
+        <tr><td>Week 2</td><td style="font-weight:400">Habit. The routine feels effortless.</td></tr>
+      </table>
+    </div>
+  </div>
+  <p class="small" style="margin-top:5mm">Everyone is different — this is what participants commonly describe, not a promise of how your body will respond.</p>
+  <div class="foot"><span>Reset · Refine · Restore</span><span>10</span></div>
+</section>
+
+<!-- 11 · COMING OFF -->
+<section class="page">
+  <div class="run"><span>09 · Coming off the cleanse</span><span>11</span></div>
+  <div class="num">09</div>
+  <div class="eyebrow">Chapter nine</div>
+  <h2>Coming off<br>the <em>cleanse.</em></h2>
+  <p class="lead">How you finish matters as much as how you start. Ease back into food over two or three days rather than going straight back to your usual meals.</p>
+  <div class="grid3" style="margin-top:8mm">
+    <div class="card"><div class="k">Day 1 after</div><h3>Liquids first</h3><p>Fresh juices, vegetable soup or broth. Keep sipping water.</p></div>
+    <div class="card"><div class="k">Day 2 after</div><h3>Fresh and light</h3><p>Add fruit, salads and steamed vegetables. Small portions, eaten slowly.</p></div>
+    <div class="card"><div class="k">Day 3 onward</div><h3>Back to balance</h3><p>Reintroduce lean protein and whole grains, then your normal balanced diet.</p></div>
+  </div>
+  <div class="card tint" style="margin-top:6mm">
+    <div class="k">Keeping your results</div>
+    <ul class="dots">
+      <li>Keep the water habit — 1.5–2 litres a day.</li>
+      <li>Keep portions smaller than before the cleanse.</li>
+      <li>Hold on to the habits you broke: grazing, late-night snacking, sugary drinks.</li>
+      <li>Reintroduce coffee and alcohol slowly — or not at all.</li>
+    </ul>
+  </div>
+  <div class="card" style="margin-top:5mm">
+    <div class="k">Doing it again</div>
+    <p>Many people repeat the cleanse once or twice a year as a planned reset. Leave at least four weeks between full programs.</p>
+  </div>
+  <div class="foot"><span>Reset · Refine · Restore</span><span>11</span></div>
+</section>
+
+<!-- 12 · CLOSE -->
+<section class="page dark">
+  <div class="eyebrow">Begin your reset</div>
+  <h2 style="font-size:44pt;margin-top:8mm">Your reset begins<br>with one <em style="color:var(--honey)">decision.</em></h2>
+  <p class="lead" style="color:#e9e4d6;margin-top:6mm">You know the program, the drink, the daily routine and the way that suits you. The next step is simple — choose your start date, prepare your ingredients and begin.</p>
+  <p style="margin-top:5mm;max-width:150mm">The strength of the Lemon Detox Cleanse is its clarity. No complicated meal plans. No constant decisions. Just a defined timeframe, a clear routine and the commitment to see it through.</p>
+  <div class="grid2" style="margin-top:10mm">
+    <div class="card">
+      <div class="k" style="color:var(--honey)">Your start checklist</div>
+      <ul class="check">
+        <li>Read “Who the cleanse isn't for”</li>
+        <li>Choose Full Cleanse, Relaxed or 50/50</li>
+        <li>Pick a calm start date</li>
+        <li>Buy lemons and cayenne pepper</li>
+        <li>Ease off coffee the week before</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="k" style="color:var(--honey)">Keep this guide handy</div>
+      <p>Refer back to the mixing measures and the daily routine whenever you need them. Questions before, during or after your cleanse? Get in touch through our website.</p>
+    </div>
+  </div>
+  <p class="small" style="position:absolute;left:20mm;right:20mm;bottom:22mm;color:#9b968b">The Lemon Detox Cleanse is a short-term dietary program. It is not intended to diagnose, treat, cure or prevent any disease and is not a substitute for medical advice. Individual results vary. Madal Bal® is a registered trademark of its owner. © 2026 Lemon Detox Cleanse.</p>
+  <div class="foot"><span>Reset · Refine · Restore</span><span><span class="logo" style="font-size:10pt;color:#e9e4d6;letter-spacing:0;text-transform:none">detox</span></span></div>
+</section>
+
+</body>
+</html>

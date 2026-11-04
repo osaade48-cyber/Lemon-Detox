@@ -1,0 +1,36 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[redirects]]
+  from = "/why-it-works"
+  to = "/how-it-works"
+  status = 301
+[[redirects]]
+  from = "/stockists"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/testimonials"
+  to = "/stories"
+  status = 301
+[[redirects]]
+  from = "/products/7-day-focused"
+  to = "/products/7-day-focused-cleanse"
+  status = 301
+[[redirects]]
+  from = "/products/14-day-extended"
+  to = "/products/14-day-extended-cleanse"
+  status = 301
+[[redirects]]
+  from = "/checkout"
+  to = "/#programs"
+  status = 301
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

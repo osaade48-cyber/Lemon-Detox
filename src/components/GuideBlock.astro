@@ -1,0 +1,52 @@
+---
+import { site } from '../config/site';
+const { EMAIL_PLATFORM_FORM_URL: formUrl, EMAIL_FIELD_NAME: field } = site.forms;
+---
+<section class="py-24 sm:py-32" aria-labelledby="guide-h">
+  <div class="wrap">
+    <div class="grid items-center gap-12 overflow-hidden rounded-[22px] bg-ink px-7 py-14 text-cream sm:px-14 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:py-20">
+      <div data-reveal>
+        <p class="eyebrow !text-honey">Free program guide</p>
+        <h2 id="guide-h" class="display-md mt-5 !text-cream">Everything you need to know before you start.</h2>
+        <p class="mt-6 max-w-xl text-cream/75">A 12-page guide covering why people choose a reset, the four ingredients, daily mixing measures, the daily routine, the three ways to follow the program, who it isn't for and how to come off the cleanse.</p>
+        {formUrl ? (
+          <form action={formUrl} method="post" target="_blank" class="mt-9 max-w-md">
+            <label for="guide-email" class="mb-2 block text-sm text-cream/80">Email address</label>
+            <div class="flex flex-col gap-3 sm:flex-row">
+              <input id="guide-email" name={field} type="email" required autocomplete="email" class="min-h-[3.25rem] flex-1 rounded-full border border-cream/25 bg-transparent px-5 text-cream placeholder:text-cream/45 focus:border-honey focus:outline-none" placeholder="you@example.com" />
+              <button type="submit" class="btn btn-light">Send me the guide</button>
+            </div>
+            <label class="mt-4 flex items-start gap-3 text-sm text-cream/70">
+              <input type="checkbox" name="marketing_opt_in" value="yes" class="mt-1 h-4 w-4 accent-honey" />
+              <span>Yes, send me occasional tips and offers. Unsubscribe any time.</span>
+            </label>
+            <p class="mt-4 text-sm text-cream/60">Or <a href={site.guidePdf} class="underline underline-offset-4" download>download the PDF directly</a>.</p>
+          </form>
+        ) : (
+          <div class="mt-9 flex flex-wrap items-center gap-5">
+            <a href={site.guidePdf} class="btn btn-light" download>
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7l4 4 4-4M2.5 14h11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Download the guide (PDF)
+            </a>
+            <span class="text-sm tracking-wide text-cream/60">PDF · 12 pages</span>
+          </div>
+        )}
+      </div>
+      <div class="relative mx-auto w-full max-w-sm" data-reveal style="--d:120ms" aria-hidden="true">
+        <div class="absolute -inset-10 rounded-full bg-honey/10 blur-3xl"></div>
+        <div class="relative rotate-[3deg] rounded-[6px] bg-cream p-7 text-ink shadow-2xl">
+          <div class="flex items-center justify-between">
+            <span class="font-sans text-xl font-extrabold tracking-tight">detox</span>
+            <span class="text-[0.55rem] font-semibold uppercase tracking-[0.3em] text-gold-deep">Program guide</span>
+          </div>
+          <div class="relative mt-10 h-44">
+            <p class="font-serif text-[2.6rem] leading-[0.95]">Reset.<br />Refine.<br /><em class="text-gold-deep">Restore.</em></p>
+            <svg viewBox="0 0 200 200" class="absolute -right-16 top-0 h-48 w-48"><circle cx="100" cy="100" r="100" fill="#F2D64B"/><circle cx="100" cy="100" r="88" fill="#FBEFA8"/><circle cx="100" cy="100" r="81" fill="#F5DE6E"/><g stroke="#FBEFA8" stroke-width="5"><path d="M100 21v158M21 100h158M44 44l112 112M156 44 44 156M70 27l60 146M130 27 70 173M27 70l146 60M27 130l146-60"/></g></svg>
+          </div>
+          <div class="-mx-7 mt-8 bg-lemon px-7 py-2.5 text-center text-[0.6rem] font-bold uppercase tracking-[0.35em]">Reset · Refine · Restore</div>
+          <p class="mt-6 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-gold-deep">The complete program guide</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

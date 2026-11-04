@@ -1,0 +1,39 @@
+---
+/**
+ * Renders an optimised photo from src/assets/images/<name>.(avif|webp|png|jpg)
+ * if it exists (AVIF + WebP, responsive widths). Otherwise renders the slot
+ * fallback (illustration) so the page still looks finished.
+ */
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  name: string;
+  alt: string;
+  class?: string;
+  imgClass?: string;
+  sizes?: string;
+  eager?: boolean;
+}
+const { name, alt, class: cls = '', imgClass = 'h-full w-full object-cover', sizes = '(min-width: 1024px) 50vw, 100vw', eager = false } = Astro.props;
+
+const files = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{avif,webp,png,jpg,jpeg}', { eager: true });
+const match = Object.entries(files).find(([p]) => p.split('/').pop()!.replace(/\.[^.]+$/, '') === name);
+const img = match?.[1].default;
+---
+<div class:list={['relative overflow-hidden', cls]}>
+  {img ? (
+    <Picture
+      src={img}
+      alt={alt}
+      formats={['avif', 'webp']}
+      widths={[480, 800, 1200, 1600].filter((w) => w <= img.width)}
+      sizes={sizes}
+      loading={eager ? 'eager' : 'lazy'}
+      fetchpriority={eager ? 'high' : 'auto'}
+      class={imgClass}
+    />
+  ) : (
+    <slot />
+  )}
+</div>

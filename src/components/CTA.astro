@@ -1,0 +1,17 @@
+---
+import LemonSlice from './LemonSlice.astro';
+interface Props { title: string; body?: string; primary?: { label: string; href: string }; secondary?: { label: string; href: string } }
+const { title, body, primary = { label: 'Shop the Reset Box', href: '/#programs' }, secondary = { label: 'How it works', href: '/how-it-works' } } = Astro.props;
+---
+<section class="relative overflow-hidden bg-lemon py-24 sm:py-32">
+  <LemonSlice class="pointer-events-none absolute -right-28 -bottom-40 h-[28rem] w-[28rem] opacity-70 sm:-right-20" spin />
+  <LemonSlice class="pointer-events-none absolute -top-24 -left-24 hidden h-64 w-64 opacity-40 md:block" />
+  <div class="wrap relative text-center" data-reveal>
+    <h2 class="display-lg mx-auto max-w-3xl" set:html={title} />
+    {body && <p class="lead mx-auto mt-6 max-w-xl">{body}</p>}
+    <div class="mt-10 flex flex-wrap justify-center gap-4">
+      <a href={primary.href} class="btn btn-primary">{primary.label}</a>
+      <a href={secondary.href} class="btn btn-secondary">{secondary.label}</a>
+    </div>
+  </div>
+</section>

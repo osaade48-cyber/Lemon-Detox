@@ -1,0 +1,15 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { site } from '../config/site';
+const d = site.returns.damagedReportDays;
+---
+<Legal title="Returns & refunds — Lemon Detox Cleanse" description="Change-of-mind returns on unopened Reset Boxes within 14 days, plus your rights under the Australian Consumer Law." h1="Returns &amp; <em>refunds</em>">
+  <h2>Change of mind</h2>
+  <p>We accept change-of-mind returns within 14 days of delivery if the Reset Box is unopened and sealed. Because it contains food products, we can't accept change-of-mind returns on opened boxes. Return postage for change-of-mind returns is at your cost.</p>
+  <h2>Damaged, faulty or incorrect items</h2>
+  <p>If your order arrives damaged, faulty or incorrect, contact us{d ? ` within ${d} days` : ''} with your order number and a photo and we'll replace it or refund you.</p>
+  <h2>Your rights</h2>
+  <p>Our goods come with guarantees that cannot be excluded under the Australian Consumer Law. You are entitled to a replacement or refund for a major failure and compensation for any other reasonably foreseeable loss or damage. Nothing in this policy limits those rights.</p>
+  <h2>How to start a return</h2>
+  <p>Send us a message through the <a href="/contact">contact page</a> with your order number.</p>
+</Legal>

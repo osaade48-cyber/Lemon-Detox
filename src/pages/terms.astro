@@ -1,0 +1,44 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { site } from '../config/site';
+const who = site.legalName || site.name;
+const pay = site.checkout.provider;
+---
+<Legal title="Terms of use — Lemon Detox Cleanse" description="Terms for using the Lemon Detox Cleanse website and buying the Reset Box." h1="Terms of <em>use</em>" eyebrow="Legal">
+  <h2>1. Who we are</h2>
+  <p>This website is operated by {who}{site.abn && ` (ABN ${site.abn})`}. By using the site or placing an order, you agree to these terms.</p>
+
+  <h2>2. Using the site</h2>
+  <p>You may use this site for personal, non-commercial purposes. Please don't misuse it, interfere with how it works or try to access it in ways we haven't intended.</p>
+
+  <h2>3. Product information and health disclaimer</h2>
+  <p>The Lemon Detox Cleanse is a short-term dietary program. It is not intended to diagnose, treat, cure or prevent any disease and is not a substitute for medical advice. It is not suitable for everyone — please read <a href="/how-it-works#who-it-isnt-for">Who it isn't for</a> and speak with your doctor before starting, especially if you are pregnant, breastfeeding, under 18, take medication or have a medical condition. Individual results vary.</p>
+  <p>Customer stories on this site are individual experiences, shown in the customer's own words. They are not a promise of the results you will get.</p>
+
+  <h2>4. Pricing</h2>
+  <p>All prices are in Australian dollars{site.gstRegistered === true ? ' and include GST' : ''}. We may change prices at any time, but changes won't affect orders we have already accepted.</p>
+
+  <h2>5. Orders and acceptance</h2>
+  <p>Your order is an offer to buy. We accept it when we confirm it by email or dispatch it. We may decline or cancel an order — for example, if a product is unavailable or there's an obvious pricing error — and will refund you in full if we do.</p>
+
+  <h2>6. Payment</h2>
+  <p>Payments are processed securely by {pay || 'our payment processor'}. We never see or store your card details.</p>
+
+  <h2>7. Shipping and returns</h2>
+  <p>See our <a href="/shipping">Shipping</a> and <a href="/returns">Returns &amp; Refunds</a> pages.</p>
+
+  <h2>8. Australian Consumer Law</h2>
+  <p>Our goods come with guarantees that cannot be excluded under the Australian Consumer Law. You are entitled to a replacement or refund for a major failure and compensation for any other reasonably foreseeable loss or damage. Nothing in these terms limits those rights.</p>
+
+  <h2>9. Intellectual property</h2>
+  <p>The content on this site — text, design, logos and images — belongs to us or our licensors. Please don't copy or reuse it without permission. Madal Bal® is a registered trademark of its owner.</p>
+
+  <h2>10. Limitation of liability</h2>
+  <p>Subject to the Australian Consumer Law and to the extent permitted by law, we are not liable for any indirect or consequential loss arising from your use of this site or our products.</p>
+
+  <h2>11. Governing law</h2>
+  <p>These terms are governed by the laws of {site.state ? `${site.state}, Australia` : 'Australia'}.</p>
+
+  <h2>12. Contact</h2>
+  <p>Questions about these terms? <a href="/contact">Contact us</a>{site.email && <> or email <a href={`mailto:${site.email}`}>{site.email}</a></>}.</p>
+</Legal>

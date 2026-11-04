@@ -1,0 +1,10 @@
+---
+interface Props { light?: boolean; withSub?: boolean; class?: string }
+const { light = false, withSub = true, class: cls = '' } = Astro.props;
+---
+<span class:list={['inline-flex flex-col leading-none select-none', cls]}>
+  <span class:list={['inline-flex items-center font-sans font-extrabold tracking-[-0.04em]', light ? 'text-cream' : 'text-ink']} style="font-size:1.75rem">
+    det<svg viewBox="0 0 200 200" class="mx-[0.02em] h-[0.78em] w-[0.78em] translate-y-[0.04em]" aria-hidden="true"><circle cx="100" cy="100" r="100" fill="#F2D64B"/><circle cx="100" cy="100" r="84" fill="#FBEFA8"/><g stroke="#F2D64B" stroke-width="9" stroke-linecap="round"><path d="M100 22v156M22 100h156M45 45l110 110M155 45 45 155"/></g><circle cx="100" cy="100" r="11" fill="#FBEFA8"/></svg>x
+  </span>
+  {withSub && <span class:list={['mt-1.5 font-sans font-semibold uppercase', light ? 'text-cream/70' : 'text-ink/70']} style="font-size:0.5rem;letter-spacing:0.38em">Lemon Detox Cleanse</span>}
+</span>

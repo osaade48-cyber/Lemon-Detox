@@ -1,0 +1,61 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { site } from '../config/site';
+const who = site.legalName || site.name;
+const pay = site.checkout.provider;
+const emailPlat = site.forms.EMAIL_PLATFORM_NAME;
+const analytics = site.analytics.PLAUSIBLE_DOMAIN;
+const formProvider = site.forms.FORMSPREE_ENDPOINT ? 'Formspree' : 'Netlify';
+---
+<Legal title="Privacy policy — Lemon Detox Cleanse" description="How Lemon Detox Cleanse collects, uses and protects your personal information." h1="Privacy <em>policy</em>" eyebrow="Legal" updated={site.privacyLastUpdated || undefined}>
+  <p>This policy explains how {who} ("we", "us") handles your personal information. We are bound by the <em>Privacy Act 1988</em> (Cth) and the Australian Privacy Principles.</p>
+
+  <h2>1. Who we are</h2>
+  <p>{who}{site.abn && ` (ABN ${site.abn})`} sells the Lemon Detox Cleanse Reset Box through this website. You can contact us about privacy through our <a href="/contact">contact page</a>{site.email && <>, or by email at <a href={`mailto:${site.email}`}>{site.email}</a></>}{site.address && `, or by post at ${site.address}`}.</p>
+
+  <h2>2. What we collect</h2>
+  <ul>
+    <li>Your name, email address and phone number.</li>
+    <li>Your delivery address and order history.</li>
+    <li>Messages you send us.</li>
+  </ul>
+  <p>Payment details are handled by {pay ? `our payment processor, ${pay},` : 'our payment processor'} and are never seen or stored by us.</p>
+
+  <h2>3. How we collect it</h2>
+  <ul>
+    <li>When you place an order.</li>
+    <li>When you send us a message through our contact form.</li>
+    <li>When you sign up to receive the program guide or our emails (if offered).</li>
+    <li>Through cookies and analytics{analytics ? ' (we use Plausible Analytics, which does not use cookies and does not collect personal information)' : ''}.</li>
+  </ul>
+
+  <h2>4. Why we collect it</h2>
+  <ul>
+    <li>To fulfil and deliver your orders.</li>
+    <li>To answer your questions and provide support.</li>
+    <li>To send you emails you have opted into.</li>
+    <li>To understand how the site is used and improve it.</li>
+  </ul>
+
+  <h2>5. Who we share it with</h2>
+  <p>We share only what's needed with the service providers who help us run the business:</p>
+  <ul>
+    <li>Our payment processor{pay && ` (${pay})`}.</li>
+    <li>Our delivery carrier.</li>
+    <li>Our email platform{emailPlat && ` (${emailPlat})`}, if you have signed up to our emails.</li>
+    <li>Our website hosting and form provider ({formProvider}){analytics && ' and analytics provider (Plausible)'}.</li>
+  </ul>
+  <p>Some of these providers may store data outside Australia{site.data.overseasCountries && `, including in ${site.data.overseasCountries}`}. We never sell your personal information.</p>
+
+  <h2>6. Marketing</h2>
+  <p>We only send marketing emails if you have agreed to receive them. Every email includes an unsubscribe link, and you can opt out at any time.</p>
+
+  <h2>7. Access, correction and complaints</h2>
+  <p>You can ask to see or correct the personal information we hold about you by <a href="/contact">contacting us</a>. If you have a privacy concern, please tell us and we'll respond within 30 days. If you're not satisfied with our response, you can contact the Office of the Australian Information Commissioner at <a href="https://www.oaic.gov.au" rel="noopener">oaic.gov.au</a>.</p>
+
+  <h2>8. Security and retention</h2>
+  <p>We take reasonable steps to protect your information from misuse, loss and unauthorised access. We keep it only as long as we need it for the purposes above or as required by law (for example, tax records), then delete or de-identify it.</p>
+
+  <h2>9. Updates</h2>
+  <p>We may update this policy from time to time. The latest version will always be on this page{site.privacyLastUpdated && `, last updated ${site.privacyLastUpdated}`}.</p>
+</Legal>

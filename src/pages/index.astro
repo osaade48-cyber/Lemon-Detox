@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHead from '../components/SectionHead.astro';
+import ProductCard from '../components/ProductCard.astro';
+import StoryCard from '../components/StoryCard.astro';
+import TrustRow from '../components/TrustRow.astro';
+import GuideBlock from '../components/GuideBlock.astro';
+import CTA from '../components/CTA.astro';
+import LemonSlice from '../components/LemonSlice.astro';
+import ResetBox from '../components/ResetBox.astro';
+import ImageSlot from '../components/ImageSlot.astro';
+import { products } from '../data/products';
+import { featured } from '../data/testimonials';
+
+const reports = [
+  'Stepping away from overeating and constant snacking',
+  'Greater awareness of eating habits',
+  'Stronger discipline and self-control',
+  'Clearer focus',
+  'Steadier energy after the first few days',
+  'A clear starting point for longer-term change',
+];
+---
+<Base
+  title="Lemon Detox Cleanse — 7 & 14-Day Reset Box"
+  description="A structured 7- or 14-day cleanse built around one simple drink. Free tracked shipping Australia-wide."
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden" data-hero>
+    <div class="wrap grid items-center gap-10 pt-14 pb-20 sm:pt-20 lg:min-h-[calc(100svh-7rem)] lg:grid-cols-[1.05fr_1fr] lg:gap-6 lg:py-16">
+      <div class="relative z-10">
+        <p class="eyebrow">Lemon Detox Cleanse</p>
+        <h1 class="display-xl mt-6">Reset.<br />Refine.<br /><em>Restore.</em></h1>
+        <p class="lead mt-8 max-w-[34rem]">A structured 7- or 14-day cleanse built around one simple drink — a defined pause from constant eating, and a clean starting point for better habits.</p>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href="/#programs" class="btn btn-primary">Shop the Reset Box</a>
+          <a href="/how-it-works" class="btn btn-secondary">How it works</a>
+        </div>
+        <TrustRow class="mt-10" items={['4 simple ingredients', '7 or 14 days', 'Free tracked shipping']} icons={['leaf', 'calendar', 'truck']} />
+      </div>
+
+      <ImageSlot name="hero" alt="The Lemon Detox Cleanse Reset Box with fresh lemons" eager class="relative aspect-square w-full max-w-[38rem] justify-self-center rounded-full lg:justify-self-end" sizes="(min-width: 1024px) 600px, 92vw">
+        <div class="absolute inset-0 rounded-full bg-honey/35"></div>
+        <LemonSlice class="absolute -top-[6%] -right-[22%] h-[78%] w-[78%]" spin />
+        <LemonSlice class="absolute bottom-[4%] -left-[4%] h-[30%] w-[30%] rotate-12" />
+        <ResetBox days={14} label="Extended Cleanse" class="absolute inset-x-0 bottom-[6%] mx-auto h-[72%] w-auto drop-shadow-[0_30px_40px_rgba(138,100,24,0.22)]" />
+      </ImageSlot>
+    </div>
+
+    <div class="bg-lemon">
+      <div class="wrap grid grid-cols-3 py-3.5 text-center text-[0.7rem] font-bold uppercase tracking-[0.4em] text-ink sm:text-xs">
+        <span>Reset</span><span>Refine</span><span>Restore</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reset behaviour -->
+  <section class="py-24 sm:py-36" aria-labelledby="reset-h">
+    <div class="wrap grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-24">
+      <div data-reveal>
+        <p class="eyebrow mb-5">Reset behaviour</p>
+        <h2 id="reset-h" class="display-lg">In a world of constant consumption, take a <em>defined pause.</em></h2>
+      </div>
+      <div class="self-end" data-reveal style="--d:120ms">
+        <span class="mb-8 block h-px w-16 bg-gold" aria-hidden="true"></span>
+        <p class="lead">Most diets focus on restriction. This program focuses on resetting behaviour. For seven to fourteen days you follow one clear routine and step away from solid food — no calorie counting, no complicated rules. Just clarity and simplicity.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What changes -->
+  <section class="bg-paper py-24 sm:py-32" aria-labelledby="changes-h">
+    <div class="wrap grid gap-14 lg:grid-cols-2 lg:gap-24">
+      <div class="lg:sticky lg:top-32 lg:self-start" data-reveal>
+        <p class="eyebrow mb-5">What changes</p>
+        <h2 id="changes-h" class="display-lg">Every routine benefits from a <em>reset.</em></h2>
+        <p class="mt-8 text-ink-soft">For many people, weight loss follows naturally when solid food is set aside for a short, defined period. Just as importantly, the structure helps re-establish better habits — a strong foundation for keeping results with balanced, mindful choices afterwards.</p>
+      </div>
+      <div data-reveal style="--d:120ms">
+        <h3 class="font-sans text-sm font-semibold uppercase tracking-[0.2em] text-muted">What participants commonly report</h3>
+        <ol class="mt-6 border-t hairline">
+          {reports.map((r, i) => (
+            <li class="flex items-baseline gap-6 border-b hairline py-6">
+              <span class="w-8 shrink-0 font-serif text-xl text-gold-deep">{String(i + 1).padStart(2, '0')}</span>
+              <span class="font-serif text-[1.65rem] leading-tight text-ink sm:text-3xl">{r}</span>
+            </li>
+          ))}
+        </ol>
+        <p class="mt-6 text-sm text-muted">Individual results vary.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section id="programs" class="py-24 sm:py-32" aria-labelledby="programs-h">
+    <div class="wrap">
+      <SectionHead eyebrow="Choose your program" center id="programs-h">Two programs. <em>One simple routine.</em></SectionHead>
+      <div class="mx-auto mt-16 grid max-w-5xl gap-6 md:grid-cols-2 lg:gap-8">
+        {products.map((p, i) => <ProductCard product={p} delay={i * 120} />)}
+      </div>
+      <TrustRow class="mt-12" center />
+    </div>
+  </section>
+
+  <!-- Stories -->
+  <section class="bg-paper py-24 sm:py-32" aria-labelledby="stories-h">
+    <div class="wrap">
+      <div class="flex flex-wrap items-end justify-between gap-8">
+        <SectionHead eyebrow="Stories from the cleanse" id="stories-h">Real people. <em>Real resets.</em></SectionHead>
+        <a href="/stories" class="btn btn-secondary" data-reveal>Read all stories</a>
+      </div>
+      <div class="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        {featured.map((t, i) => <StoryCard t={t} delay={i * 90} />)}
+      </div>
+      <p class="mt-8 text-sm text-muted">Individual results vary.</p>
+    </div>
+  </section>
+
+  <GuideBlock />
+
+  <!-- After -->
+  <section class="pb-24 sm:pb-32" aria-labelledby="after-h">
+    <div class="wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <ImageSlot name="lifestyle-1" alt="A woman holding a fresh lemon, smiling" class="aspect-[4/5] rounded-card bg-lemon-pale/60" sizes="(min-width: 1024px) 560px, 100vw">
+        <LemonSlice class="absolute top-1/2 left-1/2 h-[85%] w-[85%] -translate-x-1/2 -translate-y-1/2" spin />
+        <span class="absolute bottom-6 left-6 rounded-full bg-cream/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">Day 7</span>
+      </ImageSlot>
+      <div data-reveal>
+        <p class="eyebrow mb-5">After Day 7</p>
+        <h2 id="after-h" class="display-xl !text-[clamp(3rem,7vw,6rem)]">Lighter.<br />Calmer.<br /><em>Yours.</em></h2>
+        <p class="lead mt-8 max-w-md">Most people describe the same thing — feeling lighter, more focused and back in control, with a clean baseline to build on.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTA title="Begin your <em>reset.</em>" body="A simple, structured plan that resets your relationship with food." />
+</Base>

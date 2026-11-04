@@ -1,0 +1,9 @@
+---
+/** Shown next to every buy button. */
+import { site } from '../config/site';
+interface Props { class?: string; light?: boolean }
+const { class: cls = '', light = false } = Astro.props;
+---
+<p class:list={['text-[0.8rem] leading-relaxed', light ? 'text-cream/70' : 'text-muted', cls]}>
+  Free tracked shipping<span aria-hidden="true"> · </span><span class="sr-only">. </span>14-day returns on unopened boxes{site.gstRegistered && <><span aria-hidden="true"> · </span>Prices incl. GST</>}
+</p>

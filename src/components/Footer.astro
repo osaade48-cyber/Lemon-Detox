@@ -1,0 +1,41 @@
+---
+import Logo from './Logo.astro';
+import { site } from '../config/site';
+const year = 2026;
+const cols = [
+  { h: 'Shop', links: [['7-Day Focused Cleanse', '/products/7-day-focused-cleanse'], ['14-Day Extended Cleanse', '/products/14-day-extended-cleanse']] },
+  { h: 'Learn', links: [['How It Works', '/how-it-works'], ['Stories', '/stories'], ['FAQs', '/faqs'], ['Program Guide (PDF)', site.guidePdf]] },
+  { h: 'Help', links: [['Contact', '/contact'], ['Shipping', '/shipping'], ['Returns & Refunds', '/returns'], ['Privacy', '/privacy'], ['Terms', '/terms']] },
+];
+const social = Object.entries(site.social).filter(([, v]) => v);
+const contact = [site.email && { label: site.email, href: `mailto:${site.email}` }, site.phone && { label: site.phone, href: `tel:${site.phone.replace(/\s/g, '')}` }].filter(Boolean) as { label: string; href: string }[];
+---
+<footer class="bg-ink text-cream/80">
+  <div class="wrap grid gap-12 py-20 md:grid-cols-[1.4fr_repeat(3,1fr)]">
+    <div>
+      <Logo light />
+      <p class="mt-6 max-w-xs font-serif text-2xl leading-snug text-cream">A structured 7- or 14-day cleanse built around one simple drink.</p>
+      {contact.length > 0 && (
+        <ul class="mt-6 space-y-1 text-sm">{contact.map((c) => <li><a href={c.href} class="hover:text-cream">{c.label}</a></li>)}</ul>
+      )}
+      {site.address && <p class="mt-2 text-sm">{site.address}</p>}
+      {social.length > 0 && (
+        <ul class="mt-6 flex gap-5 text-sm">{social.map(([k, v]) => <li><a href={v} class="capitalize hover:text-cream" rel="noopener">{k}</a></li>)}</ul>
+      )}
+    </div>
+    {cols.map((c) => (
+      <nav aria-label={c.h}>
+        <h2 class="mb-5 font-sans text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-honey">{c.h}</h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          {c.links.map(([l, h]) => <li><a href={h} class="transition hover:text-cream" {...(h.endsWith('.pdf') ? { download: '' } : {})}>{l}</a></li>)}
+        </ul>
+      </nav>
+    ))}
+  </div>
+  <div class="wrap border-t border-cream/15 py-10 text-[0.8rem] leading-relaxed text-cream/60">
+    <p class="max-w-4xl">
+      The Lemon Detox Cleanse is a short-term dietary program. It is not intended to diagnose, treat, cure or prevent any disease and is not a substitute for medical advice. It is not suitable for everyone — please read <a href="/how-it-works#who-it-isnt-for" class="font-semibold text-cream/85 underline underline-offset-4">Who it isn't for</a> and speak with your doctor before starting, especially if you are pregnant, breastfeeding, under 18, take medication or have a medical condition. Individual results vary.
+    </p>
+    <p class="mt-5">© {year} Lemon Detox Cleanse · Madal Bal® is a registered trademark of its owner.{site.abn && ` · ABN ${site.abn}`}</p>
+  </div>
+</footer>

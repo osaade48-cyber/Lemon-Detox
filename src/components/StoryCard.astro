@@ -1,0 +1,22 @@
+---
+import type { Testimonial } from '../data/testimonials';
+interface Props { t: Testimonial; full?: boolean; delay?: number; class?: string }
+const { t, full = false, delay = 0, class: cls = '' } = Astro.props;
+const initials = t.name.replace(/[^A-Za-z& ]/g, '').split(/\s+/).filter((w) => w && w !== '&' && w !== 'Mr' && w !== 'Mrs').slice(0, 2).map((w) => w[0]).join('');
+const meta = [t.role, t.location].filter(Boolean).join(' · ');
+---
+<figure class:list={['card flex h-full flex-col p-7 sm:p-8', cls]} data-reveal style={`--d:${delay}ms`} data-category={t.category}>
+  <div class="flex items-start justify-between gap-4">
+  <svg width="28" height="22" viewBox="0 0 28 22" aria-hidden="true" class="text-gold"><path d="M0 22V12.7C0 5.4 4.2 1.2 11 0l1.2 2.6C8 4 6 6.6 5.8 10H11v12H0zm16 0V12.7C16 5.4 20.2 1.2 27 0l1 2.6C24 4 22 6.6 21.8 10H27v12H16z" fill="currentColor"/></svg>
+  {t.result && <span class="rounded-full border border-gold-soft bg-cream px-3 py-1 text-xs font-semibold whitespace-nowrap text-gold-deep">{t.result}</span>}
+  </div>
+  <blockquote class="mt-5 font-serif text-[1.6rem] leading-[1.2] text-ink">“{t.pullQuote}”</blockquote>
+  {full && <p class="mt-5 text-[0.95rem] leading-relaxed text-ink-soft">{t.story}</p>}
+  <figcaption class="mt-auto flex items-center gap-3 pt-7">
+    <span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-lemon-pale font-serif text-lg text-gold-deep" aria-hidden="true">{initials}</span>
+    <span class="min-w-0 flex-1 leading-snug">
+      <span class="block font-semibold text-ink">{t.name}</span>
+      {meta && <span class="block text-sm text-muted">{meta}</span>}
+    </span>
+  </figcaption>
+</figure>

@@ -1,0 +1,21 @@
+---
+import Legal from '../layouts/Legal.astro';
+import { site } from '../config/site';
+const s = site.shipping;
+const zones = [['Metro areas', s.metro], ['Regional areas', s.regional], ['WA, NT and TAS', s.remote]].filter(([, v]) => v);
+---
+<Legal title="Shipping & delivery — Lemon Detox Cleanse" description="Free tracked shipping Australia-wide on every Lemon Detox Cleanse order." h1="Shipping &amp; <em>delivery</em>">
+  <ul>
+    <li>Free tracked standard shipping on every order within Australia.</li>
+    {s.dispatchDays && <li>Orders are dispatched within {s.dispatchDays} business day{s.dispatchDays === '1' ? '' : 's'} (Monday–Friday, excluding public holidays).</li>}
+    {zones.length > 0 && (
+      <li>Estimated standard delivery after dispatch:
+        <ul class="mt-2">{zones.map(([z, d]) => <li>{z}: {d} business days</li>)}</ul>
+      </li>
+    )}
+    {s.expressPrice && <li>Express shipping: {s.expressPrice} at checkout{s.expressDays && `, ${s.expressDays} business days to most metro areas`}.</li>}
+    <li>You'll receive a tracking link by email as soon as your order ships.</li>
+    <li>We currently ship within Australia only.</li>
+  </ul>
+  <p>Questions about an order? <a href="/contact">Send us a message</a>.</p>
+</Legal>
