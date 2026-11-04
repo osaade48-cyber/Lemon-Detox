@@ -116,7 +116,7 @@ const versions = [
   </nav>
 
   <!-- Section 2: The Pause (off-white) -->
-  <section id="pause" class="scroll-mt-36 bg-paper/70 py-28 lg:py-36" aria-labelledby="pause-h">
+  <section id="pause" class="scroll-mt-36 bg-paper/70 py-16 lg:py-24" aria-labelledby="pause-h">
     <div class="wrap grid gap-10 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
       <div data-reveal>
         <p class="eyebrow mb-5">The pause</p>
@@ -133,14 +133,14 @@ const versions = [
   </section>
 
   <!-- Section 3: Daily rhythm (white) -->
-  <section id="rhythm" class="scroll-mt-36 py-28 lg:py-36" aria-labelledby="rhythm-h">
+  <section id="rhythm" class="scroll-mt-36 py-16 lg:py-24" aria-labelledby="rhythm-h">
     <div class="wrap">
       <div class="max-w-3xl" data-reveal>
         <p class="eyebrow mb-5">Daily rhythm</p>
         <h2 id="rhythm-h" class="display-lg">A typical day on the Lemon Detox <em>Cleanse.</em></h2>
         <p class="mt-6 text-ink-soft">The program follows a simple daily rhythm designed to support detoxification, elimination, and the required energy throughout the cleanse.</p>
       </div>
-      <div class="mt-16 space-y-20 sm:space-y-24">
+      <div class="mt-16 space-y-12 sm:space-y-16">
         {day.map((d, i) => (
           <article class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16" data-reveal>
             <ImageSlot name={d.img} alt={d.alt} class:list={['zoom-img aspect-[4/3] rounded-card bg-paper', i % 2 === 1 && 'lg:order-2']} sizes="(min-width: 1024px) 560px, 100vw" data-unveil />
@@ -160,7 +160,7 @@ const versions = [
   </section>
 
   <!-- Section 4: The Formula (off-white) -->
-  <section id="formula" class="scroll-mt-36 bg-paper/70 py-28 lg:py-36" aria-labelledby="formula-h">
+  <section id="formula" class="scroll-mt-36 bg-paper/70 py-16 lg:py-24" aria-labelledby="formula-h">
     <div class="wrap">
       <div class="grid gap-8 lg:grid-cols-[1fr_1.25fr] lg:gap-20" data-reveal>
         <div>
@@ -190,7 +190,7 @@ const versions = [
   </section>
 
   <!-- Section 5: Mixing (white) -->
-  <section id="mixing" class="scroll-mt-36 py-28 lg:py-36" aria-labelledby="mix-h">
+  <section id="mixing" class="scroll-mt-36 py-16 lg:py-24" aria-labelledby="mix-h">
     <div class="wrap">
       <div class="grid items-end gap-6 lg:grid-cols-[1fr_1.1fr] lg:gap-20" data-reveal>
         <div>
@@ -223,7 +223,7 @@ const versions = [
   </section>
 
   <!-- Section 6: Elimination (off-white) -->
-  <section id="elimination" class="scroll-mt-36 bg-paper/70 py-28 lg:py-36" aria-labelledby="elim-h">
+  <section id="elimination" class="scroll-mt-36 bg-paper/70 py-16 lg:py-24" aria-labelledby="elim-h">
     <div class="wrap">
       <div class="grid gap-8 lg:grid-cols-[1fr_1.25fr] lg:gap-20" data-reveal>
         <div>
@@ -235,7 +235,7 @@ const versions = [
           <p><strong class="text-ink">Sea Salt and Senna Tea are provided</strong> to help stimulate the body’s natural elimination process during the cleanse.</p>
         </div>
       </div>
-      <div class="mt-14 grid gap-6 md:grid-cols-2">
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
         <article class="lift overflow-hidden card" data-reveal>
           <ImageSlot name={['sea-salt', 'hiw-morning']} alt="Morning light on a terrace table with the Lemon Detox drink and sea salt" class="zoom-img aspect-[16/8] bg-paper" sizes="(min-width: 768px) 580px, 100vw" />
           <div class="flex items-center gap-5 px-7 pt-7">
@@ -261,14 +261,14 @@ const versions = [
   </section>
 
   <!-- Section 7: Versions (white) -->
-  <section id="versions" class="scroll-mt-36 py-28 lg:py-36" aria-labelledby="ver-h">
+  <section id="versions" class="scroll-mt-36 py-16 lg:py-24" aria-labelledby="ver-h">
     <div class="wrap">
       <div class="max-w-3xl" data-reveal>
         <p class="eyebrow mb-5">Versions</p>
         <h2 id="ver-h" class="display-lg">Choose the cleanse that <em>suits you.</em></h2>
         <p class="mt-5 text-ink-soft">Choose the version that best suits your lifestyle and experience level.</p>
       </div>
-      <div class="mt-14 grid gap-6 lg:grid-cols-3">
+      <div class="mt-10 grid gap-6 lg:grid-cols-3">
         {versions.map((v, i) => (
           <article class="lift flex flex-col overflow-hidden card" data-reveal style={`--d:${i * 90}ms`}>
             <ImageSlot name={v.img} alt={v.alt} class="zoom-img aspect-[4/3] bg-paper" sizes="(min-width: 1024px) 380px, 100vw" />
@@ -292,7 +292,7 @@ const versions = [
   </section>
 
   <!-- Section 8: Depth (off-white) -->
-  <section id="depth" class="scroll-mt-36 bg-paper/70 py-28 lg:py-36" aria-labelledby="depth-h">
+  <section id="depth" class="scroll-mt-36 bg-paper/70 py-16 lg:py-24" aria-labelledby="depth-h">
     <div class="wrap grid gap-10 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
       <div data-reveal>
         <p class="eyebrow mb-5">Depth</p>
@@ -309,7 +309,7 @@ const versions = [
   </section>
 
   <!-- What to expect (white) -->
-  <section id="expect" class="scroll-mt-36 py-28 lg:py-36" aria-labelledby="expect-h">
+  <section id="expect" class="scroll-mt-36 py-16 lg:py-24" aria-labelledby="expect-h">
     <div class="wrap">
       <div class="grid items-end gap-10 lg:grid-cols-[1.6fr_1fr]">
       <div class="max-w-3xl" data-reveal>

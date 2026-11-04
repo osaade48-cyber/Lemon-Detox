@@ -10,7 +10,7 @@ import { site } from '../config/site';
 import { products } from '../data/products';
 const formspree = site.forms.FORMSPREE_ENDPOINT;
 ---
-<section id="guide" class="scroll-mt-20 pb-28 lg:pb-36" aria-labelledby="guide-h">
+<section id="guide" class="scroll-mt-20 pb-16 lg:pb-24" aria-labelledby="guide-h">
   <div class="wrap">
     <div class="mx-auto max-w-3xl text-center" data-reveal>
       <p class="font-serif text-2xl font-semibold text-ink-soft italic">Want to know more before you start?</p>
@@ -32,7 +32,7 @@ const formspree = site.forms.FORMSPREE_ENDPOINT;
       </form>
     </div>
 
-    <div id="guide-viewer" class="mx-auto mt-14 hidden max-w-5xl" tabindex="-1">
+    <div id="guide-viewer" class="mx-auto mt-10 hidden max-w-5xl" tabindex="-1">
       <p class="text-center font-serif text-3xl font-bold text-ink" role="status">Your guide is ready below.</p>
       <div class="relative mt-8 overflow-hidden card">
         <a href={site.guidePdf} download class="btn btn-primary btn-sm btn-caps absolute top-4 right-4 z-10 !min-h-[2.3rem] !px-4 !text-[0.68rem]">

@@ -71,7 +71,7 @@
     line-height: 1.4;
   }
   .display-xl { font-size: clamp(3.25rem, 7.5vw, 6.25rem); line-height: 1; font-weight: 700; }
-  .display-lg { font-size: clamp(2.25rem, 4.6vw, 3.75rem); line-height: 1.06; font-weight: 700; }
+  .display-lg { font-size: clamp(2.1rem, 4vw, 3.3rem); line-height: 1.06; font-weight: 700; }
   .display-md { font-size: clamp(1.9rem, 3.4vw, 2.75rem); line-height: 1.1; font-weight: 700; }
   .lead { @apply text-ink-soft; font-size: clamp(1.125rem, 1.6vw, 1.3rem); line-height: 1.6; }
 
@@ -197,3 +197,6 @@ details.acc[open] .acc-icon { transform: rotate(45deg); }
   .scroll-cue span span { animation: cue 2.4s cubic-bezier(0.6, 0, 0.4, 1) infinite; }
   @keyframes cue { 0% { transform: translateY(-100%); } 100% { transform: translateY(260%); } }
 }
+
+/* Hero headline: a soft halo keeps it crisp over the photo */
+.hero-title { text-shadow: 0 0 28px rgb(252 248 240 / 0.9), 0 0 2px rgb(252 248 240 / 0.6); letter-spacing: -0.015em; }

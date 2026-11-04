@@ -9,7 +9,6 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ShopBar from '../components/ShopBar.astro';
-import SyrupFlow from '../components/SyrupFlow.astro';
 import { site } from '../config/site';
 
 interface Props {
@@ -71,7 +70,6 @@ const plausible = site.analytics.PLAUSIBLE_DOMAIN;
     <a href="#main" class="sr-only z-50 rounded-full bg-ink px-5 py-3 text-cream focus:not-sr-only focus:fixed focus:top-3 focus:left-3">Skip to content</a>
     <Header />
     <main id="main" class="relative isolate">
-      <SyrupFlow />
       <slot />
     </main>
     <Footer />
