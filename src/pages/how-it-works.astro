@@ -55,8 +55,8 @@ const day = [
 
 const ingredients = [
   { img: 'ing-syrup', alt: 'Natural tree syrup being poured into a small glass', name: 'Madal Bal® Natural Tree Syrup', body: 'The key ingredient, a balanced blend of Canadian Grade C maple syrup and the purest Palm syrups providing energy in the form of easily digestible carbohydrates and a high level of potassium.', fit: 'cover' },
-  { img: ['ing-lemon-squeeze', 'ing-lemon'], alt: 'Fresh lemon being squeezed into a glass', name: 'Fresh Lemon Juice', body: 'Freshly squeezed lemons provide vitamin C and citrus polyphenols. Traditionally valued for their cleansing properties, a refreshing flavour while supporting the body’s own detoxification pathways.', fit: 'cover' },
-  { img: ['ing-cayenne-photo', 'ing-cayenne'], alt: 'Cayenne pepper and dried chillies', name: 'Cayenne Pepper', body: 'Helps stimulate circulation and support metabolism during the cleanse, while also adding a pleasant warmth to the drink.', fit: 'contain' },
+  { img: 'ing-lemon', alt: 'A hand squeezing a fresh lemon into a small glass', name: 'Fresh Lemon Juice', body: 'Freshly squeezed lemons provide vitamin C and citrus polyphenols. Traditionally valued for their cleansing properties, a refreshing flavour while supporting the body’s own detoxification pathways.', fit: 'cover' },
+  { img: 'ing-cayenne', alt: 'Ground cayenne pepper on a wooden spoon beside dried chillies', name: 'Cayenne Pepper', body: 'Helps stimulate circulation and support metabolism during the cleanse, while also adding a pleasant warmth to the drink.', fit: 'cover' },
   { img: 'ing-water', alt: 'Pure water being poured into a glass', name: 'Pure Water', body: 'Clean, pure water helps carry the formula through the body while maintaining hydration during the cleanse and supporting the body’s natural cleansing processes.', fit: 'cover', icon: true },
 ];
 
@@ -245,7 +245,7 @@ const versions = [
           <p class="p-7 text-ink-soft">The sea salt water drink is prepared by dissolving <strong class="text-ink">two teaspoons of natural, uniodised sea salt</strong> in <strong class="text-ink">one litre of warm purified water</strong> and drinking it <strong class="text-ink">on an empty stomach</strong>.</p>
         </article>
         <article class="lift overflow-hidden rounded-card border hairline bg-white" data-reveal style="--d:90ms">
-          <ImageSlot name="senna-tea" alt="A glass cup of senna tea by candlelight with loose senna leaves" class="zoom-img aspect-[16/8] bg-paper" sizes="(min-width: 768px) 580px, 100vw" />
+          <ImageSlot name={['senna-leaves', 'senna-tea']} alt="A bowl of dried senna leaves on linen" class="zoom-img aspect-[16/8] bg-paper" sizes="(min-width: 768px) 580px, 100vw" />
           <div class="flex items-center gap-5 border-b border-ink bg-ink px-7 py-6">
             <span class="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-white/10 text-honey"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d={icons.evening} fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
             <h3 class="font-sans text-lg font-bold uppercase tracking-[0.14em] text-white">Evening – Herbal Senna Tea</h3>

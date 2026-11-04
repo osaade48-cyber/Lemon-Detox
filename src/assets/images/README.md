@@ -17,10 +17,11 @@ another photo and switch automatically as soon as the file exists.
 | `hiw-day`        | Through the day rhythm + home day strip                       | ✓ |
 | `hiw-evening`    | Evening rhythm                                                | ✓ |
 | `ing-syrup`      | Madal Bal ingredient card (syrup pour)                        | ✓ |
-| `ing-lemon`      | Fresh lemon ingredient card (woman squeezing a lemon)         | ✓ — `ing-lemon-squeeze` overrides it when added |
-| `ing-cayenne`    | Cayenne ingredient card                                       | low-res cut-out — add `ing-cayenne-photo` (spoon + dried chillies) |
+| `ing-lemon`      | Fresh lemon ingredient card (hand squeezing a lemon)          | ✓ |
+| `ing-cayenne`    | Cayenne ingredient card (spoon + dried chillies)              | ✓ |
+| `senna-leaves`   | Elimination → Evening card                                    | ✓ |
 | `testimonials-side` / `faq-side` / `expect-side` | Page-heading photos on Testimonials, FAQs and What to Expect | ✓ |
 | `ing-water`      | Pure water ingredient card                                    | ✓ |
 | `sea-salt`       | Elimination → Morning card                                    | waiting – falls back to `hiw-morning` |
-| `senna-tea`      | Elimination → Evening card                                    | ✓ |
+| `senna-tea`      | Home "A day on the cleanse" → Evening (candle-lit tea)        | ✓ |
 | `way-full` / `way-relaxed` / `way-5050` | Version cards                          | ✓ |
