@@ -214,3 +214,5 @@ details.acc[open] .acc-icon { transform: rotate(45deg); }
               linear-gradient(to right, transparent, rgb(201 162 74 / 0.55) 30%, rgb(201 162 74 / 0.55) 70%, transparent) center / 100% 1px no-repeat; }
 .text-center .rule, .rule.mx-auto { margin-inline: auto; }
 body strong { font-weight: 600; }
+
+.decor-num::before { content: attr(data-n); }

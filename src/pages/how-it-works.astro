@@ -1,22 +1,25 @@
 ---
-import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import CTA from '../components/CTA.astro';
 import ImageSlot from '../components/ImageSlot.astro';
-import dropIcon from '../assets/water-drop-icon.png';
 
 const nav = [
-  ['program', 'The Program'],
-  ['pause', 'The Pause'],
-  ['rhythm', 'Daily Rhythm'],
-  ['formula', 'The Formula'],
+  ['program', 'Overview'],
+  ['pause', 'Why'],
+  ['rhythm', 'A typical day'],
+  ['formula', 'The drink'],
   ['mixing', 'Mixing'],
   ['elimination', 'Elimination'],
   ['versions', 'Versions'],
   ['depth', 'Depth'],
-  ['expect', 'What to Expect'],
-  ['who-it-isnt-for', 'Before You Start'],
+  ['expect', 'What to expect'],
 ];
+const ingIcons = [
+  'M5 19c0-8 5-13 14-14-1 9-6 14-14 14zM5 19l7-7',
+  'M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM12 4v16M4 12h16M6.3 6.3l11.4 11.4M17.7 6.3 6.3 17.7',
+  'M12 3c3 4 5 7 5 10a5 5 0 0 1-10 0c0-3 2-6 5-10z',
+  'M12 3c3.5 4.5 6 8 6 11a6 6 0 0 1-12 0c0-3 2.5-6.5 6-11z',
+];
+const sq = '!rounded-none';
 
 const icons = {
   morning: 'M3 17h18M6.5 17a5.5 5.5 0 0 1 11 0M12 5v3M4.2 9.2l2 2M19.8 9.2l-2 2M2 13h2M20 13h2',
@@ -85,106 +88,106 @@ const versions = [
 ];
 ---
 <Base title="How It Works — Lemon Detox Cleanse" description="The daily routine, the Lemon Detox drink, mixing instructions, elimination support and the three ways to follow the Lemon Detox Cleanse.">
-  <!-- Section 1: The Program -->
+  <!-- 01 · Overview -->
   <section id="program" class="scroll-mt-40" data-hero aria-labelledby="program-h">
-    <div class="wrap grid items-center gap-12 pt-14 pb-20 lg:grid-cols-[1.1fr_1fr] lg:gap-20 lg:pt-20 lg:pb-28">
+    <div class="wrap !max-w-[1320px] grid items-center gap-14 pt-16 pb-20 lg:grid-cols-[1.05fr_1fr] lg:gap-20 lg:pt-24 lg:pb-28">
       <div>
-        <span class="chip">The program</span>
-        <h1 id="program-h" class="display-xl mt-6 !text-[clamp(2.75rem,5.6vw,4.75rem)]">How the Lemon Detox Cleanse <em>works.</em></h1>
-        <div class="my-8 flex items-center gap-0" aria-hidden="true"><span class="h-px w-14 bg-gradient-to-r from-transparent to-gold"></span><span class="h-2 w-2 rounded-full bg-gold"></span><span class="h-px w-14 bg-gradient-to-l from-transparent to-gold"></span></div>
-        <div class="max-w-xl space-y-5 text-ink-soft">
+        <p class="eyebrow">The program</p>
+        <h1 id="program-h" class="display-xl mt-6 !text-[clamp(2.9rem,5.4vw,5rem)] !leading-[1.05]">How the Lemon Detox Cleanse <em>works.</em></h1>
+        <span class="rule !w-24" aria-hidden="true"></span>
+        <div class="mt-8 max-w-xl space-y-5 text-[1.05rem] text-ink-soft">
           <p>The Lemon Detox Cleanse is undertaken over a defined 7 or up to 14 day timeframe. During this period, solid food is temporarily removed and replaced with a simple liquid routine centred around the Lemon Detox drink.</p>
           <p>The program is designed to simplify intake and create a deliberate pause from constant consumption. Temporarily abstaining from solid food allows the body to rest from constant digestion and re-establish its natural cleansing and metabolic balance.</p>
         </div>
-        <p class="mt-8 text-sm text-muted">Prefer to start now? <a href="/#programs" class="link-arrow ml-1">View Programs <span aria-hidden="true">→</span></a></p>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href="/#programs" class={`btn btn-primary btn-caps ${sq} !min-h-[3.5rem] !px-8`}>View programs <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#rhythm" class={`btn btn-secondary btn-caps ${sq} !min-h-[3.5rem] !border-ink/40 !px-8`}>See a typical day</a>
+        </div>
       </div>
       <div class="relative">
-        <ImageSlot name="hiw-hero" alt="A glass jug of the Lemon Detox drink with fresh lemons" eager class="zoom-img breathe aspect-[4/5] rounded-card bg-paper" sizes="(min-width: 1024px) 520px, 100vw" />
-        <div class="absolute -bottom-6 left-6 rounded-card bg-white px-6 py-4 shadow-[var(--shadow-soft)] sm:left-auto sm:-right-6">
-          <p class="font-serif text-2xl text-ink">7 to 14 days</p>
-          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-gold-deep">One clear rhythm</p>
+        <ImageSlot name="hiw-hero" alt="A glass jug of the Lemon Detox drink with fresh lemons" eager class="zoom-img aspect-[5/4] rounded-[22px] bg-paper shadow-[0_40px_60px_-40px_rgba(26,26,26,0.4)]" sizes="(min-width: 1024px) 600px, 100vw" />
+        <div class="absolute -bottom-8 left-0 rounded-[14px] bg-white px-6 py-5 shadow-[0_20px_40px_-20px_rgba(26,26,26,0.35)] sm:-left-6">
+          <p class="text-[0.62rem] font-semibold tracking-[0.25em] text-gold-deep uppercase">Defined arc</p>
+          <p class="mt-1.5 font-serif text-xl leading-snug text-ink">7 to 14 days.<br />One clear rhythm.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- In-page menu -->
-  <nav aria-label="On this page" class="sticky top-[4.75rem] z-20 border-y hairline bg-white/95 backdrop-blur">
-    <ul class="wrap flex gap-7 overflow-x-auto py-3.5 text-[0.7rem] font-semibold tracking-[0.16em] whitespace-nowrap uppercase [scrollbar-width:none] lg:justify-center">
-      {nav.map(([id, l]) => <li><a href={`#${id}`} class="border-b border-transparent pb-1 text-muted transition hover:text-ink" data-toc={id}>{l}</a></li>)}
+  <!-- Section menu -->
+  <nav aria-label="On this page" class="sticky top-[5.5rem] z-20 border-y border-black/[0.06] bg-paper/95 backdrop-blur">
+    <ul class="wrap !max-w-[1320px] flex gap-2 overflow-x-auto py-3 text-[0.68rem] tracking-[0.2em] whitespace-nowrap uppercase [scrollbar-width:none]">
+      {nav.map(([id, l]) => <li><a href={`#${id}`} class="block rounded-full px-4 py-2 text-muted transition hover:text-ink" data-toc={id}>{l}</a></li>)}
     </ul>
   </nav>
 
-  <!-- Section 2: The Pause (off-white) -->
-  <section id="pause" class="scroll-mt-36 bg-paper/70 py-16 lg:py-24" aria-labelledby="pause-h">
-    <div class="wrap grid gap-10 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
-      <div data-reveal>
-        <span class="chip mb-6">The pause</span>
-        <h2 id="pause-h" class="display-lg">Why choose the Lemon Detox <em>Cleanse.</em></h2>
-          <span class="rule" aria-hidden="true"></span>
+  <!-- 02 · The pause -->
+  <section id="pause" class="scroll-mt-40 bg-paper py-20 lg:py-28" aria-labelledby="pause-h">
+    <div class="wrap !max-w-[1320px] grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-0">
+      <div class="lg:pr-14" data-reveal>
+        <p class="decor-num font-serif text-[7rem] leading-none text-gold/45" data-n="02" aria-hidden="true"></p>
+        <p class="eyebrow mt-2">The pause</p>
+        <h2 id="pause-h" class="mt-4 text-[clamp(2rem,3.2vw,2.8rem)] leading-[1.12]">Why choose the <em>Lemon Detox Cleanse.</em></h2>
       </div>
-      <div class="space-y-5 text-ink-soft" data-reveal style="--d:100ms">
-        <p>Modern life is fast, demanding, and often excessive. Convenience foods, constant snacking, and busy schedules can leave little space for awareness or balance.</p>
+      <div class="space-y-5 text-ink-soft lg:border-l lg:border-black/[0.08] lg:pl-14" data-reveal style="--d:100ms">
+        <p class="font-serif text-[1.5rem] leading-snug text-ink">Modern life is fast, demanding, and often excessive. Convenience foods, constant snacking, and busy schedules can leave little space for awareness or balance.</p>
         <p>The body is designed to regulate and maintain itself. However, when routines become overloaded, many people feel out of rhythm — heavier, less focused, and lacking clarity.</p>
         <p>The Lemon Detox Cleanse provides a structured pause. By temporarily replacing solid food with a simple liquid routine, the program reduces digestive demand and creates space for recalibration.</p>
         <p>By simplifying intake and removing decision fatigue around food, many participants experience weight loss, improved awareness, and renewed control over their habits.</p>
-        <p class="border-l-2 border-gold pl-6 font-serif text-2xl leading-snug text-ink italic">The value of the program lies not in extremes, but in structure, consistency, and intention.</p>
+        <p class="font-serif text-[1.25rem] text-ink italic">The value of the program lies not in extremes, but in structure, consistency, and intention.</p>
       </div>
     </div>
   </section>
 
-  <!-- Section 3: Daily rhythm (white) -->
-  <section id="rhythm" class="scroll-mt-36 py-16 lg:py-24" aria-labelledby="rhythm-h">
-    <div class="wrap">
-      <div class="max-w-3xl" data-reveal>
-        <span class="chip mb-6">Daily rhythm</span>
-        <h2 id="rhythm-h" class="display-lg">A typical day on the Lemon Detox <em>Cleanse.</em></h2>
-          <span class="rule" aria-hidden="true"></span>
-        <p class="mt-6 text-ink-soft">The program follows a simple daily rhythm designed to support detoxification, elimination, and the required energy throughout the cleanse.</p>
+  <!-- 03 · Daily rhythm (timeline) -->
+  <section id="rhythm" class="scroll-mt-40 py-20 lg:py-28" aria-labelledby="rhythm-h">
+    <div class="wrap !max-w-[1320px]">
+      <div class="max-w-2xl" data-reveal>
+        <p class="eyebrow">03 · Daily rhythm</p>
+        <h2 id="rhythm-h" class="mt-4 text-[clamp(2.2rem,3.8vw,3.4rem)] leading-[1.1]">A typical day on the <em>Lemon Detox Cleanse.</em></h2>
+        <p class="mt-5 text-ink-soft">The program follows a simple daily rhythm designed to support detoxification, elimination, and the required energy throughout the cleanse.</p>
       </div>
-      <div class="mt-16 space-y-12 sm:space-y-16">
+      <ol class="relative mt-16 space-y-16 lg:space-y-24">
+        <span class="absolute top-0 bottom-0 left-1/2 hidden w-px bg-black/[0.08] lg:block" aria-hidden="true"></span>
         {day.map((d, i) => (
-          <article class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16" data-reveal>
-            <ImageSlot name={d.img} alt={d.alt} class:list={['zoom-img aspect-[4/3] rounded-card bg-paper', i % 2 === 1 && 'lg:order-2']} sizes="(min-width: 1024px) 560px, 100vw" data-unveil />
-            <div>
-              <div class="flex items-center gap-4">
-                <span class="grid h-14 w-14 place-items-center rounded-full bg-lemon-pale text-gold-deep"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d={icons[d.key]} fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
-                <p class="text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-gold-deep">{d.when}</p>
-              </div>
-              <h3 class="mt-5 text-3xl sm:text-[2.4rem]">{d.title}</h3>
-              <div class="mt-4 space-y-4 text-[0.98rem] text-ink-soft">{d.body.map((b) => <p set:html={b} />)}</div>
-              {d.key === 'evening' && <p class="mt-6 border-t hairline pt-5 text-ink-soft italic">The routine quickly becomes simple and repetitive — leaving you free to focus on rest, hydration, and the cleanse itself.</p>}
+          <li class="relative grid items-center gap-8 lg:grid-cols-2 lg:gap-28" data-reveal>
+            <span class="absolute top-0 left-1/2 z-10 hidden h-10 w-10 -translate-x-1/2 place-items-center rounded-full border border-gold/50 bg-white font-serif text-sm text-gold-deep lg:grid" aria-hidden="true">{['I', 'II', 'III'][i]}</span>
+            <div class:list={[i % 2 === 1 && 'lg:order-2']}>
+              <ImageSlot name={d.img} alt={d.alt} class="zoom-img aspect-[4/3] rounded-[22px] bg-paper shadow-[0_30px_50px_-30px_rgba(26,26,26,0.4)]" sizes="(min-width: 1024px) 560px, 100vw" />
+              {d.key === 'evening' && <p class="mt-6 font-serif text-[1.1rem] text-ink italic">The routine quickly becomes simple and repetitive — leaving you free to focus on rest, hydration, and the cleanse itself.</p>}
             </div>
-          </article>
+            <div>
+              <p class="flex items-center gap-2.5 text-[0.7rem] font-semibold tracking-[0.25em] text-gold-deep uppercase"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d={icons[d.key]} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>{d.when}</p>
+              <h3 class="mt-3 text-[clamp(1.6rem,2.4vw,2.1rem)] leading-snug">{d.title}</h3>
+              <div class="mt-4 space-y-3 text-[0.98rem] text-ink-soft">{d.body.map((b) => <p set:html={b} />)}</div>
+            </div>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   </section>
 
-  <!-- Section 4: The Formula (off-white) -->
-  <section id="formula" class="scroll-mt-36 bg-paper/70 py-16 lg:py-24" aria-labelledby="formula-h">
-    <div class="wrap">
-      <div class="grid gap-8 lg:grid-cols-[1fr_1.25fr] lg:gap-20" data-reveal>
+  <!-- 04 · The formula -->
+  <section id="formula" class="scroll-mt-40 bg-paper py-20 lg:py-28" aria-labelledby="formula-h">
+    <div class="wrap !max-w-[1320px]">
+      <div class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20" data-reveal>
         <div>
-          <span class="chip mb-6">The formula</span>
-          <h2 id="formula-h" class="display-lg">What is the Lemon Detox <em>drink?</em></h2>
-          <span class="rule" aria-hidden="true"></span>
+          <p class="eyebrow">04 · The formula</p>
+          <h2 id="formula-h" class="mt-4 text-[clamp(2.2rem,3.8vw,3.4rem)] leading-[1.1]">What is the <em>Lemon Detox drink.</em></h2>
         </div>
-        <div class="space-y-5 text-ink-soft">
+        <div class="space-y-4 text-ink-soft lg:pt-8">
           <p>The Lemon Detox program centres around a simple drink made from the <strong class="text-ink">Madal Bal® Natural Tree Syrup</strong>, fresh lemon juice, cayenne pepper and pure water.</p>
           <p>During the cleanse, this drink replaces regular meals while supplying your body with natural carbohydrates, minerals and hydration. The digestive system rests — yet you remain energised throughout the day. Simple liquid nourishment!</p>
-          <p>By temporarily replacing solid food with simple liquid nourishment, the body can redirect energy normally used for digestion toward its natural cleansing and restorative processes.</p>
         </div>
       </div>
-      <h3 class="mt-16 font-sans text-sm font-bold uppercase tracking-[0.22em] text-gold-deep">The four key ingredients</h3>
-      <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {ingredients.map((g, i) => (
-          <article class="lift flex flex-col overflow-hidden card" data-reveal style={`--d:${i * 80}ms`}>
-            <ImageSlot name={g.img} alt={g.alt} class:list={['zoom-img aspect-[4/3]', g.fit === 'contain' ? 'bg-white' : 'bg-paper']} imgClass={g.fit === 'contain' ? 'h-full w-full object-contain p-6' : 'h-full w-full object-cover'} sizes="(min-width: 1024px) 280px, 50vw" />
-            <div class="relative flex-1 p-[30px]">
-              {g.icon && <Image src={dropIcon} alt="" width={56} height={56} class="absolute -top-7 right-6 h-14 w-14 rounded-full shadow-sm" />}
-              <h4 class="font-sans text-[1.25rem] font-semibold leading-snug text-ink">{g.name}</h4>
-              <p class="mt-2.5 text-[0.95rem] leading-relaxed text-ink-soft">{g.body}</p>
+          <article class="lift flex flex-col overflow-hidden rounded-[18px] border border-gold-soft/70 bg-white" data-reveal style={`--d:${i * 80}ms`}>
+            <ImageSlot name={g.img} alt={g.alt} class="zoom-img aspect-[4/3] bg-paper" sizes="(min-width: 1024px) 300px, 50vw" />
+            <div class="flex-1 p-7">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-lemon/20 text-gold-deep" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><path d={ingIcons[i]} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              <h3 class="mt-5 text-[1.3rem] leading-snug">{g.name}</h3>
+              <p class="mt-3 text-[0.92rem] leading-relaxed text-ink-soft">{g.body}</p>
             </div>
           </article>
         ))}
@@ -192,187 +195,162 @@ const versions = [
     </div>
   </section>
 
-  <!-- Section 5: Mixing (white) -->
-  <section id="mixing" class="scroll-mt-36 py-16 lg:py-24" aria-labelledby="mix-h">
-    <div class="wrap">
-      <div class="grid items-end gap-6 lg:grid-cols-[1fr_1.1fr] lg:gap-20" data-reveal>
+  <!-- 05 · Mixing -->
+  <section id="mixing" class="scroll-mt-40 py-20 lg:py-28" aria-labelledby="mix-h">
+    <div class="wrap !max-w-[1320px]">
+      <div class="grid items-end gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20" data-reveal>
         <div>
-          <span class="chip mb-6">Lemon Detox drink</span>
-          <h2 id="mix-h" class="display-lg">Daily mixing <em>instructions.</em></h2>
-          <span class="rule" aria-hidden="true"></span>
+          <p class="eyebrow">05 · Mixing</p>
+          <h2 id="mix-h" class="mt-4 text-[clamp(2.2rem,3.8vw,3.4rem)] leading-[1.1]">Daily mixing <em>instructions.</em></h2>
         </div>
         <p class="text-ink-soft lg:pb-2">The Lemon Detox drink is simple, natural and easy to prepare. Fresh ingredients give the best flavour and the most effective cleanse experience.</p>
       </div>
       <div class="mt-12 grid gap-6 md:grid-cols-2">
         {[
-          { t: 'For a 2 litre batch', sub: 'Preferred for the whole day', rec: true, items: ['140 ml Madal Bal® Natural Tree Syrup', '3½ freshly squeezed lemons (approximately 140 ml juice)', '2–3 pinches of cayenne pepper', 'Approximately 1700 ml fresh or filtered water'] },
-          { t: 'Per glass', sub: 'Handy when travelling', items: ['1 tablespoon (20 ml) Madal Bal® Natural Tree Syrup', '1 tablespoon freshly squeezed lemon juice (about half a lemon)', '½ pinch cayenne pepper (adjust to taste)', 'At least 250 ml fresh or filtered water'] },
+          { t: 'For a 2-litre batch', sub: 'Preferred for the whole day', rec: true, items: [['140 ml', 'Madal Bal® Natural Tree Syrup'], ['3½', 'freshly squeezed lemons (approximately 140 ml juice)'], ['2–3 pinches', 'of cayenne pepper'], ['≈ 1700 ml', 'fresh or filtered water']] },
+          { t: 'Per glass', sub: 'Quick single-glass version', items: [['1 tbsp (20 ml)', 'Madal Bal® Natural Tree Syrup'], ['1 tbsp', 'freshly squeezed lemon juice (about half a lemon)'], ['½ pinch', 'cayenne pepper, adjusted to taste'], ['≥ 250 ml', 'fresh or filtered water']] },
         ].map((m, i) => (
-          <div class:list={['card p-7 sm:p-9', m.rec && '!border-gold/40']} data-reveal style={`--d:${i * 90}ms`}>
-            <div class="flex flex-wrap items-center justify-between gap-3">
-              <h3 class="text-[2rem]">{m.t}</h3>
-              {m.rec && <span class="rounded-full bg-honey px-3 py-1 text-[0.62rem] font-bold uppercase tracking-[0.2em] text-ink">Recommended</span>}
+          <div class:list={['rounded-[18px] border bg-white p-8 sm:p-10', m.rec ? 'border-gold/60' : 'border-gold-soft/70']} data-reveal style={`--d:${i * 90}ms`}>
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <h3 class="font-sans text-[0.75rem] font-semibold tracking-[0.25em] text-gold-deep uppercase">{m.t}</h3>
+                <p class="mt-1 text-[0.7rem] tracking-[0.2em] text-muted uppercase">{m.sub}</p>
+              </div>
+              {m.rec && <span class="bg-lemon/25 px-2.5 py-1 text-[0.6rem] font-semibold tracking-[0.2em] text-gold-deep uppercase">Preferred</span>}
             </div>
-            <p class="mt-1 text-sm text-muted">{m.sub}</p>
-            <ol class="mt-6 divide-y divide-black/[0.07]">
-              {m.items.map((it, j) => <li class="flex gap-5 py-3.5"><span class="font-serif text-xl text-gold-deep">{String(j + 1).padStart(2, '0')}</span><span>{it}</span></li>)}
+            <ol class="mt-7 space-y-4 text-[0.98rem] text-ink-soft">
+              {m.items.map(([q, t], j) => <li class="flex gap-5"><span class="w-6 font-serif text-gold-deep">{String(j + 1).padStart(2, '0')}</span><span><strong class="text-ink">{q}</strong> {t}</span></li>)}
             </ol>
           </div>
         ))}
       </div>
-      <ul class="mt-8 flex flex-wrap gap-3 text-sm" data-reveal>
-        {['Mix well before drinking.', 'Enjoy cold, at room temperature, or warm.', 'After opening, keep the Madal Bal tin refrigerated.'].map((n) => <li class="rounded-full border hairline bg-white px-4 py-2 text-ink-soft">{n}</li>)}
-      </ul>
+      <div class="mt-8 grid gap-4 text-sm text-ink-soft sm:grid-cols-3">
+        <p><strong class="text-ink">Mix well</strong> before drinking.</p>
+        <p>Enjoy <strong class="text-ink">cold, room temperature, or warm</strong> — whichever you prefer.</p>
+        <p>After opening, keep the Madal Bal tin <strong class="text-ink">refrigerated</strong>.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Section 6: Elimination (off-white) -->
-  <section id="elimination" class="scroll-mt-36 bg-paper/70 py-16 lg:py-24" aria-labelledby="elim-h">
-    <div class="wrap">
-      <div class="grid gap-8 lg:grid-cols-[1fr_1.25fr] lg:gap-20" data-reveal>
-        <div>
-          <span class="chip mb-6">Elimination</span>
-          <h2 id="elim-h" class="display-lg">The key to a successful <em>program.</em></h2>
-          <span class="rule" aria-hidden="true"></span>
-        </div>
-        <div class="space-y-5 text-ink-soft">
+  <!-- 06 · Elimination -->
+  <section id="elimination" class="scroll-mt-40 bg-paper py-20 lg:py-28" aria-labelledby="elim-h">
+    <div class="wrap !max-w-[1320px] grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+      <div data-reveal>
+        <p class="eyebrow">06 · Elimination</p>
+        <h2 id="elim-h" class="mt-4 text-[clamp(2.2rem,3.8vw,3.4rem)] leading-[1.1]">The key to a <em>successful program.</em></h2>
+        <div class="mt-6 space-y-4 text-ink-soft">
           <p><strong class="text-ink">Effective elimination</strong> is the key to a successful Lemon Detox program, helping the body remove waste products released during the cleanse.</p>
           <p><strong class="text-ink">Sea Salt and Senna Tea are provided</strong> to help stimulate the body’s natural elimination process during the cleanse.</p>
         </div>
       </div>
-      <div class="mt-10 grid gap-6 md:grid-cols-2">
-        <article class="lift overflow-hidden card" data-reveal>
-          <ImageSlot name={['sea-salt', 'hiw-morning']} alt="Morning light on a terrace table with the Lemon Detox drink and sea salt" class="zoom-img aspect-[16/8] bg-paper" sizes="(min-width: 768px) 580px, 100vw" />
-          <div class="flex items-center gap-5 px-7 pt-7">
-            <span class="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-lemon/20 text-gold-deep"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d={icons.morning} fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
-            <h3 class="font-sans text-lg font-bold uppercase tracking-[0.14em] text-ink">Morning – Sea Salt Water</h3>
-          </div>
-          <p class="px-7 pt-4 pb-7 text-ink-soft">The sea salt water drink is prepared by dissolving <strong class="text-ink">two teaspoons of natural, uniodised sea salt</strong> in <strong class="text-ink">one litre of warm purified water</strong> and drinking it <strong class="text-ink">on an empty stomach</strong>.</p>
+      <div class="space-y-5" data-reveal style="--d:100ms">
+        <article class="rounded-[18px] border border-gold-soft/70 bg-white p-7 sm:p-8">
+          <h3 class="flex items-center gap-4 font-sans text-[0.95rem] font-semibold tracking-[0.2em] text-gold-deep uppercase"><span class="grid h-12 w-12 place-items-center rounded-full bg-lemon/20" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path d={icons.morning} fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>Morning · Sea salt water</h3>
+          <p class="mt-4 text-ink-soft">Dissolve <strong class="text-ink">two teaspoons of natural, uniodised sea salt</strong> in <strong class="text-ink">one litre of warm purified water</strong> and drink it <strong class="text-ink">on an empty stomach</strong>.</p>
         </article>
-        <article class="lift overflow-hidden card" data-reveal style="--d:90ms">
-          <ImageSlot name={['senna-leaves', 'senna-tea']} alt="A bowl of dried senna leaves on linen" class="zoom-img aspect-[16/8] bg-paper" sizes="(min-width: 768px) 580px, 100vw" />
-          <div class="flex items-center gap-5 px-7 pt-7">
-            <span class="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-lemon/20 text-gold-deep"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d={icons.evening} fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
-            <h3 class="font-sans text-lg font-bold uppercase tracking-[0.14em] text-ink">Evening – Herbal Senna Tea</h3>
-          </div>
-          <p class="px-7 pt-4 pb-7 text-ink-soft"><strong class="text-ink">Senna tea</strong>, a mild herbal laxative <strong class="text-ink">taken before bed</strong>, supports overnight elimination of waste released during the cleanse.</p>
+        <article class="rounded-[18px] border border-gold-soft/70 bg-white p-7 sm:p-8">
+          <h3 class="flex items-center gap-4 font-sans text-[0.95rem] font-semibold tracking-[0.2em] text-gold-deep uppercase"><span class="grid h-12 w-12 place-items-center rounded-full bg-lemon/20" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path d={icons.evening} fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>Evening · Herbal senna tea</h3>
+          <p class="mt-4 text-ink-soft"><strong class="text-ink">Senna tea</strong>, a mild herbal laxative <strong class="text-ink">taken before bed</strong>, supports overnight elimination of waste released during the cleanse.</p>
         </article>
-      </div>
-      <div class="mt-10 grid gap-5 text-ink-soft md:grid-cols-2" data-reveal>
-        <p>In addition to the Lemon Detox drink, it is recommended to drink <strong class="text-ink">1–2 litres of fresh water each day</strong> to help support the body’s natural cleansing processes.</p>
-        <p>Practices such as <strong class="text-ink">dry skin brushing</strong> and <strong class="text-ink">light exercise</strong> may also complement the program by supporting circulation and overall wellbeing.</p>
+        <p class="pt-2 text-sm text-ink-soft">Also drink <strong class="text-ink">1–2 litres of fresh water each day</strong>. <strong class="text-ink">Dry skin brushing</strong> and <strong class="text-ink">light exercise</strong> may also complement the program.</p>
       </div>
     </div>
   </section>
 
-  <!-- Section 7: Versions (white) -->
-  <section id="versions" class="scroll-mt-36 py-16 lg:py-24" aria-labelledby="ver-h">
-    <div class="wrap">
-      <div class="max-w-3xl" data-reveal>
-        <span class="chip mb-6">Versions</span>
-        <h2 id="ver-h" class="display-lg">Choose the cleanse that <em>suits you.</em></h2>
-          <span class="rule" aria-hidden="true"></span>
+  <!-- 07 · Versions -->
+  <section id="versions" class="scroll-mt-40 py-20 lg:py-28" aria-labelledby="ver-h">
+    <div class="wrap !max-w-[1320px]">
+      <div class="max-w-2xl" data-reveal>
+        <p class="eyebrow">07 · Versions</p>
+        <h2 id="ver-h" class="mt-4 text-[clamp(2.2rem,3.8vw,3.4rem)] leading-[1.1]">Choose the cleanse <em>that suits you.</em></h2>
         <p class="mt-5 text-ink-soft">Choose the version that best suits your lifestyle and experience level.</p>
       </div>
-      <div class="mt-10 grid gap-6 lg:grid-cols-3">
+      <div class="mt-12 grid gap-6 lg:grid-cols-3">
         {versions.map((v, i) => (
-          <article class="lift flex flex-col overflow-hidden card" data-reveal style={`--d:${i * 90}ms`}>
-            <ImageSlot name={v.img} alt={v.alt} class="zoom-img aspect-[4/3] bg-paper" sizes="(min-width: 1024px) 380px, 100vw" />
+          <article class:list={['lift flex flex-col overflow-hidden rounded-[18px] border bg-white', i === 0 ? 'border-gold/60' : 'border-gold-soft/70']} data-reveal style={`--d:${i * 90}ms`}>
+            <ImageSlot name={v.img} alt={v.alt} class="zoom-img aspect-[4/3] bg-paper" sizes="(min-width: 1024px) 400px, 100vw" />
             <div class="flex flex-1 flex-col p-7">
-              <p class="text-xs font-bold uppercase tracking-[0.2em] text-gold-deep">{v.tag}</p>
-              <h3 class="mt-2 text-[2.1rem]">{v.name}</h3>
-              <p class="mt-3 text-[0.95rem] text-ink-soft">{v.body}</p>
-              <dl class="mt-6 divide-y divide-black/[0.07] border-y hairline text-sm">
-                {v.meals.map(([k, val]) => <div class="flex justify-between gap-4 py-3"><dt class="font-semibold text-ink">{k}</dt><dd class="text-right text-ink-soft">{val}</dd></div>)}
-              </dl>
-              <p class="mt-5 text-sm text-muted">{v.note}</p>
+              {i === 0 && <span class="mb-3 self-start bg-lemon/25 px-2.5 py-1 text-[0.6rem] font-semibold tracking-[0.2em] text-gold-deep uppercase">Deepest reset</span>}
+              <p class="text-[0.68rem] font-semibold tracking-[0.22em] text-gold-deep uppercase">{v.tag}</p>
+              <h3 class="mt-2 text-[1.6rem]">{v.name}</h3>
+              <p class="mt-3 text-[0.94rem] text-ink-soft">{v.body}</p>
+              <ul class="mt-5 space-y-2 text-[0.9rem] text-ink">
+                {v.meals.map(([k, val]) => <li class="flex items-start gap-3"><svg width="14" height="14" viewBox="0 0 12 12" aria-hidden="true" class="mt-1 shrink-0 text-gold-deep"><path d="M2.5 6.2 5 8.6l4.6-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>{k} · {val}</li>)}
+              </ul>
+              <p class="mt-5 text-sm text-muted italic">{v.note}</p>
             </div>
           </article>
         ))}
       </div>
-      <a href="/#programs" class="mt-12 flex items-center justify-center gap-3 rounded-card bg-ink px-6 py-6 text-center text-sm font-bold tracking-[0.25em] text-white uppercase transition hover:bg-gold-deep" data-reveal>
+      <a href="/#programs" class="mt-10 flex items-center justify-center gap-3 bg-ink px-6 py-6 text-center text-sm font-medium tracking-[0.3em] text-white uppercase transition hover:bg-gold-deep" data-reveal>
         Start your cleanse today
         <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
       </a>
     </div>
   </section>
 
-  <!-- Section 8: Depth (off-white) -->
-  <section id="depth" class="scroll-mt-36 bg-paper/70 py-16 lg:py-24" aria-labelledby="depth-h">
-    <div class="wrap grid gap-10 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
-      <div data-reveal>
-        <span class="chip mb-6">Depth</span>
-        <h2 id="depth-h" class="display-lg">Why the Full Body Cleanse provides the deepest <em>cleanse.</em></h2>
-          <span class="rule" aria-hidden="true"></span>
+  <!-- 08 · Depth -->
+  <section id="depth" class="scroll-mt-40 bg-paper py-20 lg:py-28" aria-labelledby="depth-h">
+    <div class="wrap !max-w-[1320px] grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-0">
+      <div class="lg:pr-14" data-reveal>
+        <p class="decor-num font-serif text-[7rem] leading-none text-gold/45" data-n="08" aria-hidden="true"></p>
+        <p class="eyebrow mt-2">Depth</p>
+        <h2 id="depth-h" class="mt-4 text-[clamp(2rem,3.2vw,2.8rem)] leading-[1.12]">Why the Full Body Cleanse <em>provides the deepest reset.</em></h2>
       </div>
-      <div class="space-y-5 text-ink-soft" data-reveal style="--d:100ms">
+      <div class="space-y-5 text-ink-soft lg:border-l lg:border-black/[0.08] lg:pl-14" data-reveal style="--d:100ms">
         <p>The most important part of any detox program is giving the digestive system a break from solid food.</p>
         <p>Some people worry about the idea of going without solid foods, but the Lemon Detox program is not a traditional fast. A true fast involves complete abstinence from food. The Lemon Detox program instead provides <strong class="text-ink">liquid nourishment</strong>, supplying energy while allowing the body to take a temporary break from digesting solid foods.</p>
         <p>Digesting food requires a significant amount of energy. When solid food is removed from the diet, the body can redirect some of this energy toward its natural cleansing and restorative processes.</p>
-        <p>For this reason, the <strong class="text-ink">Full Body Cleanse</strong> version, where all meals are replaced with the Lemon Detox drink, provides the most complete cleansing experience.</p>
+        <p class="border-l-2 border-gold pl-6 font-serif text-[1.2rem] text-ink italic">For this reason, the Full Body Cleanse version, where all meals are replaced with the Lemon Detox drink, provides the most complete cleansing experience.</p>
         <p>While the Relaxed Version allows one healthy meal per day and can still be beneficial, consuming solid food requires the body to continue digesting, which may reduce the depth of the cleanse.</p>
       </div>
     </div>
   </section>
 
-  <!-- What to expect (white) -->
-  <section id="expect" class="scroll-mt-36 py-16 lg:py-24" aria-labelledby="expect-h">
-    <div class="wrap">
-      <div class="grid items-end gap-10 lg:grid-cols-[1.6fr_1fr]">
-      <div class="max-w-3xl" data-reveal>
-        <span class="chip mb-6">What to expect</span>
-        <h2 id="expect-h" class="display-lg">What to expect during the <em>cleanse.</em></h2>
-          <span class="rule" aria-hidden="true"></span>
+  <!-- 09 · What to expect (+ safety) -->
+  <section id="expect" class="scroll-mt-40 py-20 lg:py-28" aria-labelledby="expect-h">
+    <div class="wrap !max-w-[1320px]">
+      <div class="max-w-2xl" data-reveal>
+        <p class="eyebrow">09 · What to expect</p>
+        <h2 id="expect-h" class="mt-4 text-[clamp(2.2rem,3.8vw,3.4rem)] leading-[1.1]">What to expect during <em>the cleanse.</em></h2>
         <p class="mt-5 text-ink-soft">Each person’s experience of the Lemon Detox Cleanse is unique, however many participants notice a similar pattern as their body adjusts to the program.</p>
-      </div>
-      <ImageSlot name="expect-side" alt="A woman walking through a garden carrying a yoga mat and a water bottle" class="zoom-img hidden aspect-[4/5] max-h-[26rem] rounded-card bg-paper lg:block" sizes="360px" data-unveil />
       </div>
       <ol class="mt-12 grid gap-6 md:grid-cols-3">
         {[
-          ['The Adjustment Phase', 'During the first few days, the body begins adapting to a temporary break from solid foods. It is common to experience mild hunger, changes in appetite, or fluctuations in energy. Some people may also notice temporary symptoms such as mild headaches, fatigue, a coated tongue, changes in bowel movements or occasional irritability. These are generally short-term effects as the body adjusts.'],
-          ['The Balance Phase', 'As the cleanse progresses, many participants report that hunger sensations begin to decrease and energy levels become more stable. Without the constant demands of digesting solid foods, the digestive system is able to rest while the body focuses on restoring balance.'],
-          ['The Clarity Phase', 'By the later stages of the cleanse, many people describe feeling lighter, more mentally clear and more aware of their eating habits and lifestyle choices — an opportunity to pause from everyday habits and reconnect with a healthier, more balanced way of living.'],
+          ['The Adjustment Phase', 'During the first few days, the body begins adapting to a temporary break from solid foods. Mild hunger, changes in appetite, fluctuations in energy, mild headaches or fatigue are common, short-term effects as the body adjusts.'],
+          ['The Balance Phase', 'As the cleanse progresses, many participants report that hunger sensations begin to decrease and energy levels become more stable, while the digestive system rests.'],
+          ['The Clarity Phase', 'By the later stages of the cleanse, many people describe feeling lighter, more mentally clear and more aware of their eating habits and lifestyle choices.'],
         ].map(([t, b], i) => (
-          <li class="card p-7" data-reveal style={`--d:${i * 90}ms`}>
-            <span class="grid h-10 w-10 place-items-center rounded-full bg-lemon font-serif text-lg text-ink">{i + 1}</span>
-            <h3 class="mt-5 text-[1.8rem]">{t}</h3>
-            <p class="mt-3 text-[0.95rem] text-ink-soft">{b}</p>
+          <li class="rounded-[18px] border border-gold-soft/70 bg-white p-7" data-reveal style={`--d:${i * 90}ms`}>
+            <p class="decor-num font-serif text-4xl leading-none text-gold/60" data-n={['I', 'II', 'III'][i]} aria-hidden="true"></p>
+            <h3 class="mt-3 text-[1.4rem]">{t}</h3>
+            <p class="mt-3 text-[0.94rem] text-ink-soft">{b}</p>
           </li>
         ))}
       </ol>
-      <p class="mt-6 text-sm text-muted">As with any program involving dietary change, individual experiences may vary depending on lifestyle, body composition and adherence to the program.</p>
-    </div>
-  </section>
-
-  <!-- Before you start (safety) -->
-  <section id="who-it-isnt-for" class="scroll-mt-36 pb-24 sm:pb-28" aria-labelledby="who-h">
-    <div class="wrap">
-      <div class="card p-8 sm:p-12" data-reveal>
-        <span class="chip mb-6">Before you start</span>
-        <h2 id="who-h" class="display-md">Who the cleanse <em>isn't for.</em></h2>
-          <span class="rule" aria-hidden="true"></span>
-        <p class="mt-6 font-semibold text-ink">The Lemon Detox Cleanse is not suitable if you are:</p>
-        <ul class="dot-list mt-4 grid gap-x-10 gap-y-3 text-ink-soft md:grid-cols-2">
-          <li>pregnant or breastfeeding</li>
-          <li>under 18</li>
-          <li>living with diabetes, heart, kidney or liver disease, or high or low blood pressure</li>
-          <li>recovering from surgery or illness</li>
-          <li>living with, or have a history of, an eating disorder</li>
-          <li>taking prescription medication (check with your doctor first)</li>
-        </ul>
-        <p class="mt-8 border-t hairline pt-6 text-sm text-ink-soft">If you feel faint, dizzy, unwell or have heart palpitations at any stage, stop and eat normally, and seek medical advice if symptoms continue.</p>
+      <div id="who-it-isnt-for" class="mt-10 scroll-mt-40 rounded-[18px] border border-gold-soft/70 bg-paper p-8 sm:p-10" data-reveal>
+        <h3 class="font-sans text-[0.75rem] font-semibold tracking-[0.25em] text-gold-deep uppercase">Before you start — who it isn’t for</h3>
+        <p class="mt-4 text-ink-soft">The Lemon Detox Cleanse is not suitable if you are pregnant or breastfeeding; under 18; living with diabetes, heart, kidney or liver disease, or high or low blood pressure; recovering from surgery or illness; living with, or have a history of, an eating disorder; or taking prescription medication (check with your doctor first). If you feel faint, dizzy, unwell or have heart palpitations at any stage, stop and eat normally, and seek medical advice if symptoms continue.</p>
       </div>
     </div>
   </section>
 
-  <CTA title="Start your reset <em>today.</em>" />
+  <!-- Closing -->
+  <section class="border-t border-black/[0.06] py-20 text-center lg:py-28">
+    <div class="wrap" data-reveal>
+      <p class="eyebrow">Begin your reset</p>
+      <h2 class="mx-auto mt-4 max-w-2xl text-[clamp(2rem,3.6vw,3.2rem)] leading-[1.15]">One pause, taken with intention, is enough to <em>change a season.</em></h2>
+      <span class="rule mx-auto !w-24" aria-hidden="true"></span>
+      <a href="/#programs" class={`btn btn-primary btn-caps ${sq} mt-10 !min-h-[3.5rem] !px-9`}>Start your reset today <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </section>
 
   <script>
     const links = document.querySelectorAll<HTMLAnchorElement>('[data-toc]');
     const set = (id: string) => links.forEach((a) => {
       const on = a.dataset.toc === id;
-      a.classList.toggle('!text-ink', on);
-      a.classList.toggle('!border-gold', on);
+      a.classList.toggle('!bg-ink', on);
+      a.classList.toggle('!text-white', on);
       on ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current');
       if (on) { const ul = a.closest('ul')!; ul.scrollTo({ left: a.offsetLeft - ul.clientWidth / 2 + a.offsetWidth / 2, behavior: 'smooth' }); }
     });
