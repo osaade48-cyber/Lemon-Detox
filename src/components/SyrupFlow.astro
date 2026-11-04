@@ -1,0 +1,126 @@
+---
+/**
+ * A golden "syrup" stream that pours down the page as you scroll.
+ * Sits behind all content (sections are transparent or translucent so it shows through).
+ * - The stream is revealed from the top as you scroll (clipPath grows with scroll position).
+ * - Droplets travel slowly along it, and a glowing drop leads the pour.
+ * - prefers-reduced-motion: the full stream is drawn, nothing moves.
+ */
+---
+<div id="syrup" class="pointer-events-none absolute inset-x-0 top-0 -z-10 overflow-hidden" aria-hidden="true">
+  <svg id="syrup-svg" width="100%" height="100%" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="syrup-grad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#F4C400" />
+        <stop offset="0.5" stop-color="#D99A1E" />
+        <stop offset="1" stop-color="#B9771A" />
+      </linearGradient>
+      <radialGradient id="syrup-drop" cx="50%" cy="40%" r="60%">
+        <stop offset="0" stop-color="#FFE9A3" />
+        <stop offset="0.55" stop-color="#E9A92A" />
+        <stop offset="1" stop-color="#B9771A" />
+      </radialGradient>
+      <clipPath id="syrup-clip"><rect id="syrup-reveal" x="0" y="0" width="100%" height="0" /></clipPath>
+    </defs>
+    <g clip-path="url(#syrup-clip)">
+      <path id="syrup-glow" fill="none" stroke="url(#syrup-grad)" stroke-linecap="round" opacity="0.09" />
+      <path id="syrup-core" fill="none" stroke="url(#syrup-grad)" stroke-linecap="round" opacity="0.32" />
+      <path id="syrup-shine" fill="none" stroke="#FFF4CC" stroke-linecap="round" opacity="0.55" />
+      <path id="syrup-drops" class="syrup-drops" fill="none" stroke="#C98A1A" stroke-linecap="round" opacity="0.45" />
+    </g>
+    <g id="syrup-head" opacity="0">
+      <circle r="22" fill="#F4C400" opacity="0.18" />
+      <circle r="9" fill="url(#syrup-drop)" />
+      <circle r="2.6" cx="-2.6" cy="-3" fill="#FFF8DC" opacity="0.9" />
+    </g>
+  </svg>
+</div>
+
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    .syrup-drops { animation: syrup-flow 9s linear infinite; }
+  }
+  @keyframes syrup-flow { to { stroke-dashoffset: -400; } }
+</style>
+
+<script>
+  const wrap = document.getElementById('syrup')!;
+  const host = wrap.parentElement!;
+  const svg = document.getElementById('syrup-svg') as unknown as SVGSVGElement;
+  const glow = document.getElementById('syrup-glow')!;
+  const core = document.getElementById('syrup-core')!;
+  const shine = document.getElementById('syrup-shine')!;
+  const drops = document.getElementById('syrup-drops')!;
+  const reveal = document.getElementById('syrup-reveal')!;
+  const head = document.getElementById('syrup-head')!;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let samples: { x: number; y: number }[] = [];
+  let H = 0, current = 0, target = 0, raf = 0;
+
+  const build = () => {
+    const W = host.clientWidth;
+    H = host.scrollHeight;
+    wrap.style.height = H + 'px';
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    const narrow = W < 768;
+    // Winding path: starts just below the hero, swings gently side to side down the page.
+    const start = Math.min(H * 0.08, 760);
+    const step = narrow ? 620 : 860;
+    const left = narrow ? 0.06 : 0.08, right = narrow ? 0.94 : 0.92;
+    let x = W * 0.5, y = start - 120;
+    let d = `M ${x} ${y}`;
+    let i = 0;
+    while (y < H) {
+      const nx = W * (i % 2 === 0 ? right : left) + (Math.sin(i * 1.7) * W * 0.03);
+      const ny = Math.min(H + 40, y + step);
+      const k = step * 0.55;
+      d += ` C ${x} ${y + k}, ${nx} ${ny - k}, ${nx} ${ny}`;
+      x = nx; y = ny; i++;
+    }
+    for (const p of [glow, core, shine, drops]) p.setAttribute('d', d);
+    glow.setAttribute('stroke-width', narrow ? '26' : '44');
+    core.setAttribute('stroke-width', narrow ? '5' : '8');
+    shine.setAttribute('stroke-width', narrow ? '1.2' : '1.8');
+    drops.setAttribute('stroke-width', narrow ? '3.5' : '5');
+    drops.setAttribute('stroke-dasharray', '0.1 100');
+    // Sample the path so we can place the leading drop at any height.
+    const path = core as unknown as SVGPathElement;
+    const len = path.getTotalLength();
+    samples = [];
+    for (let s = 0; s <= len; s += 12) { const pt = path.getPointAtLength(s); samples.push({ x: pt.x, y: pt.y }); }
+  };
+
+  const xAt = (y: number) => {
+    // samples are increasing in y
+    let lo = 0, hi = samples.length - 1;
+    while (lo < hi) { const mid = (lo + hi) >> 1; if (samples[mid].y < y) lo = mid + 1; else hi = mid; }
+    return samples[lo]?.x ?? 0;
+  };
+
+  const measure = () => {
+    const rect = host.getBoundingClientRect();
+    // Head of the pour sits ~65% down the viewport.
+    target = reduce ? H : Math.max(0, Math.min(H, -rect.top + innerHeight * 0.65));
+  };
+
+  const tick = () => {
+    current += (target - current) * 0.12;
+    if (Math.abs(target - current) < 0.5) current = target;
+    reveal.setAttribute('height', String(current));
+    const y = current;
+    head.setAttribute('transform', `translate(${xAt(y)} ${y})`);
+    head.setAttribute('opacity', reduce || y < 40 || y >= H - 10 ? '0' : '1');
+    raf = current !== target ? requestAnimationFrame(tick) : 0;
+  };
+  const kick = () => { measure(); if (!raf) raf = requestAnimationFrame(tick); };
+
+  const init = () => { build(); measure(); current = reduce ? H : target; tick(); };
+  init();
+  addEventListener('scroll', kick, { passive: true });
+  let t: number;
+  addEventListener('resize', () => { clearTimeout(t); t = window.setTimeout(init, 150); });
+  // Images and fonts change the page height after load.
+  addEventListener('load', init);
+  new ResizeObserver(() => { if (Math.abs(host.scrollHeight - H) > 40) init(); }).observe(host);
+</script>

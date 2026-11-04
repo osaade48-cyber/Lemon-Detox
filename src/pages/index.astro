@@ -6,7 +6,6 @@ import TrustRow from '../components/TrustRow.astro';
 import GuideRequest from '../components/GuideRequest.astro';
 import CTA from '../components/CTA.astro';
 import Marquee from '../components/Marquee.astro';
-import LemonSlice from '../components/LemonSlice.astro';
 import ImageSlot from '../components/ImageSlot.astro';
 import { products } from '../data/products';
 import { homeCards, photoFor } from '../data/testimonials';
@@ -33,95 +32,89 @@ const ritual = [
   title="Lemon Detox Cleanse — 7 & 14 Day Reset Box"
   description="A structured 7 or 14 day lemon cleanse built around one simple drink. Free tracked shipping Australia-wide."
 >
-  <!-- Hero banner: full width. Headline sits on the bright wall in the photo on wide screens, above it on smaller screens. -->
-  <section class="relative overflow-hidden bg-[#f6efe2]" data-hero>
-    <div class="wrap pt-10 pb-8 text-center sm:pt-14 xl:hidden" data-reveal>
-      <p class="eyebrow">Lemon Detox Cleanse</p>
-      <h1 class="display-xl mt-5 !text-[clamp(2.9rem,9vw,4.75rem)]">Reset. Reduce. <em>Restore.</em></h1>
-      <p class="lead mx-auto mt-5 max-w-md">A structured lemon cleanse program.</p>
-      <div class="mt-7 flex flex-wrap justify-center gap-3">
-        <a href="/#programs" class="btn btn-primary btn-caps">Start your reset</a>
-        <a href="/how-it-works" class="btn btn-secondary btn-caps">How it works</a>
-      </div>
-    </div>
-    <div class="relative">
-      <ImageSlot name="hero-banner" alt="A woman at a sunlit marble bench with Lemon Detox Cleanse Reset Boxes, the Madal Bal Natural Tree Syrup tin, a jug of the Lemon Detox drink and fresh lemons" eager class="breathe aspect-[16/10] w-full sm:aspect-[16/9]" imgClass="h-full w-full object-cover object-[60%_50%]" sizes="100vw" />
-      <div class="pointer-events-none absolute inset-y-0 left-[39.5%] hidden w-[29%] items-start pt-[3.2%] xl:flex">
-        <div class="pointer-events-auto relative" data-reveal>
-          <div class="absolute -inset-10 -z-10 rounded-full bg-[radial-gradient(closest-side,rgba(255,250,240,0.85),rgba(255,250,240,0))]"></div>
-          <p class="eyebrow">Lemon Detox Cleanse</p>
-          <h1 class="display-xl mt-3 !text-[clamp(2.8rem,3.9vw,4.1rem)] !leading-[0.98]">Reset.<br />Reduce.<br /><em>Restore.</em></h1>
-          <p class="mt-4 text-ink-soft">A structured lemon cleanse program.</p>
-          <div class="mt-5 flex flex-nowrap gap-3">
-            <a href="/#programs" class="btn btn-primary btn-sm btn-caps min-[1440px]:min-h-[3.25rem] min-[1440px]:px-7">Start your reset</a>
-            <a href="/how-it-works" class="btn btn-secondary btn-sm btn-caps !bg-white/60 backdrop-blur min-[1440px]:min-h-[3.25rem] min-[1440px]:px-7">How it works</a>
-          </div>
+  <!-- ── Hero: full-bleed banner with the headline on top of the photo ───────── -->
+  <section class="relative isolate overflow-hidden bg-[#f8f1e4]" data-hero>
+    <div class="relative lg:h-[min(calc(100svh-4.75rem),56.25vw)] lg:min-h-[640px]">
+      <!-- Headline: on top of the photo (phones: over the soft top of the photo; desktop: on the bright wall) -->
+      <div class="hero-in relative z-10 px-5 pt-12 text-center sm:pt-16 lg:absolute lg:top-0 lg:left-[54%] lg:w-[30rem] lg:-translate-x-1/2 lg:px-0 lg:pt-[4.2%]">
+        <p class="eyebrow">Lemon Detox Cleanse</p>
+        <h1 class="display-xl mt-4 !text-[clamp(2.9rem,10.5vw,4.6rem)] !leading-[0.98] lg:!text-[clamp(3rem,4.1vw,4.4rem)]">Reset. Reduce.<br /><em>Restore.</em></h1>
+        <p class="mx-auto mt-4 max-w-sm text-[1.05rem] text-ink-soft">A structured lemon cleanse program — one simple drink, 7 or 14 days.</p>
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <a href="/#programs" class="btn btn-primary btn-caps btn-sm !px-6 sm:!min-h-[3rem]">Start your reset</a>
+          <a href="/how-it-works" class="btn btn-secondary btn-caps btn-sm !bg-white/70 !px-6 backdrop-blur sm:!min-h-[3rem]">How it works</a>
         </div>
       </div>
+
+      <div class="relative -mt-16 sm:-mt-24 lg:absolute lg:inset-0 lg:mt-0">
+        <ImageSlot name="hero-banner" alt="A woman at a sunlit marble bench with Lemon Detox Cleanse Reset Boxes, the Madal Bal Natural Tree Syrup tin, a jug of the Lemon Detox drink and fresh lemons" eager class="breathe aspect-[4/3] w-full sm:aspect-[16/10] lg:aspect-auto lg:h-full" imgClass="h-full w-full object-cover object-[74%_62%] sm:object-[62%_60%] lg:object-[50%_50%]" sizes="100vw" />
+        <!-- soft light so the words read over the photo -->
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-[#f8f1e4] via-[#f8f1e4]/70 to-transparent lg:hidden"></div>
+        <div class="pointer-events-none absolute top-0 left-1/2 hidden h-[58%] w-[46%] -translate-x-[42%] bg-[radial-gradient(closest-side,rgba(251,246,236,0.9),rgba(251,246,236,0))] lg:block"></div>
+      </div>
+
+      <a href="#why" class="scroll-cue absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-[0.62rem] font-semibold tracking-[0.3em] text-ink/70 uppercase lg:flex" aria-label="Scroll to learn more">
+        Scroll<span class="block h-10 w-px overflow-hidden bg-ink/15"><span class="block h-4 w-px bg-gold-deep"></span></span>
+      </a>
     </div>
-    <Marquee />
+    <Marquee items={['Free tracked shipping Australia-wide', '7 or 14 day programs', 'Four natural ingredients', '14-day returns on unopened boxes', 'Reset · Reduce · Restore']} />
   </section>
 
-  <!-- Structure & simplicity (white) -->
-  <section class="py-24 sm:py-32" aria-labelledby="reset-h">
-    <div class="wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-      <ImageSlot name="home-reset" alt="A woman stretching outdoors in the morning sun with a glass of the Lemon Detox drink" class="zoom-img aspect-[4/5] rounded-card bg-paper" sizes="(min-width: 1024px) 560px, 100vw" data-unveil />
+  <!-- ── Why: structure & simplicity ────────────────────────────────────────── -->
+  <section id="why" class="scroll-mt-20 py-28 lg:py-36" aria-labelledby="reset-h">
+    <div class="wrap grid items-center gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-24">
+      <ImageSlot name="home-reset" alt="A woman stretching outdoors in the morning sun with a glass of the Lemon Detox drink" class="zoom-img aspect-[4/5] rounded-[24px] bg-paper" sizes="(min-width: 1024px) 540px, 100vw" data-unveil />
       <div data-reveal>
-        <p class="eyebrow mb-5">Reset behaviour</p>
-        <h2 id="reset-h" class="display-lg">In a world of constant consumption, take a <em>defined pause.</em></h2>
-        <div class="mt-8 space-y-5 text-ink-soft">
-          <p class="text-lg font-semibold text-ink">The Lemon Detox Cleanse is built on structure and simplicity.</p>
-          <p>The Lemon Detox Cleanse provides a defined timeframe, a clear routine, and a temporary step away from solid food. Most diets focus on restriction. This program focuses on resetting behaviour.</p>
-          <p class="font-serif text-2xl font-semibold leading-snug text-ink">No confusion. No complicated rules.<br />Just clarity and simplicity.</p>
-        </div>
+        <p class="eyebrow">Reset behaviour</p>
+        <h2 id="reset-h" class="display-lg mt-5">In a world of constant consumption, take a <em>defined pause.</em></h2>
+        <p class="mt-8 text-lg font-semibold text-ink">The Lemon Detox Cleanse is built on structure and simplicity.</p>
+        <p class="mt-4 text-ink-soft">The Lemon Detox Cleanse provides a defined timeframe, a clear routine, and a temporary step away from solid food. Most diets focus on restriction. This program focuses on resetting behaviour.</p>
+        <p class="mt-8 border-l-2 border-gold pl-5 font-serif text-2xl leading-snug font-semibold text-ink">No confusion. No complicated rules.<br />Just clarity and simplicity.</p>
       </div>
     </div>
   </section>
 
-  <!-- Every system benefits from a reset (#faf9f6) -->
-  <section class="texture overflow-hidden bg-paper py-24 sm:py-32" aria-labelledby="system-h">
-    <LemonSlice class="pointer-events-none absolute -right-32 -bottom-32 h-96 w-96 opacity-[0.12]" />
-    <div class="wrap grid gap-14 lg:grid-cols-[1.15fr_1fr] lg:gap-20">
-      <div data-reveal>
+  <!-- ── Benefits ───────────────────────────────────────────────────────────── -->
+  <section class="bg-paper/70 py-28 lg:py-36" aria-labelledby="system-h">
+    <div class="wrap">
+      <div class="mx-auto max-w-3xl text-center" data-reveal>
         <h2 id="system-h" class="display-lg">Every system benefits from <span class="text-gold-deep italic">a reset.</span></h2>
-        <div class="mt-8 space-y-5 text-ink-soft">
-          <p class="text-lg font-semibold text-ink">Our bodies are no exception.</p>
-          <p>For many participants, weight loss occurs as a natural outcome of temporarily removing solid food and simplifying intake.<br class="hidden xl:block" /> The Lemon Detox Cleanse is designed to create that defined pause — supporting recalibration and renewed awareness.</p>
-          <p>More importantly, this structured reset often helps re-establish healthier habits — creating a strong foundation for maintaining results when continued with balanced, mindful choices.</p>
-        </div>
+        <p class="mt-6 text-lg font-semibold text-ink">Our bodies are no exception.</p>
+        <p class="mt-4 text-ink-soft">For many participants, weight loss occurs as a natural outcome of temporarily removing solid food and simplifying intake. The Lemon Detox Cleanse is designed to create that defined pause — supporting recalibration and renewed awareness.</p>
+        <p class="mt-4 text-ink-soft">More importantly, this structured reset often helps re-establish healthier habits — creating a strong foundation for maintaining results when continued with balanced, mindful choices.</p>
       </div>
-      <div class="rounded-card border hairline bg-white/90 p-8 backdrop-blur sm:p-10" data-reveal style="--d:120ms">
-        <h3 class="font-sans text-sm font-bold uppercase tracking-[0.22em] text-gold-deep">In addition, the program supports:</h3>
-        <ul class="dot-list-lg mt-7 space-y-4 text-[1.05rem] text-ink">
-          {supports.map((s, i) => <li data-reveal style={`--d:${200 + i * 60}ms`}>{s}</li>)}
+      <div class="card mx-auto mt-14 max-w-4xl p-8 sm:p-12" data-reveal>
+        <h3 class="text-center font-sans text-xs font-bold tracking-[0.25em] text-gold-deep uppercase">In addition, the program supports:</h3>
+        <ul class="mt-8 grid gap-x-12 gap-y-5 sm:grid-cols-2">
+          {supports.map((s, i) => (
+            <li class="flex items-start gap-4 text-[1.02rem] text-ink" data-reveal style={`--d:${i * 60}ms`}>
+              <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-lemon/25 text-gold-deep" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2.5 6.2 5 8.6l4.6-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              {s}
+            </li>
+          ))}
         </ul>
-        <p class="mt-7 text-xs text-muted">Individual results vary.</p>
+        <p class="mt-8 text-center text-xs text-muted">Individual results vary.</p>
       </div>
     </div>
   </section>
 
-  <!-- A day on the cleanse (white) -->
-  <section class="py-24 sm:py-32" aria-labelledby="ritual-h">
+  <!-- ── A day on the cleanse ───────────────────────────────────────────────── -->
+  <section class="py-28 lg:py-36" aria-labelledby="ritual-h">
     <div class="wrap">
       <div class="flex flex-wrap items-end justify-between gap-6" data-reveal>
         <div>
-          <p class="eyebrow mb-5">One clear rhythm</p>
-          <h2 id="ritual-h" class="display-lg">A day on the <em>cleanse.</em></h2>
+          <p class="eyebrow">One clear rhythm</p>
+          <h2 id="ritual-h" class="display-lg mt-5">A day on the <em>cleanse.</em></h2>
         </div>
         <a href="/how-it-works#rhythm" class="link-arrow">See the full routine <span aria-hidden="true">→</span></a>
       </div>
-      <ol class="mt-14 grid gap-6 md:grid-cols-3">
+      <ol class="mt-14 grid gap-8 md:grid-cols-3">
         {ritual.map((r, i) => (
-          <li class="group" data-reveal style={`--d:${i * 120}ms`}>
-            <a href="/how-it-works#rhythm" class="block">
-              <ImageSlot name={r.img} alt={r.alt} class="zoom-img aspect-[4/5] rounded-card bg-paper" sizes="(min-width: 768px) 380px, 100vw" />
-              <div class="mt-5 flex items-baseline gap-4">
-                <span class="font-serif text-3xl font-bold text-gold-deep">{String(i + 1).padStart(2, '0')}</span>
-                <div>
-                  <p class="text-[0.78rem] font-semibold uppercase tracking-[0.2em] text-gold-deep">{r.when}</p>
-                  <p class="mt-1 text-ink-soft">{r.line}</p>
-                </div>
-              </div>
+          <li data-reveal style={`--d:${i * 120}ms`}>
+            <a href="/how-it-works#rhythm" class="group block">
+              <ImageSlot name={r.img} alt={r.alt} class="zoom-img aspect-[4/5] rounded-[24px] bg-paper" sizes="(min-width: 768px) 380px, 100vw" />
+              <p class="mt-6 text-[0.72rem] font-bold tracking-[0.25em] text-gold-deep uppercase">{String(i + 1).padStart(2, '0')} · {r.when}</p>
+              <p class="mt-2 text-lg text-ink">{r.line}</p>
             </a>
           </li>
         ))}
@@ -129,69 +122,56 @@ const ritual = [
     </div>
   </section>
 
-  <!-- Quote interlude (full-bleed photo) -->
-  <section class="relative isolate overflow-hidden" aria-label="Our philosophy">
-    <div class="absolute inset-0 -z-10"><ImageSlot name={['after-reset', 'ritual-terrace', 'hiw-evening']} alt="" class="breathe h-full w-full" imgClass="h-full w-full object-cover object-[70%_40%]" sizes="100vw" /></div>
-    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-ink/75 via-ink/45 to-ink/10"></div>
-    <div class="wrap py-32 sm:py-44">
-      <blockquote class="max-w-2xl" data-reveal>
-        <p class="font-serif text-[clamp(2rem,4.2vw,3.4rem)] leading-[1.12] font-semibold text-white italic">“The value of the program lies not in extremes, but in structure, consistency, and intention.”</p>
-        <footer class="mt-8 text-xs font-semibold tracking-[0.3em] text-honey uppercase">The Lemon Detox Cleanse</footer>
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- Programs (white) -->
-  <section id="programs" class="pt-24 pb-16 sm:pt-32" aria-labelledby="programs-h">
+  <!-- ── Programs ───────────────────────────────────────────────────────────── -->
+  <section id="programs" class="scroll-mt-20 bg-paper/70 py-28 lg:py-36" aria-labelledby="programs-h">
     <div class="wrap">
       <div class="text-center" data-reveal>
-        <h2 id="programs-h" class="display-lg">Select your <em>program.</em></h2>
-        <a href={site.guidePdf} target="_blank" rel="noopener" class="link-arrow mt-5 text-sm">Learn how it works <span aria-hidden="true">→</span></a>
+        <p class="eyebrow">The Reset Box</p>
+        <h2 id="programs-h" class="display-lg mt-5">Select your <em>program.</em></h2>
+        <a href={site.guidePdf} target="_blank" rel="noopener" class="link-arrow mt-6 text-sm">Learn how it works <span aria-hidden="true">→</span></a>
       </div>
-      <div class="mx-auto mt-14 grid max-w-4xl gap-6 md:grid-cols-2 lg:gap-8">
+      <div class="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-2">
         {products.map((p, i) => <ProductCard product={p} delay={i * 120} />)}
       </div>
-      <TrustRow class="mt-10" center />
+      <TrustRow class="mt-12" center />
     </div>
   </section>
 
-  <GuideRequest />
-
-  <!-- Testimonials (#faf9f6) -->
-  <section class="texture bg-paper py-24 sm:py-32" aria-labelledby="voices-h">
+  <!-- ── Testimonials ───────────────────────────────────────────────────────── -->
+  <section class="py-28 lg:py-36" aria-labelledby="voices-h">
     <div class="wrap">
       <div class="text-center" data-reveal>
         <p class="font-serif text-2xl font-semibold text-gold-deep italic">Trusted for decades.</p>
         <h2 id="voices-h" class="display-lg mt-2">Everyday People. Real Stories.</h2>
       </div>
-      <div id="voices" class="-mx-5 mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0" aria-label="Customer quotes" tabindex="0" role="region">
+      <div id="voices" class="-mx-5 mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto px-5 pt-2 pb-6 [scrollbar-width:none] lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0" aria-label="Customer quotes" tabindex="0" role="region">
         {homeCards.map((c, i) => {
           const img = photoFor(c.photo);
           return (
-            <figure class="lift flex w-[80%] shrink-0 snap-center flex-col items-center rounded-card border hairline bg-white px-6 pt-8 pb-7 text-center sm:w-[46%] lg:w-auto" data-reveal style={`--d:${i * 90}ms`}>
-              {img ? <Picture src={img} alt={`Portrait of ${c.name}`} formats={['avif', 'webp']} widths={[120, 240]} sizes="120px" class="h-28 w-28 rounded-full object-cover object-top ring-4 ring-lemon-pale" /> : <span class="grid h-28 w-28 place-items-center rounded-full bg-lemon-pale font-serif text-3xl text-gold-deep">{c.name[0]}</span>}
-              <span class="-mt-4 grid h-8 w-8 place-items-center rounded-full border hairline bg-white font-serif text-xl leading-none text-gold" aria-hidden="true">“</span>
-              <blockquote class="mt-4 flex-1 font-serif text-[1.3rem] leading-snug font-medium text-ink">“{c.quote}”</blockquote>
-              <figcaption class="mt-6">
+            <figure class="card lift flex w-[80%] shrink-0 snap-center flex-col items-center px-6 pt-9 pb-8 text-center sm:w-[46%] lg:w-auto" data-reveal style={`--d:${i * 90}ms`}>
+              {img ? <Picture src={img} alt={`Portrait of ${c.name}`} formats={['avif', 'webp']} widths={[120, 240]} sizes="112px" class="h-24 w-24 rounded-full object-cover object-top" /> : <span class="grid h-24 w-24 place-items-center rounded-full bg-lemon-pale font-serif text-3xl text-gold-deep">{c.name[0]}</span>}
+              <blockquote class="mt-6 flex-1 font-serif text-[1.3rem] leading-snug font-medium text-ink">“{c.quote}”</blockquote>
+              <figcaption class="mt-6 border-t hairline pt-5">
                 <span class="block text-[0.95rem] font-semibold text-ink">{c.name}</span>
-                {c.role && <span class="block text-xs tracking-[0.15em] text-muted uppercase">{c.role}</span>}
-                <span class="mt-0.5 block text-xs tracking-[0.15em] text-muted uppercase">{c.location}</span>
+                <span class="mt-0.5 block text-[0.7rem] tracking-[0.18em] text-muted uppercase">{[c.role, c.location].filter(Boolean).join(' · ')}</span>
               </figcaption>
             </figure>
           );
         })}
       </div>
-      <div class="mt-12 text-center">
+      <div class="mt-10 text-center">
         <a href="/testimonials" class="btn btn-secondary btn-caps">Read more testimonials</a>
-        <p class="mt-6 text-xs text-muted">Individual results vary.</p>
+        <p class="mt-5 text-xs text-muted">Individual results vary.</p>
       </div>
     </div>
   </section>
 
+  <div class="bg-paper/70 pt-24"><GuideRequest /></div>
+
   <CTA />
 
   <script>
-    // Gentle auto-slide on small screens (every 7s). Pauses on hover, focus or touch; off for reduced motion.
+    // Gentle auto-slide of the testimonial cards on small screens (every 7s). Pauses on hover, focus or touch.
     const track = document.getElementById('voices');
     if (track && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
       let paused = false;
@@ -200,7 +180,7 @@ const ritual = [
       setInterval(() => {
         if (paused || track.scrollWidth <= track.clientWidth + 4) return;
         const card = track.children[0] as HTMLElement;
-        const step = card.offsetWidth + 20;
+        const step = card.offsetWidth + 24;
         const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 8;
         track.scrollTo({ left: atEnd ? 0 : track.scrollLeft + step, behavior: 'smooth' });
       }, 7000);

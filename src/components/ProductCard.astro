@@ -3,20 +3,18 @@ import type { Product } from '../data/products';
 import ResetBox from './ResetBox.astro';
 import ImageSlot from './ImageSlot.astro';
 import BuyButton from './BuyButton.astro';
-import LemonSlice from './LemonSlice.astro';
 interface Props { product: Product; delay?: number }
 const { product: p, delay = 0 } = Astro.props;
 const featured = !!p.badge;
 ---
 <article
-  class:list={['lift group relative flex flex-col overflow-hidden rounded-card border bg-white text-left', featured ? 'border-gold border-[1.5px]' : 'border-gold-soft']}
+  class:list={['card lift group relative flex flex-col overflow-hidden text-left', featured && '!border-gold/70 ring-1 ring-gold/40']}
   data-reveal style={`--d:${delay}ms`}
   aria-labelledby={`pc-${p.slug}`}
 >
-  {p.badge && <span class="absolute top-5 left-5 z-10 rounded-full bg-ink px-3.5 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white">{p.badge}</span>}
+  {p.badge && <span class="absolute top-5 left-5 z-10 rounded-full bg-gold-deep px-3.5 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white">{p.badge}</span>}
   <a href={`/products/${p.slug}`} class="block" tabindex="-1" aria-hidden="true">
     <ImageSlot name={`product-${p.days}day`} alt={`The ${p.name} Reset Box`} class="zoom-img aspect-[16/10] bg-[#f8f8f8]" imgClass="h-full w-full object-cover scale-[1.12]" sizes="(min-width: 768px) 520px, 100vw">
-      <LemonSlice class="absolute -right-14 -bottom-14 h-48 w-48 opacity-50" />
       <ResetBox days={p.days} label={p.subtitle.replace('Reset', 'Cleanse')} class="relative mx-auto h-full w-auto py-6 transition duration-700 group-hover:scale-[1.03]" />
     </ImageSlot>
   </a>
@@ -26,6 +24,7 @@ const featured = !!p.badge;
     </h3>
     <p class="mt-1 font-semibold text-ink-soft">{p.subtitle}</p>
     <p class="mt-3 text-sm text-muted">{p.cardLine}</p>
+    <p class="mt-4 text-xs font-semibold tracking-[0.12em] text-gold-deep uppercase">${(p.price / p.days).toFixed(2)} per day · Free tracked shipping</p>
     <div class="mt-auto flex flex-wrap items-center justify-between gap-x-6 gap-y-4 pt-7">
       <span class="font-serif text-[2.6rem] font-bold leading-none text-ink">${p.price}</span>
       <BuyButton href={p.checkoutUrl} product={p.name} size="sm" fallbackHref={`/products/${p.slug}`} class:list={['!px-6', !featured && '!bg-ink-soft hover:!bg-gold-deep']} />

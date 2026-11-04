@@ -13,7 +13,7 @@ const nav = [
 const isActive = (href: string) => href !== '/#programs' && path.startsWith(href);
 const cart = site.checkout.CART_URL;
 ---
-<header id="site-header" class="sticky top-0 z-40 border-b border-transparent bg-white/90 backdrop-blur-md transition-colors duration-300 data-[scrolled]:border-gold-soft">
+<header id="site-header" class="sticky top-0 z-40 border-b border-transparent bg-white/90 backdrop-blur-md transition-colors duration-300 data-[scrolled]:border-black/[0.06]">
   <div class="wrap grid h-[4.75rem] grid-cols-[auto_1fr_auto] items-center gap-6">
     <a href="/" class="shrink-0" aria-label="Lemon Detox Cleanse — home"><Logo eager class="h-10 w-auto sm:h-11" /></a>
 
@@ -41,7 +41,7 @@ const cart = site.checkout.CART_URL;
   <span id="progress" class="absolute inset-x-0 -bottom-px h-[2px] bg-gold" aria-hidden="true"></span>
   <div id="mobile-menu" class="hidden border-t hairline bg-white lg:hidden">
     <nav aria-label="Mobile" class="wrap py-6">
-      <ul class="divide-y divide-gold-soft">
+      <ul class="divide-y divide-black/[0.07]">
         {nav.map((n) => (
           <li><a href={n.href} class="flex items-center justify-between py-4 font-serif text-3xl font-bold text-ink" aria-current={isActive(n.href) ? 'page' : undefined}>{n.label}<span class="text-gold" aria-hidden="true">→</span></a></li>
         ))}

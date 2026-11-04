@@ -2,7 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import ResetBox from '../../components/ResetBox.astro';
 import ImageSlot from '../../components/ImageSlot.astro';
-import LemonSlice from '../../components/LemonSlice.astro';
 import BuyButton from '../../components/BuyButton.astro';
 import PriceNote from '../../components/PriceNote.astro';
 import TrustRow from '../../components/TrustRow.astro';
@@ -58,9 +57,7 @@ const jsonLd = [{
   <!-- Product hero -->
   <section class="wrap grid gap-10 pt-8 pb-24 lg:grid-cols-2 lg:gap-16" data-hero>
     <div class="relative lg:sticky lg:top-28 lg:self-start">
-      <ImageSlot name={`product-${p.days}day`} alt={`The ${p.name} Reset Box`} eager class="zoom-img aspect-square rounded-card border hairline bg-[#f8f8f8]" imgClass="h-full w-full object-contain scale-[1.25]" sizes="(min-width: 1024px) 580px, 100vw">
-        <LemonSlice class="absolute -top-20 -right-20 h-72 w-72 opacity-70" spin />
-        <LemonSlice class="absolute -bottom-10 -left-10 h-40 w-40 opacity-50" />
+      <ImageSlot name={`product-${p.days}day`} alt={`The ${p.name} Reset Box`} eager class="zoom-img aspect-square rounded-[24px] border hairline bg-[#f8f8f8]" imgClass="h-full w-full object-contain scale-[1.25]" sizes="(min-width: 1024px) 580px, 100vw">
         <ResetBox days={p.days} label={label} class="relative mx-auto h-full w-auto p-10 drop-shadow-[0_30px_40px_rgba(138,100,24,0.2)]" />
       </ImageSlot>
       {p.badge && <span class="absolute top-6 left-6 rounded-full bg-ink px-4 py-2 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-cream">{p.badge}</span>}
@@ -112,7 +109,7 @@ const jsonLd = [{
   </section>
 
   <!-- Why this length -->
-  <section class="bg-paper py-24 sm:py-32" aria-labelledby="why-h">
+  <section class="bg-paper/70 py-28 lg:py-36" aria-labelledby="why-h">
     <div class="wrap grid gap-12 lg:grid-cols-2 lg:gap-24">
       <div data-reveal>
         <p class="eyebrow mb-5">{p.eyebrow}</p>
@@ -159,7 +156,7 @@ const jsonLd = [{
 
   <!-- Stories -->
   {stories.length > 0 && (
-    <section class="bg-paper py-24 sm:py-32" aria-labelledby="st-h">
+    <section class="bg-paper/70 py-28 lg:py-36" aria-labelledby="st-h">
       <div class="wrap">
         <div class="flex flex-wrap items-end justify-between gap-6" data-reveal>
           <div><p class="eyebrow mb-5">Testimonials</p><h2 id="st-h" class="display-lg">Everyday People. <em>Real Stories.</em></h2></div>

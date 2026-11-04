@@ -116,7 +116,7 @@ const versions = [
   </nav>
 
   <!-- Section 2: The Pause (off-white) -->
-  <section id="pause" class="texture scroll-mt-36 bg-paper py-24 sm:py-28" aria-labelledby="pause-h">
+  <section id="pause" class="scroll-mt-36 bg-paper/70 py-28 lg:py-36" aria-labelledby="pause-h">
     <div class="wrap grid gap-10 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
       <div data-reveal>
         <p class="eyebrow mb-5">The pause</p>
@@ -133,7 +133,7 @@ const versions = [
   </section>
 
   <!-- Section 3: Daily rhythm (white) -->
-  <section id="rhythm" class="scroll-mt-36 py-24 sm:py-28" aria-labelledby="rhythm-h">
+  <section id="rhythm" class="scroll-mt-36 py-28 lg:py-36" aria-labelledby="rhythm-h">
     <div class="wrap">
       <div class="max-w-3xl" data-reveal>
         <p class="eyebrow mb-5">Daily rhythm</p>
@@ -160,7 +160,7 @@ const versions = [
   </section>
 
   <!-- Section 4: The Formula (off-white) -->
-  <section id="formula" class="texture scroll-mt-36 bg-paper py-24 sm:py-28" aria-labelledby="formula-h">
+  <section id="formula" class="scroll-mt-36 bg-paper/70 py-28 lg:py-36" aria-labelledby="formula-h">
     <div class="wrap">
       <div class="grid gap-8 lg:grid-cols-[1fr_1.25fr] lg:gap-20" data-reveal>
         <div>
@@ -176,7 +176,7 @@ const versions = [
       <h3 class="mt-16 font-sans text-sm font-bold uppercase tracking-[0.22em] text-gold-deep">The four key ingredients</h3>
       <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {ingredients.map((g, i) => (
-          <article class="lift flex flex-col overflow-hidden rounded-[8px] border border-[#eeeeee] bg-white" data-reveal style={`--d:${i * 80}ms`}>
+          <article class="lift flex flex-col overflow-hidden card" data-reveal style={`--d:${i * 80}ms`}>
             <ImageSlot name={g.img} alt={g.alt} class:list={['zoom-img aspect-[4/3]', g.fit === 'contain' ? 'bg-white' : 'bg-paper']} imgClass={g.fit === 'contain' ? 'h-full w-full object-contain p-6' : 'h-full w-full object-cover'} sizes="(min-width: 1024px) 280px, 50vw" />
             <div class="relative flex-1 p-[30px]">
               {g.icon && <Image src={dropIcon} alt="" width={56} height={56} class="absolute -top-7 right-6 h-14 w-14 rounded-full shadow-sm" />}
@@ -190,7 +190,7 @@ const versions = [
   </section>
 
   <!-- Section 5: Mixing (white) -->
-  <section id="mixing" class="scroll-mt-36 py-24 sm:py-28" aria-labelledby="mix-h">
+  <section id="mixing" class="scroll-mt-36 py-28 lg:py-36" aria-labelledby="mix-h">
     <div class="wrap">
       <div class="grid items-end gap-6 lg:grid-cols-[1fr_1.1fr] lg:gap-20" data-reveal>
         <div>
@@ -204,26 +204,26 @@ const versions = [
           { t: 'For a 2 litre batch', sub: 'Preferred for the whole day', rec: true, items: ['140 ml Madal Bal® Natural Tree Syrup', '3½ freshly squeezed lemons (approximately 140 ml juice)', '2–3 pinches of cayenne pepper', 'Approximately 1700 ml fresh or filtered water'] },
           { t: 'Per glass', sub: 'Handy when travelling', items: ['1 tablespoon (20 ml) Madal Bal® Natural Tree Syrup', '1 tablespoon freshly squeezed lemon juice (about half a lemon)', '½ pinch cayenne pepper (adjust to taste)', 'At least 250 ml fresh or filtered water'] },
         ].map((m, i) => (
-          <div class:list={['rounded-card border p-7 sm:p-9', m.rec ? 'border-gold/60 bg-lemon-pale/35' : 'hairline bg-white']} data-reveal style={`--d:${i * 90}ms`}>
+          <div class:list={['card p-7 sm:p-9', m.rec && '!border-gold/40']} data-reveal style={`--d:${i * 90}ms`}>
             <div class="flex flex-wrap items-center justify-between gap-3">
               <h3 class="text-[2rem]">{m.t}</h3>
               {m.rec && <span class="rounded-full bg-honey px-3 py-1 text-[0.62rem] font-bold uppercase tracking-[0.2em] text-ink">Recommended</span>}
             </div>
             <p class="mt-1 text-sm text-muted">{m.sub}</p>
-            <ol class="mt-6 divide-y divide-gold-soft">
+            <ol class="mt-6 divide-y divide-black/[0.07]">
               {m.items.map((it, j) => <li class="flex gap-5 py-3.5"><span class="font-serif text-xl font-bold text-gold-deep">{String(j + 1).padStart(2, '0')}</span><span>{it}</span></li>)}
             </ol>
           </div>
         ))}
       </div>
       <ul class="mt-8 flex flex-wrap gap-3 text-sm" data-reveal>
-        {['Mix well before drinking.', 'Enjoy cold, at room temperature, or warm.', 'After opening, keep the Madal Bal tin refrigerated.'].map((n) => <li class="rounded-full border hairline bg-paper px-4 py-2 text-ink-soft">{n}</li>)}
+        {['Mix well before drinking.', 'Enjoy cold, at room temperature, or warm.', 'After opening, keep the Madal Bal tin refrigerated.'].map((n) => <li class="rounded-full border hairline bg-white px-4 py-2 text-ink-soft">{n}</li>)}
       </ul>
     </div>
   </section>
 
   <!-- Section 6: Elimination (off-white) -->
-  <section id="elimination" class="texture scroll-mt-36 bg-paper py-24 sm:py-28" aria-labelledby="elim-h">
+  <section id="elimination" class="scroll-mt-36 bg-paper/70 py-28 lg:py-36" aria-labelledby="elim-h">
     <div class="wrap">
       <div class="grid gap-8 lg:grid-cols-[1fr_1.25fr] lg:gap-20" data-reveal>
         <div>
@@ -236,21 +236,21 @@ const versions = [
         </div>
       </div>
       <div class="mt-14 grid gap-6 md:grid-cols-2">
-        <article class="lift overflow-hidden rounded-card border hairline bg-white" data-reveal>
+        <article class="lift overflow-hidden card" data-reveal>
           <ImageSlot name={['sea-salt', 'hiw-morning']} alt="Morning light on a terrace table with the Lemon Detox drink and sea salt" class="zoom-img aspect-[16/8] bg-paper" sizes="(min-width: 768px) 580px, 100vw" />
-          <div class="flex items-center gap-5 border-b hairline bg-lemon-pale/45 px-7 py-6">
-            <span class="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-white text-gold-deep"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d={icons.morning} fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+          <div class="flex items-center gap-5 px-7 pt-7">
+            <span class="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-lemon/20 text-gold-deep"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d={icons.morning} fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
             <h3 class="font-sans text-lg font-bold uppercase tracking-[0.14em] text-ink">Morning – Sea Salt Water</h3>
           </div>
-          <p class="p-7 text-ink-soft">The sea salt water drink is prepared by dissolving <strong class="text-ink">two teaspoons of natural, uniodised sea salt</strong> in <strong class="text-ink">one litre of warm purified water</strong> and drinking it <strong class="text-ink">on an empty stomach</strong>.</p>
+          <p class="px-7 pt-4 pb-7 text-ink-soft">The sea salt water drink is prepared by dissolving <strong class="text-ink">two teaspoons of natural, uniodised sea salt</strong> in <strong class="text-ink">one litre of warm purified water</strong> and drinking it <strong class="text-ink">on an empty stomach</strong>.</p>
         </article>
-        <article class="lift overflow-hidden rounded-card border hairline bg-white" data-reveal style="--d:90ms">
+        <article class="lift overflow-hidden card" data-reveal style="--d:90ms">
           <ImageSlot name={['senna-leaves', 'senna-tea']} alt="A bowl of dried senna leaves on linen" class="zoom-img aspect-[16/8] bg-paper" sizes="(min-width: 768px) 580px, 100vw" />
-          <div class="flex items-center gap-5 border-b border-ink bg-ink px-7 py-6">
-            <span class="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-white/10 text-honey"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d={icons.evening} fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
-            <h3 class="font-sans text-lg font-bold uppercase tracking-[0.14em] text-white">Evening – Herbal Senna Tea</h3>
+          <div class="flex items-center gap-5 px-7 pt-7">
+            <span class="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-lemon/20 text-gold-deep"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d={icons.evening} fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+            <h3 class="font-sans text-lg font-bold uppercase tracking-[0.14em] text-ink">Evening – Herbal Senna Tea</h3>
           </div>
-          <p class="p-7 text-ink-soft"><strong class="text-ink">Senna tea</strong>, a mild herbal laxative <strong class="text-ink">taken before bed</strong>, supports overnight elimination of waste released during the cleanse.</p>
+          <p class="px-7 pt-4 pb-7 text-ink-soft"><strong class="text-ink">Senna tea</strong>, a mild herbal laxative <strong class="text-ink">taken before bed</strong>, supports overnight elimination of waste released during the cleanse.</p>
         </article>
       </div>
       <div class="mt-10 grid gap-5 text-ink-soft md:grid-cols-2" data-reveal>
@@ -261,7 +261,7 @@ const versions = [
   </section>
 
   <!-- Section 7: Versions (white) -->
-  <section id="versions" class="scroll-mt-36 py-24 sm:py-28" aria-labelledby="ver-h">
+  <section id="versions" class="scroll-mt-36 py-28 lg:py-36" aria-labelledby="ver-h">
     <div class="wrap">
       <div class="max-w-3xl" data-reveal>
         <p class="eyebrow mb-5">Versions</p>
@@ -270,13 +270,13 @@ const versions = [
       </div>
       <div class="mt-14 grid gap-6 lg:grid-cols-3">
         {versions.map((v, i) => (
-          <article class="lift flex flex-col overflow-hidden rounded-card border hairline bg-white" data-reveal style={`--d:${i * 90}ms`}>
+          <article class="lift flex flex-col overflow-hidden card" data-reveal style={`--d:${i * 90}ms`}>
             <ImageSlot name={v.img} alt={v.alt} class="zoom-img aspect-[4/3] bg-paper" sizes="(min-width: 1024px) 380px, 100vw" />
             <div class="flex flex-1 flex-col p-7">
               <p class="text-xs font-bold uppercase tracking-[0.2em] text-gold-deep">{v.tag}</p>
               <h3 class="mt-2 text-[2.1rem]">{v.name}</h3>
               <p class="mt-3 text-[0.95rem] text-ink-soft">{v.body}</p>
-              <dl class="mt-6 divide-y divide-gold-soft border-y hairline text-sm">
+              <dl class="mt-6 divide-y divide-black/[0.07] border-y hairline text-sm">
                 {v.meals.map(([k, val]) => <div class="flex justify-between gap-4 py-3"><dt class="font-semibold text-ink">{k}</dt><dd class="text-right text-ink-soft">{val}</dd></div>)}
               </dl>
               <p class="mt-5 text-sm text-muted">{v.note}</p>
@@ -292,7 +292,7 @@ const versions = [
   </section>
 
   <!-- Section 8: Depth (off-white) -->
-  <section id="depth" class="texture scroll-mt-36 bg-paper py-24 sm:py-28" aria-labelledby="depth-h">
+  <section id="depth" class="scroll-mt-36 bg-paper/70 py-28 lg:py-36" aria-labelledby="depth-h">
     <div class="wrap grid gap-10 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
       <div data-reveal>
         <p class="eyebrow mb-5">Depth</p>
@@ -309,7 +309,7 @@ const versions = [
   </section>
 
   <!-- What to expect (white) -->
-  <section id="expect" class="scroll-mt-36 py-24 sm:py-28" aria-labelledby="expect-h">
+  <section id="expect" class="scroll-mt-36 py-28 lg:py-36" aria-labelledby="expect-h">
     <div class="wrap">
       <div class="grid items-end gap-10 lg:grid-cols-[1.6fr_1fr]">
       <div class="max-w-3xl" data-reveal>
@@ -325,7 +325,7 @@ const versions = [
           ['The Balance Phase', 'As the cleanse progresses, many participants report that hunger sensations begin to decrease and energy levels become more stable. Without the constant demands of digesting solid foods, the digestive system is able to rest while the body focuses on restoring balance.'],
           ['The Clarity Phase', 'By the later stages of the cleanse, many people describe feeling lighter, more mentally clear and more aware of their eating habits and lifestyle choices — an opportunity to pause from everyday habits and reconnect with a healthier, more balanced way of living.'],
         ].map(([t, b], i) => (
-          <li class="rounded-card border hairline bg-white p-7" data-reveal style={`--d:${i * 90}ms`}>
+          <li class="card p-7" data-reveal style={`--d:${i * 90}ms`}>
             <span class="grid h-10 w-10 place-items-center rounded-full bg-lemon font-serif text-lg font-bold text-ink">{i + 1}</span>
             <h3 class="mt-5 text-[1.8rem]">{t}</h3>
             <p class="mt-3 text-[0.95rem] text-ink-soft">{b}</p>
@@ -339,7 +339,7 @@ const versions = [
   <!-- Before you start (safety) -->
   <section id="who-it-isnt-for" class="scroll-mt-36 pb-24 sm:pb-28" aria-labelledby="who-h">
     <div class="wrap">
-      <div class="rounded-card border-2 border-gold/60 bg-paper p-8 sm:p-12" data-reveal>
+      <div class="card p-8 sm:p-12" data-reveal>
         <p class="eyebrow mb-5">Before you start</p>
         <h2 id="who-h" class="display-md">Who the cleanse <em>isn't for.</em></h2>
         <p class="mt-6 font-semibold text-ink">The Lemon Detox Cleanse is not suitable if you are:</p>

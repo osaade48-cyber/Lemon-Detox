@@ -1,14 +1,14 @@
 ---
-/** Slowly drifting "Reset · Reduce · Restore" band. */
-interface Props { class?: string }
-const { class: cls = '' } = Astro.props;
-const words = ['Reset', 'Reduce', 'Restore'];
-const run = Array.from({ length: 6 }, () => words).flat();
+/** Slowly drifting band — trust points and the tagline. Pauses on hover; still for reduced motion. */
+interface Props { class?: string; items?: string[] }
+const { class: cls = '', items = ['Reset', 'Reduce', 'Restore'] } = Astro.props;
+const run = Array.from({ length: Math.ceil(12 / items.length) }, () => items).flat();
 ---
-<div class:list={['marquee-wrap overflow-hidden bg-lemon', cls]} aria-label="Reset · Reduce · Restore" role="img">
-  <div class="marquee py-3.5 text-[0.72rem] font-bold uppercase tracking-[0.4em] text-ink" aria-hidden="true">
+<div class:list={['marquee-wrap overflow-hidden bg-lemon', cls]}>
+  <p class="sr-only">{items.join(' · ')}</p>
+  <div class="marquee py-3.5 text-[0.7rem] font-bold uppercase tracking-[0.3em] text-ink" aria-hidden="true">
     {[0, 1].map(() => (
-      <span class="flex shrink-0">{run.map((w) => <span class="flex items-center gap-10 pr-10">{w}<svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="2.2" fill="currentColor" /></svg></span>)}</span>
+      <span class="flex shrink-0">{run.map((w) => <span class="flex items-center gap-8 pr-8 whitespace-nowrap">{w}<svg width="8" height="8" viewBox="0 0 10 10"><circle cx="5" cy="5" r="2.4" fill="currentColor" /></svg></span>)}</span>
     ))}
   </div>
 </div>

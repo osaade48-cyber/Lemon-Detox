@@ -10,9 +10,9 @@ import { site } from '../config/site';
 import { products } from '../data/products';
 const formspree = site.forms.FORMSPREE_ENDPOINT;
 ---
-<section id="guide" class="pb-24 sm:pb-28" aria-labelledby="guide-h">
+<section id="guide" class="scroll-mt-20 pb-28 lg:pb-36" aria-labelledby="guide-h">
   <div class="wrap">
-    <div class="mx-auto max-w-3xl border-t hairline pt-16 text-center" data-reveal>
+    <div class="mx-auto max-w-3xl text-center" data-reveal>
       <p class="font-serif text-2xl font-semibold text-ink-soft italic">Want to know more before you start?</p>
       <h2 id="guide-h" class="mt-3 text-3xl sm:text-4xl">Download the program guide</h2>
       <p class="mx-auto mt-4 max-w-lg text-muted">Prefer to review the full program first? Receive the overview guide.</p>
@@ -22,7 +22,7 @@ const formspree = site.forms.FORMSPREE_ENDPOINT;
         <p class="hidden" aria-hidden="true"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></p>
         <label for="guide-email" class="sr-only">Email address</label>
         <div class="flex flex-col gap-3 sm:flex-row">
-          <input id="guide-email" name="email" type="email" required autocomplete="email" placeholder="Enter email" class="min-h-[3.25rem] flex-1 rounded-full border border-gold-soft bg-white px-5 text-ink placeholder:text-muted focus:border-ink focus:outline-none focus:ring-2 focus:ring-honey/60" />
+          <input id="guide-email" name="email" type="email" required autocomplete="email" placeholder="Enter email" class="min-h-[3.25rem] flex-1 rounded-full border border-black/10 bg-white px-5 text-ink placeholder:text-muted focus:border-ink focus:outline-none focus:ring-2 focus:ring-honey/60" />
           <button type="submit" class="btn btn-primary btn-caps">Get the guide</button>
         </div>
         <label class="mt-4 flex items-start gap-3 text-sm text-muted">
@@ -34,7 +34,7 @@ const formspree = site.forms.FORMSPREE_ENDPOINT;
 
     <div id="guide-viewer" class="mx-auto mt-14 hidden max-w-5xl" tabindex="-1">
       <p class="text-center font-serif text-3xl font-bold text-ink" role="status">Your guide is ready below.</p>
-      <div class="relative mt-8 overflow-hidden rounded-card border hairline bg-paper shadow-[var(--shadow-soft)]">
+      <div class="relative mt-8 overflow-hidden card">
         <a href={site.guidePdf} download class="btn btn-primary btn-sm btn-caps absolute top-4 right-4 z-10 !min-h-[2.3rem] !px-4 !text-[0.68rem]">
           <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7l4 4 4-4M2.5 14h11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Download PDF
