@@ -29,8 +29,8 @@ const quoteMark = 'M0 22V12.7C0 5.4 4.2 1.2 11 0l1.2 2.6C8 4 6 6.6 5.8 10H11v12H
 ---
 <figure class:list={['story lift flex overflow-hidden rounded-[22px] border border-black/[0.05] bg-white shadow-[0_2px_6px_rgba(26,26,26,0.03),0_20px_40px_-30px_rgba(26,26,26,0.3)]', img && size === 'wide' ? 'flex-col sm:flex-row' : 'flex-col', cls]} data-category={t.category} hidden={hidden}>
   {img && size === 'wide' && (
-    <div class="h-64 shrink-0 overflow-hidden bg-[#f7f5f0] sm:h-auto sm:w-[30%]">
-      <Picture src={img} alt={`Portrait of ${t.name}`} formats={['avif', 'webp']} widths={[240, 380]} sizes="(min-width: 640px) 240px, 100vw" loading="lazy" class="h-full w-full object-cover object-[50%_25%]" />
+    <div class="shrink-0 px-7 pt-7 sm:w-[13.5rem] sm:py-8 sm:pr-0 sm:pl-8">
+      <Picture src={img} alt={`Portrait of ${t.name}`} formats={['avif', 'webp']} widths={[img.width > 300 ? 300 : img.width]} sizes="180px" loading="lazy" class="h-auto w-36 rounded-[14px] sm:w-full" />
     </div>
   )}
   <div class="flex flex-1 flex-col p-7 sm:p-8">
