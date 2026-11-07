@@ -10,9 +10,11 @@ export type Testimonial = {
   headline: string | null;
   story: string[]; // paragraphs; may contain <strong>/<em> from the customer's original formatting
   photo: string | null;
+  label?: string | null;
+  featured?: boolean;
 };
 
-export const categories: { id: string; label: string; blurb: string }[] = raw.categories;
+export const categories: { id: string; label: string; eyebrow: string; blurb: string }[] = raw.categories;
 export const testimonials: Testimonial[] = raw.testimonials as Testimonial[];
 export const disclaimer: string = raw.disclaimer;
 

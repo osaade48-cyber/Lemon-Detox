@@ -1,99 +1,148 @@
 ---
+import { Picture } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import StoryCard from '../components/StoryCard.astro';
 import CTA from '../components/CTA.astro';
 import ImageSlot from '../components/ImageSlot.astro';
-import { categories, testimonials, disclaimer } from '../data/testimonials';
+import { categories, testimonials, disclaimer, photoFor } from '../data/testimonials';
 
-const PAGE = 8;
-const tabs = [{ id: 'all', label: 'All', blurb: '' }, ...categories];
+const SHOW = 7; // cards per category before "View more"
+// Mixed sizes, repeating: wide+narrow, narrow+wide, then three narrow (12-column grid)
+const pattern: { span: string; size: 'wide' | 'narrow' }[] = [
+  { span: 'lg:col-span-7', size: 'wide' }, { span: 'lg:col-span-5', size: 'narrow' },
+  { span: 'lg:col-span-5', size: 'narrow' }, { span: 'lg:col-span-7', size: 'wide' },
+  { span: 'lg:col-span-4', size: 'narrow' }, { span: 'lg:col-span-4', size: 'narrow' }, { span: 'lg:col-span-4', size: 'narrow' },
+];
+const groups = categories.map((c) => {
+  const all = testimonials.filter((t) => t.category === c.id);
+  const featured = all.find((t) => t.featured) ?? all[0];
+  // photo cards first so the images are spread through the visible cards
+  const others = all.filter((t) => t !== featured).sort((a, b) => Number(!!b.photo) - Number(!!a.photo));
+  return { ...c, featured, others, count: all.length, featImg: photoFor(featured.photo?.replace('.jpeg', '-large.jpg') ?? null) ?? photoFor(featured.photo) };
+});
+const firstSentence = (t: (typeof testimonials)[number]) => {
+  if (t.headline) return t.headline;
+  const p = (t.story[0] ?? '').replace(/<[^>]+>/g, '');
+  return (p.match(/^.+?[.!?](?=\s|$)/)?.[0] ?? p);
+};
+const featuredQuote = (t: (typeof testimonials)[number]) => {
+  // the most quotable sentence: the last sentence of the story (usually the verdict)
+  const all = t.story.join(' ').replace(/<[^>]+>/g, '');
+  const sentences = all.match(/[^.!?]+[.!?]+/g) ?? [all];
+  const last = sentences.map((s) => s.trim()).filter((s) => s.split(/\s+/).length >= 6).pop();
+  return last ?? firstSentence(t);
+};
 ---
-<Base title="Testimonials — Lemon Detox Cleanse" description="Genuine experiences shared by people who have completed the Lemon Detox Cleanse.">
-  <section class="bg-paper/70" data-hero>
-    <div class="wrap grid items-center gap-12 pt-16 pb-14 sm:pt-20 sm:pb-16 lg:grid-cols-[1.5fr_1fr]">
+<Base title="Testimonials — Lemon Detox Cleanse" description="Genuine experiences shared by people who have completed the Lemon Detox Cleanse, grouped by what they came for.">
+  <!-- Hero (Manus layout) -->
+  <section class="bg-paper" data-hero>
+    <div class="wrap !max-w-[1320px] grid items-center gap-12 pt-14 pb-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 lg:pt-20 lg:pb-24">
       <div>
-      <span class="chip">Testimonials</span>
-      <h1 class="display-xl mt-6 max-w-4xl !text-[clamp(2.75rem,6vw,5rem)]">Real experiences with Lemon Detox <em>Cleanse.</em></h1>
-      <span class="rule" aria-hidden="true"></span>
-      <div class="mt-8 grid max-w-4xl gap-5 text-ink-soft md:grid-cols-2">
-        <p>The experiences of those who have completed the Lemon Detox program provide valuable insight into how the program is perceived by participants.</p>
-        <p>While each person’s experience is different, many people report feeling lighter, clearer, and more aware of their habits after completing the program.</p>
-      </div>
-      <p class="mt-6 text-sm text-muted">Below are genuine testimonials shared by participants who have followed the Lemon Detox program. Results and experiences vary from person to person.</p>
-      </div>
-      <ImageSlot name="testimonials-side" alt="A smiling woman enjoying the morning sun outdoors" eager class="hidden aspect-[4/5] rounded-[24px] bg-white lg:block" sizes="420px" />
-    </div>
-  </section>
-
-  <section class="py-14 sm:py-16" aria-label="Testimonials">
-    <div class="wrap">
-      <h2 class="eyebrow">Browse testimonials by category</h2>
-      <div class="sticky top-[4.75rem] z-20 -mx-5 mt-4 border-y hairline bg-white/95 px-5 py-3 backdrop-blur sm:mx-0 sm:rounded-full sm:border sm:px-2 sm:py-2">
-        <div role="tablist" aria-label="Filter testimonials by category" class="flex gap-2 overflow-x-auto [scrollbar-width:none]">
-          {tabs.map((t, i) => (
-            <button type="button" role="tab" id={`tab-${t.id}`} data-filter={t.id} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} aria-controls="story-grid"
-              class="shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-ink-soft transition hover:text-ink aria-selected:bg-ink aria-selected:text-white">
-              {t.label}
-            </button>
-          ))}
+        <p class="eyebrow">Real stories · In their own words</p>
+        <h1 class="display-xl mt-6 !text-[clamp(2.9rem,5.4vw,5rem)] !leading-[1.05]">Real experiences with <em>Lemon Detox Cleanse.</em></h1>
+        <div class="mt-8 max-w-xl space-y-4 text-[1.1rem] leading-[1.8] text-ink-soft">
+          <p>The experiences of those who have completed the Lemon Detox program provide valuable insight into how the program is perceived by participants.</p>
+          <p>While each person’s experience is different, many people report feeling lighter, clearer, and more aware of their habits after completing the program.</p>
+        </div>
+        <div class="mt-10 flex flex-wrap gap-4">
+          <a href="/#programs" class="btn btn-primary btn-caps !min-h-[3.75rem] !px-8">Order your Reset Box <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/how-it-works" class="btn btn-secondary btn-caps !min-h-[3.75rem] !border-ink/25 !bg-white !px-8">How it works</a>
         </div>
       </div>
-
-      <p id="story-blurb" class="mt-8 min-h-[1.7em] text-muted" aria-live="polite"></p>
-
-      <div id="story-grid" role="tabpanel" aria-labelledby="tab-all" class="mt-4 columns-1 gap-6 md:columns-2 xl:columns-3">
-        {testimonials.map((t, i) => <StoryCard t={t} hidden={i >= PAGE} />)}
-      </div>
-
-      <div class="mt-6 text-center">
-        <button id="view-more" type="button" class="btn btn-secondary btn-caps">View more</button>
-        <p id="story-count" class="mt-4 text-sm text-muted" aria-live="polite"></p>
-      </div>
-
-      <p class="mx-auto mt-12 max-w-3xl text-center text-sm text-muted">{disclaimer}</p>
-      <p class="mt-6 text-center text-ink-soft">Finished your cleanse? We’d love to hear how it went — <a href="/contact?topic=story" class="link-arrow">Share your story</a></p>
+      <ImageSlot name="testimonials-side" alt="A smiling woman enjoying the morning sun outdoors" eager class="aspect-[4/5] w-full max-w-[34rem] justify-self-end rounded-[26px] bg-white shadow-[0_40px_60px_-40px_rgba(26,26,26,0.4)]" sizes="(min-width: 1024px) 540px, 100vw" />
     </div>
   </section>
 
-  <CTA title="Your reset story is <em>next.</em>" />
+  <!-- Category pills -->
+  <nav aria-label="Testimonial categories" class="sticky top-[5.5rem] z-20 border-y border-black/[0.06] bg-white/95 backdrop-blur">
+    <ul class="wrap !max-w-[1320px] flex gap-3 overflow-x-auto py-4 [scrollbar-width:none]">
+      {groups.map((g) => (
+        <li><a href={`#${g.id}`} data-cat={g.id} class="flex items-center gap-2.5 rounded-full border border-black/10 px-6 py-3 text-[0.75rem] font-medium tracking-[0.2em] whitespace-nowrap text-ink uppercase transition hover:border-ink">{g.label}<span class="text-[0.65rem] text-muted">{g.count}</span></a></li>
+      ))}
+    </ul>
+  </nav>
 
-  <script define:vars={{ blurbs: Object.fromEntries(categories.map((c) => [c.id, c.blurb])), PAGE }}>
-    const tabs = [...document.querySelectorAll('[data-filter]')];
-    const cards = [...document.querySelectorAll('#story-grid .story')];
-    const grid = document.getElementById('story-grid');
-    const blurb = document.getElementById('story-blurb');
-    const more = document.getElementById('view-more');
-    const count = document.getElementById('story-count');
-    let filter = 'all', shown = PAGE;
-    const render = () => {
-      const matching = cards.filter((c) => filter === 'all' || c.dataset.category === filter);
-      cards.forEach((c) => (c.hidden = true));
-      matching.slice(0, shown).forEach((c) => (c.hidden = false));
-      more.hidden = shown >= matching.length;
-      count.textContent = `Showing ${Math.min(shown, matching.length)} of ${matching.length} testimonials`;
-    };
-    const select = (tab, focus) => {
-      tabs.forEach((t) => { const on = t === tab; t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1; });
-      filter = tab.dataset.filter; shown = PAGE;
-      grid.setAttribute('aria-labelledby', tab.id);
-      blurb.textContent = blurbs[filter] || '';
-      render();
-      if (focus) tab.focus();
-    };
-    more.addEventListener('click', () => { shown += PAGE; render(); });
-    tabs.forEach((t, i) => {
-      t.addEventListener('click', () => select(t));
-      t.addEventListener('keydown', (e) => {
-        const n = { ArrowRight: tabs[(i + 1) % tabs.length], ArrowLeft: tabs[(i - 1 + tabs.length) % tabs.length], Home: tabs[0], End: tabs[tabs.length - 1] }[e.key];
-        if (n) { e.preventDefault(); select(n, true); }
-      });
+  {groups.map((g, gi) => (
+    <section id={g.id} class:list={['scroll-mt-44 py-16 lg:py-24', gi % 2 === 0 ? 'bg-paper' : 'bg-white']} aria-labelledby={`${g.id}-h`}>
+      <div class="wrap !max-w-[1320px]">
+        <!-- Category intro + featured real testimonial -->
+        <div class="grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          <div data-reveal>
+            <p class="eyebrow">{g.eyebrow}</p>
+            <h2 id={`${g.id}-h`} class="mt-4 text-[clamp(2.2rem,3.8vw,3.4rem)] leading-[1.1]">{g.label}</h2>
+            <span class="rule" aria-hidden="true"></span>
+            <p class="mt-6 max-w-md text-[1.05rem] leading-[1.8] text-ink-soft">{g.blurb}</p>
+            <p class="mt-4 text-sm text-muted">{g.count} {g.count === 1 ? 'story' : 'stories'}</p>
+          </div>
+          <figure class="grid overflow-hidden rounded-[26px] bg-white shadow-[0_40px_70px_-40px_rgba(26,26,26,0.4)] ring-1 ring-black/[0.04] sm:grid-cols-[0.9fr_1.1fr]" data-reveal style="--d:120ms">
+            <div class="bg-[#f7f5f0]">
+              {g.featImg && <Picture src={g.featImg} alt={`Portrait of ${g.featured.name}`} formats={['avif', 'webp']} widths={[260, 380]} sizes="(min-width: 640px) 320px, 100vw" class="h-72 w-full object-cover object-top sm:h-full" />}
+            </div>
+            <div class="flex flex-col justify-center p-8 sm:p-10">
+              <svg width="34" height="26" viewBox="0 0 28 22" aria-hidden="true" class="text-gold"><path d="M0 22V12.7C0 5.4 4.2 1.2 11 0l1.2 2.6C8 4 6 6.6 5.8 10H11v12H0zm16 0V12.7C16 5.4 20.2 1.2 27 0l1 2.6C24 4 22 6.6 21.8 10H27v12H16z" fill="currentColor"/></svg>
+              <blockquote class="mt-5 font-serif text-[clamp(1.4rem,2vw,1.8rem)] leading-snug text-ink">“{featuredQuote(g.featured)}”</blockquote>
+              <figcaption class="mt-6">
+                <span class="block font-medium text-ink">— {g.featured.name}</span>
+                <span class="mt-1 block text-[0.68rem] tracking-[0.2em] text-muted uppercase">{[g.featured.role, g.featured.location].filter(Boolean).join(' · ')}</span>
+              </figcaption>
+              <a href={`#${g.id}-story`} class="link-arrow mt-6 self-start text-sm">Read {g.featured.name.split(' ')[0]}’s story</a>
+            </div>
+          </figure>
+        </div>
+
+        <!-- The rest, mixed sizes -->
+        <div class="mt-12 grid gap-6 lg:grid-cols-12" data-group={g.id}>
+          <StoryCard t={g.featured} size="wide" showPhoto={false} class="scroll-mt-48 lg:col-span-12" />
+          {g.others.map((t, i) => {
+            const p = pattern[i % pattern.length];
+            return <StoryCard t={t} size={p.size} class={p.span} hidden={i >= SHOW} />;
+          })}
+        </div>
+        {g.others.length > SHOW && (
+          <div class="mt-10 text-center">
+            <button type="button" class="view-more btn btn-secondary btn-caps !min-h-[3.25rem] !border-ink/25 !bg-white !px-8" data-group={g.id} data-shown={SHOW}>View more {g.label.toLowerCase()} stories</button>
+          </div>
+        )}
+      </div>
+    </section>
+  ))}
+
+  <section class="py-14 text-center">
+    <p class="wrap mx-auto max-w-3xl text-sm text-muted">{disclaimer}</p>
+    <p class="mt-5 text-ink-soft">Finished your cleanse? We’d love to hear how it went — <a href="/contact?topic=story" class="link-arrow">Share your story</a></p>
+  </section>
+
+  <CTA title="Your reset story is <em>next</em>." />
+
+  <script>
+    // give the featured full card an anchor id for "Read …'s story"
+    document.querySelectorAll<HTMLElement>('[data-group]').forEach((grid) => {
+      if (grid.tagName === 'DIV') (grid.firstElementChild as HTMLElement).id = `${grid.dataset.group}-story`;
     });
-    document.querySelectorAll('.story-more').forEach((b) => b.addEventListener('click', () => {
-      const body = b.previousElementSibling;
+    // View more: reveal the next 7 in that category
+    document.querySelectorAll<HTMLButtonElement>('.view-more').forEach((btn) => btn.addEventListener('click', () => {
+      const cards = [...document.querySelectorAll<HTMLElement>(`div[data-group="${btn.dataset.group}"] .story`)].slice(1);
+      const shown = Number(btn.dataset.shown) + 7;
+      cards.forEach((c, i) => { if (i < shown) { c.hidden = false; c.classList.add('is-in'); } });
+      btn.dataset.shown = String(shown);
+      if (shown >= cards.length) btn.parentElement!.remove();
+    }));
+    // Read full story
+    document.querySelectorAll<HTMLButtonElement>('.story-more').forEach((b) => b.addEventListener('click', () => {
+      const body = b.previousElementSibling!;
       const open = body.classList.toggle('is-clamped') === false;
       b.setAttribute('aria-expanded', String(open));
       b.textContent = open ? 'Show less' : 'Read full story';
     }));
-    render();
+    // Highlight the category pill in view
+    const pills = document.querySelectorAll<HTMLAnchorElement>('[data-cat]');
+    const set = (id: string) => pills.forEach((a) => {
+      const on = a.dataset.cat === id;
+      a.classList.toggle('!bg-ink', on); a.classList.toggle('!text-white', on); a.classList.toggle('!border-ink', on);
+      on ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current');
+      if (on) { const ul = a.closest('ul')!; ul.scrollTo({ left: a.parentElement!.offsetLeft - 20, behavior: 'smooth' }); }
+    });
+    const io = new IntersectionObserver((es) => es.forEach((e) => e.isIntersecting && set(e.target.id)), { rootMargin: '-30% 0px -65% 0px' });
+    document.querySelectorAll('main section[id]').forEach((s) => io.observe(s));
   </script>
 </Base>

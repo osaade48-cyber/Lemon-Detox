@@ -2,28 +2,33 @@
  "categories": [
   {
    "id": "weight",
-   "label": "Weight Loss",
-   "blurb": "Participants who noticed changes in weight, bloating, body shape, or how their clothes fit."
+   "label": "Weight & Shape",
+   "eyebrow": "Body composition",
+   "blurb": "Testimonials from participants who noticed changes in weight, bloating, body shape, or how their clothes fit."
   },
   {
    "id": "energy",
    "label": "Energy & Clarity",
-   "blurb": "Improved focus, feeling lighter, clearer thinking, or renewed motivation."
+   "eyebrow": "Mind & momentum",
+   "blurb": "Experiences relating to improved focus, feeling lighter, clearer thinking, or renewed motivation."
   },
   {
    "id": "digestive",
-   "label": "Digestive Reset & Cleansing Experience",
-   "blurb": "Feeling less heavy, more balanced, less sluggish, or generally “cleaner” through the program."
+   "label": "Digestive Reset",
+   "eyebrow": "Cleansing experience",
+   "blurb": "Feedback about feeling less heavy, more balanced, less sluggish, or generally “cleaner” through the program."
   },
   {
    "id": "lifestyle",
    "label": "Lifestyle Reset",
-   "blurb": "People who valued the structure of the program and the break from unhealthy habits or overconsumption."
+   "eyebrow": "Habits & routine",
+   "blurb": "Testimonials from people who valued the structure of the program and the break from unhealthy habits or overconsumption."
   },
   {
    "id": "overall",
    "label": "Overall Experience",
-   "blurb": "The program as a whole, including ease of use, satisfaction and general wellbeing."
+   "eyebrow": "The whole program",
+   "blurb": "Broader testimonials covering the program as a whole, including ease of use, satisfaction, and general wellbeing."
   }
  ],
  "disclaimer": "These are individual experiences shared by participants. Results and experiences vary from person to person.",
@@ -41,7 +46,9 @@
     "And what a bonus to lose <strong>7kg in 10 days</strong>.",
     "Incredible... I can't wait to do it again!"
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy & Clarity",
+   "featured": false
   },
   {
    "id": 2,
@@ -56,7 +63,9 @@
     "I look and feel <strong>110% better</strong> by losing that weight and cleaning out my system with the detox.",
     "I'm so happy with the results that I'm ready to do another 7-day detox already as my ultimate goal is to reach below <strong>99kg</strong>."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss",
+   "featured": false
   },
   {
    "id": 3,
@@ -71,7 +80,9 @@
     "There is also the bonus weight loss. I lost 8kgs in 7 days.",
     "It is undoubtedly the best detox I have ever done and would recommend it to everyone!"
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Energy",
+   "featured": false
   },
   {
    "id": 4,
@@ -86,7 +97,9 @@
     "For the last three months I have been using the Lemon Detox program through the week and my weight is the best it's ever been. I am getting to the races with loads of energy and in a better frame of mind, where before I was dehydrated, drained and lethargic — you do not want to be like this when you're riding a <strong>500kg animal</strong>.",
     "With my weight being more under control I believe that I am riding better than I ever have."
    ],
-   "photo": "larry-v-cassidy.jpeg"
+   "photo": "larry-v-cassidy.jpeg",
+   "label": "Energy & Performance",
+   "featured": true
   },
   {
    "id": 5,
@@ -102,7 +115,9 @@
     "I now have <strong>much more energy</strong> and wake up around <strong>6:30–7:00am every day feeling fresh and clear-headed</strong>.",
     "I recommend the Lemon Detox program as I now feel like a <strong>new person</strong>, and I look forward to using it again alongside my diet."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss",
+   "featured": false
   },
   {
    "id": 6,
@@ -117,7 +132,9 @@
     "It wasn't hard to stick to the program. In fact, I developed quite an affinity for the lemon and honey drink and still enjoy it quite frequently.",
     "As far as detox programs go, I have been recommending this one to everybody I know — especially after the indulgence of the <strong>silly season</strong>."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Energy",
+   "featured": false
   },
   {
    "id": 7,
@@ -135,7 +152,9 @@
     "The hardest part was getting through the <strong>first day</strong>, but once you do, by the <strong>third day you don't want to get off it</strong>.",
     "I have recommended it to all my family and friends and to anyone who wants to feel good and look their best."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Lifestyle Reset",
+   "featured": false
   },
   {
    "id": 8,
@@ -151,7 +170,9 @@
     "It sounded hard when my friends first told me about it, but once I started it was <strong>actually very easy</strong>, and I really enjoy the taste of the syrup.",
     "Thanks once again — I wouldn't have done it without it and I'm already planning to purchase more."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss",
+   "featured": false
   },
   {
    "id": 9,
@@ -169,7 +190,9 @@
     "I was also able to <strong>maintain my weight</strong> between phases, which was a great result.",
     "I wouldn't have tried this without a trusted recommendation, but it really works."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Major Weight Loss Transformation",
+   "featured": false
   },
   {
    "id": 10,
@@ -185,7 +208,9 @@
     "I have since used it occasionally to replace meals and intend on doing the full <strong>5-day program again to kick off the New Year</strong>.",
     "It's really the <strong>only weight loss program that has worked for me</strong>."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Program Experience",
+   "featured": false
   },
   {
    "id": 11,
@@ -200,7 +225,9 @@
     "In the end I detoxed for <strong>10 days and lost 7kg</strong>.",
     "I now plan to do a <strong>weekly detox every six months</strong>."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Program Experience",
+   "featured": false
   },
   {
    "id": 12,
@@ -218,7 +245,9 @@
     "It really feels good to give your body a break from everyday food and drink and to reset your habits.",
     "Thanks — I will continue to recommend this great and easy-to-use detox."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Lifestyle Reset & Wellbeing",
+   "featured": false
   },
   {
    "id": 13,
@@ -232,7 +261,9 @@
     "With the Lemon Detox program, I felt <strong>great</strong> and lost <strong>7kg in 10 days</strong>.",
     "I now use it regularly as part of my routine to reset and stay on track."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Energy",
+   "featured": false
   },
   {
    "id": 14,
@@ -252,7 +283,9 @@
     "People who haven't seen me for a while are always amazed and often don't recognise me. The feedback has been incredible.",
     "I used to think testimonials sounded exaggerated, but I can genuinely say this program helped me turn my life around."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss Transformation",
+   "featured": false
   },
   {
    "id": 15,
@@ -271,7 +304,9 @@
     "My life has changed for the better because of the Lemon Detox Diet. It has helped me reset, build better habits, and feel good about myself again.",
     "I look forward to doing another detox later this year and making it a regular part of my life."
    ],
-   "photo": "greg-mack.jpeg"
+   "photo": "greg-mack.jpeg",
+   "label": "Lifestyle Reset & Full Experience",
+   "featured": false
   },
   {
    "id": 16,
@@ -285,7 +320,9 @@
     "I still go to the gym and maintain the <strong>same energy levels</strong>, while feeling <strong>refreshed and cleansed</strong>, with <strong>no hunger at all</strong>.",
     "I've recommended it to all my friends and would strongly suggest others give it a try."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Energy",
+   "featured": false
   },
   {
    "id": 17,
@@ -299,7 +336,9 @@
     "The ability to eliminate hunger pangs while maintaining <strong>energy levels</strong> provided me with a successful formula for <strong>overall wellbeing and weight loss</strong>.",
     "Thank you, Lemon Detox Diet!"
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Wellbeing",
+   "featured": false
   },
   {
    "id": 18,
@@ -315,7 +354,9 @@
     "Every couple of months, I do a short detox to drop a few kilos and reset my lifestyle again. I always come off feeling <strong>lighter and rejuvenated</strong>.",
     "It's amazing what a difference <strong>5kg</strong> can make to how you look and feel."
    ],
-   "photo": "andrea-markham.jpeg"
+   "photo": "andrea-markham.jpeg",
+   "label": "Lifestyle Reset & Ongoing Use",
+   "featured": false
   },
   {
    "id": 19,
@@ -332,7 +373,9 @@
     "I now try to complete the Lemon Detox program every <strong>month or so for a few days</strong> to maintain my results.",
     "It has given me the motivation to <strong>lose weight, exercise, and be more aware of what I eat</strong> — something I had struggled with before."
    ],
-   "photo": "stefania-marotta.jpeg"
+   "photo": "stefania-marotta.jpeg",
+   "label": "Weight Loss & Ongoing Lifestyle",
+   "featured": false
   },
   {
    "id": 20,
@@ -348,7 +391,9 @@
     "I would definitely recommend it. I've already had at least <strong>10 friends</strong> try it, and they all thought it was fantastic.",
     "It will now be a <strong>regular part of my routine</strong>."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Energy",
+   "featured": false
   },
   {
    "id": 21,
@@ -364,7 +409,9 @@
     "It's the <strong>best thing I've ever done for my body</strong>. I gained so much energy and confidence, and even found myself cleaning, gardening, and staying active throughout the week.",
     "There are so many benefits from just one week — it really is amazing."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Energy",
+   "featured": false
   },
   {
    "id": 22,
@@ -380,7 +427,9 @@
     "I lost <strong>6kg during the detox</strong> and continued to lose weight even after finishing.",
     "Three weeks later, I still feel great and naturally eat less. I definitely plan to do the Lemon Detox regularly and highly recommend it to others."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Full Experience",
+   "featured": false
   },
   {
    "id": 23,
@@ -399,7 +448,9 @@
     "It's been a great <strong>kick-start to eating healthier</strong>, and another bonus is that my <strong>skin is glowing</strong>.",
     "I will definitely be ordering again — thumbs up!"
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Kickstart",
+   "featured": false
   },
   {
    "id": 24,
@@ -416,7 +467,9 @@
     "By the end, I felt <strong>energised, clear-minded, lighter, and refreshed</strong>, and lost <strong>5kg</strong>.",
     "I now plan to do the program <strong>four times a year as a reset</strong>, and would recommend it to anyone looking for an energy boost and renewed motivation."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy & Lifestyle Reset",
+   "featured": false
   },
   {
    "id": 25,
@@ -430,7 +483,9 @@
     "It improved my overall wellbeing — I felt <strong>refreshed and energised</strong> after the program.",
     "It gave me the reset I was looking for, and I now use it <strong>every couple of months</strong> to maintain my weight and continue feeling good."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy & Wellbeing",
+   "featured": false
   },
   {
    "id": 26,
@@ -446,7 +501,9 @@
     "The program is simple to prepare, and I will continue to use it regularly to maintain my weight.",
     "I've even recommended it to my mum, and I wouldn't hesitate to recommend it to anyone."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Confidence",
+   "featured": false
   },
   {
    "id": 27,
@@ -461,7 +518,9 @@
     "It has been easy to maintain the results, and I've introduced my sisters, their husbands, and friends to the program — they are all very happy because they can <strong>see real results</strong>.",
     "It's very achievable, so don't stress about not eating solid foods. I highly recommend it to anyone wanting to lose weight and feel great."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Social Proof",
+   "featured": false
   },
   {
    "id": 28,
@@ -475,7 +534,9 @@
     "I wasn't hungry, enjoyed the taste, and noticed my <strong>skin looked better</strong>. Although I didn't weigh myself, my <strong>clothes fitted better</strong>, which was a great result.",
     "I'll definitely be recommending it to my friends."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy & Visible Results",
+   "featured": false
   },
   {
    "id": 29,
@@ -492,7 +553,9 @@
     "I went from <strong>61kg to 57kg in 6 days</strong>, which I was really happy with.",
     "I'll definitely try to go longer next time."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Reset",
+   "featured": false
   },
   {
    "id": 30,
@@ -509,7 +572,9 @@
     "My <strong>skin and eyes looked brighter</strong>, I had more energy, slept better, and received many compliments about how I looked.",
     "I've recommended it to others and will continue using it as part of my healthy lifestyle."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Full Transformation",
+   "featured": false
   },
   {
    "id": 31,
@@ -527,7 +592,9 @@
     "I also find I eat less now, with smaller portion sizes, which has helped maintain my results.",
     "I've recommended the program to friends, and several have tried it with success."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy, Focus & Weight Loss",
+   "featured": false
   },
   {
    "id": 32,
@@ -544,7 +611,9 @@
     "I've recommended the program to at least <strong>15 people</strong>, all of whom have had great results — from increased energy to weight loss.",
     "It's simple, effective, and gave me more time in my day without needing to prepare food. I can't say enough about how much I enjoyed the experience."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy, Skin & Lifestyle",
+   "featured": false
   },
   {
    "id": 33,
@@ -561,7 +630,9 @@
     "I would recommend starting on a weekend to get through the first couple of days — after that, it becomes very easy.",
     "This was my first detox and I found it to be a very effective and straightforward way to reset."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Full Experience",
+   "featured": false
   },
   {
    "id": 34,
@@ -579,7 +650,9 @@
     "I later completed the program again with my partner, and we both lost around <strong>3–4kg</strong>.",
     "I will definitely continue using the Lemon Detox program as I've found it to be an excellent reset."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy, Skin & Lifestyle Reset",
+   "featured": false
   },
   {
    "id": 35,
@@ -597,7 +670,9 @@
     "I was so happy with the results that I ordered more and plan to complete a longer program.",
     "I would highly recommend it to anyone looking for a simple way to reset and improve their wellbeing."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy, Weight Loss & Full Experience",
+   "featured": false
   },
   {
    "id": 36,
@@ -610,7 +685,9 @@
     "After being on medication for a long time due to injuries, the Lemon Detox gave me <strong>new energy</strong> and made me feel <strong>more alive than I have in a long time</strong>.",
     "Thank you."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy & Wellbeing",
+   "featured": false
   },
   {
    "id": 37,
@@ -632,7 +709,9 @@
     "I'd also like to thank the team for their support, as well as my family and friends who helped me get through the week.",
     "I now feel more confident and will continue working on my fitness to maintain the results."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Real Experience & Lifestyle Reset",
+   "featured": false
   },
   {
    "id": 38,
@@ -647,7 +726,9 @@
     "It wasn't easy, but it also wasn't difficult — I think being <strong>mentally prepared</strong> makes all the difference. Once you get into it, you just want to keep going.",
     "Each time I've done the program, I've felt better than before, and I now actually look forward to doing it again and experiencing the benefits."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy & Mindset",
+   "featured": false
   },
   {
    "id": 39,
@@ -664,7 +745,9 @@
     "After 10 weeks, I completed another 10-day detox and experienced the same results, losing a further 4kg.",
     "Many of my friends have since tried the program after hearing about my experience, and I plan to continue doing it every 6 months."
    ],
-   "photo": "myquaila-carter.jpeg"
+   "photo": "myquaila-carter.jpeg",
+   "label": "Repeat Results & Lifestyle Change",
+   "featured": false
   },
   {
    "id": 40,
@@ -682,7 +765,9 @@
     "If you're feeling unsure or sceptical, I encourage you to give it a try.",
     "It can genuinely give you a <strong>new lease on life</strong>."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Major Transformation & Lifestyle Change",
+   "featured": false
   },
   {
    "id": 41,
@@ -700,7 +785,9 @@
     "I've even taken on new challenges — including competing in a <strong>1km open water swim</strong>, where I placed second in my age group.",
     "I've recommended the program to many friends, and they've also seen great results."
    ],
-   "photo": "sally-johnson.jpeg"
+   "photo": "sally-johnson.jpeg",
+   "label": "Weight Loss & Lifestyle Transformation",
+   "featured": false
   },
   {
    "id": 42,
@@ -717,7 +804,9 @@
     "It has now been <strong>2 months</strong>, and I have not had the urge to smoke.",
     "I highly recommend the program and plan to continue doing it every <strong>6 months</strong>."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy, Health & Habit Change",
+   "featured": false
   },
   {
    "id": 43,
@@ -736,7 +825,9 @@
     "This has been a great start to the year and given me a new lease on life.",
     "I would highly recommend it — what do you have to lose?"
    ],
-   "photo": "brian-little.jpeg"
+   "photo": "brian-little.jpeg",
+   "label": "Major Weight Loss & Lifestyle Reset",
+   "featured": false
   },
   {
    "id": 44,
@@ -751,7 +842,9 @@
     "I felt great attending Christmas events and fitting into clothes I hadn't worn in years.",
     "I now plan to do the detox every couple of months to stay on track."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Lifestyle Reset",
+   "featured": false
   },
   {
    "id": 45,
@@ -765,7 +858,9 @@
     "The program helped me <strong>reset my eating habits</strong>, and I no longer feel the desire to eat unhealthy foods.",
     "After my experience, I've introduced others to the program, and several people I know are now using it as well."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Habit Change",
+   "featured": false
   },
   {
    "id": 46,
@@ -781,7 +876,9 @@
     "I now feel <strong>clean, refreshed</strong>, and have finally been able to <strong>break my caffeine habit</strong>, something I had struggled with for years.",
     "I'll definitely be doing the program again."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Lifestyle Change & Energy",
+   "featured": false
   },
   {
    "id": 47,
@@ -799,7 +896,9 @@
     "My friends were sceptical at first, but after seeing my results, many are now considering trying it themselves.",
     "It has been a <strong>life-changing experience</strong> for me."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Lifestyle Change & Energy",
+   "featured": false
   },
   {
    "id": 48,
@@ -818,11 +917,13 @@
     "I no longer drink coffee or tea and have no desire to return to it.",
     "Several friends and family members have since started the program after seeing my results."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy, Mindset & Habit Reset",
+   "featured": false
   },
   {
    "id": 49,
-   "category": "lifestyle",
+   "category": "digestive",
    "name": "Geri Graham",
    "role": null,
    "location": "Point Cook, Melbourne, Australia",
@@ -834,7 +935,9 @@
     "I also noticed my usual bloating had reduced, and I felt more comfortable in my clothes.",
     "Since then, I've incorporated the program into my routine every few months. It has helped me develop <strong>healthier eating habits and better portion control</strong> after completing each detox."
    ],
-   "photo": "geri-graham.jpeg"
+   "photo": "geri-graham.jpeg",
+   "label": "Repeat Use & Lifestyle Benefits",
+   "featured": true
   },
   {
    "id": 50,
@@ -850,7 +953,9 @@
     "What used to leave me unwell for several days now has much less impact.",
     "I will definitely be doing the Lemon Detox again."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Health & Wellbeing",
+   "featured": false
   },
   {
    "id": 51,
@@ -864,7 +969,9 @@
     "I now complete the detox every <strong>6 months or as needed</strong>, and it helps keep my system functioning properly while maintaining my weight.",
     "It's a <strong>quick and easy way to kick-start your body</strong>."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Digestive Health & Weight Loss",
+   "featured": false
   },
   {
    "id": 52,
@@ -880,7 +987,9 @@
     "The second time, I continued my normal <strong>weights and cardio routine</strong> and maintained muscle.",
     "I've recommended it to many people and will definitely continue using it."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Professional Experience & Performance",
+   "featured": false
   },
   {
    "id": 53,
@@ -895,7 +1004,9 @@
     "It's now been <strong>3 months</strong>, and I've maintained the results with no return of symptoms.",
     "The drink is satisfying and enjoyable, and I'll continue using it to stay on track."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Digestive Reset & Weight Loss",
+   "featured": false
   },
   {
    "id": 54,
@@ -909,7 +1020,9 @@
     "I lost <strong>3kg</strong>, reduced bloating, and had much more energy.",
     "My partner also tried it and loved it, and we now both use the program regularly."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy & Routine",
+   "featured": false
   },
   {
    "id": 55,
@@ -923,7 +1036,9 @@
     "My <strong>skin cleared</strong>, bloating disappeared, and I slept better.",
     "Even after just <strong>5 days</strong>, I felt significantly better and plan to do a longer program next time."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Skin & Digestive Benefits",
+   "featured": false
   },
   {
    "id": 56,
@@ -936,7 +1051,9 @@
     "I completed the Lemon Detox and lost <strong>4kg in 5 days</strong>, but the biggest benefit was the <strong>overall feeling of wellbeing</strong>.",
     "It completely resolved my bloating and digestive discomfort, and I now use the program regularly every <strong>8 weeks</strong> to maintain my results."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Digestive Health & Wellbeing",
+   "featured": false
   },
   {
    "id": 57,
@@ -951,7 +1068,9 @@
     "I now feel more alive, have reduced my reliance on medication, and have maintained my weight after <strong>5 weeks</strong>.",
     "This program has genuinely changed my life."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Major Transformation & Health Reset",
+   "featured": false
   },
   {
    "id": 58,
@@ -966,7 +1085,9 @@
     "We both experienced more energy and a greater sense of wellbeing.",
     "We now incorporate the detox regularly as part of our routine."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Couple Experience & Ongoing Routine",
+   "featured": false
   },
   {
    "id": 59,
@@ -982,7 +1103,9 @@
     "I also experienced better sleep, improved energy, and noticeable weight loss — confirmed by others commenting on how I looked.",
     "My husband, who was sceptical, is now also starting the program after seeing my results."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Long Detox & Metabolism Reset",
+   "featured": false
   },
   {
    "id": 60,
@@ -998,11 +1121,13 @@
     "After just <strong>five days</strong>, I lost <strong>3kg</strong>, my skin was glowing, and I felt so good that I didn't want to return to normal eating.",
     "The physical and mental clarity I experienced during the program was incredible. I now feel more confident in myself than ever before and will definitely continue using the Lemon Detox program."
    ],
-   "photo": "kate-winton.jpeg"
+   "photo": "kate-winton.jpeg",
+   "label": null,
+   "featured": true
   },
   {
    "id": 61,
-   "category": "weight",
+   "category": "overall",
    "name": "Nick Bilbija",
    "role": null,
    "location": "Sydney",
@@ -1015,7 +1140,9 @@
     "Since then, I've recommended the program to over <strong>20 people</strong>, and the feedback has consistently been extremely positive.",
     "This is one of the very few programs I've come across that genuinely delivers results."
    ],
-   "photo": "nick-bilbija.jpeg"
+   "photo": "nick-bilbija.jpeg",
+   "label": "Professional & Real Results",
+   "featured": true
   },
   {
    "id": 62,
@@ -1031,7 +1158,9 @@
     "I had previously tried countless weight loss products and fat burners without success, but this was the first time I experienced real, lasting results.",
     "I am extremely grateful for the program and the support I received along the way."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Major Weight Loss & Self-Confidence",
+   "featured": false
   },
   {
    "id": 63,
@@ -1047,7 +1176,9 @@
     "The results were so noticeable that two of my colleagues have since started the program after seeing my transformation.",
     "It's a simple, effective approach that I will continue using."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Simple, Effective & Repeatable",
+   "featured": false
   },
   {
    "id": 64,
@@ -1063,7 +1194,9 @@
     "By the end of the week, I had lost <strong>6kg</strong> with very little exercise, while also noticing a significant increase in my energy and focus levels.",
     "Even as a smoker, I found my gym performance improved noticeably during the detox."
    ],
-   "photo": null
+   "photo": null,
+   "label": "High Impact Weight Loss & Energy",
+   "featured": false
   },
   {
    "id": 65,
@@ -1078,7 +1211,9 @@
     "The program was simple, enjoyable, and easy to follow.",
     "I now repeat the detox every <strong>6 months</strong> to maintain my results and overall wellbeing."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Fast Results & Consistency",
+   "featured": false
   },
   {
    "id": 66,
@@ -1093,7 +1228,9 @@
     "Most importantly, it gave me a renewed sense of confidence in myself.",
     "I now use the detox regularly to maintain my shape and overall wellbeing."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Confidence, Energy & Lifestyle Change",
+   "featured": false
   },
   {
    "id": 67,
@@ -1109,7 +1246,9 @@
     "I lost <strong>2.9kg in the first week</strong>, but more importantly, I experienced a massive increase in energy and productivity at work.",
     "It completely changed my perception of detox programs."
    ],
-   "photo": null
+   "photo": null,
+   "label": "First-Time Success & Energy Boost",
+   "featured": false
   },
   {
    "id": 68,
@@ -1124,7 +1263,9 @@
     "Not only did I lose weight, but people around me noticed improvements in my appearance, mood, and overall energy.",
     "It was exactly the reset I needed."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Plateau Breakthrough",
+   "featured": false
   },
   {
    "id": 69,
@@ -1142,7 +1283,9 @@
     "The most important outcome for me was the <strong>clarity of thought</strong>, which has helped guide me toward a healthier, more intentional lifestyle.",
     "If you're looking for a way to reset both your body and your habits, I highly recommend it."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Financial + Lifestyle Reset",
+   "featured": false
   },
   {
    "id": 70,
@@ -1158,7 +1301,9 @@
     "As someone with a busy lifestyle who used to eat out almost every night, this program has not only improved my health but has also saved me a significant amount of money.",
     "I would absolutely recommend it to anyone looking for a simple, effective solution that fits into a demanding schedule."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Busy Lifestyle / Sustainable Routine",
+   "featured": false
   },
   {
    "id": 71,
@@ -1174,7 +1319,9 @@
     "The program was simple, effective, and easy to follow from start to finish.",
     "I would not hesitate to recommend it to anyone looking for real results without the usual struggles."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Simple, Effective & Easy to Stick To",
+   "featured": false
   },
   {
    "id": 72,
@@ -1192,7 +1339,9 @@
     "I used to weigh <strong>100kg</strong>, and for the first time in over <strong>7 years</strong>, I have maintained a weight under <strong>85kg for the past 2 years</strong>.",
     "I cannot praise this program enough."
    ],
-   "photo": null
+   "photo": null,
+   "label": "2-Year Transformation / Sustained Results",
+   "featured": false
   },
   {
    "id": 73,
@@ -1210,7 +1359,9 @@
     "My energy levels have also increased dramatically. I no longer feel exhausted after work.",
     "It's honestly hard to believe such a noticeable change came from such a simple program."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Productivity & Cognitive Boost",
+   "featured": false
   },
   {
    "id": 74,
@@ -1225,7 +1376,9 @@
     "My skin is glowing, I feel significantly better overall, and I've now referred over <strong>15 people</strong> who are currently doing the program.",
     "I will continue doing this every year after winter — I couldn't be happier."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Massive Weight Loss + Lifestyle Shift",
+   "featured": false
   },
   {
    "id": 75,
@@ -1242,7 +1395,9 @@
     "The most important part — the weight has <strong>stayed off</strong>.",
     "This is not a fad. It genuinely works."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Couple Transformation (Very Strong Social Proof)",
+   "featured": false
   },
   {
    "id": 76,
@@ -1257,7 +1412,9 @@
     "One unexpected benefit was my skin — it became incredibly smooth, which was a huge bonus.",
     "I plan to continue using the detox every couple of months, and importantly, <strong>the weight has never come back on</strong>."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Repeat Success + Skin Improvement",
+   "featured": false
   },
   {
    "id": 77,
@@ -1272,7 +1429,9 @@
     "The biggest surprise was how it helped eliminate my <strong>coffee habit</strong>, and even a month later I remain coffee-free.",
     "After completing the program, I found myself craving <strong>fruits and vegetables instead of chocolate</strong>, which was a major lifestyle shift."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Habit Reset (Coffee / Sugar Cravings)",
+   "featured": false
   },
   {
    "id": 78,
@@ -1287,7 +1446,9 @@
     "I completed <strong>5 days</strong>, lost <strong>4kg</strong>, and importantly, <strong>did not regain the weight</strong> afterward — which had happened with other diets.",
     "It gave me the exact <strong>kickstart</strong> I was looking for."
    ],
-   "photo": null
+   "photo": null,
+   "label": "First-Time Success + No Weight Rebound",
+   "featured": false
   },
   {
    "id": 79,
@@ -1302,7 +1463,9 @@
     "The drink was filling, so I never felt hungry.",
     "Most importantly, the weight <strong>did not return</strong>, unlike other detox programs I've tried."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Stubborn Weight",
+   "featured": false
   },
   {
    "id": 80,
@@ -1317,7 +1480,9 @@
     "I found myself waking earlier, getting more done, and feeling sharper overall.",
     "The program felt like a <strong>physical and mental cleanse</strong>, not just weight loss."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Couple + Energy & Mental Reset",
+   "featured": false
   },
   {
    "id": 81,
@@ -1335,7 +1500,9 @@
     "I've now completely stopped drinking coffee and have changed my habits long-term.",
     "I would strongly recommend planning your start date properly and committing fully — the results are worth it."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Real Experience",
+   "featured": false
   },
   {
    "id": 82,
@@ -1348,7 +1515,9 @@
     "The Lemon Detox program was a fantastic way to reset my body and kickstart a better lifestyle. The first couple of days were tough, but after day four it became much easier.",
     "It gave me the push I needed to start watching what I eat and live a more focused lifestyle. Three months on, I've kept most of the weight off and still feel fantastic."
    ],
-   "photo": null
+   "photo": null,
+   "label": null,
+   "featured": false
   },
   {
    "id": 83,
@@ -1363,7 +1532,9 @@
     "I lost <strong>5kg in 5 days</strong>, felt stronger, had more energy, and three months later I've kept the weight off.",
     "Thank you Lemon Detox."
    ],
-   "photo": null
+   "photo": null,
+   "label": null,
+   "featured": false
   },
   {
    "id": 84,
@@ -1379,7 +1550,9 @@
     "It felt like the program had <strong>kickstarted my system</strong>. I'm now more aware of what I eat, feel healthier, and look better.",
     "I will continue using the program from time to time to maintain these results."
    ],
-   "photo": null
+   "photo": null,
+   "label": null,
+   "featured": false
   },
   {
    "id": 85,
@@ -1394,7 +1567,9 @@
     "What stood out most was the <strong>increase in energy and motivation</strong> I felt while on the program.",
     "Six weeks later, I've kept the weight off and still feel fantastic."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Fiona Del Vecchio (busy lifestyle + energy)",
+   "featured": false
   },
   {
    "id": 86,
@@ -1410,7 +1585,9 @@
     "Not only did I lose weight both times, but I also kept it off, and it helped kickstart a much healthier approach to eating and exercise.",
     "I now recommend it to all my friends and family."
    ],
-   "photo": null
+   "photo": null,
+   "label": null,
+   "featured": false
   },
   {
    "id": 87,
@@ -1427,7 +1604,9 @@
     "My skin became clearer, my eyes brighter, and people started commenting that I looked years younger. Even those close to me noticed the difference straight away.",
     "I now feel refreshed, confident, and far more vibrant — both inside and out."
    ],
-   "photo": "lynelle-leighton.jpeg"
+   "photo": "lynelle-leighton.jpeg",
+   "label": "Transformation After Initial Struggle",
+   "featured": false
   },
   {
    "id": 88,
@@ -1441,7 +1620,9 @@
     "My friends and clients keep asking me if I am pregnant again because I have a glow to me, but seeing how much I have slimmed down, they know it is the detox program that I have to thank and are all extremely eager to try it themselves.",
     "The detox is the best thing that I have done for my body and I recommend that everyone should do it."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Significant Weight Loss & Visible Glow",
+   "featured": false
   },
   {
    "id": 89,
@@ -1458,7 +1639,9 @@
     "My energy levels increased significantly, and the results were so noticeable that several people at my taekwondo club have now started the program as well.",
     "The overall change — both physically and visibly — has been incredible."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Skin Transformation & Visible Results",
+   "featured": false
   },
   {
    "id": 90,
@@ -1473,7 +1656,9 @@
     "What surprised me most was how easy it was to stick to and how quickly I started to feel the benefits.",
     "My skin looked noticeably smoother and brighter, and overall I felt amazing."
    ],
-   "photo": "brooke-bentley.jpeg"
+   "photo": "brooke-bentley.jpeg",
+   "label": "Invigorating Experience & Glowing Skin",
+   "featured": false
   },
   {
    "id": 91,
@@ -1487,7 +1672,9 @@
     "It's funny but once you come off the detox, the benefits start. I have maintained my weight and even lost another kilo. I am continually being told at work that I look great.",
     "Thank you — I would recommend the lemon detox program to anyone."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Sustained Results & Ongoing Benefits",
+   "featured": false
   },
   {
    "id": 92,
@@ -1501,7 +1688,9 @@
     "Not only do I have more energy throughout the whole day, but my complexion and hair look great. Added to this, I also lost a total of 8kgs in 10 days.",
     "My success has encouraged work colleagues to try the Lemon Detox Diet program, with the same terrific results. Highly recommended."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy Boost & Complexion Improvement",
+   "featured": false
   },
   {
    "id": 93,
@@ -1514,7 +1703,9 @@
     "I had an extremely positive experience with the Lemon Detox plan and have recommended it to lots of people. I loved the taste — a bit like a spicy iced tea.",
     "I lost 6kg, feel fabulous, and to my amazement I don't have smelly armpits anymore — how excellent is that?!!"
    ],
-   "photo": null
+   "photo": null,
+   "label": "Weight Loss & Overall Freshness",
+   "featured": false
   },
   {
    "id": 94,
@@ -1527,7 +1718,9 @@
     "I started the Lemon Detox Diet program on Sunday. By Wednesday I was feeling 10 years younger, 2.7 kilos lighter, my pores had visibly reduced, and my skin was brighter overall.",
     "People were already commenting on my appearance, and even though it required a little willpower, the early results made it easy to continue. I will definitely be making this a regular part of my routine."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Early Results & Visible Skin Improvement",
+   "featured": false
   },
   {
    "id": 95,
@@ -1540,7 +1733,9 @@
     "I have been using the Lemon Detox program for some time now. My main use is to give my body a deep cleanse once a month.",
     "Since doing this, my skin and hair look and feel great. I've recommended the program to many friends, and those who have tried it agree with me 100%."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Monthly Reset & Skin + Hair Benefits",
+   "featured": false
   },
   {
    "id": 96,
@@ -1555,7 +1750,9 @@
     "After just a couple of days, I noticed an improvement in my skin tone, and then my skin began to glow. I haven't had skin like this in a long time — I no longer need make-up to cover scarring and spots. I also no longer feel the need to drink a 600ml bottle of Coke Zero every day.",
     "I plan to detox at least once a month. Thank you Lemon Detox Diet."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Skin Clarity & Lifestyle Change",
+   "featured": false
   },
   {
    "id": 97,
@@ -1569,7 +1766,9 @@
     "The first day I felt a little lethargic, but by the second day I felt better and more determined. By day four, my energy levels were significantly higher. While others were eating at their desks, I was going on 5km walks.",
     "Friends and colleagues began commenting on how radiant I looked. I completed six days and lost 5 kilos along the way. Since then, several colleagues have started the program themselves."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Energy Increase & Radiant Appearance",
+   "featured": false
   },
   {
    "id": 98,
@@ -1582,7 +1781,9 @@
     "I have always been a size 8 and wasn't looking to lose weight, but after hearing so many positive experiences, I wanted to try the Lemon Detox for my skin.",
     "The results have been excellent. Before the program, I would regularly get pimples, but it has now been over two months since I last used the detox and I have had none at all. My skin complexion has improved significantly and I am very happy with the results."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Clear Skin & Lasting Results",
+   "featured": false
   },
   {
    "id": 99,
@@ -1595,7 +1796,9 @@
     "I found the use of MADAL BAL Lemon Detox very beneficial, not only for detoxing but also for increasing my energy levels.",
     "My skin now looks dewy and healthy, and I receive many compliments on my overall appearance whenever I am on the program."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Dewy Skin & Increased Energy",
+   "featured": false
   },
   {
    "id": 100,
@@ -1609,7 +1812,9 @@
     "The second time was much easier. I felt fantastic, had significantly more energy, my skin was glowing, and my hair felt healthier and more vibrant than before. The week passed quickly with none of the initial side effects.",
     "I would recommend this detox to anyone looking to lose weight, improve their lifestyle, or simply cleanse their body."
    ],
-   "photo": null
+   "photo": null,
+   "label": null,
+   "featured": false
   },
   {
    "id": 101,
@@ -1624,7 +1829,9 @@
     "By day four, I felt better than ever. This was my first detox and it was much easier than expected, as I never felt tired or hungry. Many people commented on how much better my skin looked and how much I was glowing.",
     "I will definitely be doing the detox again later in the year, possibly quarterly. I recommend this to anyone — my family and friends are already getting on board."
    ],
-   "photo": null
+   "photo": null,
+   "label": "First Detox Success & Glowing Skin",
+   "featured": false
   },
   {
    "id": 102,
@@ -1638,7 +1845,9 @@
     "The first few nights were tough, but once we got through the first 4 days, everything changed. We felt in control and motivated as the kilos steadily came off. By the end of the 10 days, we had each lost 5.5 kilos.",
     "We've continued using the program over the past year and always see positive results, even with shorter 5-day resets."
    ],
-   "photo": "scott-ash.jpeg"
+   "photo": "scott-ash.jpeg",
+   "label": "Couples Weight Loss & Shared Commitment",
+   "featured": true
   },
   {
    "id": 103,
@@ -1652,7 +1861,9 @@
     "We both lost weight, noticed improvements in our skin, and had a real boost in energy. Even our confidence improved — we simply felt better in ourselves.",
     "The results have stayed with us even after completing the program, and we will definitely continue using it."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Shared Results & Confidence Boost",
+   "featured": false
   },
   {
    "id": 104,
@@ -1666,7 +1877,9 @@
     "We both lost around 5–6 kilos and felt significantly better. What really stood out was how our cravings changed — we started wanting fresh fruit and vegetables instead of junk food and soft drinks.",
     "For me, being able to enjoy food again without discomfort was life-changing, and the weight loss was an added bonus."
    ],
-   "photo": "brooke-thatcher.jpeg"
+   "photo": "brooke-thatcher.jpeg",
+   "label": "Couples Reset & Lifestyle Change",
+   "featured": false
   },
   {
    "id": 105,
@@ -1679,7 +1892,9 @@
     "I started the Lemon Detox program wanting to lose around five kilos, and the results were incredible. I lost the weight, had more energy, slept better, and my skin was glowing.",
     "After seeing my results, my husband — who didn't think I could stick to it — is now starting the program himself."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Partner Support & Motivation",
+   "featured": false
   },
   {
    "id": 106,
@@ -1695,7 +1910,9 @@
     "I love food, so the thought of not eating solids for 7–10 days was daunting, but I was determined to follow through. The first day was the hardest, but once I pushed past that, by day three I didn't want to stop.",
     "I've now recommended it to all my family and friends. If you're looking to feel better, have more energy and see real results — this is it."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Visible Results Noticed by Partner",
+   "featured": false
   },
   {
    "id": 107,
@@ -1708,7 +1925,9 @@
     "My boyfriend and I were both extremely happy with the results of the Lemon Detox Diet program.",
     "I lost 4 kilos and he lost 7 kilos over the 10 days. Neither of us felt hungry, and we were both amazed at how good we felt throughout the program."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Couple Success & Strong Results",
+   "featured": false
   },
   {
    "id": 108,
@@ -1722,7 +1941,9 @@
     "The first couple of days were challenging, but after that we both felt great. We noticed changes not only in how we looked but also in how we felt — more energy, better sleep, and a completely different mindset toward food.",
     "We now feel motivated to maintain a healthier lifestyle moving forward."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Family Detox & Lifestyle Shift",
+   "featured": false
   },
   {
    "id": 109,
@@ -1735,7 +1956,9 @@
     "I have completed the Lemon Detox Diet program three times now and absolutely love it. I lost 4 kilos and felt fantastic each time.",
     "Seeing my results has encouraged my husband to start the program as well."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Influence on Partner",
+   "featured": false
   },
   {
    "id": 110,
@@ -1749,7 +1972,9 @@
     "As the days went on, we both experienced a huge boost in energy and felt great overall. We didn't feel hungry and were surprised by how easy it became.",
     "The detox gave us a strong kickstart into a healthier lifestyle, and we continue to see the benefits."
    ],
-   "photo": null
+   "photo": null,
+   "label": "Doing It Together & Lasting Impact",
+   "featured": false
   }
  ]
 }

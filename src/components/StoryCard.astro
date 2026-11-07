@@ -1,27 +1,58 @@
 ---
+/**
+ * Manus-style testimonial card. The first sentence of the customer's own story becomes the
+ * serif headline; the rest is the body (never reworded). Photo shown when one exists.
+ * size: 'wide' (photo beside text) | 'narrow' (photo on top)
+ */
 import { Picture } from 'astro:assets';
 import { photoFor, type Testimonial } from '../data/testimonials';
-interface Props { t: Testimonial; class?: string; hidden?: boolean }
-const { t, class: cls = '', hidden = false } = Astro.props;
-const img = photoFor(t.photo);
-const initials = t.name.replace(/[^A-Za-z& ]/g, '').split(/\s+/).filter((w) => w && !['&', 'Mr', 'Mrs'].includes(w)).slice(0, 2).map((w) => w[0]).join('');
-const words = t.story.join(' ').split(/\s+/).length;
-const long = words > 110;
+interface Props { t: Testimonial; size?: 'wide' | 'narrow'; class?: string; hidden?: boolean; showPhoto?: boolean }
+const { t, size = 'narrow', class: cls = '', hidden = false, showPhoto = true } = Astro.props;
+const img = !showPhoto ? null : photoFor(t.photo?.replace('.jpeg', '-large.jpg') ?? null) ?? photoFor(t.photo);
+
+// Split the first sentence off the first paragraph for the headline.
+const first = t.story[0] ?? '';
+const plain = (h: string) => h.replace(/<[^>]+>/g, '');
+const m = first.match(/^(.+?[.!?])(\s+|$)([\s\S]*)$/);
+let headline = plain(m ? m[1] : first);
+let rest = [m && m[3] ? m[3] : '', ...t.story.slice(1)].filter((p) => p.trim());
+if (headline.split(/\s+/).length < 5 && rest.length) {
+  // very short opener: take the next sentence too
+  const n = plain(rest[0]).match(/^(.+?[.!?])(\s+|$)([\s\S]*)$/);
+  if (n) { headline += ' ' + n[1]; rest[0] = n[3]; rest = rest.filter((p) => p.trim()); }
+}
+if (t.headline) { headline = t.headline; rest = t.story; }
+const words = rest.join(' ').split(/\s+/).length;
+const long = words > (size === 'wide' ? 120 : 75);
+const meta = [t.role, t.location].filter(Boolean).join(' · ');
+const quoteMark = 'M0 22V12.7C0 5.4 4.2 1.2 11 0l1.2 2.6C8 4 6 6.6 5.8 10H11v12H0zm16 0V12.7C16 5.4 20.2 1.2 27 0l1 2.6C24 4 22 6.6 21.8 10H27v12H16z';
 ---
-<figure class:list={['story mb-6 break-inside-avoid card p-7 sm:p-8', cls]} data-category={t.category} hidden={hidden}>
-  <div class="flex items-center gap-4">
-    {img
-      ? <Picture src={img} alt={`Portrait of ${t.name}`} formats={['avif', 'webp']} widths={[72, 144]} sizes="72px" loading="lazy" class="h-16 w-16 shrink-0 rounded-full object-cover object-top" />
-      : <span class="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-lemon-pale font-serif text-xl text-gold-deep" aria-hidden="true">{initials}</span>}
-    <figcaption class="min-w-0 leading-snug">
-      <span class="block font-semibold text-ink">{t.name}</span>
-      {t.role && <span class="block text-sm text-ink-soft">{t.role}</span>}
-      {t.location && <span class="block text-xs tracking-[0.12em] text-muted uppercase">{t.location}</span>}
+<figure class:list={['story lift flex overflow-hidden rounded-[22px] border border-black/[0.05] bg-white shadow-[0_2px_6px_rgba(26,26,26,0.03),0_20px_40px_-30px_rgba(26,26,26,0.3)]', img && size === 'wide' ? 'flex-col sm:flex-row' : 'flex-col', cls]} data-category={t.category} hidden={hidden}>
+  {img && size === 'wide' && (
+    <div class="h-64 shrink-0 overflow-hidden bg-[#f7f5f0] sm:h-auto sm:w-[30%]">
+      <Picture src={img} alt={`Portrait of ${t.name}`} formats={['avif', 'webp']} widths={[240, 380]} sizes="(min-width: 640px) 240px, 100vw" loading="lazy" class="h-full w-full object-cover object-[50%_25%]" />
+    </div>
+  )}
+  <div class="flex flex-1 flex-col p-7 sm:p-8">
+    <svg width="26" height="20" viewBox="0 0 28 22" aria-hidden="true" class="text-gold/80"><path d={quoteMark} fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+    <blockquote class="mt-5 flex-1">
+      <p class:list={['font-serif leading-snug text-ink', size === 'wide' ? 'text-[1.55rem]' : 'text-[1.3rem] italic']}>“{headline}”</p>
+      {rest.length > 0 && (
+        <div class:list={['story-body relative mt-5 space-y-3 text-[0.98rem] leading-[1.75] text-ink-soft [&_strong]:font-semibold [&_strong]:text-ink', long && 'is-clamped']}>
+          {rest.map((p) => <p set:html={p} />)}
+        </div>
+      )}
+      {long && <button type="button" class="story-more mt-3 text-sm font-medium text-gold-deep underline decoration-gold-soft underline-offset-4 hover:decoration-gold-deep" aria-expanded="false">Read full story</button>}
+    </blockquote>
+    <figcaption class="mt-7 flex flex-wrap items-end justify-between gap-3 border-t border-black/[0.06] pt-5">
+      <span class="flex items-center gap-3 leading-snug">
+        {img && size === 'narrow' && <Picture src={img} alt="" formats={['avif', 'webp']} widths={[96]} sizes="48px" loading="lazy" class="h-12 w-12 shrink-0 rounded-full object-cover object-top ring-2 ring-[#f6efdf]" />}
+        <span>
+        <span class="block font-medium text-ink">— {t.name}</span>
+        {meta && <span class="mt-0.5 block text-[0.68rem] tracking-[0.2em] text-muted uppercase">{meta}</span>}
+        </span>
+      </span>
+      {t.label && <span class="inline-flex items-center gap-1.5 rounded-full bg-[#f6efdf] px-3 py-1.5 text-[0.62rem] font-semibold tracking-[0.16em] text-gold-deep uppercase"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c.6 4.4 2.6 6.4 7 7-4.4.6-6.4 2.6-7 7-.6-4.4-2.6-6.4-7-7 4.4-.6 6.4-2.6 7-7z" fill="currentColor"/></svg>{t.label}</span>}
     </figcaption>
   </div>
-  {t.headline && <p class="mt-6 font-serif text-[1.55rem] leading-snug font-semibold text-ink">“{t.headline}”</p>}
-  <blockquote class:list={['story-body relative mt-5 space-y-3 text-[0.95rem] leading-relaxed text-ink-soft [&_strong]:font-semibold [&_strong]:text-ink', long && 'is-clamped']}>
-    {t.story.map((p) => <p set:html={p} />)}
-  </blockquote>
-  {long && <button type="button" class="story-more mt-3 text-sm font-semibold text-gold-deep underline decoration-gold-soft underline-offset-4 hover:decoration-gold-deep" aria-expanded="false">Read full story</button>}
 </figure>
