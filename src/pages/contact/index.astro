@@ -67,7 +67,13 @@ const contact = [site.email && ['Email', site.email, `mailto:${site.email}`], si
     const ok = document.getElementById('form-success')!;
     const err = document.getElementById('form-error')!;
     const topic = document.getElementById('topic') as HTMLSelectElement;
-    if (new URLSearchParams(location.search).get('topic') === 'stockist') topic.value = 'Becoming a stockist';
+    const qs = new URLSearchParams(location.search);
+    if (qs.get('topic') === 'stockist') topic.value = 'Becoming a stockist';
+    if (qs.get('topic') === 'order') {
+      topic.value = 'Order';
+      const msg = form.elements.namedItem('message') as HTMLTextAreaElement;
+      if (qs.get('product')) msg.value = `I'd like to order the ${qs.get('product')}.\n\nDelivery address:\n`;
+    }
     if (new URLSearchParams(location.search).get('topic') === 'story') {
       topic.value = 'Other';
       (form.elements.namedItem('message') as HTMLTextAreaElement).placeholder = 'Tell us how your cleanse went…';

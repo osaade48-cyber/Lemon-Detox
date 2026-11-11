@@ -75,7 +75,8 @@ const jsonLd = [{
       <p class="lead mt-6">{p.body}</p>
 
       <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-        <BuyButton href={p.checkoutUrl} product={p.name} class="min-w-[12rem]" />
+        <BuyButton href={p.checkoutUrl} product={p.name} label={p.checkoutUrl ? 'Buy now' : 'Order now'} fallbackHref={`/contact?topic=order&product=${encodeURIComponent(p.name)}`} class="min-w-[12rem]" />
+        {!p.checkoutUrl && <p class="mt-3 w-full text-sm text-muted">Online checkout is opening soon — send an order request and we’ll confirm it within one business day.</p>}
         <a href="/how-it-works" class="link-arrow text-sm">How it works</a>
       </div>
       <PriceNote class="mt-4" />
