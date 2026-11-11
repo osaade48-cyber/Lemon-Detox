@@ -84,7 +84,7 @@ const plausible = site.analytics.PLAUSIBLE_DOMAIN;
       <slot />
     </main>
     <Footer />
-    <a href="#main" id="to-top" class="fixed right-5 bottom-24 z-30 grid h-12 w-12 translate-y-4 place-items-center rounded-full bg-white text-ink opacity-0 shadow-[0_10px_30px_-10px_rgba(26,26,26,0.4)] ring-1 ring-black/5 transition duration-300 hover:bg-ink hover:text-white lg:bottom-8" aria-label="Back to top" tabindex="-1"><svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <nav aria-label="Back to top"><a href="#main" id="to-top" class="fixed right-5 bottom-24 z-30 grid h-12 w-12 translate-y-4 place-items-center rounded-full bg-white text-ink opacity-0 shadow-[0_10px_30px_-10px_rgba(26,26,26,0.4)] ring-1 ring-black/5 transition duration-300 hover:bg-ink hover:text-white lg:bottom-8" aria-label="Back to top" tabindex="-1"><svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></nav>
     {shopBar !== false && <ShopBar {...shopBar} />}
 
     <script>
