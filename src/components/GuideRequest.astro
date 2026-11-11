@@ -13,6 +13,8 @@ const pages = Object.entries(import.meta.glob<{ default: ImageMetadata }>('/src/
 import { site } from '../config/site';
 import { products } from '../data/products';
 const formspree = site.forms.FORMSPREE_ENDPOINT;
+import { statSync } from 'node:fs';
+const pdfSize = (statSync('public' + site.guidePdf).size / 1024 / 1024).toFixed(1) + ' MB';
 ---
 <section id="guide" class="scroll-mt-24 pb-20 lg:pb-28" aria-labelledby="guide-h">
   <div class="wrap">
@@ -44,7 +46,7 @@ const formspree = site.forms.FORMSPREE_ENDPOINT;
     <div id="guide-viewer" class="mx-auto mt-10 hidden max-w-5xl" tabindex="-1">
       <p class="text-center font-serif text-3xl text-ink" role="status">Your guide is ready below.</p>
       <div class="relative mt-8 overflow-hidden card">
-        <a href={site.guidePdf} download class="btn btn-primary btn-sm btn-caps absolute top-4 right-4 z-10 !min-h-[2.3rem] !px-4 !text-[0.68rem]">
+        <a href={site.guidePdf} download="Lemon-Detox-Program-Guide.pdf" class="btn btn-primary btn-sm btn-caps absolute top-4 right-4 z-10 !min-h-[2.3rem] !px-4 !text-[0.68rem]">
           <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7l4 4 4-4M2.5 14h11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Download PDF
         </a>
@@ -54,7 +56,13 @@ const formspree = site.forms.FORMSPREE_ENDPOINT;
           </div>
         </div>
       </div>
-      <p class="mt-4 text-center text-sm text-muted">Trouble viewing? <a href={site.guidePdf} target="_blank" rel="noopener" class="underline decoration-gold underline-offset-4">Open the guide in a new tab</a>.</p>
+      <div class="mt-8 flex flex-col items-center gap-3">
+        <a href={site.guidePdf} download="Lemon-Detox-Program-Guide.pdf" class="btn btn-primary btn-caps !min-h-[3.75rem] !px-9">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7l4 4 4-4M2.5 14h11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download the PDF
+        </a>
+        <p class="text-sm text-muted">PDF · 11 pages · {pdfSize} · <a href={site.guidePdf} target="_blank" rel="noopener" class="underline decoration-gold underline-offset-4">open in a new tab</a></p>
+      </div>
 
       <div class="mt-16 text-center">
         <h3 class="display-md">Begin your <em>reset</em>.</h3>
