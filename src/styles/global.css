@@ -173,6 +173,7 @@ details.acc[open] .acc-icon { transform: rotate(45deg); }
 @media (prefers-reduced-motion: no-preference) {
   /* Hero photo breathes very slowly */
   .breathe img { animation: breathe 22s ease-in-out infinite alternate; transform-origin: 60% 40%; }
+  @media (min-width: 1024px) { .lg\:breathe img { animation: breathe 22s ease-in-out infinite alternate; transform-origin: 60% 40%; } }
   @keyframes breathe { from { transform: scale(1); } to { transform: scale(1.06); } }
   /* Floating product card */
   .bob { animation: bob 7s ease-in-out infinite; }
