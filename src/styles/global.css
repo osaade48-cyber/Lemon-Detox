@@ -220,3 +220,5 @@ body strong { font-weight: 600; }
 
 /* How It Works section numbers: one size everywhere */
 .sec-num { font-size: clamp(4.5rem, 9vw, 7rem); font-weight: 400; letter-spacing: -0.02em; }
+
+[data-toc][aria-current] .toc-num { color: var(--color-honey); }
