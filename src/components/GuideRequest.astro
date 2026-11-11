@@ -18,7 +18,7 @@ const formspree = site.forms.FORMSPREE_ENDPOINT;
   <div class="wrap">
     <div class="mx-auto grid max-w-5xl items-center gap-12 border-t border-black/[0.06] pt-20 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
       <a href="#guide-form" class="group mx-auto block w-full max-w-[17rem] md:max-w-[19rem]" aria-label="Lemon Detox Program Guide — enter your email to open it" data-reveal>
-        <Picture src={cover} alt="Front cover of the Lemon Detox Program Guide: Reset. Reduce. Restore." formats={['avif', 'webp']} widths={[320, 640]} sizes="(min-width: 768px) 304px, 272px" class="h-auto w-full rotate-[-2deg] rounded-[6px] shadow-[0_30px_60px_-25px_rgba(26,26,26,0.45)] ring-1 ring-black/[0.06] transition duration-500 group-hover:rotate-0 group-hover:-translate-y-1" />
+        <Picture src={cover} alt="Front cover of the Lemon Detox Program Guide: Reset. Reduce. Restore." formats={['avif', 'webp']} widths={[400, 640, 900]} quality={88} sizes="(min-width: 768px) 304px, 272px" class="h-auto w-full rotate-[-2deg] rounded-[6px] shadow-[0_30px_60px_-25px_rgba(26,26,26,0.45)] ring-1 ring-black/[0.06] transition duration-500 group-hover:rotate-0 group-hover:-translate-y-1" />
         <span class="mt-5 block text-center text-[0.68rem] tracking-[0.25em] text-muted uppercase">PDF · 11 pages</span>
       </a>
     <div class="text-center md:text-left" data-reveal style="--d:120ms">
@@ -50,7 +50,7 @@ const formspree = site.forms.FORMSPREE_ENDPOINT;
         </a>
         <div class="h-[80vh] min-h-[520px] overflow-y-auto bg-[#efece5] px-3 py-14 sm:px-10" role="region" aria-label="Lemon Detox Program Guide, 11 pages" tabindex="0">
           <div class="mx-auto max-w-[46rem] space-y-6">
-            {pages.map((pg, i) => <Picture src={pg} alt={i === 0 ? 'Lemon Detox Program Guide — cover' : `Program Guide page ${i + 1}`} formats={['webp']} widths={[480, 900]} sizes="(min-width: 800px) 736px, 94vw" loading="lazy" class="h-auto w-full rounded-[3px] bg-white shadow-[0_10px_30px_-12px_rgba(26,26,26,0.35)]" />)}
+            {pages.map((pg, i) => <Picture src={pg} alt={i === 0 ? 'Lemon Detox Program Guide — cover' : `Program Guide page ${i + 1}`} formats={['avif', 'webp']} widths={[800, 1200, 1600]} quality={88} sizes="(min-width: 800px) 736px, 94vw" loading="lazy" class="h-auto w-full rounded-[3px] bg-white shadow-[0_10px_30px_-12px_rgba(26,26,26,0.35)]" />)}
           </div>
         </div>
       </div>
