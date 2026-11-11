@@ -27,8 +27,12 @@ const voices = homeCards.map((c) => ({ ...c, img: photoFor(c.photo.replace('.jpe
 >
   <!-- Hero (Manus layout): full-bleed photo, white fade from the left, headline left -->
   <section class="relative isolate overflow-hidden bg-white" data-hero>
-    <!-- Desktop: photo fills the hero behind the headline. Phones: headline first, then the whole photo uncropped. -->
-    <div class="wrap !max-w-[1320px] flex h-[calc(100svh-5.5rem)] max-h-[820px] min-h-[600px] flex-col justify-end pb-10 sm:pb-14 lg:h-[min(calc(100svh-5.5rem),52vw)] lg:max-h-none lg:justify-center lg:py-0">
+    <div class="relative -z-20 aspect-[1672/941] w-full lg:absolute lg:inset-0 lg:aspect-auto">
+      <ImageSlot name="hero-banner" alt="A woman at a sunlit marble bench with Lemon Detox Cleanse Reset Boxes, the Madal Bal Natural Tree Syrup tin, a jug of the Lemon Detox drink and fresh lemons" eager class="lg:breathe h-full w-full" imgClass="h-full w-full object-cover object-[50%_55%]" sizes="100vw" />
+      <div class="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-white via-white/80 to-white/0 lg:hidden"></div>
+    </div>
+    <!-- Desktop: photo fills the hero behind the headline. Phones: full-width photo, fading into the headline below. -->
+    <div class="wrap !max-w-[1320px] relative -mt-[18vw] flex flex-col pb-10 sm:pb-14 lg:mt-0 lg:h-[min(calc(100svh-5.5rem),52vw)] lg:min-h-[600px] lg:justify-center lg:py-0">
       <div class="hero-in max-w-[40rem]">
         <h1 class="display-xl !text-[clamp(3rem,6.6vw,6.4rem)] !leading-[1.04]">Reset. Reduce.<br /><em>Restore.</em></h1>
         <p class="eyebrow mt-5 !text-[0.75rem] !tracking-[0.42em] lg:mt-8 lg:!text-[0.85rem]">Lemon Detox Cleanse</p>
@@ -38,10 +42,8 @@ const voices = homeCards.map((c) => ({ ...c, img: photoFor(c.photo.replace('.jpe
         </div>
       </div>
     </div>
-    <div class="absolute inset-0 -z-20">
-      <ImageSlot name="hero-banner" alt="A woman at a sunlit marble bench with Lemon Detox Cleanse Reset Boxes, the Madal Bal Natural Tree Syrup tin, a jug of the Lemon Detox drink and fresh lemons" eager class="lg:breathe h-full w-full" imgClass="h-full w-full object-cover object-[24%_0%] sm:object-[35%_0%] lg:object-[50%_55%]" sizes="100vw" />
-    </div>
-    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-white via-white/75 via-30% to-white/0 to-[58%] lg:hidden"></div>
+
+    
     <div class="absolute inset-0 -z-10 hidden bg-gradient-to-r from-white/95 via-white/70 via-35% to-white/0 to-60% lg:block"></div>
   </section>
 
