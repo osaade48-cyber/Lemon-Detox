@@ -31,7 +31,8 @@ const img = match?.[1].default;
       src={img}
       alt={alt}
       formats={['avif', 'webp']}
-      widths={[480, 800, 1200, 1600].filter((w) => w <= img.width)}
+      widths={[...new Set([480, 800, 1200, 1600, 2000, 2400].filter((w) => w < img.width).concat(Math.min(img.width, 2800)))]}
+      quality={90}
       sizes={sizes}
       loading={eager ? 'eager' : 'lazy'}
       fetchpriority={eager ? 'high' : 'auto'}

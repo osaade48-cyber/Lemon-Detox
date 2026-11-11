@@ -26,19 +26,23 @@ const voices = homeCards.map((c) => ({ ...c, img: photoFor(c.photo.replace('.jpe
   description="A structured 7 or 14 day lemon cleanse built around one simple drink. Free tracked shipping Australia-wide."
 >
   <!-- Hero (Manus layout): full-bleed photo, white fade from the left, headline left -->
-  <section class="relative isolate overflow-hidden bg-white" data-hero>
-    <div class="absolute inset-0 -z-20"><ImageSlot name="hero-banner" alt="A woman at a sunlit marble bench with Lemon Detox Cleanse Reset Boxes, the Madal Bal Natural Tree Syrup tin, a jug of the Lemon Detox drink and fresh lemons" eager class="breathe h-full w-full" imgClass="h-full w-full object-cover object-[72%_60%] lg:object-[50%_55%]" sizes="100vw" /></div>
-    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-white via-white/85 to-white/0 lg:bg-gradient-to-r lg:from-white/95 lg:via-white/70 lg:via-35% lg:to-white/0 lg:to-60%"></div>
-    <div class="wrap !max-w-[1320px] flex min-h-[640px] flex-col justify-start pt-12 pb-[62vw] sm:pb-[44vw] lg:h-[min(calc(100svh-5.5rem),52vw)] lg:min-h-[600px] lg:justify-center lg:pt-0 lg:pb-0">
+  <section class="relative isolate flex flex-col overflow-hidden bg-white" data-hero>
+    <!-- Desktop: photo fills the hero behind the headline. Phones: headline first, then the whole photo uncropped. -->
+    <div class="wrap !max-w-[1320px] order-1 flex flex-col pt-10 pb-8 sm:pt-14 lg:h-[min(calc(100svh-5.5rem),52vw)] lg:min-h-[600px] lg:justify-center lg:py-0">
       <div class="hero-in max-w-[40rem]">
-        <h1 class="display-xl !text-[clamp(3.2rem,6.6vw,6.4rem)] !leading-[1.04]">Reset. Reduce.<br /><em>Restore.</em></h1>
+        <h1 class="display-xl !text-[clamp(3rem,6.6vw,6.4rem)] !leading-[1.04]">Reset. Reduce.<br /><em>Restore.</em></h1>
         <p class="eyebrow mt-5 !text-[0.75rem] !tracking-[0.42em] lg:mt-8 lg:!text-[0.85rem]">Lemon Detox Cleanse</p>
-        <div class="mt-8 flex flex-wrap gap-3 lg:mt-10 lg:gap-4">
+        <div class="mt-7 flex flex-wrap gap-3 lg:mt-10 lg:gap-4">
           <a href="/#programs" class="btn btn-primary btn-caps !min-h-[3.25rem] !px-6 lg:!min-h-[4rem] lg:!px-9 shadow-[0_18px_30px_-16px_rgba(26,26,26,0.5)]">Shop Reset Boxes <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="/how-it-works" class="btn btn-secondary btn-caps !min-h-[3.25rem] !border-ink/50 !bg-white/60 !px-6 lg:!min-h-[4rem] lg:!px-9 backdrop-blur-sm">How it works</a>
         </div>
       </div>
     </div>
+    <div class="order-2 relative aspect-[1672/941] w-full lg:absolute lg:inset-0 lg:-z-20 lg:aspect-auto">
+      <ImageSlot name="hero-banner" alt="A woman at a sunlit marble bench with Lemon Detox Cleanse Reset Boxes, the Madal Bal Natural Tree Syrup tin, a jug of the Lemon Detox drink and fresh lemons" eager class="breathe h-full w-full" imgClass="h-full w-full object-cover object-[50%_55%]" sizes="100vw" />
+      <div class="absolute inset-x-0 top-0 h-10 bg-gradient-to-b from-white to-white/0 lg:hidden"></div>
+    </div>
+    <div class="absolute inset-0 -z-10 hidden bg-gradient-to-r from-white/95 via-white/70 via-35% to-white/0 to-60% lg:block"></div>
   </section>
 
   <!-- Reset behaviour (white) -->
@@ -107,7 +111,7 @@ const voices = homeCards.map((c) => ({ ...c, img: photoFor(c.photo.replace('.jpe
         {voices.map((c, i) => (
           <figure class="lift flex flex-col overflow-hidden rounded-[22px] bg-white text-center shadow-[0_2px_6px_rgba(26,26,26,0.04),0_20px_40px_-28px_rgba(26,26,26,0.3)]" data-reveal style={`--d:${i * 90}ms`}>
             <div class="h-64 overflow-hidden bg-white">
-              {c.img && <Picture src={c.img} alt={`Portrait of ${c.name}`} formats={['avif', 'webp']} widths={[380]} sizes="(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw" class="h-full w-full object-contain object-bottom" />}
+              {c.img && <Picture src={c.img} alt={`Portrait of ${c.name}`} formats={['avif', 'webp']} widths={[380, Math.min(c.img.width, 760)]} quality={90} sizes="(min-width: 1024px) 300px, (min-width: 640px) 50vw, 100vw" class="h-full w-full object-contain object-bottom" />}
             </div>
             <div class="relative flex flex-1 flex-col px-6 pt-10 pb-8">
               <svg class="absolute inset-x-0 -top-px w-full text-black/[0.08]" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M0 16 Q150 -12 300 16" fill="none" stroke="currentColor" stroke-width="1.2" /></svg>

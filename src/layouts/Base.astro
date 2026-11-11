@@ -61,7 +61,21 @@ const plausible = site.analytics.PLAUSIBLE_DOMAIN;
 
     <script type="application/ld+json" set:html={JSON.stringify([org, ...jsonLd])} />
     {plausible && <script defer data-domain={plausible} src="https://plausible.io/js/script.js"></script>}
-    <script is:inline>document.documentElement.classList.add('js')</script>
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      // Every new page opens at the top (back/forward still returns to where you were; #links still jump to their section)
+      (function () {
+        var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+        if ((nav && nav.type === 'back_forward') || location.hash) return;
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        var top = function () { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); };
+        var touched = false;
+        ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (e) { addEventListener(e, function () { touched = true; }, { passive: true, once: true }); });
+        var maybeTop = function () { if (!touched) top(); };
+        top(); addEventListener('DOMContentLoaded', maybeTop);
+        addEventListener('load', function () { maybeTop(); setTimeout(function () { history.scrollRestoration = 'auto'; }, 50); });
+      })();
+    </script>
   </head>
   <body>
     <a href="#main" class="sr-only z-50 rounded-full bg-ink px-5 py-3 text-cream focus:not-sr-only focus:fixed focus:top-3 focus:left-3">Skip to content</a>

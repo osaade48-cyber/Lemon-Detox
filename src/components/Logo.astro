@@ -6,8 +6,8 @@ const { light = false, class: cls = 'h-11 w-auto', eager = false } = Astro.props
 ---
 {light ? (
   <span class="inline-flex rounded-md bg-white px-3 py-2">
-    <Image src={logo} alt="detox — Lemon Detox Cleanse" class={cls} widths={[160, 320]} sizes="160px" loading={eager ? 'eager' : 'lazy'} />
+    <Image src={logo} alt="detox — Lemon Detox Cleanse" class={cls} widths={[160, 320, 480]} quality={95} sizes="160px" loading={eager ? 'eager' : 'lazy'} />
   </span>
 ) : (
-  <Image src={logo} alt="detox — Lemon Detox Cleanse" class={cls} widths={[160, 320]} sizes="160px" loading={eager ? 'eager' : 'lazy'} />
+  <Image src={logo} alt="detox — Lemon Detox Cleanse" class={cls} widths={[160, 320, 480]} quality={95} sizes="160px" loading={eager ? 'eager' : 'lazy'} />
 )}
