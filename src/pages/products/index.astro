@@ -1,0 +1,111 @@
+---
+import { Picture } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import ShopCard from '../../components/ShopCard.astro';
+import TrustRow from '../../components/TrustRow.astro';
+import { shop, categories, money } from '../../data/shop';
+import { testimonials, photoFor } from '../../data/testimonials';
+import { site } from '../../config/site';
+
+const groups = categories.map((c) => ({ ...c, items: shop.filter((s) => s.category === c.id) }));
+const quotes = ['Kate Ives', 'Teresa Aaron', 'Geri Graham'].map((n) => testimonials.find((t) => t.name === n)).filter(Boolean) as typeof testimonials;
+const quoteText: Record<string, string> = {
+  'Kate Ives': 'My experience with the Lemon Detox is that it is simple and safe and easy to incorporate into any lifestyle.',
+  'Teresa Aaron': 'The Lemon Detox offered me the easy option with minimum exercise.',
+  'Geri Graham': 'By days 3–5, I began to feel refreshed, less sluggish, and more positive overall.',
+};
+const jsonLd = [{
+  '@context': 'https://schema.org', '@type': 'ItemList', name: 'Lemon Detox Cleanse shop',
+  itemListElement: shop.map((s, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'Product', name: s.name, brand: { '@type': 'Brand', name: site.name },
+    offers: s.variants
+      ? { '@type': 'AggregateOffer', priceCurrency: 'AUD', lowPrice: Math.min(...s.variants.map((v) => v.price)).toFixed(2), highPrice: Math.max(...s.variants.map((v) => v.price)).toFixed(2) }
+      : { '@type': 'Offer', priceCurrency: 'AUD', price: s.price.toFixed(2) } } })),
+}];
+---
+<Base title="Shop — Lemon Detox Cleanse" description="Shop the 7 and 14 Day Reset Box, Madal Bal Natural Tree Syrup, cleanse essentials, books and bee pollen. Free tracked shipping Australia-wide." jsonLd={jsonLd}>
+  <section class="bg-paper" data-hero>
+    <div class="wrap !max-w-[1320px] pt-14 pb-12 text-center sm:pt-20">
+      <p class="eyebrow">Shop</p>
+      <h1 class="display-xl mt-5 !text-[clamp(2.8rem,5.4vw,4.8rem)]">Everything for your <em>reset.</em></h1>
+      <span class="rule mx-auto" aria-hidden="true"></span>
+      <p class="lead mx-auto mt-6 max-w-xl text-ink-soft">The Reset Box, the essentials to top it up, and a few natural favourites for life after your cleanse.</p>
+      <TrustRow class="mt-8" center />
+    </div>
+  </section>
+
+  <nav aria-label="Shop categories" class="sticky top-[5.5rem] z-20 border-y border-black/[0.06] bg-white/95 backdrop-blur">
+    <ul class="wrap !max-w-[1320px] flex gap-2 overflow-x-auto py-3 [scrollbar-width:none] sm:justify-center">
+      {groups.map((g) => <li><a href={`#${g.id}`} data-cat={g.id} class="flex items-center gap-2 rounded-full border border-black/10 px-5 py-2.5 text-[0.72rem] font-medium tracking-[0.18em] whitespace-nowrap text-ink uppercase transition hover:border-ink">{g.label}<span class="text-[0.65rem] text-muted">{g.items.length}</span></a></li>)}
+    </ul>
+  </nav>
+
+  {groups.map((g, gi) => (
+    <section id={g.id} class:list={['scroll-mt-44 py-16 lg:py-20', gi % 2 === 1 ? 'bg-paper' : 'bg-white']} aria-labelledby={`${g.id}-h`}>
+      <div class="wrap !max-w-[1320px]">
+        <div class="flex flex-wrap items-end justify-between gap-4" data-reveal>
+          <div>
+            <p class="eyebrow">{g.label}</p>
+            <h2 id={`${g.id}-h`} class="mt-3 text-[clamp(2rem,3.4vw,3rem)] leading-[1.1]">{g.title}</h2>
+            <span class="rule" aria-hidden="true"></span>
+          </div>
+          <p class="max-w-md text-ink-soft">{g.intro}</p>
+        </div>
+        <div class:list={['mt-10 grid gap-6', g.id === 'programs' ? 'sm:grid-cols-2 lg:mx-auto lg:max-w-4xl' : g.items.length === 1 ? 'sm:grid-cols-2 lg:grid-cols-3' : g.items.length === 2 ? 'sm:grid-cols-2 lg:mx-auto lg:max-w-4xl' : 'sm:grid-cols-2 lg:grid-cols-4']}>
+          {g.items.map((it, i) => <ShopCard item={it} delay={i * 80} />)}
+          {g.id === 'wellness' && (
+            <aside class="flex flex-col justify-center self-center rounded-[22px] bg-ink p-8 text-white sm:p-12 lg:col-span-2" data-reveal style="--d:120ms">
+              <p class="text-[0.66rem] font-semibold tracking-[0.25em] text-honey uppercase">After your reset</p>
+              <p class="mt-3 font-serif text-[1.7rem] leading-snug">Keep the habits you built — regular water, smaller portions and simple, natural food.</p>
+              <a href="/how-it-works#expect" class="mt-6 inline-flex items-center gap-2 self-start text-xs font-bold tracking-[0.2em] text-honey uppercase">What to expect <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </aside>
+          )}
+        </div>
+        {g.id === 'programs' && <p class="mt-6 text-center text-sm text-muted">Not sure which to choose? <a href="/how-it-works#versions" class="link-arrow">Compare the programs</a></p>}
+      </div>
+    </section>
+  ))}
+
+  <!-- Testimonials -->
+  <section class="py-16 lg:py-24" aria-labelledby="shop-voices">
+    <div class="wrap !max-w-[1320px]">
+      <div class="text-center" data-reveal>
+        <p class="eyebrow">Trusted for decades.</p>
+        <h2 id="shop-voices" class="mt-3 text-[clamp(2rem,3.4vw,3rem)]">What our customers <em>say.</em></h2>
+        <span class="rule mx-auto" aria-hidden="true"></span>
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {quotes.map((t, i) => {
+          const img = photoFor(t.photo);
+          return (
+            <figure class="flex flex-col items-center rounded-[22px] bg-paper p-8 text-center" data-reveal style={`--d:${i * 90}ms`}>
+              {img && <Picture src={img} alt={`Portrait of ${t.name}`} formats={['avif', 'webp']} widths={[160, 320]} quality={90} sizes="96px" class="h-24 w-24 rounded-full object-cover object-top ring-4 ring-white" />}
+              <blockquote class="mt-5 flex-1 font-serif text-[1.25rem] leading-snug text-ink">“{quoteText[t.name]}”</blockquote>
+              <figcaption class="mt-5 text-sm"><span class="font-medium text-ink">{t.name}</span>{t.location && <span class="text-muted"> · {t.location}</span>}</figcaption>
+            </figure>
+          );
+        })}
+      </div>
+      <p class="mt-6 text-center text-xs text-muted">Individual results vary. <a href="/testimonials" class="underline underline-offset-4">Read more testimonials</a></p>
+    </div>
+  </section>
+
+  <script>
+    // Bee pollen (and any item with sizes): update price, saving and order link
+    document.querySelectorAll<HTMLElement>('.shop-card').forEach((card) => {
+      card.querySelectorAll<HTMLInputElement>('input[type=radio]').forEach((r) => r.addEventListener('change', () => {
+        const fmt = (n: number) => '$' + (Number.isInteger(n) ? n : n.toFixed(2));
+        const price = Number(r.dataset.price), was = Number(r.dataset.was || 0);
+        card.querySelector('.js-price')!.textContent = fmt(price);
+        const w = card.querySelector<HTMLElement>('.js-was')!; w.textContent = was ? fmt(was) : ''; w.classList.toggle('hidden', !was);
+        const flag = card.querySelector<HTMLElement>('.sale-flag');
+        if (flag) { flag.textContent = was ? `Save ${fmt(was - price)}` : ''; flag.classList.toggle('hidden', !was); }
+        const a = card.querySelector<HTMLAnchorElement>('.js-buy')!; a.href = r.dataset.href!; a.textContent = r.dataset.live ? 'Buy now' : 'Order now';
+      }));
+    });
+    // Highlight category pill in view
+    const pills = document.querySelectorAll<HTMLAnchorElement>('[data-cat]');
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (!e.isIntersecting) return;
+      pills.forEach((a) => { const on = a.dataset.cat === e.target.id; a.classList.toggle('!bg-ink', on); a.classList.toggle('!text-white', on); a.classList.toggle('!border-ink', on); }); }), { rootMargin: '-35% 0px -60% 0px' });
+    document.querySelectorAll('main section[id]').forEach((s) => io.observe(s));
+  </script>
+</Base>

@@ -39,6 +39,19 @@ export const site = {
   checkout: {
     CHECKOUT_URL_7DAY: '',
     CHECKOUT_URL_14DAY: '',
+    // Shop page items (Stripe Payment Links / Shopify links). Empty = "Order now" opens the contact form.
+    shop: {
+      'madal-bal': '',
+      'senna': '',
+      'sea-salt': '',
+      'cayenne': '',
+      'lemon-detox-book': '',
+      'lemon-book': '',
+      'bee-pollen-250': '',
+      'bee-pollen-500': '',
+      'bee-pollen-750': '',
+      'bee-pollen-1000': '',
+    } as Record<string, string>,
     CART_URL: '', // optional — e.g. your Shopify cart URL; shows a Cart link in the nav
     provider: '', // "Shopify" or "Stripe" — named in the privacy policy
   },

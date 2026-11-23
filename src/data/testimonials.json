@@ -1975,6 +1975,35 @@
    "photo": null,
    "label": "Doing It Together & Lasting Impact",
    "featured": false
+  },
+  {
+   "id": 111,
+   "category": "overall",
+   "name": "Kate Ives",
+   "role": null,
+   "location": "NSW",
+   "headline": null,
+   "label": "Simple, safe & easy",
+   "featured": false,
+   "photo": "kate-ives.jpg",
+   "story": [
+    "I am excited as I always thought they got people to lie about the experiences they had and now I know that it is real. (Well with the Lemon Detox program anyway)",
+    "My experience with the Lemon Detox is that it is simple and safe and easy to incorporate into any lifestyle."
+   ]
+  },
+  {
+   "id": 112,
+   "category": "weight",
+   "name": "Teresa Aaron",
+   "role": null,
+   "location": null,
+   "headline": null,
+   "label": "Weight Loss",
+   "featured": false,
+   "photo": "teresa-aaron.jpg",
+   "story": [
+    "The Lemon Detox offered me the easy option with minimum exercise, I lost 6kg in 7 days."
+   ]
   }
  ]
 }
