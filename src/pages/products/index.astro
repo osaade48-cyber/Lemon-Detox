@@ -50,7 +50,7 @@ const jsonLd = [{
           </div>
           <p class="max-w-md text-ink-soft">{g.intro}</p>
         </div>
-        <div class:list={['mt-10 grid gap-6', g.id === 'programs' ? 'sm:grid-cols-2 lg:mx-auto lg:max-w-4xl' : g.items.length === 1 ? 'sm:grid-cols-2 lg:grid-cols-3' : g.items.length === 2 ? 'sm:grid-cols-2 lg:mx-auto lg:max-w-4xl' : 'sm:grid-cols-2 lg:grid-cols-4']}>
+        <div class:list={['mt-10 grid gap-6', g.id === 'programs' || g.items.length === 3 ? 'sm:grid-cols-2 lg:grid-cols-3' : g.items.length === 1 ? 'sm:grid-cols-2 lg:grid-cols-3' : g.items.length === 2 ? 'sm:grid-cols-2 lg:mx-auto lg:max-w-4xl' : 'sm:grid-cols-2 lg:grid-cols-4']}>
           {g.items.map((it, i) => <ShopCard item={it} delay={i * 80} />)}
           {g.id === 'wellness' && (
             <aside class="flex flex-col justify-center self-center rounded-[22px] bg-ink p-8 text-white sm:p-12 lg:col-span-2" data-reveal style="--d:120ms">

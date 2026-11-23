@@ -40,7 +40,7 @@ export type Detail = {
 };
 
 export const categories = [
-  { id: 'programs', label: 'Programs', title: 'The Reset Box', intro: 'Everything you need for your cleanse, in one box. Just add fresh lemons and cayenne.' },
+  { id: 'programs', label: 'Programs', title: 'The Reset Box', intro: 'Everything you need for your cleanse, in one box — plus the Madal Bal® syrup on its own to extend or repeat your program.' },
   { id: 'essentials', label: 'Essentials', title: 'Lemon Detox essentials', intro: 'Top up your program, extend it, or make it for two.' },
   { id: 'books', label: 'Books', title: 'Books', intro: 'The background, the method and the recipes.' },
   { id: 'wellness', label: 'Wellness', title: 'Wellness', intro: 'Natural pantry staples for everyday life after your reset.' },
@@ -79,7 +79,7 @@ export const shop: ShopItem[] = [
       ] },
       inBox: true,
       related: ['cayenne', 'senna', 'sea-salt'],
-    }, name: 'Madal Bal® Natural Tree Syrup', category: 'essentials', image: 'madal-bal-syrup', photo: true, size: '1000 ml', price: 79, checkout: site.checkout.shop?.['madal-bal'],
+    }, name: 'Madal Bal® Natural Tree Syrup', category: 'programs', image: 'madal-bal-syrup', photo: true, size: '1000 ml', price: 79, checkout: site.checkout.shop?.['madal-bal'],
     blurb: 'The key ingredient of the Lemon Detox drink — a balanced blend of maple and palm syrups. Extend your program or share it with a partner.' },
   { id: 'senna',
     slug: 'senna-tea-leaves',
