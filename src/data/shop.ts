@@ -42,8 +42,8 @@ export type Detail = {
 export const categories = [
   { id: 'programs', label: 'Programs', title: 'The Reset Box', intro: 'Everything you need for your cleanse, in one box — plus the Madal Bal® syrup on its own to extend or repeat your program.' },
   { id: 'essentials', label: 'Essentials', title: 'Lemon Detox essentials', intro: 'Top up your program, extend it, or make it for two.' },
+  { id: 'wellness', label: 'Bee Pollen', title: 'Bee Pollen', intro: 'Pure Western Australian bee pollen — the ideal next step after your cleanse.' },
   { id: 'books', label: 'Books', title: 'Books', intro: 'The background, the method and the recipes.' },
-  { id: 'wellness', label: 'Wellness', title: 'Wellness', intro: 'Natural pantry staples for everyday life after your reset.' },
 ] as const;
 
 const p14 = programs.find((p) => p.days === 14)!;

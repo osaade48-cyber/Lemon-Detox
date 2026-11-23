@@ -40,10 +40,12 @@ export const products: Product[] = [
     body2:
       'Many people say the second week is where it clicks — the routine feels effortless, energy feels steady, and the pull back to old habits is noticeably weaker.',
     inTheBox: [
-      'Madal Bal® Natural Tree Syrup',
-      'Senna herbal tea',
-      'Natural sea salt for the morning flush',
-      'Printed program guide',
+      '2 × 1 litre Madal Bal® Natural Tree Syrup',
+      '1 × Pure ground cayenne pepper',
+      '2 × Organic senna tea leaves',
+      '2 × Detox sea salt',
+      '1 × The Lemon Detox Diet Program book',
+      '1 × Free tea leaf infuser',
     ],
     whyTitle: 'Why 14 days',
     why: [
@@ -70,12 +72,12 @@ export const products: Product[] = [
     cardIncludes: 'Includes enough tree syrup for 7 Full Cleanse days (or 9 days on 50/50).',
     body:
       "Seven structured days for a fast, focused reset. Ideal if it's your first cleanse, or if you want a defined week to step away from snacking and overeating and start again with clear habits.",
-    // [[confirm size / quantity]] — sizes are left off until confirmed.
     inTheBox: [
-      'Madal Bal® Natural Tree Syrup',
-      'Senna herbal tea',
-      'Natural sea salt for the morning flush',
-      'Printed program guide',
+      '1 × 1 litre Madal Bal® Natural Tree Syrup',
+      '1 × Pure ground cayenne pepper',
+      '1 × Organic senna tea leaves',
+      '1 × Detox sea salt',
+      '1 × The Lemon Detox Diet Program book',
     ],
     whyTitle: 'Why 7 days',
     why: [
