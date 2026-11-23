@@ -6,9 +6,9 @@
   --color-ink: #1a1a1a;
   --color-ink-soft: #2b2e2f;
   --color-muted: #6b6863;
-  --color-gold: #ecc30f;
-  --color-gold-deep: #7d6a00;
-  --color-lemon-deep: #9c8400; /* large italic headings: lemon-toned, still 3:1+ */
+  --color-gold: #f4c400;
+  --color-gold-deep: #e9b900; /* accent text: lemon yellow */
+  --color-lemon-deep: #f2c200; /* large italic heading words: lemon yellow */
   --color-gold-soft: #f6e7a0;
   --color-honey: #f7d94a;
   --color-lemon: #f4c400;
@@ -84,7 +84,7 @@
     font-size: 0.95rem;
     letter-spacing: 0.01em;
   }
-  .btn-primary { @apply bg-ink text-white hover:bg-gold-deep; }
+  .btn-primary { @apply bg-ink text-white hover:bg-lemon hover:text-ink; }
   .btn-primary:hover { box-shadow: var(--shadow-soft); transform: translateY(-1px); }
   .btn-caps { @apply uppercase; letter-spacing: 0.2em; font-size: 0.8rem; font-weight: 500; }
   .btn-secondary { @apply border border-ink text-ink hover:bg-ink hover:text-white; }
@@ -133,7 +133,7 @@
   }
   .check-list li::after {
     content: '';
-    @apply absolute left-[6px] top-[0.62em] h-[9px] w-[5px] rotate-45 border-r-2 border-b-2 border-gold-deep;
+    @apply absolute left-[6px] top-[0.62em] h-[9px] w-[5px] rotate-45 border-r-2 border-b-2 border-ink;
   }
 }
 
@@ -208,12 +208,12 @@ details.acc[open] .acc-icon { transform: rotate(45deg); }
 /* ── Manus design language ─────────────────────────────────────────────── */
 /* Beige pill label above a section */
 .chip { display: inline-flex; align-items: center; border-radius: 999px; padding: 0.45rem 1.1rem;
-  background: #fdf6d3; border: 1px solid #f3e39a; color: var(--color-gold-deep);
+  background: #fff3b0; border: 1px solid #f4c400; color: var(--color-ink);
   font-family: var(--font-sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; line-height: 1.4; }
 /* Thin gold line with a dot */
 .rule { display: block; width: 8.5rem; height: 10px; margin-top: 1.4rem;
-  background: radial-gradient(circle at 50% 50%, #ecc30f 0 4px, rgb(236 195 15 / 0.3) 4.5px 6px, transparent 6.5px),
-              linear-gradient(to right, transparent, rgb(236 195 15 / 0.65) 30%, rgb(236 195 15 / 0.65) 70%, transparent) center / 100% 1px no-repeat; }
+  background: radial-gradient(circle at 50% 50%, #f4c400 0 4px, rgb(244 196 0 / 0.3) 4.5px 6px, transparent 6.5px),
+              linear-gradient(to right, transparent, rgb(244 196 0 / 0.7) 30%, rgb(244 196 0 / 0.7) 70%, transparent) center / 100% 1px no-repeat; }
 .text-center .rule, .rule.mx-auto { margin-inline: auto; }
 body strong { font-weight: 600; }
 

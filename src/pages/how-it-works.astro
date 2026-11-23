@@ -163,7 +163,7 @@ const versions = [
               <ImageSlot name={d.img} alt={d.alt} class="zoom-img aspect-[4/3] rounded-[22px] bg-paper shadow-[0_30px_50px_-30px_rgba(26,26,26,0.4)]" sizes="(min-width: 1024px) 560px, 100vw" data-unveil />
             </div>
             <div class="max-w-xl">
-              <p class="flex items-center gap-3 text-[0.72rem] font-semibold tracking-[0.25em] text-gold-deep uppercase"><span class="grid h-10 w-10 place-items-center rounded-full bg-lemon/20" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><path d={icons[d.key]} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>{d.when}</p>
+              <p class="flex items-center gap-3 text-[0.72rem] font-semibold tracking-[0.25em] text-gold-deep uppercase"><span class="grid h-10 w-10 place-items-center rounded-full bg-lemon text-ink" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24"><path d={icons[d.key]} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>{d.when}</p>
               <h3 class="mt-4 text-[clamp(1.6rem,2.4vw,2.1rem)] leading-snug">{d.title}</h3>
               <div class="mt-4 space-y-3 text-[1.02rem] leading-[1.8] text-ink-soft">{d.body.map((b) => <p set:html={b} />)}</div>
             </div>
@@ -184,7 +184,7 @@ const versions = [
             <ImageSlot name={g.img} alt={g.alt} class="zoom-img aspect-[4/3] bg-paper" sizes="(min-width: 1024px) 300px, 50vw" />
             <div class="flex-1 p-7">
               <div class="flex items-center justify-between">
-                <span class="grid h-9 w-9 place-items-center rounded-full bg-lemon/20 text-gold-deep" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><path d={ingIcons[i]} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+                <span class="grid h-9 w-9 place-items-center rounded-full bg-lemon text-ink" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><path d={ingIcons[i]} fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
                 <span class="font-serif text-sm text-gold-deep">{String(i + 1).padStart(2, '0')} / 04</span>
               </div>
               <h3 class="mt-5 text-[1.3rem] leading-snug">{g.name}</h3>
@@ -239,7 +239,7 @@ const versions = [
           <article class="lift overflow-hidden rounded-[18px] border border-gold-soft/70 bg-white" data-reveal style={`--d:${i * 90}ms`}>
             <ImageSlot name={c.img} alt={c.alt} class="zoom-img aspect-[4/3] bg-paper" sizes="(min-width: 768px) 620px, 100vw" />
             <div class="p-7 sm:p-8">
-              <h3 class="flex items-center gap-4 font-sans text-[0.9rem] font-semibold tracking-[0.2em] text-gold-deep uppercase"><span class="grid h-11 w-11 place-items-center rounded-full bg-lemon/20" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d={c.icon} fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>{c.t}</h3>
+              <h3 class="flex items-center gap-4 font-sans text-[0.9rem] font-semibold tracking-[0.2em] text-gold-deep uppercase"><span class="grid h-11 w-11 place-items-center rounded-full bg-lemon text-ink" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d={c.icon} fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>{c.t}</h3>
               <p class="mt-4 text-[1.02rem] leading-[1.75] text-ink-soft" set:html={c.body} />
             </div>
           </article>
@@ -272,7 +272,7 @@ const versions = [
           </article>
         ))}
       </div>
-      <a href="/#programs" class="mt-10 flex items-center justify-center gap-3 bg-ink px-6 py-6 text-center text-sm font-medium tracking-[0.3em] text-white uppercase transition hover:bg-gold-deep" data-reveal>
+      <a href="/#programs" class="mt-10 flex items-center justify-center gap-3 bg-ink px-6 py-6 text-center text-sm font-medium tracking-[0.3em] text-white uppercase transition hover:bg-lemon hover:text-ink" data-reveal>
         Start your cleanse today
         <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
       </a>
