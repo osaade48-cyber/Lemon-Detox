@@ -1,5 +1,6 @@
 import type { ImageMetadata } from 'astro';
 import raw from './testimonials.json';
+import faces from './faces.json';
 
 export type Testimonial = {
   id: number;
@@ -21,6 +22,27 @@ export const disclaimer: string = raw.disclaimer;
 const photos = import.meta.glob<{ default: ImageMetadata }>('/src/assets/testimonials/*', { eager: true });
 export const photoFor = (file: string | null) =>
   file ? Object.entries(photos).find(([p]) => p.endsWith('/' + file))?.[1].default ?? null : null;
+
+const avatars = import.meta.glob<{ default: ImageMetadata }>('/src/assets/testimonials/avatars/*', { eager: true });
+/** Square, face-centred crop of a customer photo (for round profile pictures). */
+export const avatarFor = (file: string | null) => {
+  if (!file) return null;
+  const base = file.replace(/\.[^.]+$/, '');
+  return Object.entries(avatars).find(([p]) => p.endsWith('/' + base + '.jpg'))?.[1].default ?? photoFor(file);
+};
+/** object-position that keeps the face in view when the photo is cropped to boxAspect (w/h). */
+export const focusFor = (file: string | null, w: number, h: number, boxAspect: number) => {
+  const f = file ? (faces as Record<string, { cx: number; cy: number; fh: number }>)[file] : null;
+  if (!f) return '50% 25%';
+  const a = w / h;
+  if (a > boxAspect) {
+    const vw = boxAspect / a; const left = Math.min(Math.max(f.cx - vw / 2, 0), 1 - vw);
+    return `${((left / (1 - vw)) * 100).toFixed(1)}% 50%`;
+  }
+  const vh = a / boxAspect; if (vh >= 1) return '50% 50%';
+  const top = Math.min(Math.max(f.cy - vh * 0.4, 0), 1 - vh);
+  return `50% ${((top / (1 - vh)) * 100).toFixed(1)}%`;
+};
 
 export const byName = (names: string[]) =>
   names.map((n) => testimonials.find((t) => t.name === n)).filter(Boolean) as Testimonial[];

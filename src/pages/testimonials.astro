@@ -7,12 +7,6 @@ import ImageSlot from '../components/ImageSlot.astro';
 import { categories, testimonials, disclaimer, photoFor } from '../data/testimonials';
 
 const SHOW = 7; // cards per category before "View more"
-// Mixed sizes, repeating: wide+narrow, narrow+wide, then three narrow (12-column grid)
-const pattern: { span: string; size: 'wide' | 'narrow' }[] = [
-  { span: 'lg:col-span-7', size: 'wide' }, { span: 'lg:col-span-5', size: 'narrow' },
-  { span: 'lg:col-span-5', size: 'narrow' }, { span: 'lg:col-span-7', size: 'wide' },
-  { span: 'lg:col-span-4', size: 'narrow' }, { span: 'lg:col-span-4', size: 'narrow' }, { span: 'lg:col-span-4', size: 'narrow' },
-];
 const groups = categories.map((c) => {
   const all = testimonials.filter((t) => t.category === c.id);
   const featured = all.find((t) => t.featured) ?? all[0];
@@ -91,12 +85,12 @@ const featuredQuote = (t: (typeof testimonials)[number]) => {
         </div>
 
         <!-- The rest, mixed sizes -->
-        <div class="mt-12 grid gap-6 lg:grid-cols-12" data-group={g.id}>
-          <StoryCard t={g.featured} size="wide" showPhoto={false} class="scroll-mt-48 lg:col-span-12" />
-          {g.others.map((t, i) => {
-            const p = pattern[i % pattern.length];
-            return <StoryCard t={t} size={p.size} class={p.span} hidden={i >= SHOW} />;
-          })}
+        <div class="mt-12" data-group={g.id}>
+          <StoryCard t={g.featured} size="wide" showPhoto={false} class="scroll-mt-48" />
+          <!-- Masonry: every card keeps its natural height, so no card has empty space -->
+          <div class="mt-6 columns-1 gap-6 md:columns-2 lg:columns-3 [&>.story]:mb-6 [&>.story]:break-inside-avoid">
+            {g.others.map((t, i) => <StoryCard t={t} hidden={i >= SHOW} />)}
+          </div>
         </div>
         {g.others.length > SHOW && (
           <div class="mt-10 text-center">

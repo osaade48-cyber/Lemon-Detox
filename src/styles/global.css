@@ -6,10 +6,11 @@
   --color-ink: #1a1a1a;
   --color-ink-soft: #2b2e2f;
   --color-muted: #6b6863;
-  --color-gold: #c9a24a;
-  --color-gold-deep: #8a6418;
-  --color-gold-soft: #e8d8a5;
-  --color-honey: #f4d27a;
+  --color-gold: #ecc30f;
+  --color-gold-deep: #7d6a00;
+  --color-lemon-deep: #9c8400; /* large italic headings: lemon-toned, still 3:1+ */
+  --color-gold-soft: #f6e7a0;
+  --color-honey: #f7d94a;
   --color-lemon: #f4c400;
   --color-lemon-soft: #f2d64b;
   --color-lemon-pale: #fbefa8;
@@ -49,7 +50,7 @@
     text-wrap: balance;
   }
   h1 em, h2 em, h3 em, .display em {
-    @apply text-gold-deep italic;
+    @apply text-lemon-deep italic;
     font-weight: 400;
   }
   p { text-wrap: pretty; }
@@ -207,12 +208,12 @@ details.acc[open] .acc-icon { transform: rotate(45deg); }
 /* ── Manus design language ─────────────────────────────────────────────── */
 /* Beige pill label above a section */
 .chip { display: inline-flex; align-items: center; border-radius: 999px; padding: 0.45rem 1.1rem;
-  background: #f6efdf; border: 1px solid #e8d8a5; color: var(--color-gold-deep);
+  background: #fdf6d3; border: 1px solid #f3e39a; color: var(--color-gold-deep);
   font-family: var(--font-sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; line-height: 1.4; }
 /* Thin gold line with a dot */
 .rule { display: block; width: 8.5rem; height: 10px; margin-top: 1.4rem;
-  background: radial-gradient(circle at 50% 50%, #c9932a 0 4px, rgb(201 147 42 / 0.25) 4.5px 6px, transparent 6.5px),
-              linear-gradient(to right, transparent, rgb(201 162 74 / 0.55) 30%, rgb(201 162 74 / 0.55) 70%, transparent) center / 100% 1px no-repeat; }
+  background: radial-gradient(circle at 50% 50%, #ecc30f 0 4px, rgb(236 195 15 / 0.3) 4.5px 6px, transparent 6.5px),
+              linear-gradient(to right, transparent, rgb(236 195 15 / 0.65) 30%, rgb(236 195 15 / 0.65) 70%, transparent) center / 100% 1px no-repeat; }
 .text-center .rule, .rule.mx-auto { margin-inline: auto; }
 body strong { font-weight: 600; }
 

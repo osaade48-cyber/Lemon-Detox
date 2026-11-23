@@ -5,10 +5,15 @@
  * size: 'wide' (photo beside text) | 'narrow' (photo on top)
  */
 import { Picture } from 'astro:assets';
-import { photoFor, type Testimonial } from '../data/testimonials';
+import { photoFor, focusFor, type Testimonial } from '../data/testimonials';
 interface Props { t: Testimonial; size?: 'wide' | 'narrow'; class?: string; hidden?: boolean; showPhoto?: boolean }
 const { t, size = 'narrow', class: cls = '', hidden = false, showPhoto = true } = Astro.props;
-const img = !showPhoto ? null : photoFor(t.photo?.replace('.jpeg', '-large.jpg') ?? null) ?? photoFor(t.photo);
+const largeFile = t.photo?.replace('.jpeg', '-large.jpg') ?? null;
+const imgFile = largeFile && photoFor(largeFile) ? largeFile : t.photo;
+const img = !showPhoto ? null : photoFor(imgFile);
+// photo on top: keep its natural shape between 4:5 (portrait) and 4:3 (landscape), face kept in view
+const boxAspect = img ? Math.min(Math.max(img.width / img.height, 0.8), 4 / 3) : 1;
+const focus = img ? focusFor(imgFile, img.width, img.height, boxAspect) : '';
 
 // Split the first sentence off the first paragraph for the headline.
 const first = t.story[0] ?? '';
@@ -27,11 +32,9 @@ const long = words > (size === 'wide' ? 120 : 75);
 const meta = [t.role, t.location].filter(Boolean).join(' · ');
 const quoteMark = 'M0 22V12.7C0 5.4 4.2 1.2 11 0l1.2 2.6C8 4 6 6.6 5.8 10H11v12H0zm16 0V12.7C16 5.4 20.2 1.2 27 0l1 2.6C24 4 22 6.6 21.8 10H27v12H16z';
 ---
-<figure class:list={['story lift flex overflow-hidden rounded-[22px] border border-black/[0.05] bg-white shadow-[0_2px_6px_rgba(26,26,26,0.03),0_20px_40px_-30px_rgba(26,26,26,0.3)]', img && size === 'wide' ? 'flex-col sm:flex-row' : 'flex-col', cls]} data-category={t.category} hidden={hidden}>
-  {img && size === 'wide' && (
-    <div class="shrink-0 px-7 pt-7 sm:w-[13.5rem] sm:py-8 sm:pr-0 sm:pl-8">
-      <Picture src={img} alt={`Portrait of ${t.name}`} formats={['avif', 'webp']} widths={[Math.min(img.width, 600)]} quality={90} sizes="180px" loading="lazy" class="h-auto w-36 rounded-[14px] sm:w-full" />
-    </div>
+<figure class:list={['story lift flex flex-col overflow-hidden rounded-[22px] border border-black/[0.05] bg-white shadow-[0_2px_6px_rgba(26,26,26,0.03),0_20px_40px_-30px_rgba(26,26,26,0.3)]', cls]} data-category={t.category} hidden={hidden}>
+  {img && (
+    <Picture src={img} alt={`Portrait of ${t.name}`} formats={['avif', 'webp']} widths={[400, 600, 800, img.width].filter((w, i, a) => w <= img.width && a.indexOf(w) === i)} quality={90} sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw" loading="lazy" class="block h-auto w-full object-cover" style={`aspect-ratio:${boxAspect};object-position:${focus}`} />
   )}
   <div class="flex flex-1 flex-col p-7 sm:p-8">
     <svg width="26" height="20" viewBox="0 0 28 22" aria-hidden="true" class="text-gold/80"><path d={quoteMark} fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
@@ -46,13 +49,12 @@ const quoteMark = 'M0 22V12.7C0 5.4 4.2 1.2 11 0l1.2 2.6C8 4 6 6.6 5.8 10H11v12H
     </blockquote>
     <figcaption class="mt-7 flex flex-wrap items-end justify-between gap-3 border-t border-black/[0.06] pt-5">
       <span class="flex items-center gap-3 leading-snug">
-        {img && size === 'narrow' && <Picture src={img} alt="" formats={['avif', 'webp']} widths={[96, 192]} quality={90} sizes="48px" loading="lazy" class="h-12 w-12 shrink-0 rounded-full object-cover object-top ring-2 ring-[#f6efdf]" />}
         <span>
         <span class="block font-medium text-ink">— {t.name}</span>
         {meta && <span class="mt-0.5 block text-[0.68rem] tracking-[0.2em] text-muted uppercase">{meta}</span>}
         </span>
       </span>
-      {t.label && <span class="inline-flex items-center gap-1.5 rounded-full bg-[#f6efdf] px-3 py-1.5 text-[0.62rem] font-semibold tracking-[0.16em] text-gold-deep uppercase"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c.6 4.4 2.6 6.4 7 7-4.4.6-6.4 2.6-7 7-.6-4.4-2.6-6.4-7-7 4.4-.6 6.4-2.6 7-7z" fill="currentColor"/></svg>{t.label}</span>}
+      {t.label && <span class="inline-flex items-center gap-1.5 rounded-full bg-[#fdf6d3] px-3 py-1.5 text-[0.62rem] font-semibold tracking-[0.16em] text-gold-deep uppercase"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c.6 4.4 2.6 6.4 7 7-4.4.6-6.4 2.6-7 7-.6-4.4-2.6-6.4-7-7 4.4-.6 6.4-2.6 7-7z" fill="currentColor"/></svg>{t.label}</span>}
     </figcaption>
   </div>
 </figure>

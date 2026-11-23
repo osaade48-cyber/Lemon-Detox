@@ -4,7 +4,7 @@ import Base from '../../layouts/Base.astro';
 import ShopCard from '../../components/ShopCard.astro';
 import TrustRow from '../../components/TrustRow.astro';
 import { shop, categories, money } from '../../data/shop';
-import { testimonials, photoFor } from '../../data/testimonials';
+import { testimonials, avatarFor } from '../../data/testimonials';
 import { site } from '../../config/site';
 
 const groups = categories.map((c) => ({ ...c, items: shop.filter((s) => s.category === c.id) }));
@@ -75,10 +75,10 @@ const jsonLd = [{
       </div>
       <div class="mt-10 grid gap-6 md:grid-cols-3">
         {quotes.map((t, i) => {
-          const img = photoFor(t.photo);
+          const img = avatarFor(t.photo);
           return (
             <figure class="flex flex-col items-center rounded-[22px] bg-paper p-8 text-center" data-reveal style={`--d:${i * 90}ms`}>
-              {img && <Picture src={img} alt={`Portrait of ${t.name}`} formats={['avif', 'webp']} widths={[160, 320]} quality={90} sizes="96px" class="h-24 w-24 rounded-full object-cover object-top ring-4 ring-white" />}
+              {img && <Picture src={img} alt={`Portrait of ${t.name}`} formats={['avif', 'webp']} widths={[128, 256, 384]} quality={90} sizes="128px" class="h-32 w-32 rounded-full object-cover ring-4 ring-white shadow-[0_12px_30px_-14px_rgba(26,26,26,0.35)]" />}
               <blockquote class="mt-5 flex-1 font-serif text-[1.25rem] leading-snug text-ink">“{quoteText[t.name]}”</blockquote>
               <figcaption class="mt-5 text-sm"><span class="font-medium text-ink">{t.name}</span>{t.location && <span class="text-muted"> · {t.location}</span>}</figcaption>
             </figure>
