@@ -12,6 +12,7 @@ export type ShopItem = {
   name: string;
   category: 'programs' | 'essentials' | 'books' | 'wellness';
   image: string; // file name in src/assets/products or src/assets/images
+  photo?: boolean; // full-bleed studio photo (cropped to fill) rather than a cut-out on white
   size?: string;
   price: number;
   was?: number;
@@ -49,9 +50,9 @@ const p14 = programs.find((p) => p.days === 14)!;
 const p7 = programs.find((p) => p.days === 7)!;
 
 export const shop: ShopItem[] = [
-  { id: 'reset-14', name: p14.name, category: 'programs', image: 'product-14day', price: p14.price, badge: 'Most popular', href: `/products/${p14.slug}`, checkout: p14.checkoutUrl,
+  { id: 'reset-14', name: p14.name, category: 'programs', image: 'product-14day', photo: true, price: p14.price, badge: 'Most popular', href: `/products/${p14.slug}`, checkout: p14.checkoutUrl,
     blurb: 'Our most complete program. Two weeks to settle into the routine and build habits that last.' },
-  { id: 'reset-7', name: p7.name, category: 'programs', image: 'product-7day', price: p7.price, href: `/products/${p7.slug}`, checkout: p7.checkoutUrl,
+  { id: 'reset-7', name: p7.name, category: 'programs', image: 'product-7day', photo: true, price: p7.price, href: `/products/${p7.slug}`, checkout: p7.checkoutUrl,
     blurb: 'Seven structured days for a focused reset. Ideal for your first cleanse.' },
 
   { id: 'madal-bal',
@@ -78,7 +79,7 @@ export const shop: ShopItem[] = [
       ] },
       inBox: true,
       related: ['cayenne', 'senna', 'sea-salt'],
-    }, name: 'Madal Bal® Natural Tree Syrup', category: 'essentials', image: 'madal-bal-syrup', size: '1000 ml', price: 79, checkout: site.checkout.shop?.['madal-bal'],
+    }, name: 'Madal Bal® Natural Tree Syrup', category: 'essentials', image: 'madal-bal-syrup', photo: true, size: '1000 ml', price: 79, checkout: site.checkout.shop?.['madal-bal'],
     blurb: 'The key ingredient of the Lemon Detox drink — a balanced blend of maple and palm syrups. Extend your program or share it with a partner.' },
   { id: 'senna',
     slug: 'senna-tea-leaves',
@@ -100,7 +101,7 @@ export const shop: ShopItem[] = [
       warning: 'Senna is a laxative. Don’t use it for long periods outside the cleanse, and speak with your doctor first if you are pregnant, breastfeeding, taking medication or have a bowel condition.',
       inBox: true,
       related: ['sea-salt', 'madal-bal', 'cayenne'],
-    }, name: 'Senna Tea Leaves', category: 'essentials', image: 'senna-tea-pack', size: '18 g', price: 5, checkout: site.checkout.shop?.['senna'],
+    }, name: 'Senna Tea Leaves', category: 'essentials', image: 'senna-tea-pack', photo: true, size: '18 g', price: 5, checkout: site.checkout.shop?.['senna'],
     blurb: 'Mild herbal senna tea for the evening routine.' },
   { id: 'sea-salt',
     slug: 'detox-sea-salt',
@@ -142,7 +143,7 @@ export const shop: ShopItem[] = [
       ] },
       inBox: true,
       related: ['madal-bal', 'senna', 'sea-salt'],
-    }, name: 'Cayenne Pepper', category: 'essentials', image: 'cayenne-pepper', size: '30 g', price: 2.6, checkout: site.checkout.shop?.['cayenne'],
+    }, name: 'Cayenne Pepper', category: 'essentials', image: 'cayenne-pepper', photo: true, size: '30 g', price: 2.6, checkout: site.checkout.shop?.['cayenne'],
     blurb: 'Just a pinch adds gentle warmth to every glass.' },
 
   { id: 'lemon-detox-book',

@@ -13,9 +13,9 @@ const href = (v0?.checkout ?? it.checkout) || orderLink(v0 ? `${it.name} (${v0.l
 const live = !!(v0?.checkout ?? it.checkout);
 ---
 <article class="shop-card lift group flex flex-col overflow-hidden rounded-[22px] border border-black/[0.06] bg-white shadow-[0_2px_6px_rgba(26,26,26,0.03),0_20px_40px_-30px_rgba(26,26,26,0.3)]" data-reveal style={`--d:${delay}ms`} data-name={it.name}>
-  <div class:list={['relative overflow-hidden', it.category === 'programs' ? 'bg-[#f8f8f8]' : 'bg-white p-6']}>
+  <div class:list={['relative overflow-hidden', it.photo ? 'bg-[#e9e9e9]' : 'bg-white px-6 py-3']}>
     {it.href && <a href={it.href} class="absolute inset-0 z-[1]" aria-label={`${it.name} — details`} tabindex="-1"></a>}
-    {img && <Picture src={img} alt={`${it.name}${it.size ? ' ' + it.size : ''}`} formats={['avif', 'webp']} widths={[360, 600, 900]} quality={90} sizes="(min-width: 1024px) 300px, (min-width: 640px) 45vw, 90vw" loading="lazy" class:list={['h-auto w-full transition duration-700 group-hover:scale-[1.04]', it.category === 'programs' ? 'aspect-[4/3] object-contain' : 'aspect-square object-contain']} />}
+    {img && <Picture src={img} alt={`${it.name}${it.size ? ' ' + it.size : ''}`} formats={['avif', 'webp']} widths={[480, 800, 1200]} quality={90} sizes="(min-width: 1024px) 300px, (min-width: 640px) 45vw, 90vw" loading="lazy" class:list={['h-auto w-full transition duration-700 group-hover:scale-[1.04]', it.photo ? 'aspect-[3/2] object-cover' : 'aspect-[3/2] object-contain']} />}
     {it.badge && <span class="absolute top-4 left-4 z-[2] rounded-full bg-gold-deep px-3 py-1 text-[0.6rem] font-semibold tracking-[0.2em] text-white uppercase">{it.badge}</span>}
     {it.variants?.some((v) => v.was) || was ? <span class:list={['sale-flag absolute top-4 right-4 z-[2] rounded-full bg-lemon px-3 py-1 text-[0.6rem] font-bold tracking-[0.2em] text-ink uppercase', !was && 'hidden']}>{was ? `Save ${money(was - price)}` : ''}</span> : null}
   </div>

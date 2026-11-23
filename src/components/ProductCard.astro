@@ -13,7 +13,7 @@ const featured = !!p.badge;
 >
   {p.badge && <span class="absolute top-0 left-0 border-r-2 border-b-2 border-gold px-6 py-2.5 text-[0.68rem] font-medium tracking-[0.25em] text-gold-deep uppercase">{p.badge}</span>}
   <a href={`/products/${p.slug}`} class="block" tabindex="-1" aria-hidden="true">
-    <ImageSlot name={`product-${p.days}day`} alt="" class="aspect-[4/3] w-full max-w-[26rem] rounded-[28px] bg-paper shadow-[0_24px_40px_-24px_rgba(26,26,26,0.3)] ring-1 ring-black/[0.04]" imgClass="h-full w-full object-contain p-6 transition duration-700 group-hover:scale-[1.04]" sizes="(min-width: 768px) 420px, 90vw" />
+    <ImageSlot name={`product-${p.days}day`} alt="" class="aspect-[3/2] w-full max-w-[26rem] overflow-hidden rounded-[28px] bg-[#e9e9e9] shadow-[0_24px_40px_-24px_rgba(26,26,26,0.3)] ring-1 ring-black/[0.04]" imgClass="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" sizes="(min-width: 768px) 420px, 90vw" />
   </a>
   <h3 id={`pc-${p.slug}`} class="mt-9 text-[2.1rem] leading-tight sm:text-[2.5rem]">
     <a href={`/products/${p.slug}`} class="hover:text-gold-deep">{p.name}</a>

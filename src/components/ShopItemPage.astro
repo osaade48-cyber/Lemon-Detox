@@ -52,8 +52,8 @@ const title = `${it.name}${it.size && !it.variants ? ' ' + it.size : ''} — Lem
   <!-- Hero -->
   <section class="wrap grid gap-10 pt-8 pb-20 lg:grid-cols-2 lg:gap-16" data-hero>
     <div class="relative lg:sticky lg:top-28 lg:self-start">
-      <div class="zoom-img overflow-hidden rounded-[24px] border hairline bg-white p-8 sm:p-12">
-        {img && <Picture src={img} alt={`${it.name}${it.size ? ' ' + it.size : ''}`} formats={['avif', 'webp']} widths={[480, 800, 1200]} quality={90} sizes="(min-width: 1024px) 580px, 100vw" loading="eager" class="aspect-square h-auto w-full object-contain" />}
+      <div class:list={['zoom-img overflow-hidden rounded-[24px] border hairline', it.photo ? 'bg-[#e9e9e9]' : 'bg-white p-8 sm:p-12']}>
+        {img && <Picture src={img} alt={`${it.name}${it.size ? ' ' + it.size : ''}`} formats={['avif', 'webp']} widths={[480, 800, 1200, 1600]} quality={90} sizes="(min-width: 1024px) 580px, 100vw" loading="eager" class:list={['h-auto w-full', it.photo ? 'aspect-[4/3] object-cover' : 'aspect-square object-contain']} />}
       </div>
       {d.inBox && <span class="absolute top-6 left-6 rounded-full bg-ink px-4 py-2 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-cream">In every Reset Box</span>}
       <span class:list={['sale-flag absolute top-6 right-6 rounded-full bg-lemon px-4 py-2 text-[0.66rem] font-bold uppercase tracking-[0.2em] text-ink', !was && 'hidden']}>{was ? `Save ${money(was - price)}` : ''}</span>
