@@ -46,7 +46,7 @@ const cols = [states.slice(0, half), states.slice(half)];
           <h2 class="text-[1.8rem]">Our stockist list is being updated.</h2>
           <p class="max-w-md text-ink-soft">In the meantime, order online with free tracked shipping Australia-wide — delivered straight to your door.</p>
           <div class="mt-2 flex flex-wrap justify-center gap-3">
-            {products.map((p) => <a href={`/products/${p.slug}`} class="btn btn-primary btn-caps btn-sm !px-6">{p.name} · ${p.price}</a>)}
+            {products.map((p) => <a href={`/products/${p.slug}`} class="btn btn-primary btn-caps btn-sm">{p.name} · ${p.price}</a>)}
           </div>
         </div>
       )}

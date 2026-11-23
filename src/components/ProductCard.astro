@@ -7,13 +7,13 @@ const { product: p, delay = 0 } = Astro.props;
 const featured = !!p.badge;
 ---
 <article
-  class:list={['group relative flex flex-col border border-black/[0.07] bg-white px-8 pt-10 pb-10 text-left transition duration-500 sm:px-12', featured ? 'shadow-[0_30px_60px_-30px_rgba(26,26,26,0.25)]' : 'hover:shadow-[0_30px_60px_-30px_rgba(26,26,26,0.2)]']}
+  class:list={['group relative flex flex-col overflow-hidden rounded-[22px] border border-black/[0.07] bg-white px-8 pt-10 pb-10 text-left transition duration-500 sm:px-12', featured ? 'shadow-[0_30px_60px_-30px_rgba(26,26,26,0.25)]' : 'hover:shadow-[0_30px_60px_-30px_rgba(26,26,26,0.2)]']}
   data-reveal style={`--d:${delay}ms`}
   aria-labelledby={`pc-${p.slug}`}
 >
   <a href={`/products/${p.slug}`} class="relative block max-w-[26rem]" tabindex="-1" aria-hidden="true">
     {p.badge && <span class="absolute top-4 left-4 z-[1] rounded-full bg-ink px-4 py-2 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-cream">{p.badge}</span>}
-    <ImageSlot name={`product-${p.days}day`} alt="" class="aspect-[3/2] w-full max-w-[26rem] overflow-hidden rounded-[28px] bg-[#e9e9e9] shadow-[0_24px_40px_-24px_rgba(26,26,26,0.3)] ring-1 ring-black/[0.04]" imgClass="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" sizes="(min-width: 768px) 420px, 90vw" />
+    <ImageSlot name={`product-${p.days}day`} alt="" class="aspect-[3/2] w-full max-w-[26rem] overflow-hidden rounded-[22px] bg-[#e9e9e9] shadow-[0_24px_40px_-24px_rgba(26,26,26,0.3)] ring-1 ring-black/[0.04]" imgClass="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" sizes="(min-width: 768px) 420px, 90vw" />
   </a>
   <h3 id={`pc-${p.slug}`} class="mt-9 text-[2.1rem] leading-tight sm:text-[2.5rem]">
     <a href={`/products/${p.slug}`} class="hover:text-gold-deep">{p.name}</a>
@@ -22,5 +22,5 @@ const featured = !!p.badge;
   <div class="mt-7 flex items-baseline justify-end border-t border-black/[0.07] pt-7">
     <span class="font-serif text-[2.6rem] leading-none text-ink">${p.price}.00</span>
   </div>
-  <BuyButton href={p.checkoutUrl} product={p.name} fallbackHref={`/products/${p.slug}`} class:list={['mt-6 w-full !min-h-[4.25rem] !text-[0.9rem]', !featured && '!border !border-ink !bg-transparent !text-ink hover:!bg-ink hover:!text-white']} />
+  <BuyButton href={p.checkoutUrl} product={p.name} fallbackHref={`/products/${p.slug}`} class:list={['mt-6 w-full', !featured && '!border !border-ink !bg-transparent !text-ink hover:!bg-ink hover:!text-white']} />
 </article>

@@ -43,7 +43,7 @@ const live = !!(v0?.checkout ?? it.checkout);
         <span class="js-price font-serif text-[1.8rem] text-ink">{money(price)}</span>
         <s class:list={['js-was ml-1.5 text-sm text-muted', !was && 'hidden']}>{was ? money(was) : ''}</s>
       </p>
-      <a href={href} class="js-buy btn btn-primary btn-caps btn-sm !px-5" rel={live ? 'noopener' : undefined}>{live ? 'Buy now' : 'Order now'}</a>
+      <a href={href} class="js-buy btn btn-primary btn-caps btn-sm" rel={live ? 'noopener' : undefined}>{live ? 'Buy now' : 'Order now'}</a>
     </div>
     {it.href && <a href={it.href} class="link-arrow mt-4 self-start text-sm">{it.category === 'programs' ? 'View details' : 'Details & how to use'}</a>}
   </div>

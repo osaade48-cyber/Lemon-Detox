@@ -39,11 +39,11 @@ const featuredQuote = (t: (typeof testimonials)[number]) => {
           <p>While each person’s experience is different, many people report feeling lighter, clearer, and more aware of their habits after completing the program.</p>
         </div>
         <div class="mt-10 flex flex-wrap gap-4">
-          <a href="/#programs" class="btn btn-primary btn-caps !min-h-[3.75rem] !px-8">Order your Reset Box <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="/how-it-works" class="btn btn-secondary btn-caps !min-h-[3.75rem] !border-ink/25 !bg-white !px-8">How it works</a>
+          <a href="/#programs" class="btn btn-primary btn-caps">Order your Reset Box <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/how-it-works" class="btn btn-secondary btn-caps !border-ink/25 !bg-white">How it works</a>
         </div>
       </div>
-      <ImageSlot name="testimonials-side" alt="A smiling woman enjoying the morning sun outdoors" eager class="aspect-[4/5] w-full max-w-[34rem] justify-self-end rounded-[26px] bg-white shadow-[0_40px_60px_-40px_rgba(26,26,26,0.4)]" sizes="(min-width: 1024px) 540px, 100vw" />
+      <ImageSlot name="testimonials-side" alt="A smiling woman enjoying the morning sun outdoors" eager class="aspect-[4/5] w-full max-w-[34rem] justify-self-end rounded-[22px] bg-white shadow-[0_40px_60px_-40px_rgba(26,26,26,0.4)]" sizes="(min-width: 1024px) 540px, 100vw" />
     </div>
   </section>
 
@@ -68,9 +68,9 @@ const featuredQuote = (t: (typeof testimonials)[number]) => {
             <p class="mt-6 max-w-md text-[1.05rem] leading-[1.8] text-ink-soft">{g.blurb}</p>
             <p class="mt-4 text-sm text-muted">{g.count} {g.count === 1 ? 'story' : 'stories'}</p>
           </div>
-          <figure class="flex flex-col gap-2 overflow-hidden rounded-[26px] bg-white shadow-[0_40px_70px_-40px_rgba(26,26,26,0.4)] ring-1 ring-black/[0.04] sm:flex-row sm:items-center" data-reveal style="--d:120ms">
+          <figure class="flex flex-col gap-2 overflow-hidden rounded-[22px] bg-white shadow-[0_40px_70px_-40px_rgba(26,26,26,0.4)] ring-1 ring-black/[0.04] sm:flex-row sm:items-center" data-reveal style="--d:120ms">
             <div class="shrink-0 px-8 pt-8 sm:w-[16rem] sm:py-8 sm:pr-0">
-              {g.featImg && <Picture src={g.featImg} alt={`Portrait of ${g.featured.name}`} formats={['avif', 'webp']} widths={[Math.min(g.featImg.width, 760)]} quality={90} sizes="240px" class="mx-auto h-auto w-full max-w-[13rem] rounded-[18px]" />}
+              {g.featImg && <Picture src={g.featImg} alt={`Portrait of ${g.featured.name}`} formats={['avif', 'webp']} widths={[Math.min(g.featImg.width, 760)]} quality={90} sizes="240px" class="mx-auto h-auto w-full max-w-[13rem] rounded-[22px]" />}
             </div>
             <div class="flex flex-1 flex-col justify-center p-8 sm:p-10">
               <svg width="34" height="26" viewBox="0 0 28 22" aria-hidden="true" class="text-gold"><path d="M0 22V12.7C0 5.4 4.2 1.2 11 0l1.2 2.6C8 4 6 6.6 5.8 10H11v12H0zm16 0V12.7C16 5.4 20.2 1.2 27 0l1 2.6C24 4 22 6.6 21.8 10H27v12H16z" fill="currentColor"/></svg>
@@ -94,7 +94,7 @@ const featuredQuote = (t: (typeof testimonials)[number]) => {
         </div>
         {g.others.length > SHOW && (
           <div class="mt-10 text-center">
-            <button type="button" class="view-more btn btn-secondary btn-caps !min-h-[3.25rem] !border-ink/25 !bg-white !px-8" data-group={g.id} data-shown={SHOW}>View more {g.label.toLowerCase()} stories</button>
+            <button type="button" class="view-more btn btn-secondary btn-caps !border-ink/25 !bg-white" data-group={g.id} data-shown={SHOW}>View more {g.label.toLowerCase()} stories</button>
           </div>
         )}
       </div>

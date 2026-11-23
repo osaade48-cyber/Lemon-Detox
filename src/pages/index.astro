@@ -37,8 +37,8 @@ const voices = homeCards.map((c) => ({ ...c, img: photoFor(c.photo.replace('.jpe
         <h1 class="display-xl !text-[clamp(3rem,6.6vw,6.4rem)] !leading-[1.04]">Reset. Reduce.<br /><em>Restore.</em></h1>
         <p class="eyebrow mt-5 !text-[0.75rem] !tracking-[0.42em] lg:mt-8 lg:!text-[0.85rem]">Lemon Detox Cleanse</p>
         <div class="mt-7 flex flex-wrap gap-3 lg:mt-10 lg:gap-4">
-          <a href="/#programs" class="btn btn-primary btn-caps !min-h-[3.25rem] !px-6 lg:!min-h-[4rem] lg:!px-9 shadow-[0_18px_30px_-16px_rgba(26,26,26,0.5)]">Shop Reset Boxes <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="/how-it-works" class="btn btn-secondary btn-caps !min-h-[3.25rem] !border-ink/50 !bg-white/60 !px-6 lg:!min-h-[4rem] lg:!px-9 backdrop-blur-sm">How it works</a>
+          <a href="/#programs" class="btn btn-primary btn-caps shadow-[0_18px_30px_-16px_rgba(26,26,26,0.5)]">Shop Reset Boxes <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/how-it-works" class="btn btn-secondary btn-caps !border-ink/50 !bg-white/60 backdrop-blur-sm">How it works</a>
         </div>
       </div>
     </div>
@@ -50,7 +50,7 @@ const voices = homeCards.map((c) => ({ ...c, img: photoFor(c.photo.replace('.jpe
   <!-- Reset behaviour (white) -->
   <section class="py-20 lg:py-32" aria-labelledby="reset-h">
     <div class="wrap !max-w-[1320px] grid items-center gap-14 lg:grid-cols-[0.8fr_1fr] lg:gap-24">
-      <ImageSlot name="home-reset" alt="A woman stretching outdoors in the morning sun with a glass of the Lemon Detox drink" class="zoom-img aspect-[4/5] rounded-[28px] bg-paper shadow-[0_40px_60px_-40px_rgba(26,26,26,0.35)]" sizes="(min-width: 1024px) 560px, 100vw" data-unveil />
+      <ImageSlot name="home-reset" alt="A woman stretching outdoors in the morning sun with a glass of the Lemon Detox drink" class="zoom-img aspect-[4/5] rounded-[22px] bg-paper shadow-[0_40px_60px_-40px_rgba(26,26,26,0.35)]" sizes="(min-width: 1024px) 560px, 100vw" data-unveil />
       <div data-reveal>
         <span class="chip">Reset behaviour</span>
         <h2 id="reset-h" class="display-lg mt-7 !text-[clamp(2.4rem,4.6vw,4.4rem)]">In a world of <em>constant consumption</em>.</h2>
@@ -123,7 +123,7 @@ const voices = homeCards.map((c) => ({ ...c, img: photoFor(c.photo.replace('.jpe
         {products.map((p, i) => <ProductCard product={p} delay={i * 120} />)}
       </div>
       <p class="mt-10 text-center text-sm text-muted">Free tracked shipping Australia-wide · Secure checkout · 14-day returns on unopened boxes</p>
-      <div class="mt-8 text-center"><a href="/products" class="btn btn-secondary btn-caps !min-h-[3.25rem] !px-8">Shop all products</a></div>
+      <div class="mt-8 text-center"><a href="/products" class="btn btn-secondary btn-caps">Shop all products</a></div>
     </div>
   </section>
 
@@ -157,7 +157,7 @@ const voices = homeCards.map((c) => ({ ...c, img: photoFor(c.photo.replace('.jpe
         ))}
       </div>
       <div class="mt-12 text-center">
-        <a href="/testimonials" class="btn btn-secondary btn-caps !min-h-[3.5rem] !px-9">Read more testimonials</a>
+        <a href="/testimonials" class="btn btn-secondary btn-caps">Read more testimonials</a>
         <p class="mt-5 text-xs text-muted">Individual results vary.</p>
       </div>
     </div>

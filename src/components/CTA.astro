@@ -12,7 +12,7 @@ const { tone = 'white', title = 'Begin your <em>reset</em>.', body, buy = true, 
     <span class="rule mx-auto" aria-hidden="true"></span>
     {body && <p class="lead mx-auto mt-6 max-w-xl text-muted">{body}</p>}
     <div class="mt-10 flex flex-wrap justify-center gap-4">
-      {buy && products.map((p) => <BuyButton href={p.checkoutUrl} product={p.name} label={`Start ${p.short}`} class="!min-h-[3.75rem] !px-9" fallbackHref={`/products/${p.slug}`} />)}
+      {buy && products.map((p) => <BuyButton href={p.checkoutUrl} product={p.name} label={`Start ${p.short}`} fallbackHref={`/products/${p.slug}`} />)}
       {primary && <a href={primary.href} class="btn btn-primary btn-caps">{primary.label}</a>}
       {secondary && <a href={secondary.href} class="btn btn-secondary btn-caps">{secondary.label}</a>}
     </div>
