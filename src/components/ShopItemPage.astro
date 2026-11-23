@@ -42,9 +42,12 @@ const jsonLd = [{
     ? { '@type': 'AggregateOffer', priceCurrency: 'AUD', lowPrice: Math.min(...it.variants.map((v) => v.price)).toFixed(2), highPrice: Math.max(...it.variants.map((v) => v.price)).toFixed(2), offerCount: it.variants.length, offers: it.variants.map((v) => offer(v.price, v.label)) }
     : offer(it.price),
 }];
-const title = `${it.name}${it.size && !it.variants ? ' ' + it.size : ''} — Lemon Detox Cleanse`;
+const sizeLabel = it.size && !it.variants && !/^Book/.test(it.size) ? ' ' + it.size : '';
+const title = `${it.name}${sizeLabel} — Lemon Detox Cleanse`;
+const rawDesc = `${d.tagline} ${d.intro[0]}`;
+const metaDesc = rawDesc.length <= 158 ? rawDesc : rawDesc.slice(0, 157).replace(/\s+\S*$/, '').replace(/[,;:—–-]+$/, '') + '…';
 ---
-<Base title={title} description={`${d.tagline} ${d.intro[0]}`.slice(0, 158)} jsonLd={jsonLd} shopBar={{ text: `${it.name} · ${money(price)}`, href, label: checkout ? 'Buy now' : 'Order now' }}>
+<Base title={title} description={metaDesc} jsonLd={jsonLd} shopBar={{ text: `${it.name} · ${money(price)}`, href, label: checkout ? 'Buy now' : 'Order now' }}>
   <nav aria-label="Breadcrumb" class="wrap pt-8 text-sm text-muted">
     <ol class="flex flex-wrap gap-2"><li><a href="/" class="hover:text-ink">Home</a></li><li aria-hidden="true">/</li><li><a href="/products" class="hover:text-ink">Shop</a></li><li aria-hidden="true">/</li><li><a href={`/products#${it.category}`} class="hover:text-ink">{cat.label}</a></li><li aria-hidden="true">/</li><li aria-current="page" class="text-ink">{it.name}</li></ol>
   </nav>

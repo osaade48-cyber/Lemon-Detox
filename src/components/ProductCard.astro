@@ -13,7 +13,7 @@ const featured = !!p.badge;
 >
   <a href={`/products/${p.slug}`} class="relative block max-w-[26rem]" tabindex="-1" aria-hidden="true">
     {p.badge && <span class="absolute top-4 left-4 z-[1] rounded-full bg-ink px-4 py-2 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-cream">{p.badge}</span>}
-    <ImageSlot name={`product-${p.days}day`} alt="" class="aspect-[3/2] w-full max-w-[26rem] overflow-hidden rounded-[22px] bg-[#e9e9e9] shadow-[0_24px_40px_-24px_rgba(26,26,26,0.3)] ring-1 ring-black/[0.04]" imgClass="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" sizes="(min-width: 768px) 420px, 90vw" />
+    <ImageSlot name={`product-${p.days}day`} alt={`${p.name} box: Madal Bal Natural Tree Syrup, cayenne pepper, senna tea, sea salt and program book`} class="aspect-[3/2] w-full max-w-[26rem] overflow-hidden rounded-[22px] bg-[#e9e9e9] shadow-[0_24px_40px_-24px_rgba(26,26,26,0.3)] ring-1 ring-black/[0.04]" imgClass="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]" sizes="(min-width: 768px) 420px, 90vw" />
   </a>
   <h3 id={`pc-${p.slug}`} class="mt-9 text-[2.1rem] leading-tight sm:text-[2.5rem]">
     <a href={`/products/${p.slug}`} class="hover:text-gold-deep">{p.name}</a>

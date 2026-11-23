@@ -72,7 +72,7 @@ const jsonLd = [{
   mainEntity: groups.flatMap((g) => g.items).map((i) => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: paras(i.a).join(' ').replace(/<[^>]+>/g, '') } })),
 }];
 ---
-<Base title="FAQs — Lemon Detox Cleanse" description="Frequently asked questions about the Lemon Detox Cleanse — preparation, exercise, results, safety and orders." jsonLd={jsonLd}>
+<Base title="Lemon Detox Cleanse FAQs — Safety, Results & Tips" description="Frequently asked questions about the Lemon Detox Cleanse — preparation, exercise, results, safety and orders." jsonLd={jsonLd}>
   <section class="bg-paper/70" data-hero>
     <div class="wrap grid items-center gap-12 pt-16 pb-14 sm:pt-20 sm:pb-16 lg:grid-cols-[1.5fr_1fr]">
       <div>
