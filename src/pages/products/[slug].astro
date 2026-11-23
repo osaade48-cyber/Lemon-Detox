@@ -11,11 +11,18 @@ import CTA from '../../components/CTA.astro';
 import { products, type Product } from '../../data/products';
 import { byName } from '../../data/testimonials';
 import { site } from '../../config/site';
+import ShopItemPage from '../../components/ShopItemPage.astro';
+import { shop, type ShopItem } from '../../data/shop';
 
 export function getStaticPaths() {
-  return products.map((p) => ({ params: { slug: p.slug }, props: { product: p } }));
+  return [
+    ...products.map((p) => ({ params: { slug: p.slug }, props: { product: p } })),
+    ...shop.filter((i) => i.slug && i.detail).map((i) => ({ params: { slug: i.slug }, props: { item: i } })),
+  ];
 }
-const { product: p } = Astro.props as { product: Product };
+// Programs use the layout below; every other shop item uses ShopItemPage
+const { item } = Astro.props as { item?: ShopItem };
+const p = (Astro.props as { product?: Product }).product ?? products[0];
 const other = products.find((x) => x.slug !== p.slug)!;
 const stories = byName(p.days === 7 ? ['A. Drake', 'Barb Evans', 'Leanne Pizzi'] : ['Ganna Sikalo', 'Daniel Martez', 'Hava Huner']);
 const label = p.subtitle.replace('Reset', 'Cleanse');
@@ -49,6 +56,7 @@ const jsonLd = [{
   },
 }];
 ---
+{item ? <ShopItemPage item={item} /> : (
 <Base title={p.seoTitle} description={p.seoDescription} jsonLd={jsonLd} shopBar={{ text: `${p.name} · $${p.price}`, href: p.checkoutUrl, label: 'Add to cart' }}>
   <nav aria-label="Breadcrumb" class="wrap pt-8 text-sm text-muted">
     <ol class="flex flex-wrap gap-2"><li><a href="/" class="hover:text-ink">Home</a></li><li aria-hidden="true">/</li><li><a href="/products" class="hover:text-ink">Shop</a></li><li aria-hidden="true">/</li><li aria-current="page" class="text-ink">{p.name}</li></ol>
@@ -189,3 +197,4 @@ const jsonLd = [{
 
   <CTA />
 </Base>
+)}

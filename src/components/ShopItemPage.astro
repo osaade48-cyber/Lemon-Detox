@@ -1,0 +1,226 @@
+---
+/** Buy page for a single shop item (essentials, books, wellness). Programs use their own page. */
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Base from '../layouts/Base.astro';
+import TrustRow from './TrustRow.astro';
+import Accordion from './Accordion.astro';
+import ShopCard from './ShopCard.astro';
+import CTA from './CTA.astro';
+import { type ShopItem, money, orderLink, byId, categories } from '../data/shop';
+import { site } from '../config/site';
+
+interface Props { item: ShopItem }
+const { item: it } = Astro.props;
+const d = it.detail!;
+const files = import.meta.glob<{ default: ImageMetadata }>(['/src/assets/products/*.{jpg,png,webp}', '/src/assets/images/*.{jpg,png,webp}'], { eager: true });
+const img = Object.entries(files).find(([p]) => p.split('/').pop()!.replace(/\.[^.]+$/, '') === it.image)?.[1].default;
+const v0 = it.variants?.[0];
+const price = v0?.price ?? it.price;
+const was = v0?.was ?? it.was;
+const checkout = v0?.checkout ?? it.checkout;
+const href = checkout || orderLink(v0 ? `${it.name} (${v0.label})` : it.name);
+const cat = categories.find((c) => c.id === it.category)!;
+const related = d.related.map(byId).filter(Boolean) as ShopItem[];
+const s = site.shipping;
+const url = new URL(Astro.url.pathname, site.url).href;
+
+const offer = (p: number, sku?: string) => ({
+  '@type': 'Offer', price: p.toFixed(2), priceCurrency: 'AUD', url,
+  availability: checkout ? 'https://schema.org/InStock' : 'https://schema.org/PreOrder',
+  ...(sku ? { sku } : {}),
+});
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: it.name,
+  description: d.intro.join(' '),
+  brand: { '@type': 'Brand', name: site.name },
+  image: img ? new URL(img.src, site.url).href : undefined,
+  url,
+  offers: it.variants
+    ? { '@type': 'AggregateOffer', priceCurrency: 'AUD', lowPrice: Math.min(...it.variants.map((v) => v.price)).toFixed(2), highPrice: Math.max(...it.variants.map((v) => v.price)).toFixed(2), offerCount: it.variants.length, offers: it.variants.map((v) => offer(v.price, v.label)) }
+    : offer(it.price),
+}];
+const title = `${it.name}${it.size && !it.variants ? ' ' + it.size : ''} — Lemon Detox Cleanse`;
+---
+<Base title={title} description={`${d.tagline} ${d.intro[0]}`.slice(0, 158)} jsonLd={jsonLd} shopBar={{ text: `${it.name} · ${money(price)}`, href, label: checkout ? 'Buy now' : 'Order now' }}>
+  <nav aria-label="Breadcrumb" class="wrap pt-8 text-sm text-muted">
+    <ol class="flex flex-wrap gap-2"><li><a href="/" class="hover:text-ink">Home</a></li><li aria-hidden="true">/</li><li><a href="/products" class="hover:text-ink">Shop</a></li><li aria-hidden="true">/</li><li><a href={`/products#${it.category}`} class="hover:text-ink">{cat.label}</a></li><li aria-hidden="true">/</li><li aria-current="page" class="text-ink">{it.name}</li></ol>
+  </nav>
+
+  <!-- Hero -->
+  <section class="wrap grid gap-10 pt-8 pb-20 lg:grid-cols-2 lg:gap-16" data-hero>
+    <div class="relative lg:sticky lg:top-28 lg:self-start">
+      <div class="zoom-img overflow-hidden rounded-[24px] border hairline bg-white p-8 sm:p-12">
+        {img && <Picture src={img} alt={`${it.name}${it.size ? ' ' + it.size : ''}`} formats={['avif', 'webp']} widths={[480, 800, 1200]} quality={90} sizes="(min-width: 1024px) 580px, 100vw" loading="eager" class="aspect-square h-auto w-full object-contain" />}
+      </div>
+      {d.inBox && <span class="absolute top-6 left-6 rounded-full bg-ink px-4 py-2 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-cream">In every Reset Box</span>}
+      <span class:list={['sale-flag absolute top-6 right-6 rounded-full bg-lemon px-4 py-2 text-[0.66rem] font-bold uppercase tracking-[0.2em] text-ink', !was && 'hidden']}>{was ? `Save ${money(was - price)}` : ''}</span>
+    </div>
+
+    <div class="buy-box lg:pt-6">
+      <p class="eyebrow">{d.eyebrow}</p>
+      <h1 class="display-lg mt-4">{it.name}</h1>
+      <span class="rule" aria-hidden="true"></span>
+      <p class="mt-2 text-xl text-ink-soft">{d.tagline}</p>
+
+      <div class="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+        <span class="js-price font-serif text-5xl text-ink">{money(price)}</span>
+        <s class:list={['js-was text-xl text-muted', !was && 'hidden']}>{was ? money(was) : ''}</s>
+        {it.size && !it.variants && <span class="text-muted">· {it.size}</span>}
+      </div>
+
+      {it.variants && (
+        <fieldset class="mt-7">
+          <legend class="text-[0.7rem] tracking-[0.2em] text-muted uppercase">Choose a size</legend>
+          <div class="mt-3 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+            {it.variants.map((v, i) => (
+              <label class="cursor-pointer">
+                <input type="radio" name="size" value={v.label} class="peer sr-only" checked={i === 0}
+                  data-price={v.price} data-was={v.was ?? ''} data-href={v.checkout || orderLink(`${it.name} (${v.label})`)} data-live={v.checkout ? '1' : ''} />
+                <span class="flex flex-col items-center rounded-[14px] border border-black/15 px-3 py-3 text-center transition peer-checked:border-ink peer-checked:bg-ink peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-honey">
+                  <span class="font-semibold">{v.label}</span>
+                  <span class="mt-0.5 text-sm opacity-80">{money(v.price)}{v.was && <s class="ml-1">{money(v.was)}</s>}</span>
+                </span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+      )}
+
+      <div class="mt-6 space-y-4">{d.intro.map((p, i) => <p class:list={[i === 0 ? 'lead' : 'text-ink-soft']}>{p}</p>)}</div>
+
+      <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <a href={href} class="js-buy btn btn-primary btn-caps min-w-[12rem]" rel={checkout ? 'noopener' : undefined}>
+          <span class="js-buy-label">{checkout ? 'Buy now' : 'Order now'}</span>
+          <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/products" class="link-arrow text-sm">Back to the shop</a>
+        {!checkout && <p class="w-full text-sm text-muted">Online checkout is opening soon — send an order request and we’ll confirm it within one business day.</p>}
+      </div>
+
+      <ul class="check-list mt-8 grid gap-2.5 text-[0.95rem] sm:grid-cols-2">{d.highlights.map((h) => <li>{h}</li>)}</ul>
+
+      <dl class="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-[18px] border hairline bg-black/[0.06]">
+        {d.facts.map(([k, v]) => (
+          <div class="bg-white p-5">
+            <dt class="text-[0.66rem] tracking-[0.2em] text-muted uppercase">{k}</dt>
+            <dd class="mt-1.5 text-[0.95rem] text-ink">{v}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <TrustRow class="mt-8 border-t hairline pt-6" />
+
+      <div class="mt-8">
+        {d.warning && <Accordion q="Good to know"><p>{d.warning}</p></Accordion>}
+        <Accordion q="Shipping">
+          <p>Tracked shipping within Australia.{s.dispatchDays && ` Orders are dispatched within ${s.dispatchDays} business day${s.dispatchDays === '1' ? '' : 's'}.`} <a href="/shipping">Shipping &amp; delivery</a></p>
+        </Accordion>
+        <Accordion q="Returns">
+          <p>Unopened products can be returned within 14 days. <a href="/returns">Returns &amp; refunds</a></p>
+        </Accordion>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to use -->
+  {d.howTo && (
+    <section class="bg-paper/70 py-16 lg:py-24" aria-labelledby="how-h">
+      <div class="wrap grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-24">
+        <div data-reveal>
+          <span class="chip mb-6">How to use</span>
+          <h2 id="how-h" class="display-lg">{d.howTo.title.replace(/ \S+$/, '')} <em>{d.howTo.title.split(' ').pop()}.</em></h2>
+          <span class="rule" aria-hidden="true"></span>
+          {d.howTo.intro && <p class="lead mt-6">{d.howTo.intro}</p>}
+          <a href="/how-it-works" class="link-arrow mt-8">The full program, step by step</a>
+        </div>
+        <ol class="border-t hairline" data-reveal style="--d:100ms">
+          {d.howTo.steps.map(([a, b]) => (
+            <li class="flex items-baseline gap-6 border-b hairline py-6">
+              <span class="w-28 shrink-0 font-serif text-2xl text-gold-deep">{a}</span>
+              <span class="text-lg leading-snug text-ink">{b}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )}
+
+  <!-- Story -->
+  {d.story && (
+    <section class="py-20 sm:py-28" aria-labelledby="story-h">
+      <div class="wrap grid gap-12 lg:grid-cols-2 lg:gap-24">
+        <div data-reveal>
+          <span class="chip mb-6">{d.story.label}</span>
+          <h2 id="story-h" class="display-lg" set:html={d.story.title} />
+          <span class="rule" aria-hidden="true"></span>
+        </div>
+        <div class="space-y-5" data-reveal style="--d:100ms">
+          {d.story.paras.map((p, i) => <p class:list={[i === 0 ? 'lead' : 'text-ink-soft']}>{p}</p>)}
+          {d.story.bullets && <ul class="check-list mt-6 space-y-3">{d.story.bullets.map((b) => <li>{b}</li>)}</ul>}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Reset Box callout -->
+  {d.inBox && (
+    <section class="pb-8" aria-label="The Reset Box">
+      <div class="wrap">
+        <a href="/products#programs" class="card card-hover flex flex-col items-start justify-between gap-6 bg-ink p-8 text-white sm:flex-row sm:items-center sm:p-10" data-reveal>
+          <div>
+            <p class="text-[0.7rem] font-semibold tracking-[0.3em] text-honey uppercase">Starting a cleanse?</p>
+            <p class="mt-3 font-serif text-3xl leading-snug sm:text-4xl">{it.name} comes in every Reset Box.</p>
+            <p class="mt-2 text-cream/75">The 7 and 14 Day boxes include everything you need — just add fresh lemons.</p>
+          </div>
+          <span class="btn btn-light btn-caps shrink-0">Shop the Reset Box</span>
+        </a>
+      </div>
+    </section>
+  )}
+
+  <!-- Related -->
+  {related.length > 0 && (
+    <section class="py-20 sm:py-24" aria-labelledby="rel-h">
+      <div class="wrap">
+        <div class="flex flex-wrap items-end justify-between gap-6" data-reveal>
+          <div><span class="chip mb-6">You may also like</span><h2 id="rel-h" class="display-md">Pairs well <em>with.</em></h2><span class="rule" aria-hidden="true"></span></div>
+          <a href="/products" class="btn btn-secondary btn-caps">Shop all products</a>
+        </div>
+        <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{related.map((r, i) => <ShopCard item={r} delay={i * 80} />)}</div>
+      </div>
+    </section>
+  )}
+
+  <CTA />
+
+  <script>
+    const fmt = (n: number) => '$' + (Number.isInteger(n) ? n : n.toFixed(2));
+    // Size buttons on this page's buy box
+    const box = document.querySelector<HTMLElement>('.buy-box');
+    box?.querySelectorAll<HTMLInputElement>('input[name=size]').forEach((r) => r.addEventListener('change', () => {
+      const price = Number(r.dataset.price), was = Number(r.dataset.was || 0);
+      box.querySelector('.js-price')!.textContent = fmt(price);
+      const w = box.querySelector<HTMLElement>('.js-was')!; w.textContent = was ? fmt(was) : ''; w.classList.toggle('hidden', !was);
+      const flag = document.querySelector<HTMLElement>('[data-hero] .sale-flag');
+      if (flag) { flag.textContent = was ? `Save ${fmt(was - price)}` : ''; flag.classList.toggle('hidden', !was); }
+      const a = box.querySelector<HTMLAnchorElement>('.js-buy')!; a.href = r.dataset.href!;
+      a.querySelector('.js-buy-label')!.textContent = r.dataset.live ? 'Buy now' : 'Order now';
+      const bar = document.querySelector<HTMLAnchorElement>('#shop-bar a'); if (bar) bar.href = r.dataset.href!;
+      const barText = document.querySelector<HTMLElement>('#shop-bar span'); if (barText) barText.textContent = barText.textContent!.replace(/\$[\d.]+$/, fmt(price));
+    }));
+    // Size buttons on related cards
+    document.querySelectorAll<HTMLElement>('.shop-card').forEach((card) => {
+      card.querySelectorAll<HTMLInputElement>('input[type=radio]').forEach((r) => r.addEventListener('change', () => {
+        const price = Number(r.dataset.price), was = Number(r.dataset.was || 0);
+        card.querySelector('.js-price')!.textContent = fmt(price);
+        const w = card.querySelector<HTMLElement>('.js-was')!; w.textContent = was ? fmt(was) : ''; w.classList.toggle('hidden', !was);
+        const flag = card.querySelector<HTMLElement>('.sale-flag');
+        if (flag) { flag.textContent = was ? `Save ${fmt(was - price)}` : ''; flag.classList.toggle('hidden', !was); }
+        const a = card.querySelector<HTMLAnchorElement>('.js-buy')!; a.href = r.dataset.href!; a.textContent = r.dataset.live ? 'Buy now' : 'Order now';
+      }));
+    });
+  </script>
+</Base>

@@ -14,13 +14,14 @@ const live = !!(v0?.checkout ?? it.checkout);
 ---
 <article class="shop-card lift group flex flex-col overflow-hidden rounded-[22px] border border-black/[0.06] bg-white shadow-[0_2px_6px_rgba(26,26,26,0.03),0_20px_40px_-30px_rgba(26,26,26,0.3)]" data-reveal style={`--d:${delay}ms`} data-name={it.name}>
   <div class:list={['relative overflow-hidden', it.category === 'programs' ? 'bg-[#f8f8f8]' : 'bg-white p-6']}>
+    {it.href && <a href={it.href} class="absolute inset-0 z-[1]" aria-label={`${it.name} — details`} tabindex="-1"></a>}
     {img && <Picture src={img} alt={`${it.name}${it.size ? ' ' + it.size : ''}`} formats={['avif', 'webp']} widths={[360, 600, 900]} quality={90} sizes="(min-width: 1024px) 300px, (min-width: 640px) 45vw, 90vw" loading="lazy" class:list={['h-auto w-full transition duration-700 group-hover:scale-[1.04]', it.category === 'programs' ? 'aspect-[4/3] object-contain' : 'aspect-square object-contain']} />}
-    {it.badge && <span class="absolute top-4 left-4 rounded-full bg-gold-deep px-3 py-1 text-[0.6rem] font-semibold tracking-[0.2em] text-white uppercase">{it.badge}</span>}
-    {it.variants?.some((v) => v.was) || was ? <span class:list={['sale-flag absolute top-4 right-4 rounded-full bg-lemon px-3 py-1 text-[0.6rem] font-bold tracking-[0.2em] text-ink uppercase', !was && 'hidden']}>{was ? `Save ${money(was - price)}` : ''}</span> : null}
+    {it.badge && <span class="absolute top-4 left-4 z-[2] rounded-full bg-gold-deep px-3 py-1 text-[0.6rem] font-semibold tracking-[0.2em] text-white uppercase">{it.badge}</span>}
+    {it.variants?.some((v) => v.was) || was ? <span class:list={['sale-flag absolute top-4 right-4 z-[2] rounded-full bg-lemon px-3 py-1 text-[0.6rem] font-bold tracking-[0.2em] text-ink uppercase', !was && 'hidden']}>{was ? `Save ${money(was - price)}` : ''}</span> : null}
   </div>
   <div class="flex flex-1 flex-col border-t border-black/[0.05] p-6">
     {it.size && !it.variants && <p class="text-[0.66rem] tracking-[0.2em] text-muted uppercase">{it.size}</p>}
-    <h3 class="mt-1 text-[1.35rem] leading-snug">{it.name}</h3>
+    <h3 class="mt-1 text-[1.35rem] leading-snug">{it.href ? <a href={it.href} class="transition hover:text-gold-deep">{it.name}</a> : it.name}</h3>
     <p class="mt-2 text-[0.94rem] leading-relaxed text-ink-soft">{it.blurb}</p>
     {it.variants && (
       <fieldset class="mt-4">
@@ -44,6 +45,6 @@ const live = !!(v0?.checkout ?? it.checkout);
       </p>
       <a href={href} class="js-buy btn btn-primary btn-caps btn-sm !px-5" rel={live ? 'noopener' : undefined}>{live ? 'Buy now' : 'Order now'}</a>
     </div>
-    {it.href && <a href={it.href} class="link-arrow mt-4 self-start text-sm">View details</a>}
+    {it.href && <a href={it.href} class="link-arrow mt-4 self-start text-sm">{it.category === 'programs' ? 'View details' : 'Details & how to use'}</a>}
   </div>
 </article>
