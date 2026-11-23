@@ -159,7 +159,7 @@ export const shop: ShopItem[] = [
       facts: [['Author', 'K.A. Beyer'], ['Format', 'Paperback'], ['Best for', 'Anyone doing the cleanse'], ['Included in', 'Every Reset Box']],
       inBox: true,
       related: ['lemon-book', 'madal-bal', 'bee-pollen'],
-    }, name: 'The Lemon Detox Diet Program', category: 'books', image: 'lemon-detox-diet-book', size: 'Book · K.A. Beyer', price: 18.95, checkout: site.checkout.shop?.['lemon-detox-book'],
+    }, name: 'The Lemon Detox Diet Program', category: 'books', image: 'lemon-detox-diet-book', photo: true, size: 'Book · K.A. Beyer', price: 18.95, checkout: site.checkout.shop?.['lemon-detox-book'],
     blurb: 'The original program book by K.A. Beyer — the background to the cleanse, how it works and how to follow it.' },
   { id: 'lemon-book',
     slug: 'the-lemon-book',
@@ -183,7 +183,7 @@ export const shop: ShopItem[] = [
         'Tips to reduce water retention',
       ] },
       related: ['lemon-detox-book', 'bee-pollen', 'madal-bal'],
-    }, name: 'The Lemon Book', category: 'books', image: 'the-lemon-book', size: 'Book · Ray Collins', price: 20.95, checkout: site.checkout.shop?.['lemon-book'],
+    }, name: 'The Lemon Book', category: 'books', image: 'the-lemon-book', photo: true, size: 'Book · Ray Collins', price: 20.95, checkout: site.checkout.shop?.['lemon-book'],
     blurb: 'A handy guide to the many everyday uses of the humble lemon — in the kitchen and around the home.' },
 
   { id: 'bee-pollen',
@@ -214,7 +214,7 @@ export const shop: ShopItem[] = [
       ] },
       warning: 'Not suitable for anyone allergic to bees, pollen or honey — in rare cases bee pollen can cause a severe allergic reaction. Not for children under 2. Enjoy after your cleanse, not during it.',
       related: ['lemon-book', 'madal-bal', 'lemon-detox-book'],
-    }, name: 'Pollen Power Bee Pollen', category: 'wellness', image: 'bee-pollen', price: 28, checkout: site.checkout.shop?.['bee-pollen-250'],
+    }, name: 'Pollen Power Bee Pollen', category: 'wellness', image: 'bee-pollen', photo: true, price: 28, checkout: site.checkout.shop?.['bee-pollen-250'],
     blurb: 'Pure bee pollen granules. Sprinkle over breakfast, smoothies or yoghurt.',
     note: 'Not suitable for anyone with bee, pollen or honey allergies. Best enjoyed after your cleanse, not during it.',
     variants: [
