@@ -123,7 +123,7 @@ export const shop: ShopItem[] = [
       warning: 'Not suitable if you have high blood pressure, heart or kidney conditions, or are on a salt-restricted diet. If in doubt, use senna tea instead and check with your doctor.',
       inBox: true,
       related: ['senna', 'madal-bal', 'cayenne'],
-    }, name: 'Detox Sea Salt', category: 'essentials', image: 'sea-salt-pack', size: '100 g', price: 2.8, checkout: site.checkout.shop?.['sea-salt'],
+    }, name: 'Detox Sea Salt', category: 'essentials', image: 'sea-salt-pack', photo: true, size: '100 g', price: 2.8, checkout: site.checkout.shop?.['sea-salt'],
     blurb: 'Natural, uniodised sea salt for the morning salt-water flush.' },
   { id: 'cayenne',
     slug: 'cayenne-pepper',
