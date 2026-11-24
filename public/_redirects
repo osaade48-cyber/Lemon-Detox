@@ -1,0 +1,7 @@
+# Cloudflare Pages redirects (old site URLs)
+/why-it-works  /how-it-works  301
+/stories  /testimonials  301
+/the-science  /how-it-works  301
+/products/7-day-focused  /products/7-day-focused-cleanse  301
+/products/14-day-extended  /products/14-day-extended-cleanse  301
+/checkout  /#programs  301
