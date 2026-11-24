@@ -56,8 +56,8 @@ export const products: Product[] = [
     ],
     lemons: 50,
     checkoutUrl: site.checkout.CHECKOUT_URL_14DAY,
-    seoTitle: '14 Day Cleanse — Lemon Detox Cleanse',
-    seoDescription: 'Our most complete program. $159 with free tracked shipping.',
+    seoTitle: '14 Day Lemon Detox Cleanse Kit with Madal Bal Syrup | $159',
+    seoDescription: 'The complete 14 day Lemon Detox Cleanse: 2 × 1 L Madal Bal® Natural Tree Syrup, cayenne, senna tea, sea salt and the program book. $159, free tracked shipping Australia-wide.',
     boxLasts: { full: '14 days', relaxed: 'about 20 days', fiftyFifty: '18 days (6 · 6 · 6)' },
   },
   {
@@ -88,8 +88,8 @@ export const products: Product[] = [
     ],
     lemons: 25,
     checkoutUrl: site.checkout.CHECKOUT_URL_7DAY,
-    seoTitle: '7 Day Cleanse — Lemon Detox Cleanse',
-    seoDescription: 'Seven structured days for a focused reset. $95 with free tracked shipping.',
+    seoTitle: '7 Day Lemon Detox Cleanse Kit with Madal Bal Syrup | $95',
+    seoDescription: 'Everything for a 7 day Lemon Detox Cleanse: 1 L Madal Bal® Natural Tree Syrup, cayenne, senna tea, sea salt and the program book. $95, free tracked shipping Australia-wide.',
     boxLasts: { full: '7 days', relaxed: 'about 10 days', fiftyFifty: '9 days' },
   }
 ];
