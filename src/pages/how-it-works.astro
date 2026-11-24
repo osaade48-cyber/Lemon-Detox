@@ -236,7 +236,7 @@ const versions = [
           { img: ['elim-senna'], alt: 'A small bowl of dried senna leaves', icon: icons.evening, t: 'Evening · Herbal senna tea', body: '<strong class="text-ink">Senna tea</strong>, a mild herbal laxative <strong class="text-ink">taken before bed</strong>, supports overnight elimination of waste released during the cleanse.' },
         ].map((c, i) => (
           <article class="lift overflow-hidden rounded-[22px] border border-gold-soft/70 bg-white" data-reveal style={`--d:${i * 90}ms`}>
-            <ImageSlot name={c.img} alt={c.alt} class="zoom-img aspect-[4/3] bg-paper" sizes="(min-width: 768px) 620px, 100vw" />
+            <ImageSlot name={c.img} alt={c.alt} class="zoom-img aspect-[8/7] bg-paper" sizes="(min-width: 768px) 620px, 100vw" />
             <div class="p-7 sm:p-8">
               <h3 class="flex items-center gap-4 font-sans text-[0.9rem] font-semibold tracking-[0.2em] text-gold-deep uppercase"><span class="grid h-11 w-11 place-items-center rounded-full bg-lemon/20" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d={c.icon} fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>{c.t}</h3>
               <p class="mt-4 text-[1.02rem] leading-[1.75] text-ink-soft" set:html={c.body} />
